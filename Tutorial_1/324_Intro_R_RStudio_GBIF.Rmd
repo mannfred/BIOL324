@@ -1,16 +1,16 @@
 ---
-title: Introduction to R, RStudio, and the Global Biodiversity Information Facility (GBIF)
-# title: "<span style='font-size: 30px'> Introduction to R, RStudio, and the Global Biodiversity Information Facility (GBIF) </style>" 
+# title: Introduction to R, RStudio, and the Global Biodiversity Information Facility (GBIF)
+title: "<span style='font-size: 30px'> Introduction to R, RStudio, and the Global Biodiversity Information Facility (GBIF) </style>"
 author: 
 date: ""
-output: 
-  word_document:
-    fig_caption: yes
-    reference_docx: ms_word_reference.docx
 # output:
-#    html_document:
-#    number_sections: no
-#    theme: flatly
+#   word_document:
+#     fig_caption: yes
+#     reference_docx: ms_word_reference.docx
+output:
+   html_document:
+   number_sections: no
+   theme: flatly
 urlcolor: blue
 
 ---

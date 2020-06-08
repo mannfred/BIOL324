@@ -1,16 +1,16 @@
 ---
-title: Mapping species distributions using R and GBIF
-# title: "<span style='font-size: 30px'> Mapping species distributions using R and GBIF </style>" 
+# title: Mapping species distributions using R and GBIF
+title: "<span style='font-size: 30px'> Mapping species distributions using R and GBIF </style>"
 author: 
 date: ""
-output: 
-  word_document:
-    fig_caption: yes
-    reference_docx: ms_word_reference.docx
-# output:
-#    html_document:
-#    number_sections: no
-#    theme: flatly
+# output: 
+#   word_document:
+#     fig_caption: yes
+#     reference_docx: ms_word_reference.docx
+output:
+   html_document:
+   number_sections: no
+   theme: flatly
 urlcolor: blue
 
 ---

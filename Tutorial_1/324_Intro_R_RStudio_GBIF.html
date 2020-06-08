@@ -9,7 +9,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=EDGE" />
 
 
-<meta name="author" content="Mannfred Boehm" />
+<meta name="author" content />
 
 
 <title>324_Intro_R_RStudio_GBIF.utf8</title>
@@ -364,20 +364,28 @@ summary {
 
 <h1 class="title toc-ignore"><span style="font-size: 30px"> Introduction to R, RStudio, and the Global Biodiversity Information Facility (GBIF)
 </style></h1>
-<h4 class="author">Mannfred Boehm</h4>
 
 </div>
 
 
+<p><br> <br></p>
 <div id="outcomes" class="section level4">
 <h4>Outcomes</h4>
-<p>By the end of this tutorial you will: <br> 1) be familiar with GBIF and the types of data that can be obtained, <br> 2) have some basic skills in R and understand why/how it is useful to taxonomic research, <br> 3) know the difference between R, RStudio, and RStudio Cloud, <br> 4) have created an RStudio Cloud account, and be familiar with the BIOL324 workspace, <br> 5) have a sense of how R and GBIF can be used together to create species distribution maps, <br> 6) have chosen some plant group(s) to map.</p>
+<p>By the end of this tutorial you will: <br></p>
+<ol style="list-style-type: decimal">
+<li><p>be familiar with GBIF and the types of data that can be obtained, <br></p></li>
+<li><p>have some basic skills in R and understand why/how it is useful to taxonomic research, <br></p></li>
+<li><p>know the difference between R, RStudio, and RStudio Cloud, <br></p></li>
+<li><p>have created an RStudio Cloud account, and be familiar with the BIOL324 workspace, <br></p></li>
+<li><p>have a sense of how R and GBIF can be used together to create species distribution maps, <br></p></li>
+<li><p>have chosen some plant group(s) to map.</p></li>
+</ol>
 <p><br> <br></p>
 </div>
 <div id="motivation" class="section level4">
 <h4>Motivation</h4>
 <p>As taxonomists we need to estimate where related species occur and co-occur on continental scales to help inform species delimitations. For example, two sister species separated by a major geographic barrier - such as a mountain range - are not likely to interbreed. This type of information is one piece of the puzzle of delimiting species. To make preliminary estimates of a species’ distribution, we can harness the data resources organized by the <a href="https://www.gbif.org/what-is-gbif">Global Biodiversity Information Facility</a>. GBIF is an open-access database housing information about where and when species have been observed or collected. To the modern plant taxonomist, it is indispensable.</p>
-<p>To scratch the surface of GBIF reveals a massive database spanning the entire tree of life. How does one go about efficiently collecting, organizing, validating, and analysing so much information? The solution is made tractable by employing data analysis tools such as R. To bring yourself up to speed, we strongly recommend reading <a href="https://moderndive.netlify.app/preface.html#introduction-for-students">Introduction for Students</a> and <a href="https://moderndive.netlify.app/1-getting-started.html">Getting Started With Data in R</a> from ModernDive - a textbook for learning data science in R. In Section 1.1, they will ask you to open RStudio, please see the instructions in Activity 2 (below) to follow along.</p>
+<p>To scratch the surface of GBIF reveals a massive database spanning the entire tree of life. How does one go about efficiently collecting, organizing, validating, and analysing so much information? The solution is made tractable by employing data analysis tools such as R. To bring yourself up to speed, this week’s required reading is <a href="https://moderndive.netlify.app/preface.html#introduction-for-students">Introduction for Students</a> and <a href="https://moderndive.netlify.app/1-getting-started.html">Getting Started With Data in R</a> from ModernDive - a textbook for learning data science in R. In Section 1.1, they will ask you to open RStudio, please see the instructions in Activity 2 (below) to follow along.</p>
 <p>By combining the biodiversity resources of GBIF with the analytical tools of R, we can collect, process, and visualize species distribution data on any laptop or tablet. In this week’s tutorial we’ll first gather the required tools (R and GBIF) and develop some basic skills using them. In the following tutorial we’ll use our newfound skillset to create research-grade distribution maps.</p>
 <p><br> <br></p>
 </div>
@@ -387,16 +395,17 @@ summary {
 <p><br> <br></p>
 </div>
 <div id="activity-2-an-introduction-to-the-biol324-rstudio-workspace-15-minutes-45-minutes-reading-textbook" class="section level4">
-<h4>Activity 2: An Introduction to the BIOL324 RStudio Workspace (~15 minutes + 45 minutes reading textbook)</h4>
+<h4>Activity 2: An Introduction to the BIOL324 RStudio Workspace (15 minutes + 45 minutes reading textbook)</h4>
 <p>From reading <a href="https://moderndive.netlify.app/1-getting-started.html">Getting Started With Data in R</a>, you will know that R is a programming language, while RStudio is simply a user interface that ‘wraps around’ R. RStudio is not <em>needed</em> to use R, but it is convienient! While RStudio is typically downloaded locally, RStudio Cloud allows you to use RStudio within your web browser, without downloading anything.</p>
 <p>To get started go to <a href="https://rstudio.cloud/">RStudio Cloud</a> and create an account.</p>
-<p>Once logged on, use <a href>this invitation link</a> to join the BIOL324 RStudio Workspace. In the left-side panel there is a project in our workspace named ‘Mapping Species Distributions’. Click <em>Begin</em> to open it. Take a look around and refer to <a href="https://moderndive.netlify.app/1-getting-started.html">Getting Started With Data in R</a> to make sense of the various windows, buttons, menus, and features. We’ll return to this project next week to better understand what is going here.</p>
+<p>Once logged on, use <a href="https://rstudio.cloud/spaces/73822/join?access_code=eGVBWIOKYgPYkF6jFV6zKvwz180tjCqCGIM67YwC">this invitation link</a> to join the BIOL324 RStudio Workspace. In the left-side panel there is a project in our workspace named ‘Mapping Species Distributions’. Click <em>Begin</em> to open it. Take a look around and refer to <a href="https://moderndive.netlify.app/1-getting-started.html">Getting Started With Data in R</a> to make sense of the various windows, buttons, menus, and features. We’ll return to this project next week to better understand what is going here.</p>
 <p><br> <br></p>
 </div>
-<div id="activity-3-first-steps-in-r-30-minutes-for-required-exercises" class="section level4">
-<h4>Activity 3: First steps in R (30 minutes for required exercises)</h4>
-<p>R is best learned by doing. To develop some basic skills in R, log onto RStudio Cloud and navigate to <em>Primers</em> on the left-side panel. Required for this week are the exercises <em>The Basics</em> and <em>Work With Data</em>. We strongly recommend completing <em>Visualize Data</em>, and <em>Tidy Your Data</em>, though these are optional.</p>
+<div id="activity-3-first-steps-in-r-30-minutes" class="section level4">
+<h4>Activity 3: First steps in R (30 minutes)</h4>
+<p>R is best learned by doing. To develop some basic skills in R, log onto RStudio Cloud and navigate to <strong>Primers</strong> on the left-side panel. Required for this week are the exercises <em>The Basics</em> and <em>Work With Data</em>. We strongly recommend completing <em>Visualize Data</em>, and <em>Tidy Your Data</em>, though these are optional.</p>
 <p>MB: Could add in some open-ended questions here to help motivate completing these tutorials. Maybe some questions that get them thinking about how basic functions like creating objects or subsetting could be useful for handling species distribution data.</p>
+<p><br> <br></p>
 </div>
 <div id="activity-4-selecting-an-interesting-plant" class="section level4">
 <h4>Activity 4: Selecting an interesting plant</h4>
