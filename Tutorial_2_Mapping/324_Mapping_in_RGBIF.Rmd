@@ -1,6 +1,6 @@
 ---
-# title: Mapping species distributions using R and GBIF
-title: "<span style='font-size: 30px'> Mapping species distributions using R and GBIF </style>"
+# title: Mapping Species Distributions using R and GBIF
+title: "<span style='font-size: 30px'> R Assignment 2: Mapping Species Distributions using R and GBIF </style>"
 author: 
 date: ""
 # output: 
@@ -16,38 +16,54 @@ urlcolor: blue
 ---
 
 <br>
+<br>
+
+#### Motivation
+
+**MB**: Some brief explanation of the importance of mapping species distributions in plant taxonomy.
+
+---
+
+<br>
+<br>
+
+ 
 
 #### Prerequisites 
 
 Before starting this week's tutorial you will have: <br>
 
-1. created an RStudio Cloud account, <br>
+1. created an RStudio Cloud account and completed the introductory R exercises from Assignment 1, <br>
 
-2. completed some preliminary reading on why/how R is useful for data science, <br>
+2. researched 2-3 of your favourite plant groups for creating a species distribution map, <br>
 
-3. completed the R primer _The Basics_ and _Work With Data_, <br>
+3. navigated through the GBIF website and understand what it is and why it exists, <br>
 
 4. researched 2-3 of your favourite plant groups for creating a species distribution map, <br>
 
-5. navigated through the GBIF website and understand what it is and why it exists. 
+5. More?
+
+---
 
 <br>
 <br>
+
 
 #### Outcomes
 
 By the end of this tutorial you will have: <br>
 
-1. experience using R and its most common functions, <br>
+1. experience manipulating and mapping species distribution data in R, <br>
 
 2. familiarity with GBIF and the types of data that can be obtained, <br>
 
-3. the tools and knowledge needed to create your own species distribution maps as part of a taxonomic research programme, <br>
+3. More?
 
-4. ...more
+---
 
 <br>
 <br>
+
 
 #### Activity 1: Mapping Species Distributions
 
@@ -58,10 +74,13 @@ After it has executed, a map will be generated in the **Plots** tab of the **Fil
 
 MB: Any other plants could go here. I chose these somewhat haphazardly, but they do show a distribution that could be used to discuss allopatry. 
 
+---
+
 <br>
 <br>
 
-#### Activity 2: Dechyphering some code
+
+#### Activity 2: Decyphering some code
 
 Let's step through the script in order to understand what is happening here. 
 
@@ -98,14 +117,19 @@ MB: There's an opporunity here to teach about synonyms and how to make decisions
 **The result**:
 
 ![Figure 1: Distribution map for _O. humifusa_ and _O. fragilis_.](opuntia_dist.png)
+
+---
+
 <br>
 <br>
+
 
 #### Activity 3: Creating your own species distribution map
 
 MB: Basically, the existing code can be modified to replace _Opuntia_ with any other plant name. Re-running the code will create a map for any species that GBIF has records for. Of course, some taxa are have more complicated nomenclature, and sometimes weird entries make it onto the map. In these cases, a little troubleshooting is required. Also, if one wanted to search for genera, families, orders, etc. some additional modifications are needed. For the majority of students in BIOL413, generating their own maps didn't require my intervention. 
 
-
+<br>
+<br>
 
 
 
