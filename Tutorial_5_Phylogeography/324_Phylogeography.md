@@ -1,7 +1,4 @@
-<span style='font-size: 30px'> R Assignment 5: Combining Phylogenetics
-with Biogeography
-
-</style>
+R Assignment 5: Combining Phylogenetics with Biogeography
 ================
 
 <br> <br>

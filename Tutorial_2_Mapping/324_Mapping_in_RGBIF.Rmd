@@ -1,16 +1,17 @@
 ---
-# title: Mapping Species Distributions using R and GBIF
-title: "<span style='font-size: 30px'> R Assignment 2: Mapping Species Distributions using R and GBIF </style>"
+title: "R Assignment 2: Mapping Species Distributions using R and GBIF"
+# title: "<span style='font-size: 30px'> R Assignment 2: Mapping Species Distributions using R and GBIF </style>"
 author: 
 date: ""
-# output: 
+# output:
 #   word_document:
 #     fig_caption: yes
 #     reference_docx: ms_word_reference.docx
-output:
-   html_document:
-   number_sections: no
-   theme: flatly
+# output:
+#    html_document:
+#    number_sections: no
+#    theme: flatly
+output: github_document
 urlcolor: blue
 
 ---

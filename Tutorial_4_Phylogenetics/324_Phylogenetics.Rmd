@@ -1,16 +1,17 @@
 ---
-# title: Creating Phylogenetic Trees in R
-title: "<span style='font-size: 30px'> R Assignment 4: Creating Phylogenetic Trees in R </style>"
+title: "R Assignment 4: Creating Phylogenetic Trees using Genbank data"
+# title: "<span style='font-size: 30px'> R Assignment 4: Creating Phylogenetic Trees using Genbank data </style>"
 author: 
 date: ""
-# output: 
+# output:
 #   word_document:
 #     fig_caption: yes
 #     reference_docx: ms_word_reference.docx
-output:
-   html_document:
-   number_sections: no
-   theme: flatly
+# output:
+#    html_document:
+#    number_sections: no
+#    theme: flatly
+output: github_document
 urlcolor: blue
 
 ---

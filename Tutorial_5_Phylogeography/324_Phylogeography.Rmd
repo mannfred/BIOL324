@@ -1,9 +1,9 @@
 ---
-# title: Creating Phylogenetic Trees in R
-title: "<span style='font-size: 30px'> R Assignment 5: Combining Phylogenetics with Biogeography </style>"
+title: "R Assignment 5: Combining Phylogenetics with Biogeography"
+# title: "<span style='font-size: 30px'> R Assignment 5: Combining Phylogenetics with Biogeography </style>"
 author: 
 date: ""
-# output: 
+# output:
 #   word_document:
 #     fig_caption: yes
 #     reference_docx: ms_word_reference.docx

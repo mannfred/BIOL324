@@ -1,16 +1,17 @@
 ---
-# title: Lab 2: Species Delimitation using Morphometrics and Machine Learning
-title: "<span style='font-size: 30px'> R Assignment 3: Species Delimitation using Morphometrics and Machine Learning </style>"
+title: "R Assignment 3: Species Delimitation using Morphometrics and Machine Learning"
+# title: "<span style='font-size: 30px'> R Assignment 3: Species Delimitation using Morphometrics and Machine Learning </style>"
 author: 
 date: ""
-# output: 
+# output:
 #   word_document:
 #     fig_caption: yes
 #     reference_docx: ms_word_reference.docx
-output:
-   html_document:
-   number_sections: no
-   theme: flatly
+# output:
+#    html_document:
+#    number_sections: no
+#    theme: flatly
+output: github_document
 urlcolor: blue
 
 ---
