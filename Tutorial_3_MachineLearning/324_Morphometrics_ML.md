@@ -162,7 +162,7 @@ assignment.
 
 <br> <br>
 
-#### Activity 3: Decyphering some code
+#### Activity 3: Deciphering some code
 
 Let’s step through the R script in order to understand what is happening
 here.

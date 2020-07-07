@@ -82,7 +82,7 @@ but they do show a distribution that could be used to discuss allopatry.
 
 <br> <br>
 
-#### Activity 2: Decyphering some code
+#### Activity 2: Deciphering some code
 
 Let’s step through the script in order to understand what is happening
 here.
