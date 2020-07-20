@@ -7,6 +7,7 @@ output:
   word_document:
     fig_caption: yes
     reference_docx: ms_word_reference.docx
+  github_document
 # output:
 #    html_document:
 #    number_sections: no
@@ -55,7 +56,7 @@ By the end of this lab you will: &nbsp;
 
 2. know the difference between R and RStudio, &nbsp;
 
-3. be familiar with the layout of RStudio, and understand how to install packages and navigate the `nycflights13` dataset (could also do our own exercises with the `iris` dataset, but see https://stat.ethz.ch/R-manual/R-devel/library/datasets/html/iris.html for problems), &nbsp;
+3. be familiar with the layout of RStudio, and understand how to install packages and navigate the `iris` dataset (could also do our own exercises with the `iris` dataset, but see https://stat.ethz.ch/R-manual/R-devel/library/datasets/html/iris.html for problems), &nbsp;
 
 4. have a sense of how R and GBIF can be used together to create species distribution maps, &nbsp;
 
