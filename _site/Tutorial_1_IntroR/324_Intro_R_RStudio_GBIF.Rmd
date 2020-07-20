@@ -1,8 +1,27 @@
 ---
 title: "R Assignment 1: Introduction to R, RStudio, and the Global Biodiversity Information Facility (GBIF)"
-author: "Evan Hersh"
-date: "20/07/2020"
-output: html_document
+# title: "<span style='font-size: 30px'> R Assignment 1: Introduction to R, RStudio, and the Global Biodiversity Information Facility (GBIF) </style>"
+knit: (function(input_file, encoding) {
+  out_dir <- '../docs';
+  rmarkdown::render(input_file,
+ encoding=encoding,
+ output_file=file.path(dirname(input_file), out_dir, 'index.html'))})
+author: Mannfred Boehm and Evan Hersh
+date: "`r format(Sys.time(), '%d %B, %Y')`"
+# output:
+#   word_document:
+#     fig_caption: yes
+#     reference_docx: ms_word_reference.docx
+output:
+   html_document:
+     theme: flatly
+     highlight: tango
+     number_sections: no
+# output: 
+#   github_document
+#output: pdf_document
+    
+
 ---
 
 &nbsp;

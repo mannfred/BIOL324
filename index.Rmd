@@ -1,0 +1,7 @@
+---
+title: "Index"
+author: "Evan Hersh"
+date: "`r format(Sys.time(), '%d %B, %Y')`"
+---
+
+Welcome to Biol 324 github page.
