@@ -1,19 +1,26 @@
 ---
 title: "R Assignment 1: Introduction to R, RStudio, and the Global Biodiversity Information Facility (GBIF)"
 # title: "<span style='font-size: 30px'> R Assignment 1: Introduction to R, RStudio, and the Global Biodiversity Information Facility (GBIF) </style>"
-author: 
-date: ""
-output:
-  word_document:
-    fig_caption: yes
-    reference_docx: ms_word_reference.docx
-  github_document
+knit: (function(input_file, encoding) {
+  out_dir <- '../docs';
+  rmarkdown::render(input_file,
+ encoding=encoding,
+ output_file=file.path(dirname(input_file), out_dir, 'index.html'))})
+author: Mannfred Boehm and Evan Hersh
+date: "`r format(Sys.time(), '%d %B, %Y')`"
 # output:
-#    html_document:
-#    number_sections: no
-#    theme: flatly
-# output: github_document
-urlcolor: blue
+#   word_document:
+#     fig_caption: yes
+#     reference_docx: ms_word_reference.docx
+output:
+   html_document:
+     theme: flatly
+     highlight: tango
+     number_sections: no
+# output: 
+#   github_document
+#output: pdf_document
+    
 
 ---
 
@@ -88,9 +95,23 @@ Now that we have a sense of what kinds of data we could get from GBIF (namely, o
 
 From reading [Chapter 1.1 of ModernDive](https://moderndive.netlify.app/1-getting-started.html), you will know that R is a programming language, while RStudio is simply a user interface that 'wraps around' R. RStudio is not _needed_ to use R, but it is convienient! While RStudio is an app that you download to locally to you computer, RStudio Cloud is web-based, meaning that you can use RStudio within your web browser, without downloading anything. If you created an RStudio Cloud account to complete the primers (see: [pre-lab activities](#prelab)) then you can use your account to use RStudio online (**not required for this class**). 
 
-During this activity, we'll work through [Chapter 1.4](https://moderndive.com/1-getting-started.html) to explore a dataset in R. Along the way, we'll learn some basic R skills like creating an object, determining classes, using functions, and dissecting datasets. All of these skills will come in handy as we move towards using R and GBIF together to solve taxonomic problems. 
+<!-- During this activity, we'll work through [Chapter 1.4](https://moderndive.com/1-getting-started.html) to explore a dataset in R. Along the way, we'll learn some basic R skills like creating an object, determining classes, using functions, and dissecting datasets. All of these skills will come in handy as we move towards using R and GBIF together to solve taxonomic problems.  -->
 
-To follow along, open RStudio cloud and attach the required packages (see: [Chapter 1.4](https://moderndive.com/1-getting-started.html)). The TA will step through this activity while you follow along. If something isn't working for you, please let us know in the chat! It is **very likley that someone is having or will have the same problem as you!**. 
+<!-- To follow along, open RStudio cloud and attach the required packages (see: [Chapter 1.4](https://moderndive.com/1-getting-started.html)). The TA will step through this activity while you follow along. If something isn't working for you, please let us know in the chat! It is **very likley that someone is having or will have the same problem as you!**.  -->
+
+During this activity, we'll be exploring the 'iris' dataset in R. Along the way, we'll learn some basic R skills, like loading packages, creating objects, filtering data, and making some basic plots. ALl of these skills will come in handy as we move towards using R and GBIF together to solve taxonomic problems.
+
+Open RStudio, and follow the instructions on this webpage. First, open a new R script file (File - New File - R script), save it into your working directory, and write all of the code from this exercise in your new script file. This will allow you to keep a record of your code, re-run your code later, and share code with others. Type (or copy) the following code into your script file, and run it (highlight and hit command / control + enter, or click the "Run" button at the top of the script pane).
+
+```{r code, eval=FALSE}
+library(datasets) #this loads the 'datasets' package, which contains a bunch of datasets to explore
+iris #typing the name of the dataset will display the contents of the data in the console pane
+class(iris) #this will display the 'class' of the object 'iris'
+summary(iris) #this will give various summary statistics on the dataframe 'iris'
+```
+
+The code `class(iris)` showed us that 'iris' is a data frame, and `summary(iris)` showed us that there are five columns in the data frame: Sepal.Length, Sepal.Width, Petal.Length, Petal.Width, and Species. Note that there are periods instead of spaces in the column names...R has trouble reading spaces, so it's good practice to use periods or underscores when naming things in R. 
+
 
 
 
