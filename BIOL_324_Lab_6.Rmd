@@ -1,5 +1,5 @@
 ---
-title: "R Assignment 1: Introduction to R, RStudio, and the Global Biodiversity Information Facility (GBIF)"
+title: "Lab 6: Lamiaceae, Schrophularioids, and R Assignment 1 - Introduction to R, RStudio, and the Global Biodiversity Information Facility (GBIF)"
 # title: "<span style='font-size: 30px'> R Assignment 1: Introduction to R, RStudio, and the Global Biodiversity Information Facility (GBIF) </style>"
 author: Mannfred Boehm and Evan Hersh
 date: "`r format(Sys.time(), '%d %B, %Y')`"
@@ -12,8 +12,108 @@ date: "`r format(Sys.time(), '%d %B, %Y')`"
 #output: pdf_document
 ---
 
+<!-- use this code to build the github site: -->
+<!-- rmarkdown::render_site() -->
+
 &nbsp;
 &nbsp;
+
+---
+
+## Lamiaceae (Mint family)
+
+---
+
+**1.  Herbs with square stems, usually aromatic.**  
+**2.  Leaves simple, opposite or whorled, without stipules.**  
+**3.  Flowers perfect, zygomorphic.  Sepals 5, fused.  Petals 5, fused, bilabiate.  Stamens 2 or 4, epipetalous, often didynamous.  Pistil compound, ovary superior, carpels 2, but deeply lobed, appearing as 4, placentation basal.**  
+**4.  Fruit 4 nutlets.**  
+**5.  About 200 genera, 3200 species, cosmopolitan**  
+
+&nbsp;
+   
+Most Lamiaceae contain fragrant oils, and many are used as herbs or flavorings, including *Mentha* (mint), Salvia (sage), *Rosmarinus* (rosemary), *Thymus* (thyme), *Marrubium* (horehound), *Nepeta* (catnip), *Satureja* (savoury), *Origanum* (oregano), *Majorana* (sweet marjoram), *Ocimum* (sweet basil).
+
+&nbsp;
+
+![](./media/diagram_Lamiaceae.png)
+
+&nbsp;
+
+**Insert photos**
+
+&nbsp;
+
+**-Knowledge Check-** 
+- Draw the above flowers, and label with the following structures: stamens, style, stigma, calyx, corolla, anther, dud anther, connective, nutlets.
+
+- What word describes the shape of the corollas in this family?
+
+- The calyx is synsepalous.  How many lobes are there? 
+
+- The corolla is sympetalous.  How many lobes are there?
+
+- How many stigma lobes are there? 
+
+&nbsp;
+
+---
+
+## Scrophularioid families
+
+---
+
+
+**1.  Mostly herbs**  
+**2.  Leaves simple, alternate, or opposite, without stipules.**  
+**3.  Flowers perfect, zygomorphic.  Sepals 5, free or fused.  Petals 5, fused, often bilabiate.  Stamens 2, 4, or 5, epipetalous, often didynamous, staminode often present.  Pistil compound, ovary superior, carpels 2, placentation axile.**  
+**4.  Fruit a capsule.**  
+**5.  About 210 genera and 3000 species, cosmopolitan.**  
+
+&nbsp;
+
+The traditionally large and heterogeneous family Scrophulariaceae *sensu latissimo* has recently been divided into a number of separate families on the basis of molecular phylogenetic studies. *Paulownia*, always of uncertain placement but often included in the Scrophulariaceae s.l., now is placed in a separate family. For further details see:
+
+Olmsted, R. M., dePamphilis,  C. W., Wolfe, A. D., Young, N. D., Elisens, W. J., & Reeves, P. A. 2001. Disintegration of the Scrophulariaceae. American J. Bot. 88: 348-361.
+
+PLANTAGINACEAE Jussieu, nom. cons.  (Snapdragon family)
+Ca 90 genera, 1700 species.
+Examples: *Veronica* (ca 450, inc. *Hebe*, *Parahebe*,  *Synthyris*, etc.), *Penstemon* (275), *Plantago* (275), *Litorella*, *Linaria* (150), *Bacopa* (55), *Antirrhinum* - snapdragon, *Sibthorpia*, *Collinsia*, *Digitalis*, *Hippuris* - marestail, *Callitriche* - water starwort. 
+
+PHRYMACEAE Schauer, nom. cons. (Monkeyflower family)
+Ca 19 genera, 234 species
+Examples: *Erythranthe* (formerly *Mimulus*) (150-170) - monkeyflower, *Mazus* (30), *Phryma*, *Rehmannia*
+
+SCROPHULARIACEAE Jussieu, nom. cons. (Figwort family)
+65 genera, 1700 species.
+Examples: *Verbascum* (360) - mulleins, *Eremophila* (210), *Scrophularia* (200) - figworts, *Selago* (190), *Buddleja* (125), *Jamesbrittenia* (85), *Manulea* (75), *Diascia* (70), *Nemesia* (65)
+
+OROBANCHACEAE Ventenat, nom. cons. (Lousewort family)
+99 genera, 2061 species. Parasites or hemiparasites.
+Examples: *Pedicularis* (600-800), *Castilleja* (200), *Euphrasia* (170-350), *Orobanche* (150),  *Buchnera* (100), *Bartsia* (50), *Agalinis* (45), *Rhinanthus* (45).
+
+PAULOWNIACEAE Nakai 
+1 genus, 6 species. 
+Example: *Paulownia* (foxglove tree).
+
+&nbsp;
+
+![](./media/diagram_Scrophularioids.png)
+
+&nbsp;
+
+**Insert photos**
+
+**-Knowledge Check-** Draw the above flowers, and label with the following structures: spur, style, stigma, stamen, ovary, corolla, calyx
+
+- Draw the dissected fruit. How many carpels are there, and what type of placentation does it have?
+
+- Draw the *Plantago* capsule. How does the capsule dehisce?
+
+---
+
+## R activity 1: Intro do R, Rstudio, Data Wrangling, and Plotting
+
 
 #### Motivation {#motivation}
 
@@ -63,11 +163,13 @@ By the end of this lab you will: &nbsp;
 
 #### Activity 1 (Pre-lab): Exploring the GBIF website {#A1}
 
+**Probably move this activity to a lab in Unit 1... -Evan**
+
 Let's jump into GBIF! First go to the [GBIF website](https://www.gbif.org). In another tab/window follow along with [this video tutorial](https://www.youtube.com/watch?v=40yPnJdeM_A&t=3s) to learn how to navigate through the GBIF website (NOTE: creating an account and downloading the data onto your computer, as suggested in the video, is **NOT necessary**).
 
 By following the video tutorial, you'll learn how to search for GBIF data, what types of data your search will return, and how that data is structured. Notice that GBIF is a biodiversity database aggregator, pulling data from other databases such as eBird and iNaturalist. That means that you can choose to share your BIOL324 iNaturalist observations so that they appear on GBIF! 
 
-**CANVAS QUIZ QUESTION**
+<!-- **CANVAS QUIZ QUESTION** -->
 
 --- 
 
@@ -91,7 +193,17 @@ During this activity, we'll be exploring the 'iris' dataset in R. Along the way,
 
 Open RStudio, and follow the instructions on this webpage. First, open a new R script file (File - New File - R script), save it into your working directory, and write all of the code from this exercise in your new script file. This will allow you to keep a record of your code, re-run your code later, and share code with others. Type (or copy) the following code into your script file, and run it (highlight and hit command / control + enter, or click the "Run" button at the top of the script pane).
 
-```{r code, eval=FALSE}
+--- 
+
+&nbsp;
+&nbsp;
+
+#### Installing and loading packages and data
+
+&nbsp;
+&nbsp;
+
+```{r, eval=FALSE}
 library(datasets) #this loads the 'datasets' package, which contains a bunch of datasets to explore
 iris #typing the name of the dataset will display the contents of the data in the console pane
 class(iris) #this will display the 'class' of the object 'iris'
@@ -100,9 +212,152 @@ summary(iris) #this will give various summary statistics on the dataframe 'iris'
 
 The code `class(iris)` showed us that 'iris' is a data frame, and `summary(iris)` showed us that there are five columns in the data frame: Sepal.Length, Sepal.Width, Petal.Length, Petal.Width, and Species. Note that there are periods instead of spaces in the column names...R has trouble reading spaces, so it's good practice to use periods or underscores when naming things in R. 
 
+Now, let's install a couple useful packages:
+
+```{r, eval=FALSE}
+install.packages("dplyr", "ggplot2") # you can install multiple packages by separating each with a comma. 
+```
+
+You only need to install packages once. Then, you need to load the packages you want to use:
+
+```{r, message=FALSE}
+library(dplyr)
+library(ggplot2)
+```
+
+---
+
+&nbsp;
+&nbsp;
+
+#### Data Wrangling
+
+&nbsp;
+&nbsp;
 
 
+'dplyr' is very useful for data "wrangling" (filtering, summarizing, re-organizing, etc), and 'ggplot2' is a very popular tool for making beautiful and customizeable plots. Let's see a bit of what 'dplyr' can do for us...
 
+```{r}
+iris.virginica <- filter(iris, Species == "virginica") # takes only the rows for which 'Species' is 'virginica' and puts them in a new data frame called 'iris.virginica'
+head(iris.virginica) # head() shows the first 6 lines of the data frame
+```
+
+Notice that we use the logical double equal sign as in `species == "virginica"`, and quotations around `virginica` since this value is of a char (character) data type. The equivalent 'base R' command (built into R and not requiring additional packages) for `filter()` would be `subset()`, with all the inner arguments being exactly the same. This highlights how you can use multiple approaches to do things in R (and when programming in general)...
+
+We can also filter using multiple conditions:
+
+```{r}
+iris.virginica.sepal6 <- filter(iris, Species == "virginica", Sepal.Length > 6) #keeps virginica species that have sepals longer than 6
+head(iris.virginica.sepal6)
+```
+
+We can also use 'dplyr' to select only certain columns from a data frame:
+
+```{r}
+iris.selected <- select(iris, Sepal.Length, Sepal.Width, Petal.Length) #list the columns you want to select
+iris.selected2 <- select(iris, Sepal.Length:Petal.Length) # select all columns from sepal.length to petal.length using colon symbol
+head(iris.selected)
+head(iris.selected2)
+```
+
+Above we used the ':' symbol to select a series of values. You can use the same concept to select columns/rows in a dataframe:
+
+```{r, eval=FALSE}
+iris[1:3,]
+iris[,1:3]
+iris[1:3,1:3]
+```
+
+What do these different bits of code do? Why does each one give different results?
+
+**-Knowledge Check-** Write a bit of code that takes the first 3 columns and the first five rows, and store it in a new object (name it something silly).
+
+<!-- DrabaIsTheBestGenus <- iris[1:5,1:3] -->
+
+We'll look at one last 'dplyr' function, `summarise()`, which is extremely useful for data exploration.
+
+```{r}
+iris.sums <- summarise(iris, mean.Sep.length = mean(Sepal.Length), mean.Pet.length = mean(Petal.Length)) #calculate mean of Sepal.Length and Petal.Length, name the columns for our new means, and store in the object 'iris.sums'
+iris.sums 
+```
+
+This took the average of every value in the Sepal.Length and Petal.Length column, but what if we want the average of these values for each species instead of averaging across all of them? With 'dplyr', we can use a slightly more advanced technique called 'pipes' `%>%`:
+
+```{r}
+iris.sums.species <- iris %>% # take the 'iris' dataset, and pipe into next command...
+  group_by(Species) %>% # group by Species, and pipe into next command
+  summarise(mean.Sep.length = mean(Sepal.Length), mean.Pet.length = mean(Petal.Length)) # we use the same bit of code as above, but it calculates the means for each Species because we first piped through the 'group_by' function
+iris.sums.species
+```
+
+Pretty cool, eh? This is just scratching the surface of what 'dplyr' can do to help you wrangle your data and start to make sense of it...
+
+---
+
+&nbsp;
+&nbsp;
+
+#### Plotting data
+
+&nbsp;
+&nbsp;
+
+Now, let's mess around with some of the plotting functions in R to help us visualize the 'iris' dataset. Let's start with the base R function `plot`:
+
+```{r}
+plot(iris)
+```
+
+As you can see, this very simple function made a pretty complicated scatterplot displaying the relationship between every variable in the dataset. If we want to look at the relationship between two specific variables, we go like this:
+
+```{r}
+plot(x=iris$Sepal.Length, y=iris$Petal.Length)
+```
+
+Still using the `plot()` function, we specify what variables will be on the X and Y axes using `x=` and `y=`. We also specified the variables we want to use in the 'iris' dataset using the '$' symbol.
+
+**-Knowledge Check-** modify the above code to plot the relationship between sepal width and petal width. To spruce it up a little bit, try adding `col=iris$Species` to your code...
+
+<!-- plot(x=iris$Sepal.Width, y=iris$Petal.Width, col=iris$Species) -->
+
+We can also use the base R function `hist()` to make a simple histogram:
+
+```{r}
+hist(iris$Sepal.Length)
+```
+
+Remember box and whisker plots from your statistics classes? It just takes a single line of code to make a boxplot of sepal length for each species:
+
+```{r}
+boxplot(Sepal.Length~Species,data=iris) 
+```
+
+Earlier in this exercise, we had you install the 'ggplot2' package. Many people find that ggplot2 is more intuitive and customizeable than base R for making plots. Let's recreate the scatterplot of sepal length and petal length that we made above, but with ggplot instead:
+
+```{r}
+ggplot(data=iris, aes(x = Sepal.Length, y = Petal.Length))+
+  geom_point()
+```
+
+In the first line above, we set the data frame and 'aesthetics' (what variables are on what axis) in the `ggplot()` function. Running that code alone won't produce a plot, because we haven't specified the 'geom' (type of plot) we want to display. We add a '+' to the end of the first line, and specify `geom_point()` on the next line. Using this basic framework, we can add in more code bits and really start sprucing up our ggplot:
+
+```{r}
+ggplot(data=iris, aes(x = Sepal.Length, y = Petal.Length))+
+  geom_point(aes(color=Species, shape=Species)) #we add some aes() to our points to change the colour and shape of our points depending on what species it is...
+```
+
+Isn't that amazing??? With just two lines of code, we've created a beautiful plot, complete with data points labeled by shape and colour, and it adds a legend automatically! Let's fiddle around a bit more:
+
+```{r}
+iris.ggplot1 <- ggplot(data=iris, aes(x = Sepal.Length, y = Petal.Length))+
+  geom_point(aes(color=Species, shape=Species))+
+  ggtitle("Relationship between sepal length and petal length by Iris species")
+```
+
+Just like a data frame, you can store a ggplot in an object `iris.ggplot1 <- ggplot(...)`. We also added the element `ggtitle()` to our ggplot by adding a '+' to the end of the previous line. You can keep adding more and more stuff to your ggplot, just make sure you put a '+' at the end of each line.
+
+**-Knowledge Check-** Make your own ggplot from the 'iris' dataset. Make sure to plot different variables than the example above, give it a new title, and add axis labels using `xlab()` and `ylab()` (don't forget to add a '+' before adding a new line to your ggplot)
 **CANVAS QUIZ QUESTIONS** 
 - What are the different windows (console, script, environment, plot) and what do they do?
 - what is an object?

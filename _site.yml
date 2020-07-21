@@ -17,5 +17,5 @@ navbar:
       href: BIOL_324_Lab_10.html  
 output:
   html_document:
-    theme: flatly
+    theme: readable
     highlight: tango
