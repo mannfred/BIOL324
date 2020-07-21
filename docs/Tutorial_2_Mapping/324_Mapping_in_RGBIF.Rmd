@@ -1,7 +1,7 @@
 ---
 title: "R Assignment 2: Mapping Species Distributions using R and GBIF"
 # title: "<span style='font-size: 30px'> R Assignment 2: Mapping Species Distributions using R and GBIF </style>"
-author: 
+author: "Mannfred Boehm"
 date: ""
 # output:
 #   word_document:

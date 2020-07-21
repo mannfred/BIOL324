@@ -1,8 +1,8 @@
 ---
 title: "R Assignment 2: Mapping Species Distributions using R and GBIF"
 # title: "<span style='font-size: 30px'> R Assignment 2: Mapping Species Distributions using R and GBIF </style>"
-author: "Mannfred Boehm"
-date: ""
+author: Mannfred Boehm
+date: "`r format(Sys.time(), '%d %B, %Y')`"
 # output:
 #   word_document:
 #     fig_caption: yes
@@ -11,8 +11,8 @@ date: ""
 #    html_document:
 #    number_sections: no
 #    theme: flatly
-output: github_document
-urlcolor: blue
+#output: github_document
+#urlcolor: blue
 
 ---
 

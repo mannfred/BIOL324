@@ -1,0 +1,414 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+
+<meta charset="utf-8" />
+<meta name="generator" content="pandoc" />
+<meta http-equiv="X-UA-Compatible" content="IE=EDGE" />
+
+
+<meta name="author" content="Mannfred Boehm" />
+
+
+<title>R Assignment 2: Mapping Species Distributions using R and GBIF</title>
+
+<script src="site_libs/jquery-1.11.3/jquery.min.js"></script>
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<link href="site_libs/bootstrap-3.3.5/css/flatly.min.css" rel="stylesheet" />
+<script src="site_libs/bootstrap-3.3.5/js/bootstrap.min.js"></script>
+<script src="site_libs/bootstrap-3.3.5/shim/html5shiv.min.js"></script>
+<script src="site_libs/bootstrap-3.3.5/shim/respond.min.js"></script>
+<script src="site_libs/navigation-1.1/tabsets.js"></script>
+
+
+
+
+<style type="text/css">
+h1 {
+  font-size: 34px;
+}
+h1.title {
+  font-size: 38px;
+}
+h2 {
+  font-size: 30px;
+}
+h3 {
+  font-size: 24px;
+}
+h4 {
+  font-size: 18px;
+}
+h5 {
+  font-size: 16px;
+}
+h6 {
+  font-size: 12px;
+}
+.table th:not([align]) {
+  text-align: left;
+}
+</style>
+
+
+
+
+<style type = "text/css">
+.main-container {
+  max-width: 940px;
+  margin-left: auto;
+  margin-right: auto;
+}
+code {
+  color: inherit;
+  background-color: rgba(0, 0, 0, 0.04);
+}
+img {
+  max-width:100%;
+}
+.tabbed-pane {
+  padding-top: 12px;
+}
+.html-widget {
+  margin-bottom: 20px;
+}
+button.code-folding-btn:focus {
+  outline: none;
+}
+summary {
+  display: list-item;
+}
+</style>
+
+
+<style type="text/css">
+/* padding for bootstrap navbar */
+body {
+  padding-top: 60px;
+  padding-bottom: 40px;
+}
+/* offset scroll position for anchor links (for fixed navbar)  */
+.section h1 {
+  padding-top: 65px;
+  margin-top: -65px;
+}
+.section h2 {
+  padding-top: 65px;
+  margin-top: -65px;
+}
+.section h3 {
+  padding-top: 65px;
+  margin-top: -65px;
+}
+.section h4 {
+  padding-top: 65px;
+  margin-top: -65px;
+}
+.section h5 {
+  padding-top: 65px;
+  margin-top: -65px;
+}
+.section h6 {
+  padding-top: 65px;
+  margin-top: -65px;
+}
+.dropdown-submenu {
+  position: relative;
+}
+.dropdown-submenu>.dropdown-menu {
+  top: 0;
+  left: 100%;
+  margin-top: -6px;
+  margin-left: -1px;
+  border-radius: 0 6px 6px 6px;
+}
+.dropdown-submenu:hover>.dropdown-menu {
+  display: block;
+}
+.dropdown-submenu>a:after {
+  display: block;
+  content: " ";
+  float: right;
+  width: 0;
+  height: 0;
+  border-color: transparent;
+  border-style: solid;
+  border-width: 5px 0 5px 5px;
+  border-left-color: #cccccc;
+  margin-top: 5px;
+  margin-right: -10px;
+}
+.dropdown-submenu:hover>a:after {
+  border-left-color: #ffffff;
+}
+.dropdown-submenu.pull-left {
+  float: none;
+}
+.dropdown-submenu.pull-left>.dropdown-menu {
+  left: -100%;
+  margin-left: 10px;
+  border-radius: 6px 0 6px 6px;
+}
+</style>
+
+<script>
+// manage active state of menu based on current page
+$(document).ready(function () {
+  // active menu anchor
+  href = window.location.pathname
+  href = href.substr(href.lastIndexOf('/') + 1)
+  if (href === "")
+    href = "index.html";
+  var menuAnchor = $('a[href="' + href + '"]');
+
+  // mark it active
+  menuAnchor.parent().addClass('active');
+
+  // if it's got a parent navbar menu mark it active as well
+  menuAnchor.closest('li.dropdown').addClass('active');
+});
+</script>
+
+<!-- tabsets -->
+
+<style type="text/css">
+.tabset-dropdown > .nav-tabs {
+  display: inline-table;
+  max-height: 500px;
+  min-height: 44px;
+  overflow-y: auto;
+  background: white;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+}
+
+.tabset-dropdown > .nav-tabs > li.active:before {
+  content: "";
+  font-family: 'Glyphicons Halflings';
+  display: inline-block;
+  padding: 10px;
+  border-right: 1px solid #ddd;
+}
+
+.tabset-dropdown > .nav-tabs.nav-tabs-open > li.active:before {
+  content: "&#xe258;";
+  border: none;
+}
+
+.tabset-dropdown > .nav-tabs.nav-tabs-open:before {
+  content: "";
+  font-family: 'Glyphicons Halflings';
+  display: inline-block;
+  padding: 10px;
+  border-right: 1px solid #ddd;
+}
+
+.tabset-dropdown > .nav-tabs > li.active {
+  display: block;
+}
+
+.tabset-dropdown > .nav-tabs > li > a,
+.tabset-dropdown > .nav-tabs > li > a:focus,
+.tabset-dropdown > .nav-tabs > li > a:hover {
+  border: none;
+  display: inline-block;
+  border-radius: 4px;
+  background-color: transparent;
+}
+
+.tabset-dropdown > .nav-tabs.nav-tabs-open > li {
+  display: block;
+  float: none;
+}
+
+.tabset-dropdown > .nav-tabs > li {
+  display: none;
+}
+</style>
+
+<!-- code folding -->
+
+
+
+
+</head>
+
+<body>
+
+
+<div class="container-fluid main-container">
+
+
+
+
+<div class="navbar navbar-default  navbar-fixed-top" role="navigation">
+  <div class="container">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar">
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="index.html">BIOL 324 Labs</a>
+    </div>
+    <div id="navbar" class="navbar-collapse collapse">
+      <ul class="nav navbar-nav">
+        <li>
+  <a href="index.html">Home</a>
+</li>
+<li>
+  <a href="BIOL_324_Lab_6.html">Lab 6</a>
+</li>
+<li>
+  <a href="BIOL_324_Lab_7.html">Lab 7</a>
+</li>
+<li>
+  <a href="BIOL_324_Lab_8.html">Lab 8</a>
+</li>
+<li>
+  <a href="BIOL_324_Lab_9.html">Lab 9</a>
+</li>
+<li>
+  <a href="BIOL_324_Lab_10.html">Lab 10</a>
+</li>
+      </ul>
+      <ul class="nav navbar-nav navbar-right">
+        
+      </ul>
+    </div><!--/.nav-collapse -->
+  </div><!--/.container -->
+</div><!--/.navbar -->
+
+<div class="fluid-row" id="header">
+
+
+
+<h1 class="title toc-ignore">R Assignment 2: Mapping Species Distributions using R and GBIF</h1>
+<h4 class="author">Mannfred Boehm</h4>
+<h4 class="date">21 July, 2020</h4>
+
+</div>
+
+
+<p><br> <br></p>
+<div id="motivation" class="section level4">
+<h4>Motivation</h4>
+<p><strong>MB</strong>: Some brief explanation of the importance of mapping species distributions in plant taxonomy.</p>
+<hr />
+<p><br> <br></p>
+</div>
+<div id="prerequisites" class="section level4">
+<h4>Prerequisites</h4>
+<p>Before starting this week’s tutorial you will have: <br></p>
+<ol style="list-style-type: decimal">
+<li><p>created an RStudio Cloud account and completed the introductory R exercises from Assignment 1, <br></p></li>
+<li><p>researched 2-3 of your favourite plant groups for creating a species distribution map, <br></p></li>
+<li><p>navigated through the GBIF website and understand what it is and why it exists, <br></p></li>
+<li><p>researched 2-3 of your favourite plant groups for creating a species distribution map, <br></p></li>
+<li><p>More?</p></li>
+</ol>
+<hr />
+<p><br> <br></p>
+</div>
+<div id="outcomes" class="section level4">
+<h4>Outcomes</h4>
+<p>By the end of this tutorial you will have: <br></p>
+<ol style="list-style-type: decimal">
+<li><p>experience manipulating and mapping species distribution data in R, <br></p></li>
+<li><p>familiarity with GBIF and the types of data that can be obtained, <br></p></li>
+<li><p>More?</p></li>
+</ol>
+<hr />
+<p><br> <br></p>
+</div>
+<div id="activity-1-mapping-species-distributions" class="section level4">
+<h4>Activity 1: Mapping Species Distributions</h4>
+<p>In the last tutorial we familiarized ourselves with GBIF, R, and RStudio Cloud. Now, let’s navigate to the <a href="https://rstudio.cloud/">BIOL324 Workspace</a> and select the project titled <em>Mapping Species Distributions</em>. In the <strong>Source Pane</strong> (top left quadrant) we’ll see a sequence of functions. This is a script that collects, filters, and maps distribution data for two species of cacti <em>Opuntia fragilis</em> Nutt. Haw. and <em>Opuntia humifusa</em> Raf. By highlighting the script from lines 10-54 and pressing <strong>Ctrl+Enter</strong> (or clicking <strong>Run</strong> at the top of the Source Pane), the functions will execute consecutively, storing data for <em>O. humifusa</em> in the <strong>Environment Pane</strong>.</p>
+<p>Obtaining the data for <em>O. fragilis</em> requires an additional step. Highlight lines 62-63 and run the code. In the <strong>Console Pane</strong> a warning will appear stating <code>More than one GBIF ID found for taxon 'Opuntia fragilis'!</code>, and listing possible matches to the search query. We’ll select the first option by typing “1” (without quotation marks) into the <strong>Console Pane</strong> and pressing <strong>Enter</strong>. Now, select lines 67-108 in the <strong>Source Pane</strong> and run the rest of the code. After it has executed, a map will be generated in the <strong>Plots</strong> tab of the <strong>Files Pane</strong>. In the <strong>Plots</strong> tab, click <strong>Zoom</strong> to adjust the image dimensions.</p>
+<p>MB: Any other plants could go here. I chose these somewhat haphazardly, but they do show a distribution that could be used to discuss allopatry.</p>
+<hr />
+<p><br> <br></p>
+</div>
+<div id="activity-2-deciphering-some-code" class="section level4">
+<h4>Activity 2: Deciphering some code</h4>
+<p>Let’s step through the script in order to understand what is happening here.</p>
+<p><br></p>
+<p><strong>Lines 10-15</strong>: The <code>library()</code> function loads various packages designed specifically for connecting with the GBIF database (<code>rgbif</code>, <code>spocc</code>, <code>taxize</code>), filtering data (<code>tidyverse</code>), and mapping (<code>mapr</code>).</p>
+<p><strong>Lines 23-24</strong>: The <code>get_gbifid()</code> function searches GBIF for taxon IDs associated with your search query. The <code>&lt;-</code> function stores the results in an object that we named <code>group1_ids</code>. By storing the results in an object we can later return to the object and inspect it, subset it, and feed it to other functions.</p>
+<p><strong>Lines 27-28</strong>: The <code>occ()</code> function uses the taxon ID stored in <code>group1_ids</code> to search GBIF for occurence records associated with that ID.</p>
+<p><strong>Line 30</strong>: The <code>head()</code> function lets us preview the object <code>group1_metadata</code> created in the previous step. You can inspect the structure of <code>group1_metadata</code> in the <strong>Console Pane</strong>. Notice that there are numerous ‘named elements’ starting with <code>$</code>, such as <code>$gbif</code>, <code>$bison</code>, <code>$inat</code>, etc. Only the element <code>$gbif</code> contains any information, because in the previous step we instructed <code>occ()</code> to search only GBIF for occurence data (as opposed to other databases).</p>
+<p><strong>Line 37</strong>: Here, we are subsetting the large object <code>group1_metadata</code> into a smaller object <code>group1_data</code>. By doing this, we discard the empty elements, and other superfluous information that was collected by the <code>occ()</code> function. We can choose which elements to keep by using the <code>$</code> operator. The code <code>group1_metadata$gbif$data$'5384047'</code> says:</p>
+<blockquote>
+<p>&quot;Within the large object <code>group1_metadata</code>, select the element named <code>$gbif</code>. Within the element <code>$gbif</code>, select the sub-element <code>$data</code>. Within the sub-element <code>$data</code>, select the sub-sub-element <code>5384047</code> (the taxon ID for <em>O. humifusa</em>).</p>
+</blockquote>
+<p>We are left then with an object <code>group1_data</code> that is considerably more simple to navigate than <code>group1_metadata</code>.</p>
+<p><strong>Line 40</strong>: The <code>unique()</code> function is applied to the <code>$ScientificName</code> column of <code>group1_data</code>. This function inspects the specified column and tells us how many unique entries exist there. In the <strong>Console Pane</strong> the output tells us that there are some synonyms that have been included.</p>
+<p>MB: There’s an opporunity here to teach about synonyms and how to make decisions about including/excluding them.</p>
+<p><strong>Line 43</strong>: Similarly, the <code>unique()</code> function is applied to the <code>$country</code> column of <code>group1_data</code>. In the <strong>Console Pane</strong> the output tells us that some records from Eurasia have been included. These are likely museum specimens, not natural observations.</p>
+<p><strong>Lines 49-54</strong>: We can remove synonyms and misplaced country records by using the <code>filter()</code> function. The <code>select()</code> function chooses columns 1,2, and 3, which store the plant name, latitude, and longitude, respectively.</p>
+<p><strong>Lines 62-94</strong>: The above steps are repeated for <em>O. fragilis</em>.</p>
+<p><strong>Lines 101-102</strong>: The <code>full_join()</code> function combines the occurence data for <em>O. humifusa</em> and <em>O. fragilis</em>.</p>
+<p><strong>Lines 107-108</strong>: The <code>map_ggplot()</code> function maps the combined data. The <code>coord_fixed()</code> function adjusts the mapping window, using latitude and longitude as parameters.</p>
+<p><strong>The result</strong>:</p>
+<div class="figure">
+<img src="opuntia_dist.png" alt="Figure 1: Distribution map for O. humifusa and O. fragilis." />
+<p class="caption">Figure 1: Distribution map for <em>O. humifusa</em> and <em>O. fragilis</em>.</p>
+</div>
+<hr />
+<p><br> <br></p>
+</div>
+<div id="activity-3-creating-your-own-species-distribution-map" class="section level4">
+<h4>Activity 3: Creating your own species distribution map</h4>
+<p>MB: Basically, the existing code can be modified to replace <em>Opuntia</em> with any other plant name. Re-running the code will create a map for any species that GBIF has records for. Of course, some taxa are have more complicated nomenclature, and sometimes weird entries make it onto the map. In these cases, a little troubleshooting is required. Also, if one wanted to search for genera, families, orders, etc. some additional modifications are needed. For the majority of students in BIOL413, generating their own maps didn’t require my intervention.</p>
+<p><br> <br></p>
+</div>
+
+
+
+
+</div>
+
+<script>
+
+// add bootstrap table styles to pandoc tables
+function bootstrapStylePandocTables() {
+  $('tr.header').parent('thead').parent('table').addClass('table table-condensed');
+}
+$(document).ready(function () {
+  bootstrapStylePandocTables();
+});
+
+
+</script>
+
+<!-- tabsets -->
+
+<script>
+$(document).ready(function () {
+  window.buildTabsets("TOC");
+});
+
+$(document).ready(function () {
+  $('.tabset-dropdown > .nav-tabs > li').click(function () {
+    $(this).parent().toggleClass('nav-tabs-open')
+  });
+});
+</script>
+
+<!-- code folding -->
+
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    script.src  = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML";
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+
+</body>
+</html>
