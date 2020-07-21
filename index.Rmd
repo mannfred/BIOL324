@@ -4,4 +4,6 @@ author: "Evan Hersh"
 date: "`r format(Sys.time(), '%d %B, %Y')`"
 ---
 
-Welcome to Biol 324 github page.
+Welcome to the BIOL 324 Lab Github page!
+
+![](./media/splash.jpeg)
