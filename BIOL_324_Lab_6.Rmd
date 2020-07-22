@@ -44,7 +44,9 @@ Most Lamiaceae contain fragrant oils, and many are used as herbs or flavorings, 
 
 &nbsp;
 
-**-Knowledge Check-** 
+---
+
+**-KNOWLEDGE CHECK-** 
 - Draw the above flowers, and label with the following structures: stamens, style, stigma, calyx, corolla, anther, dud anther, connective, nutlets.
 
 - What word describes the shape of the corollas in this family?
@@ -55,9 +57,9 @@ Most Lamiaceae contain fragrant oils, and many are used as herbs or flavorings, 
 
 - How many stigma lobes are there? 
 
-&nbsp;
-
 ---
+
+&nbsp;
 
 ## Scrophularioid families
 
@@ -104,7 +106,11 @@ Example: *Paulownia* (foxglove tree).
 
 **Insert photos**
 
-**-Knowledge Check-** Draw the above flowers, and label with the following structures: spur, style, stigma, stamen, ovary, corolla, calyx
+&nbsp;
+
+---
+
+**-KNOWLEDGE CHECK-** Draw the above flowers, and label with the following structures: spur, style, stigma, stamen, ovary, corolla, calyx
 
 - Draw the dissected fruit. How many carpels are there, and what type of placentation does it have?
 
@@ -112,14 +118,25 @@ Example: *Paulownia* (foxglove tree).
 
 ---
 
-## R activity 1: Intro do R, Rstudio, Data Wrangling, and Plotting
+&nbsp;
+
+## R activity 1: Intro to R, Rstudio, Data Wrangling, and Plotting
 
 
 #### Motivation {#motivation}
 
-As taxonomists it is useful to know where species occur and co-occur on continental scales to help inform species delimitations. For example, two sister species separated by a major geographic barrier (such as a mountain range) are not likely to interbreed. This type of information is one piece of the puzzle of delimiting species. To make preliminary estimates of a species' distribution, we can harness the data resources organized by the [Global Biodiversity Information Facility](https://www.gbif.org/what-is-gbif). GBIF is an open-access database housing information about where and when species have been observed or collected. To the modern plant taxonomist, it is indispensable: one can search GBIF for any plant taxon of interest, and immediately have access to all global records of where and when their plant has been observed. 
+The use of statistics and the analysis/management of data is becoming increasingly common in many fields, and this is particularly true in the biological sciences. It may not seem obvious at first, but even taxonomists use data these days, whether it be for mapping occurrence records of their species of interest, or using morphometrics to empirically investigate the morphological differences between taxa. In the past, biologists used a combination of spreadsheets (e.g., MS Excel) and statistical software such as JMP or SPSS to conduct their statistical analyses. In recent years, many fields have transitioned to using the R programming language for their statistical needs. 
 
-To scratch the surface of GBIF reveals a massive database spanning the entire tree of life. How does one go about efficiently collecting, organizing, validating, and analysing so much information? The solution is made tractable by employing data analysis tools like those found in R (Note: For an introduction to R, see this week's [pre-lab reading in the section below](#prelab)).  By combining the biodiversity resources of GBIF with the analytical tools in R, we can collect, process, and visualize species distribution data on any laptop or tablet. In this week's lab we'll first gather the required tools (R and GBIF) and develop some basic skills using them. In the following lab we'll use our new skills to create research-grade distribution maps. 
+R provides many advantages to traditional programs: R is open-source (free to use, all code is shared freely for users to modify how they wish), flexible, and powerful. Its open-source nature has led to the creation of thousands of custom packages, providing unprecedented access to advanced statistical analyses for anyone willing to learn. For example, you can now use R to crunch sophisticated genomic data and make highly detailed geographic maps (which you'll be getting a taste of later!), both of which required proprietary software (e.g., CLC workbench and ArcGIS) that cost thousands of dollars to use. 
+
+R's main disadvantage is that it has a steep learning curve. Because R is a programming language, you do most of the heavy lifting by writing code instead of clicking around like with a traditional program with a GUI (graphical user interface). This is quite scary for a lot of folks, your intrepid teaching team included! If you told Mikko, Mannfred, or I at the beginning of our R journeys that we'd be actually *teaching* R in the future, we would have taken a break from our frustrated crying to laugh in your face! Like with anything challenging and worthwhile in life, the only way to make progress is to push past your fear and start grinding ;-).
+
+One more note re: fear before we jump in...*this is not a programming class*. Our main goal is to provide some valuable exposure to what can be done with R, and for you to learn and become more comfortable with programming if/when you end up using these tools in the future. We'll provide the resources needed to learn the basics, and there will be plenty of lab time to work together so that we're all tackling the learning curve together. Aside from some participation marks (and maybe a few canvas quiz questions), we will not be evaluating you based on your ability to write your own fully functioning R script. Instead, you will be assessed based on your ability to understand taxonomic concepts and interpret data. And the payoff is worth it! Knowing R can help you land summer research jobs (put it on your CV!), and is increasingly used for teaching in UBC BIOL classes (e.g. BIOL300, BIOL406, BIOL413, BIOL416). 
+
+<!-- MOVE THIS TO LAB 3 -->
+<!-- As taxonomists it is useful to know where species occur and co-occur on continental scales to help inform species delimitations. For example, two sister species separated by a major geographic barrier (such as a mountain range) are not likely to interbreed. This type of information is one piece of the puzzle of delimiting species. To make preliminary estimates of a species' distribution, we can harness the data resources organized by the [Global Biodiversity Information Facility](https://www.gbif.org/what-is-gbif). GBIF is an open-access database housing information about where and when species have been observed or collected. To the modern plant taxonomist, it is indispensable: one can search GBIF for any plant taxon of interest, and immediately have access to all global records of where and when their plant has been observed.  -->
+
+<!-- To scratch the surface of GBIF reveals a massive database spanning the entire tree of life. How does one go about efficiently collecting, organizing, validating, and analysing so much information? The solution is made tractable by employing data analysis tools like those found in R (Note: For an introduction to R, see this week's [pre-lab reading in the section below](#prelab)).  By combining the biodiversity resources of GBIF with the analytical tools in R, we can collect, process, and visualize species distribution data on any laptop or tablet. In this week's lab we'll first gather the required tools (R and GBIF) and develop some basic skills using them. In the following lab we'll use our new skills to create research-grade distribution maps.  -->
 
 --- 
 
@@ -130,13 +147,13 @@ To scratch the surface of GBIF reveals a massive database spanning the entire tr
 
 Before starting this week's lab you will have: &nbsp;
 
-1. completed pre-lab [Activity 1: Exploring the GBIF website](#A1) &nbsp;
+<!-- 1. completed pre-lab [Activity 1: Exploring the GBIF website](#A1) &nbsp; -->
 
-2. completed the pre-lab reading: [Introduction for Students](https://moderndive.com/preface.html#introduction-for-students) and [Chapters 1.1&ndash;1.3](https://moderndive.com/1-getting-started.html) from ModernDive&mdash;a textbook for learning data science using R. We will work through Chapters 1&ndash;4 of this textbook over the semester, and we encourage you to read ahead (through Ch.4) on your own time! &nbsp;
+1. completed the pre-lab reading: [Introduction for Students](https://moderndive.com/preface.html#introduction-for-students) and [Chapters 1.1&ndash;1.3](https://moderndive.com/1-getting-started.html) from ModernDive&mdash;a textbook for learning data science using R. We will work through Chapters 1&ndash;4 of this textbook over the semester, and we encourage you to read ahead (through Ch.4) on your own time! &nbsp;
 
-3. R and RStudio downloaded onto your computer. [Chapter 1.1 in ModernDive](https://moderndive.netlify.app/1-getting-started.html) provides instructions for downloading R and RStudio. If you have trouble with installation, contact the TAs as soon as possible for assistance, &nbsp;
+2. R and RStudio downloaded onto your computer. [Chapter 1.1 in ModernDive](https://moderndive.netlify.app/1-getting-started.html) provides instructions for downloading R and RStudio. If you have trouble with installation, contact the TAs as soon as possible for assistance, &nbsp;
 
-4. [OPTIONAL] created an RStudio Cloud account. Although ModernDive provides an excellent introduction to R, RStudio Cloud has some [useful interactive primers](https://rstudio.cloud/learn/primers/) that make sense of the R language by getting you to write some simple code. **This pre-lab activity is not required**, but recommended for anyone that is completely new to R, or wants some hands-on experience with R right away. 
+3. [OPTIONAL] created an RStudio Cloud account. Although ModernDive provides an excellent introduction to R, RStudio Cloud has some [useful interactive primers](https://rstudio.cloud/learn/primers/) that make sense of the R language by getting you to write some simple code. **This pre-lab activity is not required**, but recommended for anyone that is completely new to R, or wants some hands-on experience with R right away. 
 
 --- 
 
@@ -147,13 +164,13 @@ Before starting this week's lab you will have: &nbsp;
 
 By the end of this lab you will: &nbsp;
 
-1. be familiar with GBIF and the types of data that can be obtained, &nbsp;
+<!-- 1. be familiar with GBIF and the types of data that can be obtained, &nbsp; -->
 
-2. know the difference between R and RStudio, &nbsp;
+1. Know the difference between R and RStudio, &nbsp;
 
-3. be familiar with the layout of RStudio, and understand how to install packages and navigate the `iris` dataset (could also do our own exercises with the `iris` dataset, but see https://stat.ethz.ch/R-manual/R-devel/library/datasets/html/iris.html for problems), &nbsp;
+2. Be familiar with the layout of RStudio, and understand how to install packages and navigate the `iris` dataset.
 
-4. have a sense of how R and GBIF can be used together to create species distribution maps, &nbsp;
+3. Have a basic understanding of how to use functions (both in Base R and with useful packages) to manipulate and plot data.
 
 
 --- 
@@ -161,27 +178,22 @@ By the end of this lab you will: &nbsp;
 &nbsp;
 &nbsp;
 
-#### Activity 1 (Pre-lab): Exploring the GBIF website {#A1}
+<!-- #### Activity 1 (Pre-lab): Exploring the GBIF website {#A1} -->
 
-**Probably move this activity to a lab in Unit 1... -Evan**
+<!-- **Probably move this activity to a lab in Unit 1... -Evan** -->
 
-Let's jump into GBIF! First go to the [GBIF website](https://www.gbif.org). In another tab/window follow along with [this video tutorial](https://www.youtube.com/watch?v=40yPnJdeM_A&t=3s) to learn how to navigate through the GBIF website (NOTE: creating an account and downloading the data onto your computer, as suggested in the video, is **NOT necessary**).
+<!-- Let's jump into GBIF! First go to the [GBIF website](https://www.gbif.org). In another tab/window follow along with [this video tutorial](https://www.youtube.com/watch?v=40yPnJdeM_A&t=3s) to learn how to navigate through the GBIF website (NOTE: creating an account and downloading the data onto your computer, as suggested in the video, is **NOT necessary**). -->
 
-By following the video tutorial, you'll learn how to search for GBIF data, what types of data your search will return, and how that data is structured. Notice that GBIF is a biodiversity database aggregator, pulling data from other databases such as eBird and iNaturalist. That means that you can choose to share your BIOL324 iNaturalist observations so that they appear on GBIF! 
+<!-- By following the video tutorial, you'll learn how to search for GBIF data, what types of data your search will return, and how that data is structured. Notice that GBIF is a biodiversity database aggregator, pulling data from other databases such as eBird and iNaturalist. That means that you can choose to share your BIOL324 iNaturalist observations so that they appear on GBIF!  -->
 
 <!-- **CANVAS QUIZ QUESTION** -->
 
---- 
-
-&nbsp;
-&nbsp;
-
-#### Activity 2: An Introduction to R {#A2}
+#### Activity 1: An Introduction to R {#A2}
 
 
 **MB: I'm imagining doing this live on Zoom**
 
-Now that we have a sense of what kinds of data we could get from GBIF (namely, observation records of a species), we need a tool that will allow us to organize, filter, and visualize this data. While there are many options for handling biodiversity data, in BIOL324 we will focus on using R. The layout and style of R can be daunting if this is your first time using it. Don't worry! In this course, we don't expect you to know how to use R&mdash;we'll provide the resources needed to learn the basics, and there will be plenty of lab time to work together so that we're all tackling the learning curve together. And the payoff is worth it: knowing R can help you land summer research jobs, and is increasingly used for teaching in BIOL classes (e.g. BIOL300, BIOL406, BIOL413, BIOL416). 
+<!-- Now that we have a sense of what kinds of data we could get from GBIF (namely, observation records of a species), we need a tool that will allow us to organize, filter, and visualize this data. While there are many options for handling biodiversity data, in BIOL324 we will focus on using R. The layout and style of R can be daunting if this is your first time using it. Don't worry! In this course, we don't expect you to know how to use R&mdash; -->
 
 From reading [Chapter 1.1 of ModernDive](https://moderndive.netlify.app/1-getting-started.html), you will know that R is a programming language, while RStudio is simply a user interface that 'wraps around' R. RStudio is not _needed_ to use R, but it is convienient! While RStudio is an app that you download to locally to you computer, RStudio Cloud is web-based, meaning that you can use RStudio within your web browser, without downloading anything. If you created an RStudio Cloud account to complete the primers (see: [pre-lab activities](#prelab)) then you can use your account to use RStudio online (**not required for this class**). 
 
@@ -189,7 +201,7 @@ From reading [Chapter 1.1 of ModernDive](https://moderndive.netlify.app/1-gettin
 
 <!-- To follow along, open RStudio cloud and attach the required packages (see: [Chapter 1.4](https://moderndive.com/1-getting-started.html)). The TA will step through this activity while you follow along. If something isn't working for you, please let us know in the chat! It is **very likley that someone is having or will have the same problem as you!**.  -->
 
-During this activity, we'll be exploring the 'iris' dataset in R. Along the way, we'll learn some basic R skills, like loading packages, creating objects, filtering data, and making some basic plots. ALl of these skills will come in handy as we move towards using R and GBIF together to solve taxonomic problems.
+During this activity, we'll be exploring the 'iris' dataset in R. Along the way, we'll learn some basic R skills, like loading packages, creating objects, filtering data, and making some basic plots. ALl of these skills will come in handy as we move towards using R to solve taxonomic problems.
 
 Open RStudio, and follow the instructions on this webpage. First, open a new R script file (File - New File - R script), save it into your working directory, and write all of the code from this exercise in your new script file. This will allow you to keep a record of your code, re-run your code later, and share code with others. Type (or copy) the following code into your script file, and run it (highlight and hit command / control + enter, or click the "Run" button at the top of the script pane).
 
@@ -245,6 +257,8 @@ head(iris.virginica) # head() shows the first 6 lines of the data frame
 
 Notice that we use the logical double equal sign as in `species == "virginica"`, and quotations around `virginica` since this value is of a char (character) data type. The equivalent 'base R' command (built into R and not requiring additional packages) for `filter()` would be `subset()`, with all the inner arguments being exactly the same. This highlights how you can use multiple approaches to do things in R (and when programming in general)...
 
+&nbsp;
+
 We can also filter using multiple conditions:
 
 ```{r}
@@ -252,7 +266,9 @@ iris.virginica.sepal6 <- filter(iris, Species == "virginica", Sepal.Length > 6) 
 head(iris.virginica.sepal6)
 ```
 
-We can also use 'dplyr' to select only certain columns from a data frame:
+&nbsp;
+
+We can use 'dplyr' to select only certain columns from a data frame:
 
 ```{r}
 iris.selected <- select(iris, Sepal.Length, Sepal.Width, Petal.Length) #list the columns you want to select
@@ -260,6 +276,8 @@ iris.selected2 <- select(iris, Sepal.Length:Petal.Length) # select all columns f
 head(iris.selected)
 head(iris.selected2)
 ```
+
+(See how `iris.selected` and `iris.selected2` have the same contents...)
 
 Above we used the ':' symbol to select a series of values. You can use the same concept to select columns/rows in a dataframe:
 
@@ -271,9 +289,17 @@ iris[1:3,1:3]
 
 What do these different bits of code do? Why does each one give different results?
 
-**-Knowledge Check-** Write a bit of code that takes the first 3 columns and the first five rows, and store it in a new object (name it something silly).
+&nbsp;
+
+---
+
+**-KNOWLEDGE CHECK-** Write a bit of code that takes the first 3 columns and the first 5 rows of the 'iris' data frame, and store it in a new object (name it something silly).
 
 <!-- DrabaIsTheBestGenus <- iris[1:5,1:3] -->
+
+---
+
+&nbsp;
 
 We'll look at one last 'dplyr' function, `summarise()`, which is extremely useful for data exploration.
 
@@ -284,14 +310,15 @@ iris.sums
 
 This took the average of every value in the Sepal.Length and Petal.Length column, but what if we want the average of these values for each species instead of averaging across all of them? With 'dplyr', we can use a slightly more advanced technique called 'pipes' `%>%`:
 
-```{r}
-iris.sums.species <- iris %>% # take the 'iris' dataset, and pipe into next command...
-  group_by(Species) %>% # group by Species, and pipe into next command
-  summarise(mean.Sep.length = mean(Sepal.Length), mean.Pet.length = mean(Petal.Length)) # we use the same bit of code as above, but it calculates the means for each Species because we first piped through the 'group_by' function
+```{r, message=FALSE}
+iris.sums.species <- iris %>% 
+  group_by(Species) %>% 
+  summarise(mean.Sep.length = mean(Sepal.Length), mean.Pet.length = mean(Petal.Length)) 
+
 iris.sums.species
 ```
 
-Pretty cool, eh? This is just scratching the surface of what 'dplyr' can do to help you wrangle your data and start to make sense of it...
+In the above code, we used 'pipes' `%>%` to connect our three lines of code kind of like a flow chart. In the first line `iris.sums.species <- iris %>%`, we say we're going to be using the 'iris' data frame and storing our results in the object 'iris.sums.species', and the `%>%` at the end 'pipes' us into our next line. `group_by(Species) %>%` says we will be grouping the following results based on species (you could specify other groupings here as well). Finally, the last line uses the same `summarise()` function as above to calculate the means. Pretty cool, eh? This is just scratching the surface of what 'dplyr' can do to help you wrangle your data and start to make sense of it...
 
 ---
 
@@ -315,11 +342,21 @@ As you can see, this very simple function made a pretty complicated scatterplot 
 plot(x=iris$Sepal.Length, y=iris$Petal.Length)
 ```
 
-Still using the `plot()` function, we specify what variables will be on the X and Y axes using `x=` and `y=`. We also specified the variables we want to use in the 'iris' dataset using the '$' symbol.
+Still using the `plot()` function, we specify what variables will be on the X and Y axes using `x=` and `y=`. We also specified the variables we want to use in the 'iris' dataset using the `$` symbol.
 
-**-Knowledge Check-** modify the above code to plot the relationship between sepal width and petal width. To spruce it up a little bit, try adding `col=iris$Species` to your code...
+How would you interpret this plot? Does it look like there is a relationship between sepal length and petal length in *Iris* species?
+
+&nbsp;
+
+---
+
+**-KNOWLEDGE CHECK-** modify the above code to plot the relationship between sepal width and petal width. To spruce it up a little bit, try adding `col=iris$Species` to your code...
 
 <!-- plot(x=iris$Sepal.Width, y=iris$Petal.Width, col=iris$Species) -->
+
+---
+
+&nbsp;
 
 We can also use the base R function `hist()` to make a simple histogram:
 
@@ -327,11 +364,26 @@ We can also use the base R function `hist()` to make a simple histogram:
 hist(iris$Sepal.Length)
 ```
 
+From this plot, we can see that the majority of sepals are between 4.5-7 in length...
+
+&nbsp;
+
 Remember box and whisker plots from your statistics classes? It just takes a single line of code to make a boxplot of sepal length for each species:
 
 ```{r}
 boxplot(Sepal.Length~Species,data=iris) 
 ```
+
+&nbsp;
+
+---
+
+**-KNOWLEDGE CHECK-** Given the relationship between sepal length and petal length, what might we guess about the petal length of *I. virginica*? Modify the above code to make box plots of petal length instead, and see if you were right...
+
+---
+
+&nbsp;
+
 
 Earlier in this exercise, we had you install the 'ggplot2' package. Many people find that ggplot2 is more intuitive and customizeable than base R for making plots. Let's recreate the scatterplot of sepal length and petal length that we made above, but with ggplot instead:
 
@@ -340,11 +392,12 @@ ggplot(data=iris, aes(x = Sepal.Length, y = Petal.Length))+
   geom_point()
 ```
 
-In the first line above, we set the data frame and 'aesthetics' (what variables are on what axis) in the `ggplot()` function. Running that code alone won't produce a plot, because we haven't specified the 'geom' (type of plot) we want to display. We add a '+' to the end of the first line, and specify `geom_point()` on the next line. Using this basic framework, we can add in more code bits and really start sprucing up our ggplot:
+In the first line above, we set the data frame and 'aesthetics' (what variables are on what axis) in the `ggplot()` function. Running that code alone won't produce a plot, because we haven't specified the 'geom' (type of plot) we want to display. We add a `+` to the end of the first line, and specify `geom_point()` on the next line. Using this basic framework, we can add in more code bits and really start sprucing up our ggplot:
 
 ```{r}
 ggplot(data=iris, aes(x = Sepal.Length, y = Petal.Length))+
-  geom_point(aes(color=Species, shape=Species)) #we add some aes() to our points to change the colour and shape of our points depending on what species it is...
+  geom_point(aes(color=Species, shape=Species)) 
+#we add some aes() to our points to change the colour and shape of our points depending on what species it is...
 ```
 
 Isn't that amazing??? With just two lines of code, we've created a beautiful plot, complete with data points labeled by shape and colour, and it adds a legend automatically! Let's fiddle around a bit more:
@@ -355,13 +408,49 @@ iris.ggplot1 <- ggplot(data=iris, aes(x = Sepal.Length, y = Petal.Length))+
   ggtitle("Relationship between sepal length and petal length by Iris species")
 ```
 
-Just like a data frame, you can store a ggplot in an object `iris.ggplot1 <- ggplot(...)`. We also added the element `ggtitle()` to our ggplot by adding a '+' to the end of the previous line. You can keep adding more and more stuff to your ggplot, just make sure you put a '+' at the end of each line.
+Just like a data frame, you can store a ggplot in an object `iris.ggplot1 <- ggplot(...)`. We also added the element `ggtitle()` to our ggplot by adding a `+` to the end of the previous line. You can keep adding more and more stuff to your ggplot, just make sure you put a `+` at the end of each line.
 
-**-Knowledge Check-** Make your own ggplot from the 'iris' dataset. Make sure to plot different variables than the example above, give it a new title, and add axis labels using `xlab()` and `ylab()` (don't forget to add a '+' before adding a new line to your ggplot)
+&nbsp;
+
+---
+
+**-KNOWLEDGE CHECK-** Make your own ggplot from the 'iris' dataset. Make sure to plot different variables than the example above, give it a new title, and add axis labels using `xlab()` and `ylab()` (don't forget to add a '+' before adding a new line to your ggplot).
+
+How would you interpet the plot you made? Think about what the data tell you about the relationship between different floral characters, and how they differ between *Iris* species.
+
+---
+
+&nbsp;
+
+### To submit within 48 hours of lab time (Lab participation marks)
+
+**All -KNOWLEDGE CHECKS-**
+1. Labelled drawings of Lamiaceae
+2. Labelled drawings of Scrophularioids
+3. R script with code from today's lab
+- Clearly label -KNOWLEDGE CHECK- sections with comments in your code.
+
+&nbsp;
+
+---
+
+### Homework
+
+1. Complete your Canvas quiz
+2. Review GBIF
+3. Lab 7 pre-lab readings
+
+---
+
+&nbsp;
+
+
 **CANVAS QUIZ QUESTIONS** 
 - What are the different windows (console, script, environment, plot) and what do they do?
 - what is an object?
 - what is a function? 
+- Get them to interpret a few plots of the 'iris' dataset
+- Label Lamiacious and Scrophulariacious flowers
 
 --- 
 

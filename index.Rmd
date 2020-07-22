@@ -1,5 +1,5 @@
 ---
-title: "Index"
+title: "BIOL 324 Home Page"
 author: "Evan Hersh"
 date: "`r format(Sys.time(), '%d %B, %Y')`"
 ---
