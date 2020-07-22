@@ -634,7 +634,10 @@ $(document).ready(function () {
 <p>Isn’t that amazing??? With just two lines of code, we’ve created a beautiful plot, complete with data points labeled by shape and colour, and it adds a legend automatically! Let’s fiddle around a bit more:</p>
 <div class="sourceCode" id="cb24"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb24-1" data-line-number="1">iris.ggplot1 &lt;-<span class="st"> </span><span class="kw">ggplot</span>(<span class="dt">data=</span>iris, <span class="kw">aes</span>(<span class="dt">x =</span> Sepal.Length, <span class="dt">y =</span> Petal.Length))<span class="op">+</span></a>
 <a class="sourceLine" id="cb24-2" data-line-number="2"><span class="st">  </span><span class="kw">geom_point</span>(<span class="kw">aes</span>(<span class="dt">color=</span>Species, <span class="dt">shape=</span>Species))<span class="op">+</span></a>
-<a class="sourceLine" id="cb24-3" data-line-number="3"><span class="st">  </span><span class="kw">ggtitle</span>(<span class="st">&quot;Relationship between sepal length and petal length by Iris species&quot;</span>)</a></code></pre></div>
+<a class="sourceLine" id="cb24-3" data-line-number="3"><span class="st">  </span><span class="kw">ggtitle</span>(<span class="st">&quot;Relationship between sepal length and petal length by Iris species&quot;</span>)</a>
+<a class="sourceLine" id="cb24-4" data-line-number="4"></a>
+<a class="sourceLine" id="cb24-5" data-line-number="5">iris.ggplot1</a></code></pre></div>
+<p><img src="BIOL_324_Lab_6_files/figure-html/unnamed-chunk-16-1.png" width="672" /></p>
 <p>Just like a data frame, you can store a ggplot in an object <code>iris.ggplot1 &lt;- ggplot(...)</code>. We also added the element <code>ggtitle()</code> to our ggplot by adding a <code>+</code> to the end of the previous line. You can keep adding more and more stuff to your ggplot, just make sure you put a <code>+</code> at the end of each line.</p>
 <p> </p>
 <hr />

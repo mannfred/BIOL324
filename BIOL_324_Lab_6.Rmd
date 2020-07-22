@@ -407,6 +407,8 @@ Isn't that amazing??? With just two lines of code, we've created a beautiful plo
 iris.ggplot1 <- ggplot(data=iris, aes(x = Sepal.Length, y = Petal.Length))+
   geom_point(aes(color=Species, shape=Species))+
   ggtitle("Relationship between sepal length and petal length by Iris species")
+
+iris.ggplot1
 ```
 
 Just like a data frame, you can store a ggplot in an object `iris.ggplot1 <- ggplot(...)`. We also added the element `ggtitle()` to our ggplot by adding a `+` to the end of the previous line. You can keep adding more and more stuff to your ggplot, just make sure you put a `+` at the end of each line.
