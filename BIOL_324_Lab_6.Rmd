@@ -122,6 +122,7 @@ Example: *Paulownia* (foxglove tree).
 
 ## R activity 1: Intro to R, Rstudio, Data Wrangling, and Plotting
 
+&nbsp;
 
 #### Motivation {#motivation}
 
