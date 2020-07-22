@@ -1,9 +1,15 @@
 ---
 title: "BIOL 324 Home Page"
-author: "Evan Hersh"
-date: "`r format(Sys.time(), '%d %B, %Y')`"
+# author: "Evan Hersh"
+# date: "`r format(Sys.time(), '%d %B, %Y')`"
 ---
+
+&nbsp;
 
 Welcome to the BIOL 324 Lab Github page!
 
+&nbsp;
+
 ![](./media/splash.jpeg)
+
+*Erigeron speciosus* (Asteraceae) in the Nicola Valley, BC. Photo by Evan Hersh.
