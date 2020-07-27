@@ -2,7 +2,7 @@ R Assignment 1: Introduction to R, RStudio, and the Global Biodiversity
 Information Facility (GBIF)
 ================
 
-<br> <br>
+   
 
 #### Motivation
 
@@ -24,9 +24,9 @@ To scratch the surface of GBIF reveals a massive database spanning the
 entire tree of life. How does one go about efficiently collecting,
 organizing, validating, and analysing so much information? The solution
 is made tractable by employing data analysis tools like those found in R
-(Note: For an introduction to R, see this week’s pre-lab reading in the
-*Prerequisites* section below). By combining the biodiversity resources
-of GBIF with the analytical tools in R, we can collect, process, and
+(Note: For an introduction to R, see this week’s [pre-lab reading in the
+section below](#prelab)). By combining the biodiversity resources of
+GBIF with the analytical tools in R, we can collect, process, and
 visualize species distribution data on any laptop or tablet. In this
 week’s lab we’ll first gather the required tools (R and GBIF) and
 develop some basic skills using them. In the following lab we’ll use our
@@ -38,9 +38,9 @@ new skills to create research-grade distribution maps.
 
 #### Pre-lab
 
-Before starting this week’s lab you will have: <br>
+Before starting this week’s lab you will have:  
 
-1.  completed pre-lab [Activity 1: Exploring the GBIF website](#A1) <br>
+1.  completed pre-lab [Activity 1: Exploring the GBIF website](#A1)  
 
 2.  completed the pre-lab reading: [Introduction for
     Students](https://moderndive.com/preface.html#introduction-for-students)
@@ -49,13 +49,13 @@ Before starting this week’s lab you will have: <br>
     from ModernDive—a textbook for learning data science using R. We
     will work through Chapters 1–4 of this textbook over the semester,
     and we encourage you to read ahead (through Ch.4) on your own time\!
-    <br>
+     
 
 3.  R and RStudio downloaded onto your computer. [Chapter 1.1 in
     ModernDive](https://moderndive.netlify.app/1-getting-started.html)
     provides instructions for downloading R and RStudio. If you have
     trouble with installation, contact the TAs as soon as possible for
-    assistance, <br>
+    assistance,  
 
 4.  \[OPTIONAL\] created an RStudio Cloud account. Although ModernDive
     provides an excellent introduction to R, RStudio Cloud has some
@@ -67,30 +67,32 @@ Before starting this week’s lab you will have: <br>
 
 -----
 
-<br> <br>
+   
 
 #### Outcomes
 
-By the end of this lab you will: <br>
+By the end of this lab you will:  
 
-1.  be familiar with GBIF and the types of data that can be obtained,
-    <br>
+1.  be familiar with GBIF and the types of data that can be obtained,  
 
-2.  know the difference between R and RStudio,
+2.  know the difference between R and RStudio,  
 
 3.  be familiar with the layout of RStudio, and understand how to
-    install packages and navigate the `nycflights13` dataset,
+    install packages and navigate the `iris` dataset (could also do our
+    own exercises with the `iris` dataset, but see
+    <https://stat.ethz.ch/R-manual/R-devel/library/datasets/html/iris.html>
+    for problems),  
 
 4.  have a sense of how R and GBIF can be used together to create
-    species distribution maps, <br>
+    species distribution maps,  
 
 -----
 
-<br> <br>
+   
 
 #### Activity 1 (Pre-lab): Exploring the GBIF website
 
-Let’s dive into GBIF\! First go to the [GBIF
+Let’s jump into GBIF\! First go to the [GBIF
 website](https://www.gbif.org). In another tab/window follow along with
 [this video tutorial](https://www.youtube.com/watch?v=40yPnJdeM_A&t=3s)
 to learn how to navigate through the GBIF website (NOTE: creating an
@@ -108,9 +110,11 @@ so that they appear on GBIF\!
 
 -----
 
-<br> <br>
+   
 
 #### Activity 2: An Introduction to R
+
+**MB: I’m imagining doing this live on Zoom**
 
 Now that we have a sense of what kinds of data we could get from GBIF
 (namely, observation records of a species), we need a tool that will
@@ -134,27 +138,45 @@ locally to you computer, RStudio Cloud is web-based, meaning that you
 can use RStudio within your web browser, without downloading anything.
 If you created an RStudio Cloud account to complete the primers (see:
 [pre-lab activities](#prelab)) then you can use your account to use
-RStudio online (**not required for this class**).
+RStudio online (**not required for this
+class**).
 
-During this activity, we’ll work through
-[Chapter 1.4](https://moderndive.com/1-getting-started.html#nycflights13)
-to explore a dataset in R. Along the way, we’ll learn some basic R
-skills like creating an object, determining classes, using functions,
-and dissecting datasets. All of these skills will come in handy as we
-move towards using R and GBIF together to solve taxonomic problems. <br>
+<!-- During this activity, we'll work through [Chapter 1.4](https://moderndive.com/1-getting-started.html) to explore a dataset in R. Along the way, we'll learn some basic R skills like creating an object, determining classes, using functions, and dissecting datasets. All of these skills will come in handy as we move towards using R and GBIF together to solve taxonomic problems.  -->
 
-To follow along, open RStudio cloud and attach the required packages
-(see:
-[Chapter 1.4](https://moderndive.com/1-getting-started.html#nycflights13)).
-The TA will step through this activity while you follow along. If
-something isn’t working for you, please let us know in the chat\! It is
-**very likley that someone is having or will have the same problem as
-you\!**. <br>
+<!-- To follow along, open RStudio cloud and attach the required packages (see: [Chapter 1.4](https://moderndive.com/1-getting-started.html)). The TA will step through this activity while you follow along. If something isn't working for you, please let us know in the chat! It is **very likley that someone is having or will have the same problem as you!**.  -->
+
+During this activity, we’ll be exploring the ‘iris’ dataset in R. Along
+the way, we’ll learn some basic R skills, like loading packages,
+creating objects, filtering data, and making some basic plots. ALl of
+these skills will come in handy as we move towards using R and GBIF
+together to solve taxonomic problems.
+
+Open RStudio, and follow the instructions on this webpage. First, open a
+new R script file (File - New File - R script), save it into your
+working directory, and write all of the code from this exercise in your
+new script file. This will allow you to keep a record of your code,
+re-run your code later, and share code with others. Type (or copy) the
+following code into your script file, and run it (highlight and hit
+command / control + enter, or click the “Run” button at the top of the
+script
+pane).
+
+``` r
+library(datasets) #this loads the 'datasets' package, which contains a bunch of datasets to explore
+iris #typing the name of the dataset will display the contents of the data in the console pane
+class(iris) #this will display the 'class' of the object 'iris'
+summary(iris) #this will give various summary statistics on the dataframe 'iris'
+```
+
+The code `class(iris)` showed us that ‘iris’ is a data frame, and
+`summary(iris)` showed us that there are five columns in the data frame:
+Sepal.Length, Sepal.Width, Petal.Length, Petal.Width, and Species. Note
+that there are periods instead of spaces in the column names…R has
+trouble reading spaces, so it’s good practice to use periods or
+underscores when naming things in R.
 
 **CANVAS QUIZ QUESTIONS** - What are the different windows (console,
 script, environment, plot) and what do they do? - what is an object? -
 what is a function?
 
 -----
-
-<br> <br>

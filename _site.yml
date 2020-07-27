@@ -1,0 +1,21 @@
+name: "my-website"
+output_dir: "docs"
+navbar:
+  title: "BIOL 324 Labs"
+  left:
+    - text: "Home"
+      href: index.html
+    - text: "Lab 6"
+      href: BIOL_324_Lab_6.html
+    - text: "Lab 7"
+      href: BIOL_324_Lab_7.html
+    - text: "Lab 8"
+      href: BIOL_324_Lab_8.html
+    - text: "Lab 9"
+      href: BIOL_324_Lab_9.html
+    - text: "Lab 10"
+      href: BIOL_324_Lab_10.html  
+output:
+  html_document:
+    theme: readable
+    highlight: tango
