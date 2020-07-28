@@ -287,7 +287,7 @@ $(document).ready(function () {
 
 <h1 class="title toc-ignore">R Assignment 2: Mapping Species Distributions using R and GBIF</h1>
 <h4 class="author">Mannfred Boehm</h4>
-<h4 class="date">22 July, 2020</h4>
+<h4 class="date">28 July, 2020</h4>
 
 </div>
 
@@ -341,7 +341,7 @@ $(document).ready(function () {
 <p><strong>Line 30</strong>: The <code>head()</code> function lets us preview the object <code>group1_metadata</code> created in the previous step. You can inspect the structure of <code>group1_metadata</code> in the <strong>Console Pane</strong>. Notice that there are numerous ‘named elements’ starting with <code>$</code>, such as <code>$gbif</code>, <code>$bison</code>, <code>$inat</code>, etc. Only the element <code>$gbif</code> contains any information, because in the previous step we instructed <code>occ()</code> to search only GBIF for occurence data (as opposed to other databases).</p>
 <p><strong>Line 37</strong>: Here, we are subsetting the large object <code>group1_metadata</code> into a smaller object <code>group1_data</code>. By doing this, we discard the empty elements, and other superfluous information that was collected by the <code>occ()</code> function. We can choose which elements to keep by using the <code>$</code> operator. The code <code>group1_metadata$gbif$data$'5384047'</code> says:</p>
 <blockquote>
-<p>&quot;Within the large object <code>group1_metadata</code>, select the element named <code>$gbif</code>. Within the element <code>$gbif</code>, select the sub-element <code>$data</code>. Within the sub-element <code>$data</code>, select the sub-sub-element <code>5384047</code> (the taxon ID for <em>O. humifusa</em>).</p>
+<p>"Within the large object <code>group1_metadata</code>, select the element named <code>$gbif</code>. Within the element <code>$gbif</code>, select the sub-element <code>$data</code>. Within the sub-element <code>$data</code>, select the sub-sub-element <code>5384047</code> (the taxon ID for <em>O. humifusa</em>).</p>
 </blockquote>
 <p>We are left then with an object <code>group1_data</code> that is considerably more simple to navigate than <code>group1_metadata</code>.</p>
 <p><strong>Line 40</strong>: The <code>unique()</code> function is applied to the <code>$ScientificName</code> column of <code>group1_data</code>. This function inspects the specified column and tells us how many unique entries exist there. In the <strong>Console Pane</strong> the output tells us that there are some synonyms that have been included.</p>
