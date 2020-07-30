@@ -1,5 +1,5 @@
 ---
-title: "Lab 6: Lamiaceae, Schrophularioids, and R Assignment 1 - Introduction to R and RStudio
+title: "Lab 6: Lamiaceae, Schrophularioids, and R Assignment 1 - Introduction to R and RStudio"
 # title: "<span style='font-size: 30px'> R Assignment 1: Introduction to R, RStudio, and the Global Biodiversity Information Facility (GBIF) </style>"
 author: Mannfred Boehm and Evan Hersh
 date: "`r format(Sys.time(), '%d %B, %Y')`"
@@ -249,7 +249,7 @@ library(ggplot2)
 #### Plotting data
 
 
-Let's use some of the plotting functions in R to help us visualize the `iris` dataset. We'll start with the base R function `plot`:
+Let's use some of the plotting functions in R to help us visualize the `iris` dataset. We'll start with the base R function `plot()`:
 
 ```{r}
 plot(iris)
