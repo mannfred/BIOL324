@@ -317,8 +317,7 @@ In the first line we're using the `ggplot()` function. The `data = iris` argumen
 
 ```{r}
 ggplot(data = iris, aes(x = Sepal.Length, y = Petal.Length)) +
-  geom_point(aes(color = Species, shape = Species)) 
-# we can add some aes() to geom_point() to change the colour and shape of our points depending on what species it is
+  geom_point(aes(color = Species, shape = Species)) # we can add some aes() to geom_point() to change the colour and shape of our points depending on what species it is
 ```
 
 Isn't that amazing??? With just two lines of code, we've created a beautiful plot, complete with data points labeled by shape and colour, and it adds a legend automatically! Let's fiddle around a bit more:
