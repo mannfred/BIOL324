@@ -21,7 +21,7 @@ library(tidyverse)
 
 # get taxon ID from GBIF
 group1_ids <- 
-  taxize::get_gbifid(sciname=c('Opuntia humifusa'), rank='species')
+  taxize::get_gbifid(sci=c('Opuntia humifusa'), rank='species')
 
 # get occurence data from GBIF                           
 group1_metadata <- 
@@ -34,13 +34,13 @@ group1_metadata <-
 # NOTE: the '$' symbol subsets your data. To narrow in 
 # on the occurence data, insert the taxon ID from 'group1_ids' 
 # into the end of the subset string 
-group1_data <- group1_metadata$gbif$data$`5384047`
+group1_simple <- group1_metadata$gbif$data$`5384047`
 
 # look for species synonyms
-unique(group1_data$scientificName)
+unique(group1_simple$scientificName)
 
 # look for misplaced country records
-unique(group1_data$country)
+unique(group1_simple$country)
 
 # filter out synonyms 
 # filter out countries

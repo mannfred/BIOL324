@@ -191,7 +191,7 @@ By the end of this lab you will: &nbsp;
 
 <!-- **CANVAS QUIZ QUESTION** -->
 
-#### Activity 1: An Introduction to R {#A2}
+#### An Introduction to R
 
 
 <!-- Now that we have a sense of what kinds of data we could get from GBIF (namely, observation records of a species), we need a tool that will allow us to organize, filter, and visualize this data. While there are many options for handling biodiversity data, in BIOL324 we will focus on using R. The layout and style of R can be daunting if this is your first time using it. Don't worry! In this course, we don't expect you to know how to use R&mdash; -->
@@ -223,7 +223,7 @@ class(iris) # displays the 'class' of the object 'iris'
 summary(iris) # gives various summary statistics on the dataframe 'iris'
 ```
 
-Running the code `class(iris)` showed us that `iris` is a `data.frame`. A `data.frame` is very similar to a spreadsheet, but exists as an 'object' within R. Then, running the code `summary(iris)` showed us that there are five columns in this `data.frame` object: `Sepal.Length`, `Sepal.Width`, `Petal.Length`, `Petal.Width`, and `Species`. Note that there are periods instead of spaces in the column names&mdash;R has trouble reading spaces, so it's good practice to use periods or underscores when creating objects or names in R. 
+Running the code `class(iris)` showed us that `iris` is a `data.frame`. A `data.frame` is very similar to a spreadsheet, but exists as an 'object' within R. This is useful because R objects can be subsetted, rearranged, pivoted, and plotted using only a few lines of code! Then, running the code `summary(iris)` showed us that there are five columns in this `data.frame` object: `Sepal.Length`, `Sepal.Width`, `Petal.Length`, `Petal.Width`, and `Species`. Note that there are periods instead of spaces in the column names&mdash;R has trouble reading spaces, so it's good practice to use periods or underscores when creating objects or names in R. 
 
 Now, let's install a couple of useful packages that will help us organize and plot data from `iris`:
 
