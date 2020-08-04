@@ -109,73 +109,70 @@ The output tells us that `group1_metadata` is a `List` object with 9 named eleme
 group1_simple <- group1_metadata$gbif$data$`5384047`
 ```
 
-While writing this code, we discovered that the `group1_metadata` object is pretty complex and with lots of layers! The code above says to take the large object `group1_metadata` and select the element named `$gbif`. Then, within the element `$gbif`, select the sub-element `$data`. Within the sub-element `$data`, select the sub-sub-element `5384047` (the taxon ID for _O. humifusa_). Inception.gif.
+While writing this code, we discovered that the `group1_metadata` object is pretty complex and with lots of layers! The code above says to take the large object `group1_metadata` and select the element named `$gbif`. Then, within the element `$gbif`, select the sub-element `$data`. Within the sub-element `$data`, select the sub-sub-element ``5384047`` (the taxon ID for _O. humifusa_). Inception.gif.
 
-
+Ok, we can finally get a look at our GBIF data:
 
 ```{r}
-group1_metadata$gbif
+group1_simple
 ```
 
-The output is pretty big and messy! The output tells us that it's a `tibble` (a type of spreadsheet) with 1000 rows and 101 columns. Each row is a record of where _Opuntia humifusa_ has been found or collected. Each column is some information associated with that record. While some of the columns are useful (e.g. the latitude and longitude), most columns aren't needed. Let's simplify this `tibble` object by subsetting:
+The output is pretty big and messy! The output tells us that it's a `tibble` (a type of spreadsheet) with 1000 rows and 101 columns. Each row is a record of where _Opuntia humifusa_ has been found or collected. Each column is some information associated with that record. While some of the columns are useful (e.g. the latitude and longitude), most columns aren't needed (we'll get rid of them later). Before we get to mapping, we should check our data for synonyms. The `unique()` function tells us how many unique entries exist within a column:
 
+```{r}
+unique(group1_simple$scientificName)
+```
 
+When we searched GBIF for "*O. humifusa*" some synonyms were included in the results. We can choose to include or exclude these in the next step.
 
-Here, we are subsetting the large object `group1_metadata` into a smaller object `group1_simple`. By doing this, we discard the superfluous information that was collected by the `occ()` function. We can choose which elements to keep by using the `$` operator. The code `group1_metadata$gbif$data$'5384047'` says: 
+Let's take a look at which countries the records come from:
 
+```{r}
+unique(group1_simple$country)
+```
 
+Even though _Opuntia_ is a North and Central American clade, some records show up in Europe. These are often specimens in herbaria. We'll create a new object that filters these out:
 
-We are left then with an object `group1_data` that is considerably more simple to navigate than `group1_metadata`.
+```{r}
+group1_fil <-  
+  group1_simple %>% 
+  filter(scientificName== 'Opuntia humifusa Raf.' & 
+         country == c('Canada', 'United States of America')) %>%
+  select(1:3)
+```
 
+In the code above, we used the `filter()` function to get rid of synonyms and records outside of North America. We also used the `select()` function to choose the columns needed for mapping. 
 
+Obtaining the data for _O. fragilis_ is almost the same, but requires an additional step. When we run:
 
+```{r, eval = FALSE}
+group2_ids <- 
++   get_gbifid(sci=c('Opuntia fragilis'), rank='species')
+```
 
-Obtaining the data for _O. fragilis_ requires an additional step. Highlight lines 62-63 and run the code. In the **Console Pane** a warning will appear stating `More than one GBIF ID found for taxon 'Opuntia fragilis'!`, and listing possible matches to the search query. We'll select the first option by typing "1" (without quotation marks) into the **Console Pane** and pressing **Enter**. Now, select lines 67-108 in the **Source Pane** and run the rest of the code. 
-After it has executed, a map will be generated in the **Plots** tab of the **Files Pane**. In the **Plots** tab, click **Zoom** to adjust the image dimensions. 
+the function responds (in the Console Pane) by telling us that there are synonyms to choose from. Enter `1` into the Console Pane, and hit Enter. This selects the `ACCEPTED` name for _O. fragilis_. From here, the same code is run as for _O. humifusa_. Once you've run lines 62-99 of the "Mapping_in_RGBIF.R" file, you'll have two datasets ready to be combined and mapped:
 
-MB: Any other plants could go here. I chose these somewhat haphazardly, but they do show a distribution that could be used to discuss allopatry. 
+```{r}
+combined_data<-
+  full_join(group1_fil, group2_fil)
+```
+
+Now we'll use the `map_ggplot()` function to map our occurence data. The `coord_fixed()` function adjusts the mapping window, using latitude and longitude as parameters.:
+
+```{r}
+map_ggplot(combined_data) + 
+  coord_fixed(xlim = c(-135, -55 ),  ylim = c(10, 90)) 
+```
+
 
 ---
 
-<br>
-<br>
-
-
-#### Activity 2: Deciphering some code
-
-
-
-
-
-
-
-
-
-**Line 40**: The `unique()` function is applied to the `$ScientificName` column of `group1_data`. This function inspects the specified column and tells us how many unique entries exist there. In the **Console Pane** the output tells us that there are some synonyms that have been included.
-
-MB: There's an opporunity here to teach about synonyms and how to make decisions about including/excluding them. 
-
-**Line 43**: Similarly, the `unique()` function is applied to the `$country` column of `group1_data`. In the **Console Pane** the output tells us that some records from Eurasia have been included. These are likely museum specimens, not natural observations. 
-
-**Lines 49-54**: We can remove synonyms and misplaced country records by using the `filter()` function. The `select()` function chooses columns 1,2, and 3, which store the plant name, latitude, and longitude, respectively.
-
-**Lines 62-94**: The above steps are repeated for _O. fragilis_.
-
-**Lines 101-102**: The `full_join()` function combines the occurence data for _O. humifusa_ and _O. fragilis_. 
-
-**Lines 107-108**: The `map_ggplot()` function maps the combined data. The `coord_fixed()` function adjusts the mapping window, using latitude and longitude as parameters.
-
-**The result**:
-
-![Figure 1: Distribution map for _O. humifusa_ and _O. fragilis_.](opuntia_dist.png)
-
----
-
-<br>
-<br>
-
+&nbsp;
+&nbsp;
 
 #### Activity 3: Creating your own species distribution map
+
+MB: Not sure if we're going this route.. let's discuss!
 
 MB: Basically, the existing code can be modified to replace _Opuntia_ with any other plant name. Re-running the code will create a map for any species that GBIF has records for. Of course, some taxa are have more complicated nomenclature, and sometimes weird entries make it onto the map. In these cases, a little troubleshooting is required. Also, if one wanted to search for genera, families, orders, etc. some additional modifications are needed. For the majority of students in BIOL413, generating their own maps didn't require my intervention. 
 

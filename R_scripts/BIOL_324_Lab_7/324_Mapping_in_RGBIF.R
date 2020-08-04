@@ -36,6 +36,7 @@ group1_metadata <-
 # into the end of the subset string 
 group1_simple <- group1_metadata$gbif$data$`5384047`
 
+
 # look for species synonyms
 unique(group1_simple$scientificName)
 
@@ -47,7 +48,7 @@ unique(group1_simple$country)
 # also, narrow in on records that are 'human observations'
 
 group1_fil<-  
-  group1_data %>% 
+  group1_simple %>% 
   filter(scientificName== 'Opuntia humifusa Raf.' & 
            basisOfRecord == "HUMAN_OBSERVATION" &
            country == c('Canada', 'United States of America')) %>%
@@ -60,12 +61,12 @@ group1_fil<-
 # get taxon ID from GBIF
 # inspect and type "1" to select "Accepted" taxonomic name
 group2_ids <- 
-  get_gbifid(sciname=c('Opuntia fragilis'), rank='species')
+  get_gbifid(sci=c('Opuntia fragilis'), rank='species')
 
 
 # get occurence data from GBIF                           
 group2_metadata <- 
-  occ(ids=group2_ids, from='gbif')
+  occ(ids=group2_ids, from='gbif', limit = 1000)
 
 # inspect metadata to find elements that we can discard
 head(group2_metadata)
@@ -75,19 +76,19 @@ head(group2_metadata)
 # on the occurence data, insert the taxon ID from 'group2_ids' 
 # into the end of the subset string.
 # this ID will be a different ID than Opuntia humifusa
-group2_data <- group2_metadata$gbif$data$`5384113`
+group2_simple<- group2_metadata$gbif$data$`5384113`
 
 # look for species synonyms
-unique(group2_data$scientificName)
+unique(group2_simple$scientificName)
 
 # look for misplaced country records
-unique(group2_data$country)
+unique(group2_simple$country)
 
 # filter out synonyms 
 # filter out countries
 # also, narrow in on records that are 'human observations'
 group2_fil<-  
-  group2_data %>% 
+  group2_simple %>% 
   filter(scientificName== 'Opuntia fragilis (Nutt.) Haw.' & 
            basisOfRecord == "HUMAN_OBSERVATION" &
            country == c('Canada', 'United States of America')) %>%
