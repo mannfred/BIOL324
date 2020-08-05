@@ -62,64 +62,67 @@ In previous labs we familiarized ourselves with GBIF, R, and RStudio. Today we'l
 
 First let's install the required packages:
 
-```{r, eval = FALSE}
+```{r chunk1, eval = FALSE}
 install.packages("mapr", "rgbif", "spocc", "taxize")
 ```
 
 These packages are designed for connecting with the GBIF database (`rgbif`, `spocc`, `taxize`), filtering data (`tidyverse`), and mapping (`mapr`). Once installed, use the `library()` function to attach the packages (we'll also attach `tidyverse` to help with data wrangling and plotting):
 
-```{r, eval = FALSE}
+```{r chunk2, eval = FALSE}
+
 library(mapr)
 library(rgbif)
 library(spocc)
 library(taxize)
 library(tidyverse)
+
 ```
+
 
 Now let's get some occurence data from GBIF! 
 
-```{r}
+```{r chunk3}
 # get taxon ID from GBIF
 group1_ids <- 
-  taxize::get_gbifid(sci=c('Opuntia humifusa'), rank='species')
+  taxize::get_gbifid(sci=c('Opuntia humifusa'), rank='species', limit = 1000)
 ```
 
 The `get_gbifid()` function searches GBIF for taxon IDs associated with your search query ("*Opuntia humifusa*"). We wrote the code as `taxize::get_gbifid()` to be clear about which package the function originated from (`taxize`), but this isn't usually necessary. The `<-` operator stores the results in an object that we named `group1_ids`. By storing the results in an object we can later return to the object and inspect it, subset it, and pipe it to other functions. The output message is telling us that the `get_gbif()` function found 1 taxon ID for *Opuntia humifusa*. This is ideal because it means that there aren't any synonyms to deal with! To find out what the taxon ID is, we'll simply call our object `group1_ids`:
 
-```{r}
+```{r chunk4}
 group1_ids
 ```
 
 Among other things, the output tells us that the taxon ID is `"5384047"`. Now, let's use our 'taxon ID object' to download occurence data directly from GBIF (this can take a minute depending on how many records there are for a taxon):
 
-```{r}
+```{r chunk5}
 group1_metadata <- 
   spocc::occ(ids = group1_ids, from = 'gbif', limit = 1000)
 ```
 
 In this code we've created a new object called `group1_metadata`. This object contains occurence records found by the `occ()` function, where we specified our taxon ID (contained in `group1_ids`) and told the function that we wanted our data `from = gbif` (instead of another database) and that we wanted a maximum of 1000 records. Let's inspect the structure of the `group1_metadata` object:
 
-```{r}
+```{r chunk6}
 str(group1_metadata, max.level=1)
 ```
 
 The output tells us that `group1_metadata` is a `List` object with 9 named elements. We are specifically interested in the named element `$gbif`, so we can simplify our object by subsetting:
 
-```{r}
+```{r chunk7}
 group1_simple <- group1_metadata$gbif$data$`5384047`
 ```
 
 While writing this code, we discovered that the `group1_metadata` object is pretty complex and with lots of layers! The code above says to take the large object `group1_metadata` and select the element named `$gbif`. Then, within the element `$gbif`, select the sub-element `$data`. Within the sub-element `$data`, select the sub-sub-element ``5384047`` (the taxon ID for _O. humifusa_). Inception.gif.
 
-Ok, we can finally get a look at our GBIF data:
+Ok, we now have some tidy GBIF data:
 
-```{r}
+```{r chunk8}
 group1_simple
 ```
 
 The output is pretty big and messy! The output tells us that it's a `tibble` (a type of spreadsheet) with 1000 rows and 101 columns. Each row is a record of where _Opuntia humifusa_ has been found or collected. Each column is some information associated with that record. While some of the columns are useful (e.g. the latitude and longitude), most columns aren't needed (we'll get rid of them later). Before we get to mapping, we should check our data for synonyms. The `unique()` function tells us how many unique entries exist within a column:
 
-```{r}
+```{r chunk9}
 unique(group1_simple$scientificName)
 ```
 
@@ -127,13 +130,15 @@ When we searched GBIF for "*O. humifusa*" some synonyms were included in the res
 
 Let's take a look at which countries the records come from:
 
-```{r}
+```{r chunk10}
 unique(group1_simple$country)
 ```
 
 Even though _Opuntia_ is a North and Central American clade, some records show up in Europe. These are often specimens in herbaria. We'll create a new object that filters these out:
 
-```{r}
+```{r chunk11}
+library(dplyr)
+
 group1_fil <-  
   group1_simple %>% 
   filter(scientificName== 'Opuntia humifusa Raf.' & 
@@ -141,25 +146,62 @@ group1_fil <-
   select(1:3)
 ```
 
-In the code above, we used the `filter()` function to get rid of synonyms and records outside of North America. We also used the `select()` function to choose the columns needed for mapping. 
+In the code above, we used the `filter()` function to get rid of synonyms and records outside of North America. We also used the `select()` function to choose the columns needed for mapping. To string together these functions, we used the pipe operator `%>%` (see R Activity 1). 
 
-Obtaining the data for _O. fragilis_ is almost the same, but requires an additional step. When we run:
+Obtaining the data for _O. fragilis_ is almost the same, but because there are many synonyms for this taxon, we'll avoid using the GBIF 'backbone taxonomy' and be more specific in our search. This means including the authority names and also setting `method = 'lookup` (the default is `method = 'backbone'`):
 
-```{r, eval = FALSE}
+```{r chunk12}
 group2_ids <- 
-+   get_gbifid(sci=c('Opuntia fragilis'), rank='species')
+  taxize::get_gbifid(sci=c('Opuntia fragilis (Nutt.) Haw.'), rank='species', limit = 1000, method = 'lookup')
 ```
 
-the function responds (in the Console Pane) by telling us that there are synonyms to choose from. Enter `1` into the Console Pane, and hit Enter. This selects the `ACCEPTED` name for _O. fragilis_. From here, the same code is run as for _O. humifusa_. Once you've run lines 62-99 of the "Mapping_in_RGBIF.R" file, you'll have two datasets ready to be combined and mapped:
+From here, the same code is run as for _O. humifusa_ : 
 
-```{r}
+```{r chunk13, results = 'hide'}
+
+# get occurence data from GBIF                           
+group2_metadata <- 
+  spocc::occ(ids=group2_ids, from='gbif', limit = 1000)
+
+# discard unnecessary metadata and preserve occurence data
+# NOTE: the '$' symbol subsets your data. To narrow in 
+# on the occurence data, insert the taxon ID from 'group2_ids' 
+# into the end of the subset string.
+# this ID will be a different ID than Opuntia humifusa
+group2_simple <- group2_metadata$gbif$data$`5384113`
+
+# look for species synonyms
+unique(group2_simple$scientificName)
+
+# look for misplaced country records
+unique(group2_simple$country)
+
+# filter out synonyms 
+# filter out countries
+# also, narrow in on records that are 'human observations'
+library(dplyr)
+
+group2_fil <-  
+  group2_simple %>% 
+  filter(scientificName== 'Opuntia fragilis (Nutt.) Haw.' & 
+           country == c('Canada', 'United States of America')) %>%
+  select(1:3)
+```
+
+We can then use the `full_join()` function to combine our two _Opuntia_ datasets:
+
+```{r chunk14}
 combined_data<-
   full_join(group1_fil, group2_fil)
 ```
 
-Now we'll use the `map_ggplot()` function to map our occurence data. The `coord_fixed()` function adjusts the mapping window, using latitude and longitude as parameters.:
+Now we'll use the `map_ggplot()` function to map our combined occurence data. The `coord_fixed()` function adjusts the mapping window, using latitude and longitude as parameters.:
 
-```{r}
+```{r chunk15}
+
+library(ggplot2)
+library(mapr)
+
 map_ggplot(combined_data) + 
   coord_fixed(xlim = c(-135, -55 ),  ylim = c(10, 90)) 
 ```

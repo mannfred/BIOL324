@@ -17,13 +17,22 @@ window.initializeCodeFolding = function(show) {
   var currentIndex = 1;
 
   // select all R code blocks
+<<<<<<< HEAD
   var rCodeBlocks = $('pre.r, pre.python, pre.bash, pre.sql, pre.cpp, pre.stan, pre.julia, pre.foldable');
+=======
+  var rCodeBlocks = $('pre.r, pre.python, pre.bash, pre.sql, pre.cpp, pre.stan, pre.julia');
+>>>>>>> a9c12974f2ec3ff44076987c193ec51a64e8f6aa
   rCodeBlocks.each(function() {
 
     // create a collapsable div to wrap the code in
     var div = $('<div class="collapse r-code-collapse"></div>');
+<<<<<<< HEAD
     show = (show || $(this).hasClass('fold-show')) && !$(this).hasClass('fold-hide');
     if (show) div.addClass('in');
+=======
+    if (show || $(this)[0].classList.contains('fold-show'))
+      div.addClass('in');
+>>>>>>> a9c12974f2ec3ff44076987c193ec51a64e8f6aa
     var id = 'rcode-643E0F36' + currentIndex++;
     div.attr('id', id);
     $(this).before(div);
