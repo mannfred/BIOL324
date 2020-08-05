@@ -9,10 +9,9 @@
 <meta http-equiv="X-UA-Compatible" content="IE=EDGE" />
 
 
-<meta name="author" content="Mannfred Boehm" />
 
 
-<title>R Assignment 5: Combining Phylogenetics with Biogeography</title>
+<title>BIOL 324 Home Page</title>
 
 <script src="site_libs/jquery-1.11.3/jquery.min.js"></script>
 <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -285,77 +284,16 @@ $(document).ready(function () {
 
 
 
-<h1 class="title toc-ignore">R Assignment 5: Combining Phylogenetics with Biogeography</h1>
-<h4 class="author">Mannfred Boehm</h4>
-<h4 class="date">05 August, 2020</h4>
+<h1 class="title toc-ignore">BIOL 324 Home Page</h1>
 
 </div>
 
 
-<p><br> <br></p>
-<div id="motivation" class="section level4">
-<h4>Motivation</h4>
-<p>Add section…</p>
-<hr />
-<p><br> <br></p>
-</div>
-<div id="prerequisites" class="section level4">
-<h4>Prerequisites</h4>
-<p>Before starting this week’s tutorial you will have: <br></p>
-<ol style="list-style-type: decimal">
-<li><p>completed Assignment 2 (Mapping) and Assignment 4 (Phylogenetics), <br></p></li>
-<li><p>completed some pre-assignment reading on the use of phylogeography in plant taxonomy, <br></p></li>
-<li><p>more…</p></li>
-</ol>
-<hr />
-<p><br> <br></p>
-</div>
-<div id="outcomes" class="section level4">
-<h4>Outcomes</h4>
-<p>By the end of this tutorial you will have: <br></p>
-<ol style="list-style-type: decimal">
-<li><p>the ability to combine distribution data from GBIF with sequence data from Genbank to create phylogeographic maps of species distributions,</p></li>
-<li><p>more…</p></li>
-</ol>
-<hr />
-<p><br> <br></p>
-</div>
-<div id="activity-1-creating-a-phylogeographic-map-from-gbif-and-genbank-data" class="section level4">
-<h4>Activity 1: Creating a Phylogeographic Map from GBIF and Genbank Data</h4>
-<p>In previous Assignments we mapped species distributions and constructed phylogenetic trees. In this Assignment, we’ll combine both lines of research to simultaneously visualize the phylogenetic and geographic relationships of five <em>Opuntia</em> species.</p>
-<p>In this lab, we’ll explore further the genus <em>Opuntia</em>: <br></p>
-<p><em>Opuntia basilaris</em> (Mojave, Colorado, Utah) <br> <em>Opuntia fragilis</em> (Northwestern) <br> <em>Opuntia humifusa</em> (Eastern) <br> <em>Opuntia oricola</em> (Coastal sage and chaparral of S. California) <br> <em>Opuntia polyacantha</em> (Great Plains, foothills of Rocky Mtns) <br></p>
-<p><strong>MB</strong> If we’re using this example, some background will have hopefully been imparted in the last Assignment.</p>
-<p>Open this week’s .R file (‘324_Phylogeography.R’) and navigate to the source pane. Install and attach the necessary packages using <code>install.packages()</code> and <code>library()</code>. Start by importing your species distribution data (from GBIF, Assignment 2) and your phylogenetic tree (Assignment 4). By highlighting and running the entire script, the data are combined and plotted.</p>
-<hr />
-<p><br> <br></p>
-</div>
-<div id="activity-2-deciphering-some-code" class="section level4">
-<h4>Activity 2: Deciphering some code</h4>
-<p>Let’s step through the script in order to understand what is happening here.</p>
-<p><br></p>
-<p><strong>Lines 14-18</strong>: The <code>library()</code> function loads various packages designed specifically for organizing data (<code>tidyverse</code>), creating custom colour palettes (<code>viridis</code>), and mapping (<code>mapdata</code>, <code>phytools</code>).</p>
-<p><strong>Lines 24-27</strong>: Import your GBIF and phylogenetic data from previous assignments.</p>
-<p><strong>Lines 30-38</strong>: To reduce clutter in our plot, we’ll rename the rows in our dataframe with shortened versions of the species’ names.</p>
-<p><strong>Lines 41-44</strong>: We’ll extract the latitude and longitude information from our larger dataframe, and store it as a <code>matrix</code> style object. (This is because <code>phytools::phylo.to.map()</code> can only handle lat-long info of the <code>matrix</code> class.)</p>
-<p><strong>Line 50</strong>: Here, we’re removing any rows that have missing lat-long information (NAs).</p>
-<p><strong>Line 53</strong>: In order to combine the phylogenetic and distribution data, both data objects need to have the species names in the same format.</p>
-<p><strong>Lines 71-81</strong>: The <code>phytools::phylo.to.map()</code> function combines our distribution data <code>latlong</code> with our phylogenetic tree <code>con_tree_rooted</code>. We use the <code>regions</code> parameter to specify what parts of the world to plot, and we’ll use the ‘Hi-resolution World’ setting under <code>database</code>.</p>
-<p><strong>Lines 84-92</strong>: We can plot our combined dataset using the <code>phytools::plot()</code> function.</p>
-<p><br></p>
-<div class="figure">
-<img src="opuntia_phylogeography_pts.jpg" alt="Figure 1: Phylogeographic distribution (with points) of some North American Opuntia." />
-<p class="caption">Figure 1: Phylogeographic distribution (with points) of some North American <em>Opuntia</em>.</p>
-</div>
-<p><br> <br></p>
-<p><strong>Lines 84-92</strong>: In this example, we’ve set <code>cex.points</code> to zero, which tells the plotting function not to plots circles at each lat-long location. This can make our map a bit cleaner when plotting hulls.</p>
-<p><br></p>
-<div class="figure">
-<img src="opuntia_phylogeography_hulls.jpg" alt="Figure 2: Phylogeographic distribution (with hulls) of some North American Opuntia." />
-<p class="caption">Figure 2: Phylogeographic distribution (with hulls) of some North American <em>Opuntia</em>.</p>
-</div>
-<p><br> <br></p>
-</div>
+<p> </p>
+<p>Welcome to the BIOL 324 Lab Github page!</p>
+<p> </p>
+<p><img src="media/splash.jpeg" /></p>
+<p><em>Erigeron speciosus</em> (Asteraceae) in the Nicola Valley, BC. Photo by Evan Hersh.</p>
 
 
 
