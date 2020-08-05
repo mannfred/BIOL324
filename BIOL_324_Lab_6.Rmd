@@ -40,24 +40,70 @@ Most Lamiaceae contain fragrant oils, and many are used as herbs or flavorings, 
 
 &nbsp;
 
-**Insert photos**
+---
 
 &nbsp;
+
+See the below pictures of *Stachys chamissonis*, noting the square stems. The picture on the right shows a cross-section of the stem.
+
+<p align="center">
+![](./media/Lamiaceae_2.jpeg){width=40%} ![](./media/Lamiaceae_3.jpeg){width=40%}
+</p>
+
+&nbsp;
+
+The leaves are most often "decussate" in this family (leaves opposite at each node, with each pair of leaves rotated 90&deg; with respect to those above and below).
+
+<p align="center">
+![](./media/Lamiaceae_1.jpeg){width=40%} ![](./media/Lamiaceae_4.jpeg){width=40%}
+</p>
+
+&nbsp;
+
+Flowers are zygomorphic and bilabiate, with fused sepals and petals. The flowers are quite often arranged in "verticils" (whorls of flowers in cyclical arrangement attached to a central point). Note the flower structure and verticils below in *S. chamissonis* (left) and *Salvia nemorosa* (right).
+
+<p align="center">
+![](./media/Lamiaceae_6.jpeg){width=40%} ![](./media/Lamiaceae_5.jpeg){width=40%}
+</p>
+
+&nbsp;
+
+Many flowers in Lamiaceae and the Scrophularioid families have "galea", where the upper lip of the corolla is shaped like a hood or helmet. The galea is quite strong in the *Salvia* (right).
+
+<p align="center">
+![](./media/Lamiaceae_7.jpeg){width=40%} ![](./media/Lamiaceae_8.jpeg){width=40%}
+</p>
+
+&nbsp;
+
+As mentioned above, many members of Lamiaceae are aromatic and used as culinary herbs (e.g., rosemary, thyme, mint, sage, etc). These delicious flavours and dank smells come from fragrant oils, which are often stored in glandular trichomes. In the close-up of *Stachys* below, you can see both glandular and eglandular trichomes.
+
+<p align="center">
+![](./media/Lamiaceae_9.jpeg){width=60%}
+</p>
+
+&nbsp;
+
+Lamiaceae flowers have superior ovaries, with compound pistils and 2 carpels. While the ovary only has two carpels, each carpel is deeply lobed and breaks in two, eventually developing into 4 "nutlets" that break off individually. 
+
+<p align="center">
+![](./media/Lamiaceae_10.jpeg){width=40%} ![](./media/Lamiaceae_11.jpeg){width=40%}
+</p>
+
+&nbsp; 
 
 ---
 
 **-KNOWLEDGE CHECK-** 
-- Draw the above flowers, and label with the following structures: stamens, style, stigma, calyx, corolla, anther, dud anther, connective, nutlets.
 
-- What word describes the shape of the corollas in this family?
-
-- The calyx is synsepalous.  How many lobes are there? 
-
-- The corolla is sympetalous.  How many lobes are there?
-
-- How many stigma lobes are there? 
-
-- Maybe some question that gets them to connect carpel # to nutlet #? 
+Using the above pictures, make some drawings and label the following structures:     -stamens  
+-style   
+-stigma (how many stigma lobes are there?)   
+-calyx    
+-corolla   
+-nutlets   
+-decussate leaves (how is "decussate" different from "opposite"?)   
+-flowers in verticils   
 
 ---
 
@@ -106,17 +152,89 @@ Example: *Paulownia* (foxglove tree).
 
 &nbsp;
 
-**Insert photos**
+Many members of the Scrophularioid families have fused, tubulur, and bilabiate corollas. Some of these can be quite showy, as pictured below in *Penstemon davidsonii* (left) and *Erythranthe lewisii* (right); both of these plants can be found along subalpine streambanks in Pacific Northwest.
+
+<p align="center">
+![](./media/Scroph_5.jpeg){width=40%} ![](./media/Scroph_4.jpeg){width=40%}
+</p>
 
 &nbsp;
 
+A more common and widespread example is foxglove (*Digitalis purpurea*). Like other members of the Scrophularioids, it has 5 sepals and 5 fused petals (it is not totally obvious, but you can see the petal lobes at the tips of the corolla tube). 
+
+<p align="center">
+![](./media/Scroph_1.jpeg){width=40%} ![](./media/Scroph_2.jpeg){width=40%}
+</p>
+
+&nbsp;
+
+The stamens are "epipetalous", meaning that the filaments are fused to the petals instead of emerging separately from the receptacle. See the dissected foxglove flower below:
+
+<p align="center">
+![](./media/Scroph_6.jpeg){width=60%}
+</p>
+
+&nbsp;
+
+These families have superior ovaries (2 carpels) that develop into capsules. Below, you can see foxglove capsules at various stages of development (left). Once the fruit is fully developed, the capsule dehisces and releases the seeds (right). 
+
+<p align="center">
+![](./media/Scroph_7.jpeg){width=40%} ![](./media/Scroph_8.jpeg){width=40%}
+</p>
+
+&nbsp;
+
+These families exhibit a wide diversity of floral forms, which makes it a difficult group to identify by sight. For example, *Antirrhinum* (snapdragons - left) and *Linaria* (toadflax - right) both have petal spurs, which we saw in the Ranunculaceae. 
+<p align="center">
+![](./media/Scroph_9.jpeg){width=40%} ![](./media/Scroph_10.jpeg){width=40%}
+</p>
+
+&nbsp;
+
+Some genera, like the beautiful and dainty *Veronica*, have small and barely zygomorphic flowers.
+
+<p align="center">
+![](./media/Scroph_11.jpeg){width=60%}
+</p>
+
+&nbsp;
+
+The family Orobanchaceae (also originally housed within Scrophulariaceae) has many parasitic plants with wild floral structures, like *Castilleja* (paintbrushes - left) and *Pedicularis* (louseworts - right). In paintbrushes, most of the vibrantly coloured (in this case red) bits are actually bracts (modified leaves), and the more drab greenish bits are the perianth. In the Elephant's head lousewort (*Pedicularis groenlandica*) displayed on the right, the upper corolla lip is strongly galeate and beaked, resembling the head and trunk of an elephant.
+
+<p align="center">
+![](./media/Scroph_12.jpeg){width=40%} ![](./media/Scroph_13.jpeg){width=40%}
+</p>
+
+&nbsp;
+
+*Plantago* (one of the only three genera originally in Plantaginaceae) also has weird flowers that are highly reduced and a lot less showy than other Scrophularioids. *Plantago lanceolata*, a widespread weed pictured below, has a spike of densely clustered flowers that are quite drab and greenish-brownish. You can see stamens poking out if you catch them at the right time. 
+
+<p align="center">
+![](./media/Scroph_14.jpeg){width=60%}
+</p>
+
+&nbsp;
+
+Like with all things that seem boring at first, things get a lot more interesting when you use some magnification! Here you can see all those tiny flowers densely clustered together.
+
+<p align="center">
+![](./media/Scroph_15.jpeg){width=60%}
+</p>
+
+&nbsp;
+
+Carefully removing one of these flowers shows a developing capsule, that dehisces like an Easter egg or Matroyshka doll, revealing the seeds inside. 
+
+<p align="center">
+![](./media/Scroph_16.jpeg){width=40%} ![](./media/Scroph_17.jpeg){width=40%}
+</p>
 ---
 
-**-KNOWLEDGE CHECK-** Draw the above flowers, and label with the following structures: spur, style, stigma, stamen, ovary, corolla, calyx
-
-- Draw the dissected fruit. How many carpels are there, and what type of placentation does it have?
-
-- Draw the *Plantago* capsule. How does the capsule dehisce?
+**-KNOWLEDGE CHECK-** Using the pictures above, make some drawings and label the following structures:  
+- Fused, bilabiate corolla  
+- Spur  
+- Epipetalous stamens  
+- Capsule (note the type of dehiscence)   
 
 ---
 
