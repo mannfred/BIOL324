@@ -9,10 +9,10 @@
 <meta http-equiv="X-UA-Compatible" content="IE=EDGE" />
 
 
-<meta name="author" content="Mannfred Boehm" />
+<meta name="author" content="" />
 
 
-<title>R Assignment 5: Combining Phylogenetics with Biogeography</title>
+<title>Untitled</title>
 
 <script src="site_libs/jquery-1.11.3/jquery.min.js"></script>
 <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -23,6 +23,96 @@
 <script src="site_libs/navigation-1.1/tabsets.js"></script>
 
 
+<style type="text/css">code{white-space: pre;}</style>
+<style type="text/css" data-origin="pandoc">
+a.sourceLine { display: inline-block; line-height: 1.25; }
+a.sourceLine { pointer-events: none; color: inherit; text-decoration: inherit; }
+a.sourceLine:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode { white-space: pre; position: relative; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+code.sourceCode { white-space: pre-wrap; }
+a.sourceLine { text-indent: -1em; padding-left: 1em; }
+}
+pre.numberSource a.sourceLine
+  { position: relative; left: -4em; }
+pre.numberSource a.sourceLine::before
+  { content: attr(title);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; pointer-events: all; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  { background-color: #f8f8f8; }
+@media screen {
+a.sourceLine::before { text-decoration: underline; }
+}
+code span.al { color: #ef2929; } /* Alert */
+code span.an { color: #8f5902; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #c4a000; } /* Attribute */
+code span.bn { color: #0000cf; } /* BaseN */
+code span.cf { color: #204a87; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4e9a06; } /* Char */
+code span.cn { color: #000000; } /* Constant */
+code span.co { color: #8f5902; font-style: italic; } /* Comment */
+code span.cv { color: #8f5902; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #8f5902; font-weight: bold; font-style: italic; } /* Documentation */
+code span.dt { color: #204a87; } /* DataType */
+code span.dv { color: #0000cf; } /* DecVal */
+code span.er { color: #a40000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #0000cf; } /* Float */
+code span.fu { color: #000000; } /* Function */
+code span.im { } /* Import */
+code span.in { color: #8f5902; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #204a87; font-weight: bold; } /* Keyword */
+code span.op { color: #ce5c00; font-weight: bold; } /* Operator */
+code span.ot { color: #8f5902; } /* Other */
+code span.pp { color: #8f5902; font-style: italic; } /* Preprocessor */
+code span.sc { color: #000000; } /* SpecialChar */
+code span.ss { color: #4e9a06; } /* SpecialString */
+code span.st { color: #4e9a06; } /* String */
+code span.va { color: #000000; } /* Variable */
+code span.vs { color: #4e9a06; } /* VerbatimString */
+code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warning */
+
+</style>
+<script>
+// apply pandoc div.sourceCode style to pre.sourceCode instead
+(function() {
+  var sheets = document.styleSheets;
+  for (var i = 0; i < sheets.length; i++) {
+    if (sheets[i].ownerNode.dataset["origin"] !== "pandoc") continue;
+    try { var rules = sheets[i].cssRules; } catch (e) { continue; }
+    for (var j = 0; j < rules.length; j++) {
+      var rule = rules[j];
+      // check if there is a div.sourceCode rule
+      if (rule.type !== rule.STYLE_RULE || rule.selectorText !== "div.sourceCode") continue;
+      var style = rule.style.cssText;
+      // check if color or background-color is set
+      if (rule.style.color === '' && rule.style.backgroundColor === '') continue;
+      // replace div.sourceCode by a pre.sourceCode rule
+      sheets[i].deleteRule(j);
+      sheets[i].insertRule('pre.sourceCode{' + style + '}', j);
+    }
+  }
+})();
+</script>
+<style type="text/css">
+  pre:not([class]) {
+    background-color: white;
+  }
+</style>
 
 
 <style type="text/css">
@@ -285,77 +375,18 @@ $(document).ready(function () {
 
 
 
-<h1 class="title toc-ignore">R Assignment 5: Combining Phylogenetics with Biogeography</h1>
-<h4 class="author">Mannfred Boehm</h4>
-<h4 class="date">04 August, 2020</h4>
+<h1 class="title toc-ignore">Untitled</h1>
 
 </div>
 
 
-<p><br> <br></p>
-<div id="motivation" class="section level4">
-<h4>Motivation</h4>
-<p>Add section…</p>
-<hr />
-<p><br> <br></p>
-</div>
-<div id="prerequisites" class="section level4">
-<h4>Prerequisites</h4>
-<p>Before starting this week’s tutorial you will have: <br></p>
-<ol style="list-style-type: decimal">
-<li><p>completed Assignment 2 (Mapping) and Assignment 4 (Phylogenetics), <br></p></li>
-<li><p>completed some pre-assignment reading on the use of phylogeography in plant taxonomy, <br></p></li>
-<li><p>more…</p></li>
-</ol>
-<hr />
-<p><br> <br></p>
-</div>
-<div id="outcomes" class="section level4">
-<h4>Outcomes</h4>
-<p>By the end of this tutorial you will have: <br></p>
-<ol style="list-style-type: decimal">
-<li><p>the ability to combine distribution data from GBIF with sequence data from Genbank to create phylogeographic maps of species distributions,</p></li>
-<li><p>more…</p></li>
-</ol>
-<hr />
-<p><br> <br></p>
-</div>
-<div id="activity-1-creating-a-phylogeographic-map-from-gbif-and-genbank-data" class="section level4">
-<h4>Activity 1: Creating a Phylogeographic Map from GBIF and Genbank Data</h4>
-<p>In previous Assignments we mapped species distributions and constructed phylogenetic trees. In this Assignment, we’ll combine both lines of research to simultaneously visualize the phylogenetic and geographic relationships of five <em>Opuntia</em> species.</p>
-<p>In this lab, we’ll explore further the genus <em>Opuntia</em>: <br></p>
-<p><em>Opuntia basilaris</em> (Mojave, Colorado, Utah) <br> <em>Opuntia fragilis</em> (Northwestern) <br> <em>Opuntia humifusa</em> (Eastern) <br> <em>Opuntia oricola</em> (Coastal sage and chaparral of S. California) <br> <em>Opuntia polyacantha</em> (Great Plains, foothills of Rocky Mtns) <br></p>
-<p><strong>MB</strong> If we’re using this example, some background will have hopefully been imparted in the last Assignment.</p>
-<p>Open this week’s .R file (‘324_Phylogeography.R’) and navigate to the source pane. Install and attach the necessary packages using <code>install.packages()</code> and <code>library()</code>. Start by importing your species distribution data (from GBIF, Assignment 2) and your phylogenetic tree (Assignment 4). By highlighting and running the entire script, the data are combined and plotted.</p>
-<hr />
-<p><br> <br></p>
-</div>
-<div id="activity-2-deciphering-some-code" class="section level4">
-<h4>Activity 2: Deciphering some code</h4>
-<p>Let’s step through the script in order to understand what is happening here.</p>
-<p><br></p>
-<p><strong>Lines 14-18</strong>: The <code>library()</code> function loads various packages designed specifically for organizing data (<code>tidyverse</code>), creating custom colour palettes (<code>viridis</code>), and mapping (<code>mapdata</code>, <code>phytools</code>).</p>
-<p><strong>Lines 24-27</strong>: Import your GBIF and phylogenetic data from previous assignments.</p>
-<p><strong>Lines 30-38</strong>: To reduce clutter in our plot, we’ll rename the rows in our dataframe with shortened versions of the species’ names.</p>
-<p><strong>Lines 41-44</strong>: We’ll extract the latitude and longitude information from our larger dataframe, and store it as a <code>matrix</code> style object. (This is because <code>phytools::phylo.to.map()</code> can only handle lat-long info of the <code>matrix</code> class.)</p>
-<p><strong>Line 50</strong>: Here, we’re removing any rows that have missing lat-long information (NAs).</p>
-<p><strong>Line 53</strong>: In order to combine the phylogenetic and distribution data, both data objects need to have the species names in the same format.</p>
-<p><strong>Lines 71-81</strong>: The <code>phytools::phylo.to.map()</code> function combines our distribution data <code>latlong</code> with our phylogenetic tree <code>con_tree_rooted</code>. We use the <code>regions</code> parameter to specify what parts of the world to plot, and we’ll use the ‘Hi-resolution World’ setting under <code>database</code>.</p>
-<p><strong>Lines 84-92</strong>: We can plot our combined dataset using the <code>phytools::plot()</code> function.</p>
-<p><br></p>
-<div class="figure">
-<img src="opuntia_phylogeography_pts.jpg" alt="Figure 1: Phylogeographic distribution (with points) of some North American Opuntia." />
-<p class="caption">Figure 1: Phylogeographic distribution (with points) of some North American <em>Opuntia</em>.</p>
-</div>
-<p><br> <br></p>
-<p><strong>Lines 84-92</strong>: In this example, we’ve set <code>cex.points</code> to zero, which tells the plotting function not to plots circles at each lat-long location. This can make our map a bit cleaner when plotting hulls.</p>
-<p><br></p>
-<div class="figure">
-<img src="opuntia_phylogeography_hulls.jpg" alt="Figure 2: Phylogeographic distribution (with hulls) of some North American Opuntia." />
-<p class="caption">Figure 2: Phylogeographic distribution (with hulls) of some North American <em>Opuntia</em>.</p>
-</div>
-<p><br> <br></p>
-</div>
+<div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb1-1" title="1">readname =<span class="st"> </span><span class="cf">function</span>()<span class="co"># Get the project name</span></a>
+<a class="sourceLine" id="cb1-2" title="2">{ </a>
+<a class="sourceLine" id="cb1-3" title="3">  params<span class="op">$</span>prjName</a>
+<a class="sourceLine" id="cb1-4" title="4">}</a>
+<a class="sourceLine" id="cb1-5" title="5">prjName=<span class="kw">readname</span>()</a>
+<a class="sourceLine" id="cb1-6" title="6">prjName</a></code></pre></div>
+<pre><code>## [1] &quot;The project name&quot;</code></pre>
 
 
 

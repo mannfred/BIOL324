@@ -1,0 +1,60 @@
+---
+title: "Untitled"
+author: ""
+date: ""
+output: html_document
+params: 
+  prjName: "The project name"
+---
+
+```{r chunk12}
+group2_ids <- 
+  taxize::get_gbifid(sci=c('Opuntia fragilis'), rank='species', limit = 1000)
+```
+
+the function responds (in the Console Pane) by telling us that there are synonyms to choose from. Enter `1` into the Console Pane, and hit Enter. This selects the `ACCEPTED` name for _O. fragilis_. From here, the same code is run as for _O. humifusa_ : 
+
+```{r chunk13, results = 'hide'}
+
+# get occurence data from GBIF                           
+group2_metadata <- 
+  spocc::occ(ids=group2_ids, from='gbif', limit = 1000)
+
+# discard unnecessary metadata and preserve occurence data
+# NOTE: the '$' symbol subsets your data. To narrow in 
+# on the occurence data, insert the taxon ID from 'group2_ids' 
+# into the end of the subset string.
+# this ID will be a different ID than Opuntia humifusa
+group2_simple <- group2_metadata$gbif$data$`5384113`
+
+# look for species synonyms
+unique(group2_simple$scientificName)
+
+# look for misplaced country records
+unique(group2_simple$country)
+
+# filter out synonyms 
+# filter out countries
+# also, narrow in on records that are 'human observations'
+library(dplyr)
+
+group2_fil <-  
+  group2_simple %>% 
+  filter(scientificName== 'Opuntia fragilis (Nutt.) Haw.' & 
+           country == c('Canada', 'United States of America')) %>%
+  select(1:3)
+```
+
+We can then use the `full_join()` function to combine our two _Opuntia_ datasets:
+
+```{r chunk14}
+combined_data<-
+  full_join(group1_fil, group2_fil)
+```
+
+Now we'll use the `map_ggplot()` function to map our combined occurence data. The `coord_fixed()` function adjusts the mapping window, using latitude and longitude as parameters.:
+
+```{r chunk15}
+map_ggplot(combined_data) + 
+  coord_fixed(xlim = c(-135, -55 ),  ylim = c(10, 90)) 
+```
