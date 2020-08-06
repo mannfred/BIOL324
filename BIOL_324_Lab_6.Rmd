@@ -193,9 +193,10 @@ These families exhibit a wide diversity of floral forms, which makes it a diffic
 
 Some genera, like the beautiful and dainty *Veronica*, have small and barely zygomorphic flowers.
 
-<p align="center">
-![](./media/Scroph_11.jpeg){width=60%}
-</p>
+**Insert photo of Veronica**
+<!-- <p align="center"> -->
+<!-- ![](./media/Scroph_11.jpeg){width=60%} -->
+<!-- </p> -->
 
 &nbsp;
 
