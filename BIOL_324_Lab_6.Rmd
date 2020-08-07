@@ -479,7 +479,7 @@ Now that we've visualized some parts of the `iris` dataset, we can inspect, re-o
 
 ```{r}
 iris.virginica <- # assign an object named "iris.virginica"
-  filter(iris, Species == "virginica") # takes only the rows for which 'Species' is 'virginica' 
+  dplyr::filter(iris, Species == "virginica") # takes only the rows for which 'Species' is 'virginica' 
 ```
 
 ```{r}
@@ -495,7 +495,7 @@ We can also filter using multiple conditions:
 
 ```{r}
 iris.virginica.sepal6 <- # create a new object
-  filter(iris, Species == "virginica", Sepal.Length > 6) #keeps virginica species that have sepals longer than 6
+  dplyr::filter(iris, Species == "virginica", Sepal.Length > 6) #keeps virginica species that have sepals longer than 6
 
 head(iris.virginica.sepal6)
 ```

@@ -21,13 +21,14 @@
 <script src="site_libs/bootstrap-3.3.5/shim/html5shiv.min.js"></script>
 <script src="site_libs/bootstrap-3.3.5/shim/respond.min.js"></script>
 <script src="site_libs/navigation-1.1/tabsets.js"></script>
+<script src="site_libs/accessible-code-block-0.0.1/empty-anchor.js"></script>
 
 
 <style type="text/css">code{white-space: pre;}</style>
 <style type="text/css" data-origin="pandoc">
-a.sourceLine { display: inline-block; line-height: 1.25; }
-a.sourceLine { pointer-events: none; color: inherit; text-decoration: inherit; }
-a.sourceLine:empty { height: 1.2em; }
+code.sourceCode > span { display: inline-block; line-height: 1.25; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+code.sourceCode > span:empty { height: 1.2em; }
 .sourceCode { overflow: visible; }
 code.sourceCode { white-space: pre; position: relative; }
 div.sourceCode { margin: 1em 0; }
@@ -37,14 +38,16 @@ div.sourceCode { overflow: auto; }
 }
 @media print {
 code.sourceCode { white-space: pre-wrap; }
-a.sourceLine { text-indent: -1em; padding-left: 1em; }
+code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
 }
-pre.numberSource a.sourceLine
-  { position: relative; left: -4em; }
-pre.numberSource a.sourceLine::before
-  { content: attr(title);
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
     position: relative; left: -1em; text-align: right; vertical-align: baseline;
-    border: none; pointer-events: all; display: inline-block;
+    border: none; display: inline-block;
     -webkit-touch-callout: none; -webkit-user-select: none;
     -khtml-user-select: none; -moz-user-select: none;
     -ms-user-select: none; user-select: none;
@@ -53,9 +56,9 @@ pre.numberSource a.sourceLine::before
   }
 pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
 div.sourceCode
-  { background-color: #f8f8f8; }
+  {  background-color: #f8f8f8; }
 @media screen {
-a.sourceLine::before { text-decoration: underline; }
+code.sourceCode > span > a:first-child::before { text-decoration: underline; }
 }
 code span.al { color: #ef2929; } /* Alert */
 code span.an { color: #8f5902; font-weight: bold; font-style: italic; } /* Annotation */
@@ -377,7 +380,7 @@ $(document).ready(function () {
 
 <h1 class="title toc-ignore">R Activity 2: Mapping Species Distributions using R and GBIF</h1>
 <h4 class="author">Mannfred Boehm</h4>
-<h4 class="date">05 August, 2020</h4>
+<h4 class="date">06 August, 2020</h4>
 
 </div>
 
@@ -414,28 +417,28 @@ $(document).ready(function () {
 <h4>Mapping Species Distributions</h4>
 <p>In previous labs we familiarized ourselves with GBIF, R, and RStudio. Today we’ll be running a script that collects, filters, and maps distribution data for two species of “prickly pear” cacti <em>Opuntia fragilis</em> Nutt. Haw. and <em>Opuntia humifusa</em> Raf. (Opuntioideae: Cactaceae).</p>
 <p>First let’s install the required packages:</p>
-<div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb1-1" title="1"><span class="kw">install.packages</span>(<span class="st">&quot;mapr&quot;</span>, <span class="st">&quot;rgbif&quot;</span>, <span class="st">&quot;spocc&quot;</span>, <span class="st">&quot;taxize&quot;</span>)</a></code></pre></div>
+<div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1"></a><span class="kw">install.packages</span>(<span class="st">&quot;mapr&quot;</span>, <span class="st">&quot;rgbif&quot;</span>, <span class="st">&quot;spocc&quot;</span>, <span class="st">&quot;taxize&quot;</span>)</span></code></pre></div>
 <p>These packages are designed for connecting with the GBIF database (<code>rgbif</code>, <code>spocc</code>, <code>taxize</code>), filtering data (<code>tidyverse</code>), and mapping (<code>mapr</code>). Once installed, use the <code>library()</code> function to attach the packages (we’ll also attach <code>tidyverse</code> to help with data wrangling and plotting):</p>
-<div class="sourceCode" id="cb2"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb2-1" title="1"><span class="kw">library</span>(mapr)</a>
-<a class="sourceLine" id="cb2-2" title="2"><span class="kw">library</span>(rgbif)</a>
-<a class="sourceLine" id="cb2-3" title="3"><span class="kw">library</span>(spocc)</a>
-<a class="sourceLine" id="cb2-4" title="4"><span class="kw">library</span>(taxize)</a>
-<a class="sourceLine" id="cb2-5" title="5"><span class="kw">library</span>(tidyverse)</a></code></pre></div>
+<div class="sourceCode" id="cb2"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1"></a><span class="kw">library</span>(mapr)</span>
+<span id="cb2-2"><a href="#cb2-2"></a><span class="kw">library</span>(rgbif)</span>
+<span id="cb2-3"><a href="#cb2-3"></a><span class="kw">library</span>(spocc)</span>
+<span id="cb2-4"><a href="#cb2-4"></a><span class="kw">library</span>(taxize)</span>
+<span id="cb2-5"><a href="#cb2-5"></a><span class="kw">library</span>(tidyverse)</span></code></pre></div>
 <p>Now let’s get some occurence data from GBIF!</p>
-<div class="sourceCode" id="cb3"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb3-1" title="1"><span class="co"># get taxon ID from GBIF</span></a>
-<a class="sourceLine" id="cb3-2" title="2">group1_ids &lt;-<span class="st"> </span></a>
-<a class="sourceLine" id="cb3-3" title="3"><span class="st">  </span>taxize<span class="op">::</span><span class="kw">get_gbifid</span>(<span class="dt">sci=</span><span class="kw">c</span>(<span class="st">&#39;Opuntia humifusa&#39;</span>), <span class="dt">rank=</span><span class="st">&#39;species&#39;</span>, <span class="dt">limit =</span> <span class="dv">1000</span>)</a></code></pre></div>
-<pre><code>## ==  1 queries  ===============</code></pre>
+<div class="sourceCode" id="cb3"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1"></a><span class="co"># get taxon ID from GBIF</span></span>
+<span id="cb3-2"><a href="#cb3-2"></a>group1_ids &lt;-<span class="st"> </span></span>
+<span id="cb3-3"><a href="#cb3-3"></a><span class="st">  </span>taxize<span class="op">::</span><span class="kw">get_gbifid</span>(<span class="dt">sci=</span><span class="kw">c</span>(<span class="st">&#39;Opuntia humifusa&#39;</span>), <span class="dt">rank=</span><span class="st">&#39;species&#39;</span>, <span class="dt">limit =</span> <span class="dv">1000</span>)</span></code></pre></div>
+<pre><code>## ══  1 queries  ═══════════════</code></pre>
 <pre><code>## 
 ## Retrieving data for taxon &#39;Opuntia humifusa&#39;</code></pre>
-<pre><code>## v  Found:  Opuntia humifusa
-## ==  Results  =================
+<pre><code>## ✔  Found:  Opuntia humifusa
+## ══  Results  ═════════════════
 ## 
-## * Total: 1 
-## * Found: 1 
-## * Not Found: 0</code></pre>
+## ● Total: 1 
+## ● Found: 1 
+## ● Not Found: 0</code></pre>
 <p>The <code>get_gbifid()</code> function searches GBIF for taxon IDs associated with your search query (“<em>Opuntia humifusa</em>”). We wrote the code as <code>taxize::get_gbifid()</code> to be clear about which package the function originated from (<code>taxize</code>), but this isn’t usually necessary. The <code>&lt;-</code> operator stores the results in an object that we named <code>group1_ids</code>. By storing the results in an object we can later return to the object and inspect it, subset it, and pipe it to other functions. The output message is telling us that the <code>get_gbif()</code> function found 1 taxon ID for <em>Opuntia humifusa</em>. This is ideal because it means that there aren’t any synonyms to deal with! To find out what the taxon ID is, we’ll simply call our object <code>group1_ids</code>:</p>
-<div class="sourceCode" id="cb7"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb7-1" title="1">group1_ids</a></code></pre></div>
+<div class="sourceCode" id="cb7"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1"></a>group1_ids</span></code></pre></div>
 <pre><code>## [1] &quot;5384047&quot;
 ## attr(,&quot;class&quot;)
 ## [1] &quot;gbifid&quot;
@@ -448,10 +451,10 @@ $(document).ready(function () {
 ## attr(,&quot;uri&quot;)
 ## [1] &quot;https://www.gbif.org/species/5384047&quot;</code></pre>
 <p>Among other things, the output tells us that the taxon ID is <code>"5384047"</code>. Now, let’s use our ‘taxon ID object’ to download occurence data directly from GBIF (this can take a minute depending on how many records there are for a taxon):</p>
-<div class="sourceCode" id="cb9"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb9-1" title="1">group1_metadata &lt;-<span class="st"> </span></a>
-<a class="sourceLine" id="cb9-2" title="2"><span class="st">  </span>spocc<span class="op">::</span><span class="kw">occ</span>(<span class="dt">ids =</span> group1_ids, <span class="dt">from =</span> <span class="st">&#39;gbif&#39;</span>, <span class="dt">limit =</span> <span class="dv">1000</span>)</a></code></pre></div>
+<div class="sourceCode" id="cb9"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1"></a>group1_metadata &lt;-<span class="st"> </span></span>
+<span id="cb9-2"><a href="#cb9-2"></a><span class="st">  </span>spocc<span class="op">::</span><span class="kw">occ</span>(<span class="dt">ids =</span> group1_ids, <span class="dt">from =</span> <span class="st">&#39;gbif&#39;</span>, <span class="dt">limit =</span> <span class="dv">1000</span>)</span></code></pre></div>
 <p>In this code we’ve created a new object called <code>group1_metadata</code>. This object contains occurence records found by the <code>occ()</code> function, where we specified our taxon ID (contained in <code>group1_ids</code>) and told the function that we wanted our data <code>from = gbif</code> (instead of another database) and that we wanted a maximum of 1000 records. Let’s inspect the structure of the <code>group1_metadata</code> object:</p>
-<div class="sourceCode" id="cb10"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb10-1" title="1"><span class="kw">str</span>(group1_metadata, <span class="dt">max.level=</span><span class="dv">1</span>)</a></code></pre></div>
+<div class="sourceCode" id="cb10"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1"></a><span class="kw">str</span>(group1_metadata, <span class="dt">max.level=</span><span class="dv">1</span>)</span></code></pre></div>
 <pre><code>## List of 9
 ##  $ gbif     :List of 2
 ##   ..- attr(*, &quot;class&quot;)= chr &quot;occdatind&quot;
@@ -474,24 +477,24 @@ $(document).ready(function () {
 ##  - attr(*, &quot;class&quot;)= chr &quot;occdat&quot;
 ##  - attr(*, &quot;searched&quot;)= chr &quot;gbif&quot;</code></pre>
 <p>The output tells us that <code>group1_metadata</code> is a <code>List</code> object with 9 named elements. We are specifically interested in the named element <code>$gbif</code>, so we can simplify our object by subsetting:</p>
-<div class="sourceCode" id="cb12"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb12-1" title="1">group1_simple &lt;-<span class="st"> </span>group1_metadata<span class="op">$</span>gbif<span class="op">$</span>data<span class="op">$</span><span class="st">`</span><span class="dt">5384047</span><span class="st">`</span></a></code></pre></div>
+<div class="sourceCode" id="cb12"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1"></a>group1_simple &lt;-<span class="st"> </span>group1_metadata<span class="op">$</span>gbif<span class="op">$</span>data<span class="op">$</span><span class="st">`</span><span class="dt">5384047</span><span class="st">`</span></span></code></pre></div>
 <p>While writing this code, we discovered that the <code>group1_metadata</code> object is pretty complex and with lots of layers! The code above says to take the large object <code>group1_metadata</code> and select the element named <code>$gbif</code>. Then, within the element <code>$gbif</code>, select the sub-element <code>$data</code>. Within the sub-element <code>$data</code>, select the sub-sub-element <code>5384047</code> (the taxon ID for <em>O. humifusa</em>). Inception.gif.</p>
 <p>Ok, we now have some tidy GBIF data:</p>
-<div class="sourceCode" id="cb13"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb13-1" title="1">group1_simple</a></code></pre></div>
-<pre><code>## # A tibble: 1,000 x 101
+<div class="sourceCode" id="cb13"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1"></a>group1_simple</span></code></pre></div>
+<pre><code>## # A tibble: 1,000 x 98
 ##    name  longitude latitude issues prov  key   scientificName datasetKey
 ##    &lt;chr&gt;     &lt;dbl&gt;    &lt;dbl&gt; &lt;chr&gt;  &lt;chr&gt; &lt;chr&gt; &lt;chr&gt;          &lt;chr&gt;     
-##  1 Opun~     -73.8     40.6 gass84 gbif  2543~ Opuntia humif~ 50c9509d-~
-##  2 Opun~     -89.5     34.7 cdrou~ gbif  2550~ Opuntia humif~ 50c9509d-~
-##  3 Opun~     -80.2     32.6 cdrou~ gbif  2550~ Opuntia humif~ 50c9509d-~
-##  4 Opun~      35.2     44.9 cdrou~ gbif  2557~ Opuntia humif~ 50c9509d-~
-##  5 Opun~     -75.3     38.9 cdrou~ gbif  2557~ Opuntia humif~ 50c9509d-~
-##  6 Opun~      11.2     46.7 cdrou~ gbif  2563~ Opuntia humif~ 50c9509d-~
-##  7 Opun~     -81.3     27.2 cdrou~ gbif  2563~ Opuntia austr~ 50c9509d-~
-##  8 Opun~     -81.3     27.2 cdrou~ gbif  2563~ Opuntia austr~ 50c9509d-~
-##  9 Opun~     -81.9     30.1 cdrou~ gbif  2563~ Opuntia mesac~ 50c9509d-~
-## 10 Opun~      10.3     46.0 cdrou~ gbif  2563~ Opuntia humif~ 50c9509d-~
-## # ... with 990 more rows, and 93 more variables: publishingOrgKey &lt;chr&gt;,
+##  1 Opun…     -73.8     40.6 gass84 gbif  2543… Opuntia humif… 50c9509d-…
+##  2 Opun…     -89.5     34.7 cdrou… gbif  2550… Opuntia humif… 50c9509d-…
+##  3 Opun…     -80.2     32.6 cdrou… gbif  2550… Opuntia humif… 50c9509d-…
+##  4 Opun…      35.2     44.9 cdrou… gbif  2557… Opuntia humif… 50c9509d-…
+##  5 Opun…     -75.3     38.9 cdrou… gbif  2557… Opuntia humif… 50c9509d-…
+##  6 Opun…      11.2     46.7 cdrou… gbif  2563… Opuntia humif… 50c9509d-…
+##  7 Opun…     -81.3     27.2 cdrou… gbif  2563… Opuntia austr… 50c9509d-…
+##  8 Opun…     -81.3     27.2 cdrou… gbif  2563… Opuntia austr… 50c9509d-…
+##  9 Opun…     -81.9     30.1 cdrou… gbif  2563… Opuntia mesac… 50c9509d-…
+## 10 Opun…      10.3     46.0 cdrou… gbif  2563… Opuntia humif… 50c9509d-…
+## # … with 990 more rows, and 90 more variables: publishingOrgKey &lt;chr&gt;,
 ## #   installationKey &lt;chr&gt;, publishingCountry &lt;chr&gt;, protocol &lt;chr&gt;,
 ## #   lastCrawled &lt;chr&gt;, lastParsed &lt;chr&gt;, crawlId &lt;int&gt;, basisOfRecord &lt;chr&gt;,
 ## #   taxonKey &lt;int&gt;, kingdomKey &lt;int&gt;, phylumKey &lt;int&gt;, classKey &lt;int&gt;,
@@ -521,17 +524,15 @@ $(document).ready(function () {
 ## #   otherCatalogNumbers &lt;chr&gt;, startDayOfYear &lt;chr&gt;,
 ## #   reproductiveCondition &lt;chr&gt;, collectionID &lt;chr&gt;, locationRemarks &lt;chr&gt;,
 ## #   verbatimElevation &lt;chr&gt;, nomenclaturalCode &lt;chr&gt;, institutionID &lt;chr&gt;,
-## #   identificationVerificationStatus &lt;chr&gt;,
-## #   `http://unknown.org/recordEnteredBy` &lt;chr&gt;, higherClassification &lt;chr&gt;,
-## #   verbatimTaxonRank &lt;chr&gt;</code></pre>
+## #   identificationVerificationStatus &lt;chr&gt;</code></pre>
 <p>The output is pretty big and messy! The output tells us that it’s a <code>tibble</code> (a type of spreadsheet) with 1000 rows and 101 columns. Each row is a record of where <em>Opuntia humifusa</em> has been found or collected. Each column is some information associated with that record. While some of the columns are useful (e.g. the latitude and longitude), most columns aren’t needed (we’ll get rid of them later). Before we get to mapping, we should check our data for synonyms. The <code>unique()</code> function tells us how many unique entries exist within a column:</p>
-<div class="sourceCode" id="cb15"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb15-1" title="1"><span class="kw">unique</span>(group1_simple<span class="op">$</span>scientificName)</a></code></pre></div>
+<div class="sourceCode" id="cb15"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb15-1"><a href="#cb15-1"></a><span class="kw">unique</span>(group1_simple<span class="op">$</span>scientificName)</span></code></pre></div>
 <pre><code>## [1] &quot;Opuntia humifusa Raf.&quot;          &quot;Opuntia austrina Small&quot;        
 ## [3] &quot;Opuntia mesacantha Raf.&quot;        &quot;Opuntia ammophila Small&quot;       
 ## [5] &quot;Opuntia humifusa var. humifusa&quot;</code></pre>
 <p>When we searched GBIF for “<em>O. humifusa</em>” some synonyms were included in the results. We can choose to include or exclude these in the next step.</p>
 <p>Let’s take a look at which countries the records come from:</p>
-<div class="sourceCode" id="cb17"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb17-1" title="1"><span class="kw">unique</span>(group1_simple<span class="op">$</span>country)</a></code></pre></div>
+<div class="sourceCode" id="cb17"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb17-1"><a href="#cb17-1"></a><span class="kw">unique</span>(group1_simple<span class="op">$</span>country)</span></code></pre></div>
 <pre><code>##  [1] &quot;United States of America&quot; &quot;Ukraine&quot;                 
 ##  [3] &quot;Italy&quot;                    &quot;Spain&quot;                   
 ##  [5] &quot;Bulgaria&quot;                 &quot;Brazil&quot;                  
@@ -542,71 +543,64 @@ $(document).ready(function () {
 ## [15] &quot;India&quot;                    &quot;Austria&quot;                 
 ## [17] &quot;Belgium&quot;</code></pre>
 <p>Even though <em>Opuntia</em> is a North and Central American clade, some records show up in Europe. These are often specimens in herbaria. We’ll create a new object that filters these out:</p>
-<div class="sourceCode" id="cb19"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb19-1" title="1"><span class="kw">library</span>(dplyr)</a></code></pre></div>
-<pre><code>## 
-## Attaching package: &#39;dplyr&#39;</code></pre>
-<pre><code>## The following objects are masked from &#39;package:stats&#39;:
-## 
-##     filter, lag</code></pre>
-<pre><code>## The following objects are masked from &#39;package:base&#39;:
-## 
-##     intersect, setdiff, setequal, union</code></pre>
-<div class="sourceCode" id="cb23"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb23-1" title="1">group1_fil &lt;-<span class="st">  </span></a>
-<a class="sourceLine" id="cb23-2" title="2"><span class="st">  </span>group1_simple <span class="op">%&gt;%</span><span class="st"> </span></a>
-<a class="sourceLine" id="cb23-3" title="3"><span class="st">  </span><span class="kw">filter</span>(scientificName<span class="op">==</span><span class="st"> &#39;Opuntia humifusa Raf.&#39;</span> <span class="op">&amp;</span><span class="st"> </span></a>
-<a class="sourceLine" id="cb23-4" title="4"><span class="st">         </span>country <span class="op">==</span><span class="st"> </span><span class="kw">c</span>(<span class="st">&#39;Canada&#39;</span>, <span class="st">&#39;United States of America&#39;</span>)) <span class="op">%&gt;%</span></a>
-<a class="sourceLine" id="cb23-5" title="5"><span class="st">  </span><span class="kw">select</span>(<span class="dv">1</span><span class="op">:</span><span class="dv">3</span>)</a></code></pre></div>
+<div class="sourceCode" id="cb19"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb19-1"><a href="#cb19-1"></a><span class="kw">library</span>(dplyr)</span>
+<span id="cb19-2"><a href="#cb19-2"></a></span>
+<span id="cb19-3"><a href="#cb19-3"></a>group1_fil &lt;-<span class="st">  </span></span>
+<span id="cb19-4"><a href="#cb19-4"></a><span class="st">  </span>group1_simple <span class="op">%&gt;%</span><span class="st"> </span></span>
+<span id="cb19-5"><a href="#cb19-5"></a><span class="st">  </span>dplyr<span class="op">::</span><span class="kw">filter</span>(scientificName<span class="op">==</span><span class="st"> &#39;Opuntia humifusa Raf.&#39;</span> <span class="op">&amp;</span><span class="st"> </span></span>
+<span id="cb19-6"><a href="#cb19-6"></a><span class="st">         </span>country <span class="op">==</span><span class="st"> </span><span class="kw">c</span>(<span class="st">&#39;Canada&#39;</span>, <span class="st">&#39;United States of America&#39;</span>)) <span class="op">%&gt;%</span></span>
+<span id="cb19-7"><a href="#cb19-7"></a><span class="st">  </span><span class="kw">select</span>(<span class="dv">1</span><span class="op">:</span><span class="dv">3</span>)</span></code></pre></div>
 <p>In the code above, we used the <code>filter()</code> function to get rid of synonyms and records outside of North America. We also used the <code>select()</code> function to choose the columns needed for mapping. To string together these functions, we used the pipe operator <code>%&gt;%</code> (see R Activity 1).</p>
 <p>Obtaining the data for <em>O. fragilis</em> is almost the same, but because there are many synonyms for this taxon, we’ll avoid using the GBIF ‘backbone taxonomy’ and be more specific in our search. This means including the authority names and also setting <code>method = 'lookup</code> (the default is <code>method = 'backbone'</code>):</p>
-<div class="sourceCode" id="cb24"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb24-1" title="1">group2_ids &lt;-<span class="st"> </span></a>
-<a class="sourceLine" id="cb24-2" title="2"><span class="st">  </span>taxize<span class="op">::</span><span class="kw">get_gbifid</span>(<span class="dt">sci=</span><span class="kw">c</span>(<span class="st">&#39;Opuntia fragilis (Nutt.) Haw.&#39;</span>), <span class="dt">rank=</span><span class="st">&#39;species&#39;</span>, <span class="dt">limit =</span> <span class="dv">1000</span>, <span class="dt">method =</span> <span class="st">&#39;lookup&#39;</span>)</a></code></pre></div>
-<pre><code>## ==  1 queries  ===============</code></pre>
+<div class="sourceCode" id="cb20"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb20-1"><a href="#cb20-1"></a>group2_ids &lt;-<span class="st"> </span></span>
+<span id="cb20-2"><a href="#cb20-2"></a><span class="st">  </span>taxize<span class="op">::</span><span class="kw">get_gbifid</span>(<span class="dt">sci=</span><span class="kw">c</span>(<span class="st">&#39;Opuntia fragilis (Nutt.) Haw.&#39;</span>), <span class="dt">rank=</span><span class="st">&#39;species&#39;</span>, <span class="dt">limit =</span> <span class="dv">1000</span>, <span class="dt">method =</span> <span class="st">&#39;lookup&#39;</span>)</span></code></pre></div>
+<pre><code>## ══  1 queries  ═══════════════</code></pre>
 <pre><code>## 
 ## Retrieving data for taxon &#39;Opuntia fragilis (Nutt.) Haw.&#39;</code></pre>
-<pre><code>## v  Found:  Opuntia fragilis (Nutt.) Haw.
-## ==  Results  =================
+<pre><code>## ✔  Found:  Opuntia fragilis (Nutt.) Haw.
+## ══  Results  ═════════════════
 ## 
-## * Total: 1 
-## * Found: 1 
-## * Not Found: 0</code></pre>
+## ● Total: 1 
+## ● Found: 1 
+## ● Not Found: 0</code></pre>
 <p>From here, the same code is run as for <em>O. humifusa</em> :</p>
-<div class="sourceCode" id="cb28"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb28-1" title="1"><span class="co"># get occurence data from GBIF                           </span></a>
-<a class="sourceLine" id="cb28-2" title="2">group2_metadata &lt;-<span class="st"> </span></a>
-<a class="sourceLine" id="cb28-3" title="3"><span class="st">  </span>spocc<span class="op">::</span><span class="kw">occ</span>(<span class="dt">ids=</span>group2_ids, <span class="dt">from=</span><span class="st">&#39;gbif&#39;</span>, <span class="dt">limit =</span> <span class="dv">1000</span>)</a>
-<a class="sourceLine" id="cb28-4" title="4"></a>
-<a class="sourceLine" id="cb28-5" title="5"><span class="co"># discard unnecessary metadata and preserve occurence data</span></a>
-<a class="sourceLine" id="cb28-6" title="6"><span class="co"># </span><span class="al">NOTE</span><span class="co">: the &#39;$&#39; symbol subsets your data. To narrow in </span></a>
-<a class="sourceLine" id="cb28-7" title="7"><span class="co"># on the occurence data, insert the taxon ID from &#39;group2_ids&#39; </span></a>
-<a class="sourceLine" id="cb28-8" title="8"><span class="co"># into the end of the subset string.</span></a>
-<a class="sourceLine" id="cb28-9" title="9"><span class="co"># this ID will be a different ID than Opuntia humifusa</span></a>
-<a class="sourceLine" id="cb28-10" title="10">group2_simple &lt;-<span class="st"> </span>group2_metadata<span class="op">$</span>gbif<span class="op">$</span>data<span class="op">$</span><span class="st">`</span><span class="dt">5384113</span><span class="st">`</span></a>
-<a class="sourceLine" id="cb28-11" title="11"></a>
-<a class="sourceLine" id="cb28-12" title="12"><span class="co"># look for species synonyms</span></a>
-<a class="sourceLine" id="cb28-13" title="13"><span class="kw">unique</span>(group2_simple<span class="op">$</span>scientificName)</a>
-<a class="sourceLine" id="cb28-14" title="14"></a>
-<a class="sourceLine" id="cb28-15" title="15"><span class="co"># look for misplaced country records</span></a>
-<a class="sourceLine" id="cb28-16" title="16"><span class="kw">unique</span>(group2_simple<span class="op">$</span>country)</a>
-<a class="sourceLine" id="cb28-17" title="17"></a>
-<a class="sourceLine" id="cb28-18" title="18"><span class="co"># filter out synonyms </span></a>
-<a class="sourceLine" id="cb28-19" title="19"><span class="co"># filter out countries</span></a>
-<a class="sourceLine" id="cb28-20" title="20"><span class="co"># also, narrow in on records that are &#39;human observations&#39;</span></a>
-<a class="sourceLine" id="cb28-21" title="21"><span class="kw">library</span>(dplyr)</a>
-<a class="sourceLine" id="cb28-22" title="22"></a>
-<a class="sourceLine" id="cb28-23" title="23">group2_fil &lt;-<span class="st">  </span></a>
-<a class="sourceLine" id="cb28-24" title="24"><span class="st">  </span>group2_simple <span class="op">%&gt;%</span><span class="st"> </span></a>
-<a class="sourceLine" id="cb28-25" title="25"><span class="st">  </span><span class="kw">filter</span>(scientificName<span class="op">==</span><span class="st"> &#39;Opuntia fragilis (Nutt.) Haw.&#39;</span> <span class="op">&amp;</span><span class="st"> </span></a>
-<a class="sourceLine" id="cb28-26" title="26"><span class="st">           </span>country <span class="op">==</span><span class="st"> </span><span class="kw">c</span>(<span class="st">&#39;Canada&#39;</span>, <span class="st">&#39;United States of America&#39;</span>)) <span class="op">%&gt;%</span></a>
-<a class="sourceLine" id="cb28-27" title="27"><span class="st">  </span><span class="kw">select</span>(<span class="dv">1</span><span class="op">:</span><span class="dv">3</span>)</a></code></pre></div>
+<div class="sourceCode" id="cb24"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb24-1"><a href="#cb24-1"></a><span class="co"># get occurence data from GBIF                           </span></span>
+<span id="cb24-2"><a href="#cb24-2"></a>group2_metadata &lt;-<span class="st"> </span></span>
+<span id="cb24-3"><a href="#cb24-3"></a><span class="st">  </span>spocc<span class="op">::</span><span class="kw">occ</span>(<span class="dt">ids=</span>group2_ids, <span class="dt">from=</span><span class="st">&#39;gbif&#39;</span>, <span class="dt">limit =</span> <span class="dv">1000</span>)</span>
+<span id="cb24-4"><a href="#cb24-4"></a></span>
+<span id="cb24-5"><a href="#cb24-5"></a><span class="co"># discard unnecessary metadata and preserve occurence data</span></span>
+<span id="cb24-6"><a href="#cb24-6"></a><span class="co"># </span><span class="al">NOTE</span><span class="co">: the &#39;$&#39; symbol subsets your data. To narrow in </span></span>
+<span id="cb24-7"><a href="#cb24-7"></a><span class="co"># on the occurence data, insert the taxon ID from &#39;group2_ids&#39; </span></span>
+<span id="cb24-8"><a href="#cb24-8"></a><span class="co"># into the end of the subset string.</span></span>
+<span id="cb24-9"><a href="#cb24-9"></a><span class="co"># this ID will be a different ID than Opuntia humifusa</span></span>
+<span id="cb24-10"><a href="#cb24-10"></a>group2_simple &lt;-<span class="st"> </span>group2_metadata<span class="op">$</span>gbif<span class="op">$</span>data<span class="op">$</span><span class="st">`</span><span class="dt">5384113</span><span class="st">`</span></span>
+<span id="cb24-11"><a href="#cb24-11"></a></span>
+<span id="cb24-12"><a href="#cb24-12"></a><span class="co"># look for species synonyms</span></span>
+<span id="cb24-13"><a href="#cb24-13"></a><span class="kw">unique</span>(group2_simple<span class="op">$</span>scientificName)</span>
+<span id="cb24-14"><a href="#cb24-14"></a></span>
+<span id="cb24-15"><a href="#cb24-15"></a><span class="co"># look for misplaced country records</span></span>
+<span id="cb24-16"><a href="#cb24-16"></a><span class="kw">unique</span>(group2_simple<span class="op">$</span>country)</span>
+<span id="cb24-17"><a href="#cb24-17"></a></span>
+<span id="cb24-18"><a href="#cb24-18"></a><span class="co"># filter out synonyms </span></span>
+<span id="cb24-19"><a href="#cb24-19"></a><span class="co"># filter out countries</span></span>
+<span id="cb24-20"><a href="#cb24-20"></a><span class="co"># also, narrow in on records that are &#39;human observations&#39;</span></span>
+<span id="cb24-21"><a href="#cb24-21"></a><span class="kw">library</span>(dplyr)</span>
+<span id="cb24-22"><a href="#cb24-22"></a></span>
+<span id="cb24-23"><a href="#cb24-23"></a>group2_fil &lt;-<span class="st">  </span></span>
+<span id="cb24-24"><a href="#cb24-24"></a><span class="st">  </span>group2_simple <span class="op">%&gt;%</span><span class="st"> </span></span>
+<span id="cb24-25"><a href="#cb24-25"></a><span class="st">  </span>dplyr<span class="op">::</span><span class="kw">filter</span>(scientificName<span class="op">==</span><span class="st"> &#39;Opuntia fragilis (Nutt.) Haw.&#39;</span> <span class="op">&amp;</span><span class="st"> </span></span>
+<span id="cb24-26"><a href="#cb24-26"></a><span class="st">           </span>country <span class="op">==</span><span class="st"> </span><span class="kw">c</span>(<span class="st">&#39;Canada&#39;</span>, <span class="st">&#39;United States of America&#39;</span>)) <span class="op">%&gt;%</span></span>
+<span id="cb24-27"><a href="#cb24-27"></a><span class="st">  </span>dplyr<span class="op">::</span><span class="kw">select</span>(<span class="dv">1</span><span class="op">:</span><span class="dv">3</span>)</span></code></pre></div>
 <p>We can then use the <code>full_join()</code> function to combine our two <em>Opuntia</em> datasets:</p>
-<div class="sourceCode" id="cb29"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb29-1" title="1">combined_data&lt;-</a>
-<a class="sourceLine" id="cb29-2" title="2"><span class="st">  </span><span class="kw">full_join</span>(group1_fil, group2_fil)</a></code></pre></div>
+<div class="sourceCode" id="cb25"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb25-1"><a href="#cb25-1"></a>combined_data&lt;-</span>
+<span id="cb25-2"><a href="#cb25-2"></a><span class="st">  </span><span class="kw">full_join</span>(group1_fil, group2_fil)</span></code></pre></div>
 <pre><code>## Joining, by = c(&quot;name&quot;, &quot;longitude&quot;, &quot;latitude&quot;)</code></pre>
 <p>Now we’ll use the <code>map_ggplot()</code> function to map our combined occurence data. The <code>coord_fixed()</code> function adjusts the mapping window, using latitude and longitude as parameters.:</p>
-<div class="sourceCode" id="cb31"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb31-1" title="1"><span class="kw">library</span>(ggplot2)</a>
-<a class="sourceLine" id="cb31-2" title="2"><span class="kw">library</span>(mapr)</a>
-<a class="sourceLine" id="cb31-3" title="3"></a>
-<a class="sourceLine" id="cb31-4" title="4"><span class="kw">map_ggplot</span>(combined_data) <span class="op">+</span><span class="st"> </span></a>
-<a class="sourceLine" id="cb31-5" title="5"><span class="st">  </span><span class="kw">coord_fixed</span>(<span class="dt">xlim =</span> <span class="kw">c</span>(<span class="op">-</span><span class="dv">135</span>, <span class="dv">-55</span> ),  <span class="dt">ylim =</span> <span class="kw">c</span>(<span class="dv">10</span>, <span class="dv">90</span>)) </a></code></pre></div>
+<div class="sourceCode" id="cb27"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb27-1"><a href="#cb27-1"></a><span class="kw">library</span>(ggplot2)</span>
+<span id="cb27-2"><a href="#cb27-2"></a><span class="kw">library</span>(mapr)</span>
+<span id="cb27-3"><a href="#cb27-3"></a></span>
+<span id="cb27-4"><a href="#cb27-4"></a><span class="kw">map_ggplot</span>(combined_data) <span class="op">+</span><span class="st"> </span></span>
+<span id="cb27-5"><a href="#cb27-5"></a><span class="st">  </span><span class="kw">coord_fixed</span>(<span class="dt">xlim =</span> <span class="kw">c</span>(<span class="op">-</span><span class="dv">135</span>, <span class="dv">-55</span> ),  <span class="dt">ylim =</span> <span class="kw">c</span>(<span class="dv">10</span>, <span class="dv">90</span>)) </span></code></pre></div>
 <p><img src="BIOL_324_Lab_7_files/figure-html/chunk15-1.png" width="672" /></p>
 <hr />
 <p>   </p>

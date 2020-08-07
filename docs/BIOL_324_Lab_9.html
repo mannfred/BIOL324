@@ -21,6 +21,7 @@
 <script src="site_libs/bootstrap-3.3.5/shim/html5shiv.min.js"></script>
 <script src="site_libs/bootstrap-3.3.5/shim/respond.min.js"></script>
 <script src="site_libs/navigation-1.1/tabsets.js"></script>
+<script src="site_libs/accessible-code-block-0.0.1/empty-anchor.js"></script>
 
 
 
@@ -287,7 +288,7 @@ $(document).ready(function () {
 
 <h1 class="title toc-ignore">R Assignment 4: Creating Phylogenetic Trees using Genbank data</h1>
 <h4 class="author">Mannfred Boehm</h4>
-<h4 class="date">05 August, 2020</h4>
+<h4 class="date">06 August, 2020</h4>
 
 </div>
 
@@ -332,12 +333,12 @@ $(document).ready(function () {
 <p>Open this week’s .R file (‘324_Phylogenetics.R’) and navigate to the source pane. Install and attach the necessary packages using <code>install.packages()</code> and <code>library()</code>. By highlighting and running lines 38-111, we can run the script that searches Genbank for <em>matK</em> and <em>rbcL</em> sequences from our five <em>Opuntia</em> species.</p>
 <p>Selecting and running lines 120-167 will generate three phylogenetic trees. The first tree illustrates the relationships between species based only on the nucleotide sequences of the <em>matK</em> gene. The second tree does the same thing, but for the <em>rbcL</em> gene. The third tree considers both sequences. Since this tree has the most information, it is often considered a better estimate of the true relationships between species.</p>
 <div class="figure">
-<img src="matK_tree.jpg" alt="Figure 1: Phylogenetic tree for Opuntia constructed from aligned matK sequences." />
+<img src="matK_tree.jpg" alt="" />
 <p class="caption">Figure 1: Phylogenetic tree for <em>Opuntia</em> constructed from aligned <em>matK</em> sequences.</p>
 </div>
 <p><br></p>
 <div class="figure">
-<img src="rbcL_tree.jpg" alt="Figure 2: Phylogenetic tree for Opuntia constructed from aligned rbcL sequences." />
+<img src="rbcL_tree.jpg" alt="" />
 <p class="caption">Figure 2: Phylogenetic tree for <em>Opuntia</em> constructed from aligned <em>rbcL</em> sequences.</p>
 </div>
 <p><strong>MB</strong> Could add in some discussion here about why different genes produce different trees.</p>
@@ -351,7 +352,7 @@ $(document).ready(function () {
 <p><strong>Lines 14-18</strong>: The <code>library()</code> function loads various packages designed specifically for connecting with the Genbank database (<code>ape</code>), filtering and organizing our data (<code>tidyverse</code>), aligning sequences (<code>msa</code>), concatenating sequences (<code>seqinr</code>), and constructing phylogenetic trees (<code>ape</code>).</p>
 <p><strong>Lines 38-40</strong>: The <code>c()</code> concatenates the elements specified inside the brackets <code>()</code> into an object. For example, the <code>species</code> object contains five elements - each one is the name of an <em>Opuntia</em> species that we are interested in. The <code>matK_acc</code> object contains the Genbank accession numbers for each species. These were found by searching Genbank like so:</p>
 <div class="figure">
-<img src="genbank.jpg" alt="Figure 3: Searching Genbank for accession numbers." />
+<img src="genbank.jpg" alt="" />
 <p class="caption">Figure 3: Searching Genbank for accession numbers.</p>
 </div>
 <p><br></p>
@@ -370,7 +371,7 @@ $(document).ready(function () {
 <p><strong>MB</strong>: Perhaps need to explain this terminology (distance matrix, neighbour joining) in pre-assingment reading, or lectures.</p>
 <p><strong>Line 159-161</strong>: Now it’s time to plot our trees! The <em>matK</em> and <em>rbcL</em> trees were shown earlier, below is the consensus tree:</p>
 <div class="figure">
-<img src="consensus_tree.jpg" alt="Figure 4: Phylogenetic tree for Opuntia constructed from concatenated and aligned matK and rbcL sequences." />
+<img src="consensus_tree.jpg" alt="" />
 <p class="caption">Figure 4: Phylogenetic tree for <em>Opuntia</em> constructed from concatenated and aligned <em>matK</em> and <em>rbcL</em> sequences.</p>
 </div>
 <p><br> <br></p>
