@@ -377,7 +377,7 @@ $(document).ready(function () {
 
 <h1 class="title toc-ignore">Lab 6: Lamiaceae, Schrophularioids, and R Assignment 1 - Introduction to R and RStudio</h1>
 <h4 class="author">Mannfred Boehm and Evan Hersh</h4>
-<h4 class="date">06 August, 2020</h4>
+<h4 class="date">10 August, 2020</h4>
 
 </div>
 
@@ -653,15 +653,9 @@ $(document).ready(function () {
 <h4>Data Wrangling</h4>
 <p>   </p>
 <p>Now that we’ve visualized some parts of the <code>iris</code> dataset, we can inspect, re-organize, and summarize (‘wrangle’) the data to quantify differences in floral traits. Some of the most useful functions for data wrangling come from the <code>dplyr</code> package, so let’s see what we can do with it. For example, what if we wanted the floral trait data for only one of the <em>Iris</em> species?</p>
-<<<<<<< HEAD
 <div class="sourceCode" id="cb11"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb11-1" title="1">iris.virginica &lt;-<span class="st"> </span><span class="co"># assign an object named &quot;iris.virginica&quot;</span></a>
-<a class="sourceLine" id="cb11-2" title="2"><span class="st">  </span><span class="kw">filter</span>(iris, Species <span class="op">==</span><span class="st"> &quot;virginica&quot;</span>) <span class="co"># takes only the rows for which &#39;Species&#39; is &#39;virginica&#39; </span></a></code></pre></div>
+<a class="sourceLine" id="cb11-2" title="2"><span class="st">  </span>dplyr<span class="op">::</span><span class="kw">filter</span>(iris, Species <span class="op">==</span><span class="st"> &quot;virginica&quot;</span>) <span class="co"># takes only the rows for which &#39;Species&#39; is &#39;virginica&#39; </span></a></code></pre></div>
 <div class="sourceCode" id="cb12"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb12-1" title="1"><span class="kw">head</span>(iris) <span class="co"># head() shows the first 6 lines of any data frame</span></a></code></pre></div>
-=======
-<div class="sourceCode" id="cb11"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1"></a>iris.virginica &lt;-<span class="st"> </span><span class="co"># assign an object named &quot;iris.virginica&quot;</span></span>
-<span id="cb11-2"><a href="#cb11-2"></a><span class="st">  </span>dplyr<span class="op">::</span><span class="kw">filter</span>(iris, Species <span class="op">==</span><span class="st"> &quot;virginica&quot;</span>) <span class="co"># takes only the rows for which &#39;Species&#39; is &#39;virginica&#39; </span></span></code></pre></div>
-<div class="sourceCode" id="cb12"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1"></a><span class="kw">head</span>(iris) <span class="co"># head() shows the first 6 lines of any data frame</span></span></code></pre></div>
->>>>>>> aa9c6a795714ba34e7e85a577c4cc343840ae1f1
 <pre><code>##   Sepal.Length Sepal.Width Petal.Length Petal.Width Species
 ## 1          5.1         3.5          1.4         0.2  setosa
 ## 2          4.9         3.0          1.4         0.2  setosa
@@ -680,17 +674,10 @@ $(document).ready(function () {
 <p>Notice that the structure of <code>iris</code> and <code>iris.virginica</code> are the same? While <code>iris</code> contains data for all <em>Iris</em> species, <code>iris.virginica</code> contains data only for one species, <em>Iris virginica</em>. Notice that we use the logical double equal sign as in <code>species == "virginica"</code>, and quotations around <code>virginica</code> since this data type is of class <code>character</code>.</p>
 <p> </p>
 <p>We can also filter using multiple conditions:</p>
-<<<<<<< HEAD
 <div class="sourceCode" id="cb16"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb16-1" title="1">iris.virginica.sepal6 &lt;-<span class="st"> </span><span class="co"># create a new object</span></a>
-<a class="sourceLine" id="cb16-2" title="2"><span class="st">  </span><span class="kw">filter</span>(iris, Species <span class="op">==</span><span class="st"> &quot;virginica&quot;</span>, Sepal.Length <span class="op">&gt;</span><span class="st"> </span><span class="dv">6</span>) <span class="co">#keeps virginica species that have sepals longer than 6</span></a>
+<a class="sourceLine" id="cb16-2" title="2"><span class="st">  </span>dplyr<span class="op">::</span><span class="kw">filter</span>(iris, Species <span class="op">==</span><span class="st"> &quot;virginica&quot;</span>, Sepal.Length <span class="op">&gt;</span><span class="st"> </span><span class="dv">6</span>) <span class="co">#keeps virginica species that have sepals longer than 6</span></a>
 <a class="sourceLine" id="cb16-3" title="3"></a>
 <a class="sourceLine" id="cb16-4" title="4"><span class="kw">head</span>(iris.virginica.sepal6)</a></code></pre></div>
-=======
-<div class="sourceCode" id="cb16"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb16-1"><a href="#cb16-1"></a>iris.virginica.sepal6 &lt;-<span class="st"> </span><span class="co"># create a new object</span></span>
-<span id="cb16-2"><a href="#cb16-2"></a><span class="st">  </span>dplyr<span class="op">::</span><span class="kw">filter</span>(iris, Species <span class="op">==</span><span class="st"> &quot;virginica&quot;</span>, Sepal.Length <span class="op">&gt;</span><span class="st"> </span><span class="dv">6</span>) <span class="co">#keeps virginica species that have sepals longer than 6</span></span>
-<span id="cb16-3"><a href="#cb16-3"></a></span>
-<span id="cb16-4"><a href="#cb16-4"></a><span class="kw">head</span>(iris.virginica.sepal6)</span></code></pre></div>
->>>>>>> aa9c6a795714ba34e7e85a577c4cc343840ae1f1
 <pre><code>##   Sepal.Length Sepal.Width Petal.Length Petal.Width   Species
 ## 1          6.3         3.3          6.0         2.5 virginica
 ## 2          7.1         3.0          5.9         2.1 virginica

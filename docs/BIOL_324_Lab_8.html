@@ -21,7 +21,6 @@
 <script src="site_libs/bootstrap-3.3.5/shim/html5shiv.min.js"></script>
 <script src="site_libs/bootstrap-3.3.5/shim/respond.min.js"></script>
 <script src="site_libs/navigation-1.1/tabsets.js"></script>
-<script src="site_libs/accessible-code-block-0.0.1/empty-anchor.js"></script>
 
 
 
@@ -288,7 +287,7 @@ $(document).ready(function () {
 
 <h1 class="title toc-ignore">R Assignment 3: Species Delimitation using Morphometrics and Machine Learning</h1>
 <h4 class="author">Mannfred Boehm</h4>
-<h4 class="date">06 August, 2020</h4>
+<h4 class="date">10 August, 2020</h4>
 
 </div>
 
@@ -296,7 +295,7 @@ $(document).ready(function () {
 <p><br> <br></p>
 <div id="motivation" class="section level4">
 <h4>Motivation</h4>
-<p>Add section…</p>
+<p>Throughout this course we’ve seen how morphology plays a central role in plant taxonomy. The shapes of stems, leaves, and flowers are often the first traits listed in a dichotomous key. When a trait (like corolla width) is measured and quantified, we are able to use statistical tests to help us make decisions about how to group or split individuals. The science of measuring and analysing shape is called <em>morphometrics</em>. In this lab, we’ll be using a dataset of <em>Aquilegia</em> flower morphology (see: Lab 1, Ranunculaceae) to determine whether two species, <em>A. formosa</em> and <em>A. flavescens</em>, show evidence of forming hybrids when co-occuring in a contact zone.</p>
 <hr />
 <p><br> <br></p>
 </div>
@@ -349,9 +348,9 @@ $(document).ready(function () {
 <h4>Activity 2: Delimiting Species using Morphometrics and Machine Learning</h4>
 <p><code>randomForest</code> is an R package that uses machine learning for classification, regression, and clustering. It combines the simplicity of decision trees with flexibility which makes the result more accurate than simply using decision trees alone. There are many tutorials and videos online about <code>randomForest</code> but <a href="https://www.youtube.com/watch?v=J4Wdy0Wc_xQ">this video</a> is useful if you want more background.</p>
 <p><strong>MB</strong>: maybe this video (or other online learning resources) should be a ‘pre-assignment’?</p>
-<p><br></p>
+<p> </p>
 <p>There are a few ways to use <code>randomForest</code> but this tutorial will cover using the package in unsupervised mode. This means that the program will have to find the structure of the data itself, without us training it first.</p>
-<p><br></p>
+<p> </p>
 <ol style="list-style-type: decimal">
 <li><p>Open R and set your working directory. You want the working directory to be wherever the data set you are going to input is located.</p></li>
 <li><p>Install the packages needed for <code>randomForest</code> to run properly. These are <code>randomForest</code>, <code>tidyverse</code>, and <code>caret</code>. Installation only needs to be done once so if you have already downloaded any of these (<code>install.packages()</code>), attach the packages using <code>library()</code>.</p></li>
