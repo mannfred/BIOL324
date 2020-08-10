@@ -21,7 +21,7 @@ date: "`r format(Sys.time(), '%d %B, %Y')`"
 
 #### Motivation
 
-Add section...
+Throughout this course we've seen how morphology plays a central role in plant taxonomy. The shapes of stems, leaves, and flowers are often the first traits listed in a dichotomous key. When a trait (like corolla width) is measured and quantified, we are able to use statistical tests to help us make decisions about how to group or split individuals. The science of measuring and analysing shape is called _morphometrics_. In this lab, we'll be using a dataset of _Aquilegia_ flower morphology (see: Lab 1, Ranunculaceae) to determine whether two species, *A. formosa* and *A. flavescens*, show evidence of forming hybrids when co-occuring in a contact zone. 
 
 ---
 
@@ -95,11 +95,11 @@ Note: [Here is a link](https://imagej.nih.gov/ij/docs/guide/user-guide.pdf) to t
 
 **MB**: maybe this video (or other online learning resources) should be a 'pre-assignment'? 
 
-<br>
+&nbsp;
 
 There are a few ways to use `randomForest` but this tutorial will cover using the package in unsupervised mode. This means that the program will have to find the structure of the data itself, without us training it first. 
 
-<br>
+&nbsp;
 
 1. Open R and set your working directory. You want the working directory to be wherever the data set you are going to input is located. 
 

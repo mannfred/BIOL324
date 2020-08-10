@@ -21,7 +21,7 @@ library(tidyverse)
 
 # get taxon ID from GBIF
 group1_ids <- 
-  taxize::get_gbifid(sci=c('Opuntia humifusa'), rank='species')
+  taxize::get_gbifid(sci=c('Opuntia humifusa'), rank='species', limit = 1000)
 
 # get occurence data from GBIF                           
 group1_metadata <- 
@@ -61,7 +61,7 @@ group1_fil<-
 # get taxon ID from GBIF
 # inspect and type "1" to select "Accepted" taxonomic name
 group2_ids <- 
-  get_gbifid(sci=c('Opuntia fragilis'), rank='species')
+  get_gbifid(sci=c('Opuntia fragilis Raf.'), rank='species')
 
 
 # get occurence data from GBIF                           

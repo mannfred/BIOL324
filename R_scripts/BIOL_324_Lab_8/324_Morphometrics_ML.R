@@ -17,7 +17,7 @@ library(tidyverse)
 
 # --------------------------
 # import morphometric data, saving it as 'columbine_data'
-columbine_data <- read.csv(here("Tutorial_4/Columbine_data.csv"))
+columbine_data <- read.csv(here("R_scripts/BIOL_324_Lab_8/Columbine_data.csv"))
 
 # random number generator
 set.seed(22)

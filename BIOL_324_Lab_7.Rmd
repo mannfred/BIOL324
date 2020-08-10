@@ -1,5 +1,5 @@
 ---
-title: "R Activity 2: Mapping Species Distributions using R and GBIF"
+title: "R Assignment 2: Mapping Species Distributions using R and GBIF"
 # title: "<span style='font-size: 30px'> R Assignment 2: Mapping Species Distributions using R and GBIF </style>"
 author: Mannfred Boehm
 date: "`r format(Sys.time(), '%d %B, %Y')`"
@@ -148,7 +148,7 @@ group1_fil <-
 
 In the code above, we used the `filter()` function to get rid of synonyms and records outside of North America. We also used the `select()` function to choose the columns needed for mapping. To string together these functions, we used the pipe operator `%>%` (see R Activity 1). 
 
-Obtaining the data for _O. fragilis_ is almost the same, but because there are many synonyms for this taxon, we'll avoid using the GBIF 'backbone taxonomy' and be more specific in our search. This means including the authority names and also setting `method = 'lookup` (the default is `method = 'backbone'`):
+Obtaining the data for _O. fragilis_ is almost the same, but because there are many synonyms for this taxon, we'll avoid using the GBIF 'backbone taxonomy' and be more specific in our search. This means including the authority names and also setting `method = 'lookup'` (the default is `method = 'backbone'`):
 
 ```{r chunk12}
 group2_ids <- 

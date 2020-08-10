@@ -21,7 +21,8 @@ date: "`r format(Sys.time(), '%d %B, %Y')`"
 
 #### Motivation
 
-Add section...
+Phylogenetics is one of the most important and controversial fields within plant taxonomy. The ability to sequence and compare plant DNA has split, grouped, and uncovered taxa in ways never expected. In modern plant taxonomy, phylogenetic relationships are a key piece of evidence to consider when delimiting species. In this lab, we'll be downloading and aligning DNA sequences from five species of _Opuntia_. Using these sequences, we'll construct a phylogenetic tree and consider how the species relationships hold up to the published literature. 
+
 
 ---
 
@@ -47,102 +48,183 @@ Before starting this week's tutorial you will have: <br>
 
 #### Outcomes
 
-By the end of this tutorial you will have: <br>
+By the end of this tutorial you will have: 
 
-1. experience using Genbank, CLUSTAL, and the most common phylogenetics packages in R <br>
+1. experience using Genbank, CLUSTAL, and the most common phylogenetics packages in R 
 
-2. familiarity with Genbank and the types of data that can be obtained, <br>
+2. familiarity with Genbank and the types of data that can be obtained, 
 
-3. the tools and knowledge needed to create your own phylogenetic tree as part of a taxonomic research programme, <br>
+3. the tools and knowledge needed to create your own phylogenetic tree as part of a taxonomic research project, 
 
-4. ...more
+&nbsp;
+&nbsp;
 
 ---
 
-<br>
-<br>
 
 #### Activity 1: Downloading, Aligning, and Graphing DNA Sequences from Genbank
 
-In previous Assignments we familiarized ourselves with GBIF, R, RStudio Cloud, and the R packages that allow us to connect to databases. Today, we'll learn how to use our newfound R skills to download and align nucleotide sequences from [GenBank](https://www.ncbi.nlm.nih.gov/nuccore), a repository of DNA sequences hosted by the National Center for Biotechnology Information (NCBI). We'll then use the aligned sequences to create a phylogenetic tree that will organize species based on their relatedness.
+In previous Assignments we familiarized ourselves with GBIF, R, and the R packages that allow us to connect to databases. Today, we'll learn how to use our newfound R skills to download and align nucleotide sequences from [GenBank](https://www.ncbi.nlm.nih.gov/nuccore), a repository of DNA sequences hosted by the U.S. National Center for Biotechnology Information (NCBI). We'll then use the aligned sequences to create a phylogenetic tree that will organize species based on their relatedness.
 
-In this lab, we'll explore further the genus _Opuntia_: <br>
+In this lab, we'll explore further the genus _Opuntia_: 
 
-_Opuntia basilaris_ (Mojave, Colorado, Utah) <br>
-_Opuntia fragilis_  (Northwestern) <br>
-_Opuntia humifusa_  (Eastern) <br>
-_Opuntia oricola_   (Coastal sage and chaparral of S. California) <br>
-_Opuntia polyacantha_ (Great Plains, foothills of Rocky Mtns) <br>
+_Opuntia basilaris_ (Mojave Desert, Colorado, Utah) 
+_Opuntia fragilis_  (Northwestern) 
+_Opuntia humifusa_  (Eastern) 
+_Opuntia oricola_   (Coastal sage and chaparral of S. California) 
+_Opuntia polyacantha_ (Great Plains, foothills of Rocky Mountains) 
 
 **MB** Could add in some natural history background to better motivate this activity. <br>
 
-Open this week's .R file ('324_Phylogenetics.R') and navigate to the source pane. Install and attach the necessary packages using `install.packages()` and `library()`. By highlighting and running lines 38-111, we can run the script that searches Genbank for _matK_ and _rbcL_ sequences from our five _Opuntia_ species.
 
-Selecting and running lines 120-167 will generate three phylogenetic trees. The first tree illustrates the relationships between species based only on the nucleotide sequences of the _matK_ gene. The second tree does the same thing, but for the _rbcL_ gene. The third tree considers both sequences. Since this tree has the most information, it is often considered a better estimate of the true relationships between species. 
+As usual, we'll start by installing the necessary packages using `install.packages()`:
 
-![Figure 1: Phylogenetic tree for _Opuntia_ constructed from aligned _matK_ sequences.](matK_tree.jpg)
+```{r, eval = FALSE}
+install.packages(c('ape', 'msa', 'seqinr'))
+```
 
-<br>
+Then we'll attach some packages designed specifically for connecting with the Genbank database (`ape`), filtering and organizing our data (`tidyverse`), aligning sequences (`msa`), concatenating sequences (`seqinr`), and constructing phylogenetic trees (`ape`):
+```{r, results = 'hide' }
+# load packages once they are installed 
+library(ape)
+library(here)
+library(msa)
+library(seqinr)
+library(tidyverse)
+```
 
-![Figure 2: Phylogenetic tree for _Opuntia_ constructed from aligned _rbcL_ sequences.](rbcL_tree.jpg)
+First, we're going to build a spreadsheet that will help us keep track of our _Opuntia_ species and the GenBank accession codes for both the matK and rbcL genes for each species. The accession numbers were found by searching the GenBank website like so:
+
+![Figure 1: Searching Genbank for accession numbers.](genbank.jpg)
+
+Once the accession numbers are found, they can be saved in a data frame:
+```{r}
+# build data frame
+# accession numbers found by searching GenBank
+species <- c('O. basilaris', 'O. fragilis', 'O. humifusa',  'O. oricola', 'O. polyacantha') 
+matK_acc <- c('JF786750.1', 'JF786786.1', 'JF786791.1', 'JF786812.1', 'JF786823.1') 
+rbcL_acc <- c('JF787189.1', 'JF787223.1', 'JF787227.1', 'JF787249.1', 'JF787259.1') 
+
+df <- data.frame(species, matK_acc, rbcL_acc)
+```
+
+Now we're ready to search and download the matK sequence for each _Opuntia_ species, using the `read.Genbank()` function:
+```{r}
+# call GenBank
+matK <- 
+  read.GenBank(
+    df$matK_acc,
+    species.names = FALSE,
+    as.character = TRUE) %>% 
+  lapply(., paste0,collapse="") %>%  # remove spaces
+  lapply(., str_to_upper) # capitalize 
+
+# replace Accession IDs with English names
+names(matK) <- df$species
+```
+
+We can inspect the DNA sequence for _O. basilaris_ by running:
+```{r}
+head(matK$`O. basilaris`)
+```
+
+Cool, [I feel like I'm on CSI](https://pubmed.ncbi.nlm.nih.gov/16100764/). The code for searching and downloading the rbcL sequences is similar:
+```{r}
+# call GenBank
+rbcL <- 
+  read.GenBank(
+    df$rbcL_acc,
+    species.names = FALSE,
+    as.character = TRUE) %>% 
+  lapply(., paste0,collapse="") %>%  # remove spaces
+  lapply(., str_to_upper) # capitalize 
+
+# replace Accession IDs with English names
+names(rbcL) <- df$species
+```
+
+We now have two DNA sequence objects, `matK` and `rbcL`, that contain sequences from each of our five _Opuntia_ species. In the next step, we'll use the `msa()` function to align our five matK sequences so that their ends are lined up. You could also do this by eye, but it's a bit tedious and not as reproducible:
+
+```{r}
+# matK alignment
+matK_alignment <- 
+  msa(unlist(matK),
+      type ='dna', 
+      method ='ClustalW',
+      verbose = TRUE)
+
+# inspect alignment
+print(matK_alignment) 
+```
+
+By using the `print()` function, we see that our sequences are aligned pretty well! You can also notice some differences in nucleotide position between the species. Those are 'single nucleotide polymorphisms' (SNPs) that, when considered across the entire genome, distinguish one species from another.
+
+We'll now align our rbcL sequences:
+
+```{r}
+rbcL_alignment <- 
+  msa(unlist(rbcL),
+      type ='dna', 
+      method ='ClustalW',
+      verbose = TRUE)
+
+# inspect alignment
+print(rbcL_alignment)
+```
+
+Recall that matK and rbcL are two separate segments of the chloroplast genome. By sticking them together, we'll create a super-sequence that contains more information than either of the sequences alone. The more sequence information, the better, because it gives us a bigger sample of the entire genome. Concatenation is done by the `seqinr` package, so we'll need to convert our alignment objects into `seqinr` objects:
+
+```{r}
+# convert alignment object into seqinr object
+matK_r <- msaConvert(matK_alignment, type="seqinr::alignment")
+rbcL_r <- msaConvert(rbcL_alignment, type="seqinr::alignment")
+
+# concatenate (merge) sequences
+conseq <- mapply(paste0, matK_r$seq, rbcL_r$seq)
+names(conseq) <- df$species
+
+# re-align
+con_alignment <-
+  msa(unlist(conseq),
+      type ='dna', 
+      method ='ClustalW',
+      verbose = TRUE)
+
+# inspect 
+print(con_alignment)
+
+# convert alignment object into seqinr object
+con_r <- msaConvert(con_alignment, type="seqinr::alignment")
+```
+
+We're ready to create some phylogenetic trees! First, we'll use the `dist.alignment()` function to calculate how similar or different each species' sequence is from one another. We'll do this for the matK, rbcL, and concatenated sequences, so that we can compare the trees:
+```{r}
+# create distance matrices
+matK_dist <- dist.alignment(matK_r)
+rbcL_dist <- dist.alignment(rbcL_r)
+con_dist <- dist.alignment(con_r)
+```
+
+Now, we'll use the `nj()` function to construct trees:
+
+```{r}
+# neighbour joining trees
+matK_tree <- nj(matK_dist)
+rbcL_tree <- nj(rbcL_dist)
+con_tree <- nj(con_dist)
+```
+
+Plot your new trees:
+```{r}
+# plot trees
+plot(matK_tree, main ='matK tree')
+plot(rbcL_tree, main = 'rbcL tree')
+plot(con_tree, main = 'Consensus tree (matK + rbcL)') 
+```
+
+**-KNOWLEDGE CHECK-** Do the trees differ? Which phylogenetic relationships have been re-arranged between trees?
 
 
-**MB** Could add in some discussion here about why different genes produce different trees. 
-
----
-
-<br>
-<br>
-
-#### Activity 2: Deciphering some code
-
-Let's step through the script in order to understand what is happening here. 
-
-<br>
-
-**Lines 14-18**: The `library()` function loads various packages designed specifically for connecting with the Genbank database (`ape`), filtering and organizing our data (`tidyverse`), aligning sequences (`msa`), concatenating sequences (`seqinr`), and constructing phylogenetic trees (`ape`). 
-
-**Lines 38-40**: The `c()` concatenates the elements specified inside the brackets `()` into an object. For example, the `species` object contains five elements - each one is the name of an _Opuntia_ species that we are interested in. The `matK_acc` object contains the Genbank accession numbers for each species. These were found by searching Genbank like so:
-
-![Figure 3: Searching Genbank for accession numbers.](genbank.jpg)
-
-<br>
-
-**Line 42**: From our three objects created above, we will merge them together into a dataframe. The purpose of this dataframe is to keep our accession numbers and species names organized - it will come in handy later!
-
-function searches GBIF for taxon IDs associated with your search query. The `<-` function stores the results in an object that we named `group1_ids`. By storing the results in an object we can later return to the object and inspect it, subset it, and feed it to other functions. 
-
-**Lines 50-56**: The `read.Genbank()` function searches Genbank for nucleotide sequences associated with our search query. In this case, we are giving `read.Genbank()` our accession numbers for the _matK_ that we collected earlier.
-
-**Line 59**: Because Genbank returns the nucleotide sequences with accession numbers, we want to re-name them with English names for easier reading later on.
-
-
-**Lines 70-79**: Here, we're collecting sequence information from Genbank, but for the _rbcL_ gene. 
-
-**Lines 93-98**: Now that we have some DNA sequences, we need to align them. The `msa()` function takes our sequences and uses the CLUSTAL algorithm to make an optimal alignment (you could also do this by eye, but this becomes difficult with many sequences). 
-
-**Line 100**: The `print()` function allows us to inspect the alignment.
-
-**Lines 103-111**: Here, we'll go through the same alignment procedure for the _rbcL_ sequences.
-
-**Line 124**: In addition to constructing phylogenies for each gene separately, we'll also construct a phylogeny using both sequences concatenated together. The `paste0()` function allows us to string the _matK_ and _rbcL_ sequences together.
-
-**Lines 128-135**: With our concatenated sequences, we'll re-align with CLUSTAL once more using the `msa()` function.
-
-**Lines 148-150**: To construct a phylogeny, we first need to know how similar or dissimlar each species' DNA sequence is from another. The `dist.alignment()` function calculates a 'distance matrix' that describes these similarities. 
-
-
-**Lines 154-156**: With our distance matrices, we can now construct a phylogenetic tree. The `nj()` function creates a certain type of tree called a 'neighbour joining tree`
-
-**MB**: Perhaps need to explain this terminology (distance matrix, neighbour joining) in pre-assingment reading, or lectures. 
-
-**Line 159-161**: Now it's time to plot our trees! The _matK_ and _rbcL_ trees were shown earlier, below is the consensus tree:
-
-
-![Figure 4: Phylogenetic tree for _Opuntia_ constructed from concatenated and aligned _matK_ and _rbcL_ sequences.](consensus_tree.jpg)
-
-<br>
-<br>
 
 
 
