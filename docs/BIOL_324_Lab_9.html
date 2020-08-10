@@ -21,6 +21,7 @@
 <script src="site_libs/bootstrap-3.3.5/shim/html5shiv.min.js"></script>
 <script src="site_libs/bootstrap-3.3.5/shim/respond.min.js"></script>
 <script src="site_libs/navigation-1.1/tabsets.js"></script>
+<script src="site_libs/accessible-code-block-0.0.1/empty-anchor.js"></script>
 
 
 <style type="text/css">code{white-space: pre;}</style>
@@ -377,7 +378,11 @@ $(document).ready(function () {
 
 <h1 class="title toc-ignore">R Assignment 4: Creating Phylogenetic Trees using Genbank data</h1>
 <h4 class="author">Mannfred Boehm</h4>
+<<<<<<< HEAD
 <h4 class="date">10 August, 2020</h4>
+=======
+<h4 class="date">06 August, 2020</h4>
+>>>>>>> aa9c6a795714ba34e7e85a577c4cc343840ae1f1
 
 </div>
 
@@ -418,6 +423,7 @@ $(document).ready(function () {
 <p>In this lab, we’ll explore further the genus <em>Opuntia</em>:</p>
 <p><em>Opuntia basilaris</em> (Mojave Desert, Colorado, Utah) <em>Opuntia fragilis</em> (Northwestern) <em>Opuntia humifusa</em> (Eastern) <em>Opuntia oricola</em> (Coastal sage and chaparral of S. California) <em>Opuntia polyacantha</em> (Great Plains, foothills of Rocky Mountains)</p>
 <p><strong>MB</strong> Could add in some natural history background to better motivate this activity. <br></p>
+<<<<<<< HEAD
 <p>As usual, we’ll start by installing the necessary packages using <code>install.packages()</code>:</p>
 <div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb1-1" title="1"><span class="kw">install.packages</span>(<span class="kw">c</span>(<span class="st">&#39;ape&#39;</span>, <span class="st">&#39;msa&#39;</span>, <span class="st">&#39;seqinr&#39;</span>))</a></code></pre></div>
 <p>Then we’ll attach some packages designed specifically for connecting with the Genbank database (<code>ape</code>), filtering and organizing our data (<code>tidyverse</code>), aligning sequences (<code>msa</code>), concatenating sequences (<code>seqinr</code>), and constructing phylogenetic trees (<code>ape</code>):</p>
@@ -636,6 +642,53 @@ $(document).ready(function () {
 <div class="sourceCode" id="cb53"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb53-1" title="1"><span class="kw">plot</span>(con_tree, <span class="dt">main =</span> <span class="st">&#39;Consensus tree (matK + rbcL)&#39;</span>) </a></code></pre></div>
 <p><img src="BIOL_324_Lab_9_files/figure-html/unnamed-chunk-12-3.png" width="672" /></p>
 <p><strong>-KNOWLEDGE CHECK-</strong> Do the trees differ? Which phylogenetic relationships have been re-arranged between trees?</p>
+=======
+<p>Open this week’s .R file (‘324_Phylogenetics.R’) and navigate to the source pane. Install and attach the necessary packages using <code>install.packages()</code> and <code>library()</code>. By highlighting and running lines 38-111, we can run the script that searches Genbank for <em>matK</em> and <em>rbcL</em> sequences from our five <em>Opuntia</em> species.</p>
+<p>Selecting and running lines 120-167 will generate three phylogenetic trees. The first tree illustrates the relationships between species based only on the nucleotide sequences of the <em>matK</em> gene. The second tree does the same thing, but for the <em>rbcL</em> gene. The third tree considers both sequences. Since this tree has the most information, it is often considered a better estimate of the true relationships between species.</p>
+<div class="figure">
+<img src="matK_tree.jpg" alt="" />
+<p class="caption">Figure 1: Phylogenetic tree for <em>Opuntia</em> constructed from aligned <em>matK</em> sequences.</p>
+</div>
+<p><br></p>
+<div class="figure">
+<img src="rbcL_tree.jpg" alt="" />
+<p class="caption">Figure 2: Phylogenetic tree for <em>Opuntia</em> constructed from aligned <em>rbcL</em> sequences.</p>
+</div>
+<p><strong>MB</strong> Could add in some discussion here about why different genes produce different trees.</p>
+<hr />
+<p><br> <br></p>
+</div>
+<div id="activity-2-deciphering-some-code" class="section level4">
+<h4>Activity 2: Deciphering some code</h4>
+<p>Let’s step through the script in order to understand what is happening here.</p>
+<p><br></p>
+<p><strong>Lines 14-18</strong>: The <code>library()</code> function loads various packages designed specifically for connecting with the Genbank database (<code>ape</code>), filtering and organizing our data (<code>tidyverse</code>), aligning sequences (<code>msa</code>), concatenating sequences (<code>seqinr</code>), and constructing phylogenetic trees (<code>ape</code>).</p>
+<p><strong>Lines 38-40</strong>: The <code>c()</code> concatenates the elements specified inside the brackets <code>()</code> into an object. For example, the <code>species</code> object contains five elements - each one is the name of an <em>Opuntia</em> species that we are interested in. The <code>matK_acc</code> object contains the Genbank accession numbers for each species. These were found by searching Genbank like so:</p>
+<div class="figure">
+<img src="genbank.jpg" alt="" />
+<p class="caption">Figure 3: Searching Genbank for accession numbers.</p>
+</div>
+<p><br></p>
+<p><strong>Line 42</strong>: From our three objects created above, we will merge them together into a dataframe. The purpose of this dataframe is to keep our accession numbers and species names organized - it will come in handy later!</p>
+<p>function searches GBIF for taxon IDs associated with your search query. The <code>&lt;-</code> function stores the results in an object that we named <code>group1_ids</code>. By storing the results in an object we can later return to the object and inspect it, subset it, and feed it to other functions.</p>
+<p><strong>Lines 50-56</strong>: The <code>read.Genbank()</code> function searches Genbank for nucleotide sequences associated with our search query. In this case, we are giving <code>read.Genbank()</code> our accession numbers for the <em>matK</em> that we collected earlier.</p>
+<p><strong>Line 59</strong>: Because Genbank returns the nucleotide sequences with accession numbers, we want to re-name them with English names for easier reading later on.</p>
+<p><strong>Lines 70-79</strong>: Here, we’re collecting sequence information from Genbank, but for the <em>rbcL</em> gene.</p>
+<p><strong>Lines 93-98</strong>: Now that we have some DNA sequences, we need to align them. The <code>msa()</code> function takes our sequences and uses the CLUSTAL algorithm to make an optimal alignment (you could also do this by eye, but this becomes difficult with many sequences).</p>
+<p><strong>Line 100</strong>: The <code>print()</code> function allows us to inspect the alignment.</p>
+<p><strong>Lines 103-111</strong>: Here, we’ll go through the same alignment procedure for the <em>rbcL</em> sequences.</p>
+<p><strong>Line 124</strong>: In addition to constructing phylogenies for each gene separately, we’ll also construct a phylogeny using both sequences concatenated together. The <code>paste0()</code> function allows us to string the <em>matK</em> and <em>rbcL</em> sequences together.</p>
+<p><strong>Lines 128-135</strong>: With our concatenated sequences, we’ll re-align with CLUSTAL once more using the <code>msa()</code> function.</p>
+<p><strong>Lines 148-150</strong>: To construct a phylogeny, we first need to know how similar or dissimlar each species’ DNA sequence is from another. The <code>dist.alignment()</code> function calculates a ‘distance matrix’ that describes these similarities.</p>
+<p><strong>Lines 154-156</strong>: With our distance matrices, we can now construct a phylogenetic tree. The <code>nj()</code> function creates a certain type of tree called a ’neighbour joining tree`</p>
+<p><strong>MB</strong>: Perhaps need to explain this terminology (distance matrix, neighbour joining) in pre-assingment reading, or lectures.</p>
+<p><strong>Line 159-161</strong>: Now it’s time to plot our trees! The <em>matK</em> and <em>rbcL</em> trees were shown earlier, below is the consensus tree:</p>
+<div class="figure">
+<img src="consensus_tree.jpg" alt="" />
+<p class="caption">Figure 4: Phylogenetic tree for <em>Opuntia</em> constructed from concatenated and aligned <em>matK</em> and <em>rbcL</em> sequences.</p>
+</div>
+<p><br> <br></p>
+>>>>>>> aa9c6a795714ba34e7e85a577c4cc343840ae1f1
 </div>
 
 

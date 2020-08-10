@@ -141,7 +141,7 @@ library(dplyr)
 
 group1_fil <-  
   group1_simple %>% 
-  filter(scientificName== 'Opuntia humifusa Raf.' & 
+  dplyr::filter(scientificName== 'Opuntia humifusa Raf.' & 
          country == c('Canada', 'United States of America')) %>%
   select(1:3)
 ```
@@ -183,9 +183,9 @@ library(dplyr)
 
 group2_fil <-  
   group2_simple %>% 
-  filter(scientificName== 'Opuntia fragilis (Nutt.) Haw.' & 
+  dplyr::filter(scientificName== 'Opuntia fragilis (Nutt.) Haw.' & 
            country == c('Canada', 'United States of America')) %>%
-  select(1:3)
+  dplyr::select(1:3)
 ```
 
 We can then use the `full_join()` function to combine our two _Opuntia_ datasets:
