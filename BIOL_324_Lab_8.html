@@ -1,0 +1,430 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+
+<meta charset="utf-8" />
+<meta name="generator" content="pandoc" />
+<meta http-equiv="X-UA-Compatible" content="IE=EDGE" />
+
+
+<meta name="author" content="Mannfred Boehm" />
+
+
+<title>R Assignment 3: Species Delimitation using Morphometrics and Machine Learning</title>
+
+<script src="site_libs/jquery-1.11.3/jquery.min.js"></script>
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<link href="site_libs/bootstrap-3.3.5/css/readable.min.css" rel="stylesheet" />
+<script src="site_libs/bootstrap-3.3.5/js/bootstrap.min.js"></script>
+<script src="site_libs/bootstrap-3.3.5/shim/html5shiv.min.js"></script>
+<script src="site_libs/bootstrap-3.3.5/shim/respond.min.js"></script>
+<script src="site_libs/navigation-1.1/tabsets.js"></script>
+
+
+
+
+<style type="text/css">
+h1 {
+  font-size: 34px;
+}
+h1.title {
+  font-size: 38px;
+}
+h2 {
+  font-size: 30px;
+}
+h3 {
+  font-size: 24px;
+}
+h4 {
+  font-size: 18px;
+}
+h5 {
+  font-size: 16px;
+}
+h6 {
+  font-size: 12px;
+}
+.table th:not([align]) {
+  text-align: left;
+}
+</style>
+
+
+
+
+<style type = "text/css">
+.main-container {
+  max-width: 940px;
+  margin-left: auto;
+  margin-right: auto;
+}
+code {
+  color: inherit;
+  background-color: rgba(0, 0, 0, 0.04);
+}
+img {
+  max-width:100%;
+}
+.tabbed-pane {
+  padding-top: 12px;
+}
+.html-widget {
+  margin-bottom: 20px;
+}
+button.code-folding-btn:focus {
+  outline: none;
+}
+summary {
+  display: list-item;
+}
+</style>
+
+
+<style type="text/css">
+/* padding for bootstrap navbar */
+body {
+  padding-top: 66px;
+  padding-bottom: 40px;
+}
+/* offset scroll position for anchor links (for fixed navbar)  */
+.section h1 {
+  padding-top: 71px;
+  margin-top: -71px;
+}
+.section h2 {
+  padding-top: 71px;
+  margin-top: -71px;
+}
+.section h3 {
+  padding-top: 71px;
+  margin-top: -71px;
+}
+.section h4 {
+  padding-top: 71px;
+  margin-top: -71px;
+}
+.section h5 {
+  padding-top: 71px;
+  margin-top: -71px;
+}
+.section h6 {
+  padding-top: 71px;
+  margin-top: -71px;
+}
+.dropdown-submenu {
+  position: relative;
+}
+.dropdown-submenu>.dropdown-menu {
+  top: 0;
+  left: 100%;
+  margin-top: -6px;
+  margin-left: -1px;
+  border-radius: 0 6px 6px 6px;
+}
+.dropdown-submenu:hover>.dropdown-menu {
+  display: block;
+}
+.dropdown-submenu>a:after {
+  display: block;
+  content: " ";
+  float: right;
+  width: 0;
+  height: 0;
+  border-color: transparent;
+  border-style: solid;
+  border-width: 5px 0 5px 5px;
+  border-left-color: #cccccc;
+  margin-top: 5px;
+  margin-right: -10px;
+}
+.dropdown-submenu:hover>a:after {
+  border-left-color: #ffffff;
+}
+.dropdown-submenu.pull-left {
+  float: none;
+}
+.dropdown-submenu.pull-left>.dropdown-menu {
+  left: -100%;
+  margin-left: 10px;
+  border-radius: 6px 0 6px 6px;
+}
+</style>
+
+<script>
+// manage active state of menu based on current page
+$(document).ready(function () {
+  // active menu anchor
+  href = window.location.pathname
+  href = href.substr(href.lastIndexOf('/') + 1)
+  if (href === "")
+    href = "index.html";
+  var menuAnchor = $('a[href="' + href + '"]');
+
+  // mark it active
+  menuAnchor.parent().addClass('active');
+
+  // if it's got a parent navbar menu mark it active as well
+  menuAnchor.closest('li.dropdown').addClass('active');
+});
+</script>
+
+<!-- tabsets -->
+
+<style type="text/css">
+.tabset-dropdown > .nav-tabs {
+  display: inline-table;
+  max-height: 500px;
+  min-height: 44px;
+  overflow-y: auto;
+  background: white;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+}
+
+.tabset-dropdown > .nav-tabs > li.active:before {
+  content: "";
+  font-family: 'Glyphicons Halflings';
+  display: inline-block;
+  padding: 10px;
+  border-right: 1px solid #ddd;
+}
+
+.tabset-dropdown > .nav-tabs.nav-tabs-open > li.active:before {
+  content: "&#xe258;";
+  border: none;
+}
+
+.tabset-dropdown > .nav-tabs.nav-tabs-open:before {
+  content: "";
+  font-family: 'Glyphicons Halflings';
+  display: inline-block;
+  padding: 10px;
+  border-right: 1px solid #ddd;
+}
+
+.tabset-dropdown > .nav-tabs > li.active {
+  display: block;
+}
+
+.tabset-dropdown > .nav-tabs > li > a,
+.tabset-dropdown > .nav-tabs > li > a:focus,
+.tabset-dropdown > .nav-tabs > li > a:hover {
+  border: none;
+  display: inline-block;
+  border-radius: 4px;
+  background-color: transparent;
+}
+
+.tabset-dropdown > .nav-tabs.nav-tabs-open > li {
+  display: block;
+  float: none;
+}
+
+.tabset-dropdown > .nav-tabs > li {
+  display: none;
+}
+</style>
+
+<!-- code folding -->
+
+
+
+
+</head>
+
+<body>
+
+
+<div class="container-fluid main-container">
+
+
+
+
+<div class="navbar navbar-default  navbar-fixed-top" role="navigation">
+  <div class="container">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar">
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="index.html">BIOL 324 Labs</a>
+    </div>
+    <div id="navbar" class="navbar-collapse collapse">
+      <ul class="nav navbar-nav">
+        <li>
+  <a href="index.html">Home</a>
+</li>
+<li>
+  <a href="BIOL_324_Lab_6.html">Lab 6</a>
+</li>
+<li>
+  <a href="BIOL_324_Lab_7.html">Lab 7</a>
+</li>
+<li>
+  <a href="BIOL_324_Lab_8.html">Lab 8</a>
+</li>
+<li>
+  <a href="BIOL_324_Lab_9.html">Lab 9</a>
+</li>
+<li>
+  <a href="BIOL_324_Lab_10.html">Lab 10</a>
+</li>
+      </ul>
+      <ul class="nav navbar-nav navbar-right">
+        
+      </ul>
+    </div><!--/.nav-collapse -->
+  </div><!--/.container -->
+</div><!--/.navbar -->
+
+<div class="fluid-row" id="header">
+
+
+
+<h1 class="title toc-ignore">R Assignment 3: Species Delimitation using Morphometrics and Machine Learning</h1>
+<h4 class="author">Mannfred Boehm</h4>
+<h4 class="date">11 August, 2020</h4>
+
+</div>
+
+
+<p><br> <br></p>
+<div id="motivation" class="section level4">
+<h4>Motivation</h4>
+<p>Throughout this course we’ve seen how morphology plays a central role in plant taxonomy. The shapes of stems, leaves, and flowers are often the first traits listed in a dichotomous key. When a trait (like corolla width) is measured and quantified, we are able to use statistical tests to help us make decisions about how to group or split individuals. The science of measuring and analysing shape is called <em>morphometrics</em>. In this lab, we’ll be using a dataset of <em>Aquilegia</em> flower morphology (see: Lab 1, Ranunculaceae) to determine whether two species, <em>A. formosa</em> and <em>A. flavescens</em>, show evidence of forming hybrids when co-occuring in a contact zone.</p>
+<hr />
+<p><br> <br></p>
+</div>
+<div id="prerequisites" class="section level4">
+<h4>Prerequisites</h4>
+<p>Before starting this week’s tutorial you will have: <br></p>
+<ol style="list-style-type: decimal">
+<li><p>downloaded the program <a href="https://imagej.nih.gov/ij/download.htm">Image_J</a> for making morphometric measurements, <br></p></li>
+<li><p>downloaded the class google sheet in the file format .csv. Note: if you can’t use imageJ for any reason, don’t panic. Display the digital image of the herbarium sheet on any device and use a ruler held up to the screen to make measurements, <br></p></li>
+<li><p><strong>MB</strong>: probably need to get students to do some pre-assignment reading on machine learning (decision trees, random forests). Also, some reading on MDS and interpreting MDS plots.</p></li>
+</ol>
+<hr />
+<p><br> <br></p>
+</div>
+<div id="outcomes" class="section level4">
+<h4>Outcomes</h4>
+<p>By the end of this tutorial you will: <br></p>
+<ol style="list-style-type: decimal">
+<li><p>have experience taking morphometric measurements from herbarium specimens, <br></p></li>
+<li><p>understand some core concepts in machine learning and how it can be used in species delimitation, <br></p></li>
+<li><p>the tools and knowledge needed to implement machine learning in R as part of a taxonomic research programme, <br></p></li>
+<li><p>More?</p></li>
+</ol>
+<hr />
+<p><br> <br></p>
+</div>
+<div id="activity-1-taking-morphometrics-measurements-from-herbarium-specimens-using-imagej" class="section level4">
+<h4>Activity 1: Taking Morphometrics Measurements from Herbarium Specimens using ImageJ</h4>
+<p>ImageJ is an image processing software that was developed by the NIH. It is used to analyze different types of images but this tutorial will cover how to measure certain morphological features from photographs of herbarium specimens. <br></p>
+<p>To use ImageJ you have to import the photographs you want to work with. <br></p>
+<ol style="list-style-type: decimal">
+<li>Drag the file to the lower grey bar. As you are doing this the words &lt;<drag and drop>&gt; should appear. Once the image has been dropped it will open and now it is ready to analyze in ImageJ. <br></li>
+</ol>
+<p>There are many measurements that can be taken with ImageJ. It might be helpful to click through the different buttons at the top of the bar to explore all of the different ways ImageJ can make measurements. This tutorial will use the line button for all of the measurements. <br></p>
+<ol start="2" style="list-style-type: decimal">
+<li><p>Zoom in on the ruler (Mac: Command shift =, Windows: CTRL + ). Most digitized herbarium specimens will have a ruler in the photograph. This is to help standardized it and is useful for measuring features in ImageJ. <br></p></li>
+<li><p>Use the line button (5th button from the left) and draw a line by clicking and dragging along the bottom of the ruler so that the line goes from the 0 tick to the 5 cm tick. This needs to be very accurate because we are going to use this length to calibrate the rest of the measurements taken in ImageJ. <br></p></li>
+<li><p>Go to the top bar and hit “analyze”. Then go to “set scale…”. Enter 5 into the Known distance box and enter cm into the Unit of Length box. Hit the box “Global”. By checking “Global” you are ensuring that this is applied to all photos in the current session of ImageJ. Then hit OK. ImageJ is now calibrated using the ruler from your herbarium photo. <br></p></li>
+</ol>
+<p>Now you can go on to take measurements. <br></p>
+<ol start="5" style="list-style-type: decimal">
+<li><p>Use the line or the segmented line (you can change between them by right clicking on the line button) draw lines across what you want to measure. Once you have the right length hit (Mac: Command M, Windows: CTRL M) and ImageJ will measure and record the length in a convenient table for you. This table should pop up once you take your first measurement. When you have all of the measurements you need you can either download that table that ImageJ made or just copy and input the data in your own table. You will have to eventually input your data in a group google sheet so keep that in mind as you are recording data. <br></p></li>
+<li><p>Once you have taken and recorded all of the measurements necessary put your findings into the class google spreadsheet so that other people will be able to access, download, and use your data for the next step. <br></p></li>
+</ol>
+<p>Note: <a href="https://imagej.nih.gov/ij/docs/guide/user-guide.pdf">Here is a link</a> to the ImageJ user guide. All the information you will need is in this document, but if you are interested in the program and the other features available, the user guide can provide more information.</p>
+<hr />
+<p><br> <br></p>
+</div>
+<div id="activity-2-delimiting-species-using-morphometrics-and-machine-learning" class="section level4">
+<h4>Activity 2: Delimiting Species using Morphometrics and Machine Learning</h4>
+<p><code>randomForest</code> is an R package that uses machine learning for classification, regression, and clustering. It combines the simplicity of decision trees with flexibility which makes the result more accurate than simply using decision trees alone. There are many tutorials and videos online about <code>randomForest</code> but <a href="https://www.youtube.com/watch?v=J4Wdy0Wc_xQ">this video</a> is useful if you want more background.</p>
+<p><strong>MB</strong>: maybe this video (or other online learning resources) should be a ‘pre-assignment’?</p>
+<p> </p>
+<p>There are a few ways to use <code>randomForest</code> but this tutorial will cover using the package in unsupervised mode. This means that the program will have to find the structure of the data itself, without us training it first.</p>
+<p> </p>
+<ol style="list-style-type: decimal">
+<li><p>Open R and set your working directory. You want the working directory to be wherever the data set you are going to input is located.</p></li>
+<li><p>Install the packages needed for <code>randomForest</code> to run properly. These are <code>randomForest</code>, <code>tidyverse</code>, and <code>caret</code>. Installation only needs to be done once so if you have already downloaded any of these (<code>install.packages()</code>), attach the packages using <code>library()</code>.</p></li>
+<li><p>By highlighting the script from lines 11-91 and pressing <strong>Ctrl+Enter</strong> (or clicking <strong>Run</strong> at the top of the Source Pane), the functions will execute consecutively, storing objects in the <strong>Environment Pane</strong>.</p></li>
+</ol>
+<p><strong>MB</strong>: Might need some additional instruction and R code to help with importing the morphometric data. If this tutorial is done on RStudio Cloud, we can load the data in automatically when they open the assignment.</p>
+<hr />
+<p><br> <br></p>
+</div>
+<div id="activity-3-deciphering-some-code" class="section level4">
+<h4>Activity 3: Deciphering some code</h4>
+<p>Let’s step through the R script in order to understand what is happening here.</p>
+<p><br></p>
+<p><strong>Lines 12-15</strong>: The <code>library()</code> function loads various packages designed specifically for machine learning (<code>caret</code>, <code>randomForest</code>), and filtering and plotting data (<code>tidyverse</code>).</p>
+<p><strong>Line 23</strong>: Set the seed for the random number generator. This can be any number.</p>
+<p><strong>MB</strong>: might need to explain the signficance of this step.</p>
+<p><strong>Lines 33-42</strong>: The <code>randomForest()</code> function generates 30000 decision trees (<code>ntree</code>) that attempt to classify the specimens based on binary questions posed to the morphometrics data (<code>columbine_data</code>). Each question (‘node’) in the decision tree consideres three morphometric variables (<code>mtry</code>). Setting <code>proximity = TRUE</code> tells the function to calculate a similarity metric between specimens. This will come in handy in the following step.</p>
+<p><strong>Line 51</strong>: Create a distance matrix to describing how similar or dissimilar each sample is from one another.</p>
+<p><strong>Line 54</strong>: The <code>cmdscale()</code> function finds the axes of greatest variation in our morphometrics dataset. For example, if corolla width was the trait that varied the most between all specimens, <code>cmdscale()</code> would assign this variable as <em>MDS axis 1</em>. In reality, it’s unlikely that a single trait will explain the greatest variation in morphology, instead, MDS axes tend to be combinations of traits.</p>
+<p><strong>MB</strong>: maybe this should be part of pre-assignment reading?</p>
+<p><strong>Lines 57-64</strong>: At this part of the script we will extract information from our MDS object <code>mds.analysis</code> and store this information into various objects. These objects help us to choose which information is most useful to us, and make it easier to create our MDS plot later on.</p>
+<p><strong>Line 57</strong>: Let’s extract the percentage variation described by each of <em>MDS axis 1</em> and <em>MDS axis 2</em>. Recall from previous tutorials that the <code>$</code> operator is a way to subset data (in this case <code>mds.analysis</code>) in order to extract information. We’ll round the percent variation to the nearest tenth using <code>round()</code>.</p>
+<p><strong>Line 59</strong>: Here, we’re using the <code>$</code> operator to extract information about where each specimen lies in the morphometric ‘shape space’.</p>
+<p><strong>Lines 61-64</strong>: We’ll create our own spreadsheet of data for plotting using the <code>data.frame()</code> function. Each parameter in this function specifies a column in the spreadsheet (<code>data.frame</code>).</p>
+<p><strong>Lines 62-94</strong>: The <code>ggplot()</code> function takes our <code>mds.data</code> object and plots it. <em>MDS1</em> is the axis explaining the most morphometric variation in our herbarium dataset. Notice that this axis separates <em>A. flavescens</em> and <em>A. formosa</em>.</p>
+<p><strong>MB</strong>: Opportunity here to pose some questions about the ‘V’ distribution of specimens in the MDS plot.</p>
+<p><strong>The result</strong>:</p>
+<p><img src="aquelgia_mds.jpg" alt="Figure 1: MDS plot depicting morphometric variation in two species of Aquilegia." /> <br> <br></p>
+</div>
+
+
+
+
+</div>
+
+<script>
+
+// add bootstrap table styles to pandoc tables
+function bootstrapStylePandocTables() {
+  $('tr.header').parent('thead').parent('table').addClass('table table-condensed');
+}
+$(document).ready(function () {
+  bootstrapStylePandocTables();
+});
+
+
+</script>
+
+<!-- tabsets -->
+
+<script>
+$(document).ready(function () {
+  window.buildTabsets("TOC");
+});
+
+$(document).ready(function () {
+  $('.tabset-dropdown > .nav-tabs > li').click(function () {
+    $(this).parent().toggleClass('nav-tabs-open')
+  });
+});
+</script>
+
+<!-- code folding -->
+
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    script.src  = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML";
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+
+</body>
+</html>

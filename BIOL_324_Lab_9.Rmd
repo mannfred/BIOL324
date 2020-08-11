@@ -145,7 +145,7 @@ names(rbcL) <- df$species
 
 We now have two DNA sequence objects, `matK` and `rbcL`, that contain sequences from each of our five _Opuntia_ species. In the next step, we'll use the `msa()` function to align our five matK sequences so that their ends are lined up. You could also do this by eye, but it's a bit tedious and not as reproducible:
 
-```{r}
+```{r, results = 'hide', message = FALSE}
 # matK alignment
 matK_alignment <- 
   msa(unlist(matK),
@@ -154,7 +154,7 @@ matK_alignment <-
       verbose = TRUE)
 ```
 
-```{r, results='hide'}
+```{r}
 # inspect alignment
 print(matK_alignment) 
 ```
@@ -163,7 +163,7 @@ By using the `print()` function, we see that our sequences are aligned pretty we
 
 We'll now align our rbcL sequences:
 
-```{r, results = 'hide'}
+```{r, results = 'hide', message = FALSE}
 rbcL_alignment <- 
   msa(unlist(rbcL),
       type ='dna', 
@@ -177,8 +177,13 @@ print(rbcL_alignment)
 ```
 
 
-We're ready to create some phylogenetic trees! First, we'll use the `dist.alignment()` function to calculate how similar or different each species' sequence is from one another. We'll do this for the matK, rbcL, and concatenated sequences, so that we can compare the trees:
-```{r}
+We're ready to create some phylogenetic trees! First, we'll convert our alignment objects to `seqinr` objects. Then, we'll use the `dist.alignment()` function to calculate how similar or different each species' sequence is from one another. We'll do this for the matK, rbcL, and concatenated sequences, so that we can compare the trees:
+
+```{r, results = 'hide'} 
+# convert alignment object into seqinr object 
+matK_r <- msaConvert(matK_alignment, type="seqinr::alignment") 
+rbcL_r <- msaConvert(rbcL_alignment, type="seqinr::alignment") 
+  
 # create distance matrices
 matK_dist <- dist.alignment(matK_r)
 rbcL_dist <- dist.alignment(rbcL_r)

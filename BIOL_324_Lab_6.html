@@ -1,0 +1,824 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+
+<meta charset="utf-8" />
+<meta name="generator" content="pandoc" />
+<meta http-equiv="X-UA-Compatible" content="IE=EDGE" />
+
+
+<meta name="author" content="Mannfred Boehm and Evan Hersh" />
+
+
+<title>Lab 6: Lamiaceae, Schrophularioids, and R Assignment 1 - Introduction to R and RStudio</title>
+
+<script src="site_libs/jquery-1.11.3/jquery.min.js"></script>
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<link href="site_libs/bootstrap-3.3.5/css/readable.min.css" rel="stylesheet" />
+<script src="site_libs/bootstrap-3.3.5/js/bootstrap.min.js"></script>
+<script src="site_libs/bootstrap-3.3.5/shim/html5shiv.min.js"></script>
+<script src="site_libs/bootstrap-3.3.5/shim/respond.min.js"></script>
+<script src="site_libs/navigation-1.1/tabsets.js"></script>
+
+
+<style type="text/css">code{white-space: pre;}</style>
+<style type="text/css" data-origin="pandoc">
+a.sourceLine { display: inline-block; line-height: 1.25; }
+a.sourceLine { pointer-events: none; color: inherit; text-decoration: inherit; }
+a.sourceLine:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode { white-space: pre; position: relative; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+code.sourceCode { white-space: pre-wrap; }
+a.sourceLine { text-indent: -1em; padding-left: 1em; }
+}
+pre.numberSource a.sourceLine
+  { position: relative; left: -4em; }
+pre.numberSource a.sourceLine::before
+  { content: attr(title);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; pointer-events: all; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  { background-color: #f8f8f8; }
+@media screen {
+a.sourceLine::before { text-decoration: underline; }
+}
+code span.al { color: #ef2929; } /* Alert */
+code span.an { color: #8f5902; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #c4a000; } /* Attribute */
+code span.bn { color: #0000cf; } /* BaseN */
+code span.cf { color: #204a87; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4e9a06; } /* Char */
+code span.cn { color: #000000; } /* Constant */
+code span.co { color: #8f5902; font-style: italic; } /* Comment */
+code span.cv { color: #8f5902; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #8f5902; font-weight: bold; font-style: italic; } /* Documentation */
+code span.dt { color: #204a87; } /* DataType */
+code span.dv { color: #0000cf; } /* DecVal */
+code span.er { color: #a40000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #0000cf; } /* Float */
+code span.fu { color: #000000; } /* Function */
+code span.im { } /* Import */
+code span.in { color: #8f5902; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #204a87; font-weight: bold; } /* Keyword */
+code span.op { color: #ce5c00; font-weight: bold; } /* Operator */
+code span.ot { color: #8f5902; } /* Other */
+code span.pp { color: #8f5902; font-style: italic; } /* Preprocessor */
+code span.sc { color: #000000; } /* SpecialChar */
+code span.ss { color: #4e9a06; } /* SpecialString */
+code span.st { color: #4e9a06; } /* String */
+code span.va { color: #000000; } /* Variable */
+code span.vs { color: #4e9a06; } /* VerbatimString */
+code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warning */
+
+</style>
+<script>
+// apply pandoc div.sourceCode style to pre.sourceCode instead
+(function() {
+  var sheets = document.styleSheets;
+  for (var i = 0; i < sheets.length; i++) {
+    if (sheets[i].ownerNode.dataset["origin"] !== "pandoc") continue;
+    try { var rules = sheets[i].cssRules; } catch (e) { continue; }
+    for (var j = 0; j < rules.length; j++) {
+      var rule = rules[j];
+      // check if there is a div.sourceCode rule
+      if (rule.type !== rule.STYLE_RULE || rule.selectorText !== "div.sourceCode") continue;
+      var style = rule.style.cssText;
+      // check if color or background-color is set
+      if (rule.style.color === '' && rule.style.backgroundColor === '') continue;
+      // replace div.sourceCode by a pre.sourceCode rule
+      sheets[i].deleteRule(j);
+      sheets[i].insertRule('pre.sourceCode{' + style + '}', j);
+    }
+  }
+})();
+</script>
+<style type="text/css">
+  pre:not([class]) {
+    background-color: white;
+  }
+</style>
+
+
+<style type="text/css">
+h1 {
+  font-size: 34px;
+}
+h1.title {
+  font-size: 38px;
+}
+h2 {
+  font-size: 30px;
+}
+h3 {
+  font-size: 24px;
+}
+h4 {
+  font-size: 18px;
+}
+h5 {
+  font-size: 16px;
+}
+h6 {
+  font-size: 12px;
+}
+.table th:not([align]) {
+  text-align: left;
+}
+</style>
+
+
+
+
+<style type = "text/css">
+.main-container {
+  max-width: 940px;
+  margin-left: auto;
+  margin-right: auto;
+}
+code {
+  color: inherit;
+  background-color: rgba(0, 0, 0, 0.04);
+}
+img {
+  max-width:100%;
+}
+.tabbed-pane {
+  padding-top: 12px;
+}
+.html-widget {
+  margin-bottom: 20px;
+}
+button.code-folding-btn:focus {
+  outline: none;
+}
+summary {
+  display: list-item;
+}
+</style>
+
+
+<style type="text/css">
+/* padding for bootstrap navbar */
+body {
+  padding-top: 66px;
+  padding-bottom: 40px;
+}
+/* offset scroll position for anchor links (for fixed navbar)  */
+.section h1 {
+  padding-top: 71px;
+  margin-top: -71px;
+}
+.section h2 {
+  padding-top: 71px;
+  margin-top: -71px;
+}
+.section h3 {
+  padding-top: 71px;
+  margin-top: -71px;
+}
+.section h4 {
+  padding-top: 71px;
+  margin-top: -71px;
+}
+.section h5 {
+  padding-top: 71px;
+  margin-top: -71px;
+}
+.section h6 {
+  padding-top: 71px;
+  margin-top: -71px;
+}
+.dropdown-submenu {
+  position: relative;
+}
+.dropdown-submenu>.dropdown-menu {
+  top: 0;
+  left: 100%;
+  margin-top: -6px;
+  margin-left: -1px;
+  border-radius: 0 6px 6px 6px;
+}
+.dropdown-submenu:hover>.dropdown-menu {
+  display: block;
+}
+.dropdown-submenu>a:after {
+  display: block;
+  content: " ";
+  float: right;
+  width: 0;
+  height: 0;
+  border-color: transparent;
+  border-style: solid;
+  border-width: 5px 0 5px 5px;
+  border-left-color: #cccccc;
+  margin-top: 5px;
+  margin-right: -10px;
+}
+.dropdown-submenu:hover>a:after {
+  border-left-color: #ffffff;
+}
+.dropdown-submenu.pull-left {
+  float: none;
+}
+.dropdown-submenu.pull-left>.dropdown-menu {
+  left: -100%;
+  margin-left: 10px;
+  border-radius: 6px 0 6px 6px;
+}
+</style>
+
+<script>
+// manage active state of menu based on current page
+$(document).ready(function () {
+  // active menu anchor
+  href = window.location.pathname
+  href = href.substr(href.lastIndexOf('/') + 1)
+  if (href === "")
+    href = "index.html";
+  var menuAnchor = $('a[href="' + href + '"]');
+
+  // mark it active
+  menuAnchor.parent().addClass('active');
+
+  // if it's got a parent navbar menu mark it active as well
+  menuAnchor.closest('li.dropdown').addClass('active');
+});
+</script>
+
+<!-- tabsets -->
+
+<style type="text/css">
+.tabset-dropdown > .nav-tabs {
+  display: inline-table;
+  max-height: 500px;
+  min-height: 44px;
+  overflow-y: auto;
+  background: white;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+}
+
+.tabset-dropdown > .nav-tabs > li.active:before {
+  content: "";
+  font-family: 'Glyphicons Halflings';
+  display: inline-block;
+  padding: 10px;
+  border-right: 1px solid #ddd;
+}
+
+.tabset-dropdown > .nav-tabs.nav-tabs-open > li.active:before {
+  content: "&#xe258;";
+  border: none;
+}
+
+.tabset-dropdown > .nav-tabs.nav-tabs-open:before {
+  content: "";
+  font-family: 'Glyphicons Halflings';
+  display: inline-block;
+  padding: 10px;
+  border-right: 1px solid #ddd;
+}
+
+.tabset-dropdown > .nav-tabs > li.active {
+  display: block;
+}
+
+.tabset-dropdown > .nav-tabs > li > a,
+.tabset-dropdown > .nav-tabs > li > a:focus,
+.tabset-dropdown > .nav-tabs > li > a:hover {
+  border: none;
+  display: inline-block;
+  border-radius: 4px;
+  background-color: transparent;
+}
+
+.tabset-dropdown > .nav-tabs.nav-tabs-open > li {
+  display: block;
+  float: none;
+}
+
+.tabset-dropdown > .nav-tabs > li {
+  display: none;
+}
+</style>
+
+<!-- code folding -->
+
+
+
+
+</head>
+
+<body>
+
+
+<div class="container-fluid main-container">
+
+
+
+
+<div class="navbar navbar-default  navbar-fixed-top" role="navigation">
+  <div class="container">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar">
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="index.html">BIOL 324 Labs</a>
+    </div>
+    <div id="navbar" class="navbar-collapse collapse">
+      <ul class="nav navbar-nav">
+        <li>
+  <a href="index.html">Home</a>
+</li>
+<li>
+  <a href="BIOL_324_Lab_6.html">Lab 6</a>
+</li>
+<li>
+  <a href="BIOL_324_Lab_7.html">Lab 7</a>
+</li>
+<li>
+  <a href="BIOL_324_Lab_8.html">Lab 8</a>
+</li>
+<li>
+  <a href="BIOL_324_Lab_9.html">Lab 9</a>
+</li>
+<li>
+  <a href="BIOL_324_Lab_10.html">Lab 10</a>
+</li>
+      </ul>
+      <ul class="nav navbar-nav navbar-right">
+        
+      </ul>
+    </div><!--/.nav-collapse -->
+  </div><!--/.container -->
+</div><!--/.navbar -->
+
+<div class="fluid-row" id="header">
+
+
+
+<h1 class="title toc-ignore">Lab 6: Lamiaceae, Schrophularioids, and R Assignment 1 - Introduction to R and RStudio</h1>
+<h4 class="author">Mannfred Boehm and Evan Hersh</h4>
+<h4 class="date">11 August, 2020</h4>
+
+</div>
+
+
+<!-- use this code to build the github site: -->
+<!-- rmarkdown::render_site() -->
+<p>   </p>
+<hr />
+<div id="lamiaceae-mint-family" class="section level2">
+<h2>Lamiaceae (Mint family)</h2>
+<hr />
+<p><strong>1. Herbs with square stems, usually aromatic.</strong><br />
+<strong>2. Leaves simple, opposite or whorled, without stipules.</strong><br />
+<strong>3. Flowers perfect, zygomorphic. Sepals 5, fused. Petals 5, fused, bilabiate. Stamens 2 or 4, epipetalous, often didynamous. Pistil compound, ovary superior, carpels 2, but deeply lobed, appearing as 4, placentation basal.</strong><br />
+<strong>4. Fruit 4 nutlets.</strong><br />
+<strong>5. About 200 genera, 3200 species, cosmopolitan</strong></p>
+<p> </p>
+<p>Most Lamiaceae contain fragrant oils, and many are used as herbs or flavorings, including <em>Mentha</em> (mint), Salvia (sage), <em>Rosmarinus</em> (rosemary), <em>Thymus</em> (thyme), <em>Marrubium</em> (horehound), <em>Nepeta</em> (catnip), <em>Satureja</em> (savoury), <em>Origanum</em> (oregano), <em>Majorana</em> (sweet marjoram), <em>Ocimum</em> (sweet basil).</p>
+<p> </p>
+<p><img src="media/diagram_Lamiaceae.png" /></p>
+<p> </p>
+<hr />
+<p> </p>
+<p>See the below pictures of <em>Stachys chamissonis</em>, noting the square stems. The picture on the right shows a cross-section of the stem.</p>
+<p align="center">
+<img src="media/Lamiaceae_2.jpeg" style="width:40.0%" /> <img src="media/Lamiaceae_3.jpeg" style="width:40.0%" />
+</p>
+<p> </p>
+<p>The leaves are most often “decussate” in this family (leaves opposite at each node, with each pair of leaves rotated 90° with respect to those above and below). Given this “phyllotaxy”, how would these plants look from above?</p>
+<p align="center">
+<img src="media/Lamiaceae_1.jpeg" style="width:40.0%" /> <img src="media/Lamiaceae_4.jpeg" style="width:40.0%" />
+</p>
+<p> </p>
+<p>Flowers are zygomorphic and bilabiate, with fused sepals and petals. The flowers are quite often arranged in “verticils” (whorls of flowers in cyclical arrangement attached to a central point). Note the flower structure and verticils below in <em>S. chamissonis</em> (left) and <em>Salvia nemorosa</em> (right). Would you describe these flowers as sessile or pedunculate?</p>
+<p align="center">
+<img src="media/Lamiaceae_6.jpeg" style="width:40.0%" /> <img src="media/Lamiaceae_5.jpeg" style="width:40.0%" />
+</p>
+<p> </p>
+<p>Many flowers in Lamiaceae and the Scrophularioid families have “galea”, where the upper lip of the corolla is shaped like a hood or helmet. The galea is quite strong in the <em>Salvia</em> (right). Do you remember another family we’ve seen galea in?</p>
+<p align="center">
+<img src="media/Lamiaceae_7.jpeg" style="width:40.0%" /> <img src="media/Lamiaceae_8.jpeg" style="width:40.0%" />
+</p>
+<p> </p>
+<p>As mentioned above, many members of Lamiaceae are aromatic and used as culinary herbs (e.g., rosemary, thyme, mint, sage, etc). These delicious flavours and dank smells come from fragrant oils, which are often stored in glandular trichomes. In the close-up of <em>Stachys</em> below, can you differentiate between glandular and eglandular trichomes?</p>
+<p align="center">
+<img src="media/Lamiaceae_9.jpeg" style="width:60.0%" />
+</p>
+<p> </p>
+<p>Lamiaceae flowers have superior ovaries, with compound pistils and 2 carpels. While the ovary only has two carpels, each carpel is deeply lobed and breaks in two, eventually developing into 4 “nutlets” that break off individually. What hints that these flowers have 2 carpels instead of 4?</p>
+<p align="center">
+<img src="media/Lamiaceae_10.jpeg" style="width:40.0%" /> <img src="media/Lamiaceae_11.jpeg" style="width:40.0%" />
+</p>
+<p> </p>
+<hr />
+<p><strong>-KNOWLEDGE CHECK-</strong></p>
+<p>Using the above pictures, make some drawings and label the following structures: -stamens<br />
+-style<br />
+-stigma (how many stigma lobes are there?)<br />
+-calyx<br />
+-corolla<br />
+-nutlets<br />
+-decussate leaves (how is “decussate” different from “opposite”?)<br />
+-flowers in verticils</p>
+<hr />
+<p> </p>
+</div>
+<div id="scrophularioid-families" class="section level2">
+<h2>Scrophularioid families</h2>
+<hr />
+<p><strong>1. Mostly herbs</strong><br />
+<strong>2. Leaves simple, alternate, or opposite, without stipules.</strong><br />
+<strong>3. Flowers perfect, zygomorphic. Sepals 5, free or fused. Petals 5, fused, often bilabiate. Stamens 2, 4, or 5, epipetalous, often didynamous, staminode often present. Pistil compound, ovary superior, carpels 2, placentation axile.</strong><br />
+<strong>4. Fruit a capsule.</strong><br />
+<strong>5. About 210 genera and 3000 species, cosmopolitan.</strong></p>
+<p> </p>
+<p>The traditionally large and heterogeneous family Scrophulariaceae <em>sensu latissimo</em> has recently been divided into a number of separate families on the basis of molecular phylogenetic studies. <em>Paulownia</em>, always of uncertain placement but often included in the Scrophulariaceae s.l., now is placed in a separate family. For further details see:</p>
+<p>Olmsted, R. M., dePamphilis, C. W., Wolfe, A. D., Young, N. D., Elisens, W. J., &amp; Reeves, P. A. 2001. Disintegration of the Scrophulariaceae. American J. Bot. 88: 348-361.</p>
+<p>PLANTAGINACEAE Jussieu, nom. cons. (Snapdragon family) Ca 90 genera, 1700 species. Examples: <em>Veronica</em> (ca 450, inc. <em>Hebe</em>, <em>Parahebe</em>, <em>Synthyris</em>, etc.), <em>Penstemon</em> (275), <em>Plantago</em> (275), <em>Litorella</em>, <em>Linaria</em> (150), <em>Bacopa</em> (55), <em>Antirrhinum</em> - snapdragon, <em>Sibthorpia</em>, <em>Collinsia</em>, <em>Digitalis</em>, <em>Hippuris</em> - marestail, <em>Callitriche</em> - water starwort.</p>
+<p>PHRYMACEAE Schauer, nom. cons. (Monkeyflower family) Ca 19 genera, 234 species Examples: <em>Erythranthe</em> (formerly <em>Mimulus</em>) (150-170) - monkeyflower, <em>Mazus</em> (30), <em>Phryma</em>, <em>Rehmannia</em></p>
+<p>SCROPHULARIACEAE Jussieu, nom. cons. (Figwort family) 65 genera, 1700 species. Examples: <em>Verbascum</em> (360) - mulleins, <em>Eremophila</em> (210), <em>Scrophularia</em> (200) - figworts, <em>Selago</em> (190), <em>Buddleja</em> (125), <em>Jamesbrittenia</em> (85), <em>Manulea</em> (75), <em>Diascia</em> (70), <em>Nemesia</em> (65)</p>
+<p>OROBANCHACEAE Ventenat, nom. cons. (Lousewort family) 99 genera, 2061 species. Parasites or hemiparasites. Examples: <em>Pedicularis</em> (600-800), <em>Castilleja</em> (200), <em>Euphrasia</em> (170-350), <em>Orobanche</em> (150), <em>Buchnera</em> (100), <em>Bartsia</em> (50), <em>Agalinis</em> (45), <em>Rhinanthus</em> (45).</p>
+<p>PAULOWNIACEAE Nakai 1 genus, 6 species. Example: <em>Paulownia</em> (foxglove tree).</p>
+<p> </p>
+<p><img src="media/diagram_Scrophularioids.png" /></p>
+<p> </p>
+<p>Most members of the Scrophularioid families have fused, tubulur, and bilabiate corollas. Some of these can be quite showy, as pictured below in <em>Penstemon davidsonii</em> (left) and <em>Erythranthe lewisii</em> (right); both of these plants can be found along subalpine streambanks in Pacific Northwest.</p>
+<p align="center">
+<img src="media/Scroph_5.jpeg" style="width:40.0%" /> <img src="media/Scroph_4.jpeg" style="width:40.0%" />
+</p>
+<p> </p>
+<p>A more common and widespread example is foxglove (<em>Digitalis purpurea</em>). Like other members of the Scrophularioids, it has 5 sepals and 5 fused petals. Can you see any indication of petals in the picture below?</p>
+<p align="center">
+<img src="media/Scroph_1.jpeg" style="width:40.0%" /> <img src="media/Scroph_2.jpeg" style="width:40.0%" />
+</p>
+<p> </p>
+<p>The stamens are “epipetalous”, meaning that the filaments are fused to the petals instead of emerging separately from the receptacle. See the dissected foxglove flower below:</p>
+<p align="center">
+<img src="media/Scroph_6.jpeg" style="width:60.0%" />
+</p>
+<p> </p>
+<p>These families have superior ovaries (2 carpels) that develop into capsules. Below, you can see foxglove capsules at various stages of development (left). Once the fruit is fully developed, the capsule dehisces and releases the seeds (right). What type of dehiscence is displayed here?</p>
+<p align="center">
+<img src="media/Scroph_7.jpeg" style="width:40.0%" /> <img src="media/Scroph_8.jpeg" style="width:40.0%" />
+</p>
+<p> </p>
+<p>These families exhibit a wide diversity of floral forms, which makes it a difficult group to identify by sight. For example, <em>Antirrhinum</em> (snapdragons - left) and <em>Linaria</em> (toadflax - right) both have petal spurs. Can you identify the spurs? What other family have we seen spurs in?</p>
+<p align="center">
+<img src="media/Scroph_18.jpeg" style="width:40.0%" /> <img src="media/Scroph_19.jpeg" style="width:40.0%" />
+</p>
+<p> </p>
+<p>Some genera, like the beautiful and dainty <em>Veronica</em> (left) and <em>Euphrasia</em> (right), have small and almost radially symmetric flowers. Why would these still be considered zygomorphic?</p>
+<strong>Insert photo of Veronica</strong>
+<p align="center">
+<img src="media/Scroph_11.jpeg" style="width:60.0%" />
+</p>
+<p> </p>
+<p>The family Orobanchaceae (also originally housed within Scrophulariaceae) has many plants with wild floral structures, like <em>Castilleja</em> (paintbrushes - left) and <em>Pedicularis</em> (louseworts - right). Most of these plants are parasitic on the roots of other plants, with some (the holoparasites) completely lacking clorophyll. In paintbrushes, most of the vibrantly coloured (in this case red) bits are actually bracts (modified leaves)- can you see which bits my be parts of the perianth? In the Elephant’s head lousewort (<em>Pedicularis groenlandica</em>) displayed on the right, the upper corolla lip is strongly galeate and beaked, resembling the head and trunk of an elephant.</p>
+<p align="center">
+<img src="media/Scroph_12.jpeg" style="width:40.0%" /> <img src="media/Scroph_13.jpeg" style="width:40.0%" />
+</p>
+<p> </p>
+<p><em>Plantago</em> (one of the only three genera originally in Plantaginaceae) also has weird flowers that are highly reduced and a lot less showy than other Scrophularioids. <em>Plantago lanceolata</em>, a widespread weed pictured below, has a spike (inflorescence) of densely clustered flowers that are quite drab and greenish-brownish. What are the whitish-yellow things poking out of the inflorescence?</p>
+<p align="center">
+<img src="media/Scroph_14.jpeg" style="width:60.0%" />
+</p>
+<p> </p>
+<p>Like with all things that seem boring at first, things get a lot more interesting when you use some magnification! Here you can see all those tiny flowers densely clustered together.</p>
+<p align="center">
+<img src="media/Scroph_15.jpeg" style="width:60.0%" />
+</p>
+<p> </p>
+<p>Carefully removing one of these flowers shows a developing capsule, that dehisces like an Easter egg or Matroyshka doll, revealing the seeds inside. What type of dehiscence is this? Using the photo on the left, can you identify sepals and petals?</p>
+<p align="center">
+<img src="media/Scroph_16.jpeg" style="width:40.0%" /> <img src="media/Scroph_17.jpeg" style="width:40.0%" />
+</p>
+<hr />
+<p><strong>-KNOWLEDGE CHECK-</strong> Using the pictures above, make some drawings and label the following structures:<br />
+- Fused, bilabiate corolla<br />
+- Spur<br />
+- Epipetalous stamens<br />
+- Capsule (note the type of dehiscence)</p>
+<p>Write down some of the characters that are consistent across most of the Scrophularioids we’ve shown you. Are there any examples that don’t follow these patterns? How do they differ? Compare and contrast Lamiaceae and Scrophularioid families.</p>
+<hr />
+<p> </p>
+</div>
+<div id="r-activity-1-intro-to-r-rstudio-data-wrangling-and-plotting" class="section level2">
+<h2>R activity 1: Intro to R, Rstudio, Data Wrangling, and Plotting</h2>
+<p> </p>
+<div id="motivation" class="section level4">
+<h4>Motivation</h4>
+<p>Data management and analysis is becoming increasingly common in many fields, and this is particularly true in the biological sciences. It may not seem obvious at first, but even taxonomists use data these days, whether it be for mapping species occurrence records, or using morphometrics to quantify morphological variation among taxa. In previous years, biologists used a combination of spreadsheets (e.g., MS Excel) and statistical software such as JMP or SPSS to conduct their statistical analyses. More recently, many fields have transitioned to using the R programming language for data management and statistical analysis.</p>
+<p>R provides many advantages to traditional programs: R is open-source (free to use, all code is shared freely for users to modify how they wish), customizable, and powerful. Its open-source nature has led to the creation of thousands of custom packages, providing unprecedented access to advanced statistical analyses for anyone willing to learn. For example, you can now use R to crunch sophisticated genomic data or make highly detailed geographic maps (which you’ll be getting a taste of later!), both of which used to require proprietary software (e.g., CLC workbench, ArcGIS) that cost thousands of dollars to use.</p>
+<p>R’s main disadvantage is that it has a steep learning curve. Because R is a programming language, you do most of the heavy lifting by writing code instead of clicking around like with a traditional program with a GUI (Graphical User Interface). This is quite scary for a lot of folks, your intrepid teaching team included! If you told Mikko, Mannfred, or I at the beginning of our R journeys that we’d be actually <em>teaching</em> R in the future, we would have taken a break from our frustrated crying to laugh in your face! Like with anything challenging and worthwhile in life, the only way to make progress is to push past your fear and start grinding ;-).</p>
+<p>One more note before we jump in: <em>this is not a programming class</em>. Our main goal is to provide some exposure to R, and for you to learn and become more comfortable with programming if/when you end up using these tools in the future. We’ll provide the resources needed to learn the basics, and there will be plenty of lab time to work together and tackle the learning curve. Aside from some participation marks (and maybe a few Canvas quiz questions), <em>we will not be evaluating you based on your ability to write R code</em>. Instead, you will be assessed based on your ability to understand and interpret taxonomic concepts and data. And the payoff is worth it! Knowing R can help you land summer research jobs (put it on your CV!), and is increasingly used for teaching in UBC BIOL classes (e.g. BIOL300, BIOL406, BIOL413, BIOL416).</p>
+<!-- MOVE THIS TO LAB 3 -->
+<!-- As taxonomists it is useful to know where species occur and co-occur on continental scales to help inform species delimitations. For example, two sister species separated by a major geographic barrier (such as a mountain range) are not likely to interbreed. This type of information is one piece of the puzzle of delimiting species. To make preliminary estimates of a species' distribution, we can harness the data resources organized by the [Global Biodiversity Information Facility](https://www.gbif.org/what-is-gbif). GBIF is an open-access database housing information about where and when species have been observed or collected. To the modern plant taxonomist, it is indispensable: one can search GBIF for any plant taxon of interest, and immediately have access to all global records of where and when their plant has been observed.  -->
+<!-- To scratch the surface of GBIF reveals a massive database spanning the entire tree of life. How does one go about efficiently collecting, organizing, validating, and analysing so much information? The solution is made tractable by employing data analysis tools like those found in R (Note: For an introduction to R, see this week's [pre-lab reading in the section below](#prelab)).  By combining the biodiversity resources of GBIF with the analytical tools in R, we can collect, process, and visualize species distribution data on any laptop or tablet. In this week's lab we'll first gather the required tools (R and GBIF) and develop some basic skills using them. In the following lab we'll use our new skills to create research-grade distribution maps.  -->
+<hr />
+<p><br> <br></p>
+</div>
+<div id="prelab" class="section level4">
+<h4>Pre-lab</h4>
+<p>Before starting this week’s lab you will have:  </p>
+<!-- 1. completed pre-lab [Activity 1: Exploring the GBIF website](#A1) &nbsp; -->
+<ol style="list-style-type: decimal">
+<li><p>completed the pre-lab reading: <a href="https://moderndive.com/preface.html#introduction-for-students">Introduction for Students</a> and <a href="https://moderndive.com/1-getting-started.html">Chapters 1.1–1.3</a> from ModernDive—a textbook for learning data science using R. We will work through Chapters 1–4 of this textbook over the semester, and we encourage you to read ahead (through Ch.4) on your own time!  </p></li>
+<li><p>R and RStudio downloaded onto your computer. <a href="https://moderndive.netlify.app/1-getting-started.html">Chapter 1.1 in ModernDive</a> provides instructions for downloading R and RStudio. If you have trouble with installation, contact the TAs as soon as possible for guidance,  </p></li>
+<li><p>[OPTIONAL] created an RStudio Cloud account. Although ModernDive provides an excellent introduction to R, RStudio Cloud has some <a href="https://rstudio.cloud/learn/primers/">useful interactive primers</a> that make sense of the R language by getting you to write some simple code. <strong>This pre-lab activity is not required</strong>, but recommended for anyone that is completely new to R, or wants some hands-on experience with R right away.</p></li>
+</ol>
+<hr />
+<p>   </p>
+</div>
+<div id="outcomes" class="section level4">
+<h4>Outcomes</h4>
+<p>By the end of this lab you will:  </p>
+<!-- 1. be familiar with GBIF and the types of data that can be obtained, &nbsp; -->
+<ol style="list-style-type: decimal">
+<li><p>Know the difference between R and RStudio,  </p></li>
+<li><p>Be familiar with the layout of RStudio, and understand how to install packages and navigate the <code>iris</code> dataset.</p></li>
+<li><p>Have a basic understanding of how to use functions (both in Base R and with useful packages) to manipulate and plot data.</p></li>
+</ol>
+<hr />
+<p>   </p>
+<!-- #### Activity 1 (Pre-lab): Exploring the GBIF website {#A1} -->
+<!-- **Probably move this activity to a lab in Unit 1... -Evan** -->
+<!-- Let's jump into GBIF! First go to the [GBIF website](https://www.gbif.org). In another tab/window follow along with [this video tutorial](https://www.youtube.com/watch?v=40yPnJdeM_A&t=3s) to learn how to navigate through the GBIF website (NOTE: creating an account and downloading the data onto your computer, as suggested in the video, is **NOT necessary**). -->
+<!-- By following the video tutorial, you'll learn how to search for GBIF data, what types of data your search will return, and how that data is structured. Notice that GBIF is a biodiversity database aggregator, pulling data from other databases such as eBird and iNaturalist. That means that you can choose to share your BIOL324 iNaturalist observations so that they appear on GBIF!  -->
+<!-- **CANVAS QUIZ QUESTION** -->
+</div>
+<div id="an-introduction-to-r" class="section level4">
+<h4>An Introduction to R</h4>
+<!-- Now that we have a sense of what kinds of data we could get from GBIF (namely, observation records of a species), we need a tool that will allow us to organize, filter, and visualize this data. While there are many options for handling biodiversity data, in BIOL324 we will focus on using R. The layout and style of R can be daunting if this is your first time using it. Don't worry! In this course, we don't expect you to know how to use R&mdash; -->
+<p>From reading <a href="https://moderndive.netlify.app/1-getting-started.html">Chapter 1.1 of ModernDive</a>, you will know that R is a programming language, while RStudio is simply a user interface that ‘wraps around’ R. RStudio is not <em>needed</em> to use R, but it is convienient! While R and RStudio are apps that you download locally to your computer, RStudio Cloud is web-based, meaning that you can use RStudio in your web browser without downloading anything. If you created an RStudio Cloud account to complete the primers (see: <a href="#prelab">pre-lab activities</a>) then you can use your account to use RStudio online (<strong>not required for this class</strong>).</p>
+<!-- During this activity, we'll work through [Chapter 1.4](https://moderndive.com/1-getting-started.html) to explore a dataset in R. Along the way, we'll learn some basic R skills like creating an object, determining classes, using functions, and dissecting datasets. All of these skills will come in handy as we move towards using R and GBIF together to solve taxonomic problems.  -->
+<!-- To follow along, open RStudio cloud and attach the required packages (see: [Chapter 1.4](https://moderndive.com/1-getting-started.html)). The TA will step through this activity while you follow along. If something isn't working for you, please let us know in the chat! It is **very likley that someone is having or will have the same problem as you!**.  -->
+<p>During this activity, we’ll be exploring the <code>iris</code> dataset in R. Along the way, we’ll learn some basic R skills, like attaching packages, creating objects, filtering data, and making some basic plots. All of these skills will come in handy as we move towards using R to solve taxonomic problems.</p>
+<p>Open RStudio, and follow the instructions on this webpage. First, open a new R script file (File -&gt; New File -&gt; R script), save it into your working directory, and write all of the code from this exercise in your new .R script file. This will allow you to keep a record of your code, re-run your code later, and share code with others. Type (or copy) the following code into your script file, and run it (highlight and hit command / Ctrl + Enter, or click the “Run” button at the top of the script pane).</p>
+<hr />
+<p>   </p>
+</div>
+<div id="installing-and-attaching-packages-and-data" class="section level4">
+<h4>Installing and attaching packages and data</h4>
+<p>   </p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb1-1" title="1"><span class="kw">library</span>(datasets) <span class="co"># attaches the &#39;datasets&#39; package, which contains a bunch of datasets to explore</span></a>
+<a class="sourceLine" id="cb1-2" title="2">iris <span class="co"># typing the name of the dataset (object) will display the contents of the data in the console pane</span></a>
+<a class="sourceLine" id="cb1-3" title="3"><span class="kw">class</span>(iris) <span class="co"># displays the &#39;class&#39; of the object &#39;iris&#39;</span></a>
+<a class="sourceLine" id="cb1-4" title="4"><span class="kw">summary</span>(iris) <span class="co"># gives various summary statistics on the dataframe &#39;iris&#39;</span></a></code></pre></div>
+<p>Running the code <code>class(iris)</code> showed us that <code>iris</code> is a <code>data.frame</code>. A <code>data.frame</code> is very similar to a spreadsheet, but exists as an ‘object’ within R. This is useful because R objects can be subsetted, rearranged, pivoted, and plotted using only a few lines of code! Then, running the code <code>summary(iris)</code> showed us that there are five columns in this <code>data.frame</code> object: <code>Sepal.Length</code>, <code>Sepal.Width</code>, <code>Petal.Length</code>, <code>Petal.Width</code>, and <code>Species</code>. Note that there are periods instead of spaces in the column names—R has trouble reading spaces, so it’s good practice to use periods or underscores when creating objects or names in R.</p>
+<p>Now, let’s install a couple of useful packages that will help us organize and plot data from <code>iris</code>:</p>
+<div class="sourceCode" id="cb2"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb2-1" title="1"><span class="kw">install.packages</span>(<span class="st">&quot;dplyr&quot;</span>, <span class="st">&quot;ggplot2&quot;</span>) <span class="co"># you can install multiple packages by separating each with a comma. </span></a></code></pre></div>
+<p>You only need to install packages once. Anytime you open a new RStudio session, you’ll need to attach the packages that you want to use:</p>
+<div class="sourceCode" id="cb3"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb3-1" title="1"><span class="kw">library</span>(dplyr)</a>
+<a class="sourceLine" id="cb3-2" title="2"><span class="kw">library</span>(ggplot2)</a></code></pre></div>
+<p><code>dplyr</code> is a package that is useful for data “wrangling” (filtering, summarizing, re-organizing, etc.), while <code>ggplot2</code> is a popular package for making beautiful and customizeable plots. First we’ll create some simple plots using the <code>iris</code> data. Then, we’ll see how <code>dplyr</code> can better organize the <code>iris</code> data to customize our plots.</p>
+<hr />
+<p>   </p>
+</div>
+<div id="plotting-data" class="section level4">
+<h4>Plotting data</h4>
+<p>Let’s use some of the plotting functions in R to help us visualize the <code>iris</code> dataset. We’ll start with the base R function <code>plot()</code>:</p>
+<div class="sourceCode" id="cb4"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb4-1" title="1"><span class="kw">plot</span>(iris)</a></code></pre></div>
+<p><img src="BIOL_324_Lab_6_files/figure-html/unnamed-chunk-4-1.png" width="672" /></p>
+<p>As you can see, this very simple function made a pretty complicated scatterplot displaying the relationship between every variable in the dataset. If we want to look at the relationship between two specific variables, we go like this:</p>
+<div class="sourceCode" id="cb5"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb5-1" title="1"><span class="kw">plot</span>(<span class="dt">x=</span>iris<span class="op">$</span>Sepal.Length, <span class="dt">y=</span>iris<span class="op">$</span>Petal.Length)</a></code></pre></div>
+<p><img src="BIOL_324_Lab_6_files/figure-html/unnamed-chunk-5-1.png" width="672" /></p>
+<p>Using the <code>plot()</code> function, we can specify which variables will be on the <span class="math inline">\(x\)</span> and <span class="math inline">\(y\)</span> axes by setting the arguments <code>x=</code> and <code>y=</code>. Notice that each argument is separated with a comma. We also specified the variables that we wanted to use in the <code>iris</code> dataset using the <code>$</code> operator. <code>$</code> allows us to look inside of an object (in this case <code>iris</code>) and isolate element of that object (e.g. <code>Sepal.Length</code>).</p>
+<p>How would you interpret this plot? Does it look like there is a relationship between sepal length and petal length in <em>Iris</em> species?</p>
+<p> </p>
+<hr />
+<p><strong>-KNOWLEDGE CHECK-</strong> modify the above code to plot the relationship between sepal width and petal width. To spruce it up a little bit, try adding the argument <code>col=iris$Species</code> inside the <code>plot()</code> function.</p>
+<!-- plot(x=iris$Sepal.Width, y=iris$Petal.Width, col=iris$Species) -->
+<hr />
+<p> </p>
+<p>We can also use the base R function <code>hist()</code> to make a simple histogram:</p>
+<div class="sourceCode" id="cb6"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb6-1" title="1"><span class="kw">hist</span>(iris<span class="op">$</span>Sepal.Length)</a></code></pre></div>
+<p><img src="BIOL_324_Lab_6_files/figure-html/unnamed-chunk-6-1.png" width="672" /></p>
+<p>From this plot, we can see that the majority of sepals are between 4.5–7 cm in length.</p>
+<p> </p>
+<p>Remember box and whisker plots from your statistics classes? It just takes a single line of code to make a boxplot of sepal length for each species:</p>
+<div class="sourceCode" id="cb7"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb7-1" title="1"><span class="kw">boxplot</span>(Sepal.Length <span class="op">~</span><span class="st"> </span>Species, <span class="dt">data =</span> iris) </a></code></pre></div>
+<p><img src="BIOL_324_Lab_6_files/figure-html/unnamed-chunk-7-1.png" width="672" /></p>
+<p>In the <code>boxplot()</code> function, the <code>~</code> symbol specifies the reponse (left side) and predictor (right side) variables. In this case, we’ve told the <code>boxplot()</code> function to plot variation in <code>Sepal.Length</code> for each <em>Iris</em> species.</p>
+<p> </p>
+<hr />
+<p><strong>-KNOWLEDGE CHECK-</strong> Given the relationship between sepal length and petal length, what might we guess about the petal length of <em>I. virginica</em>? Modify the above code to make box plots of petal length instead, and see if you were right.</p>
+<hr />
+<p> </p>
+<p>Earlier in this exercise, we had you install the <code>ggplot2</code> package. Many people find that <code>ggplot2</code> is more intuitive and customizeable than base R for making plots. Let’s recreate the scatterplot of sepal length and petal length that we made above, but with the <code>ggplot()</code> function instead:</p>
+<div class="sourceCode" id="cb8"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb8-1" title="1"><span class="kw">ggplot</span>(<span class="dt">data =</span> iris, <span class="kw">aes</span>(<span class="dt">x =</span> Sepal.Length, <span class="dt">y =</span> Petal.Length)) <span class="op">+</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb8-2" title="2"><span class="st">  </span><span class="kw">geom_point</span>()</a></code></pre></div>
+<p><img src="BIOL_324_Lab_6_files/figure-html/unnamed-chunk-8-1.png" width="672" /></p>
+<p>In the first line we’re using the <code>ggplot()</code> function. The <code>data = iris</code> argument tells <code>ggplot()</code> to use the <code>iris</code> dataset for plotting. The <code>aes()</code> argument (aesthetics) allows us to specify which variables will be on which axis. Running that code alone won’t produce a plot, because we haven’t specified the <code>geom</code> (type of plot) we want to display. We add a <code>+</code> to the end of the first line, and specify <code>geom_point()</code> on the next line. This tells <code>ggplot()</code> to create a scatterplot. Using this basic framework, we can add in more code bits and really start sprucing up our plot:</p>
+<div class="sourceCode" id="cb9"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb9-1" title="1"><span class="kw">ggplot</span>(<span class="dt">data =</span> iris, <span class="kw">aes</span>(<span class="dt">x =</span> Sepal.Length, <span class="dt">y =</span> Petal.Length)) <span class="op">+</span></a>
+<a class="sourceLine" id="cb9-2" title="2"><span class="st">  </span><span class="kw">geom_point</span>(<span class="kw">aes</span>(<span class="dt">color =</span> Species, <span class="dt">shape =</span> Species)) <span class="co"># we can add some aes() to geom_point() to change the colour and shape of our points depending on what species it is</span></a></code></pre></div>
+<p><img src="BIOL_324_Lab_6_files/figure-html/unnamed-chunk-9-1.png" width="672" /></p>
+<p>Isn’t that amazing??? With just two lines of code, we’ve created a beautiful plot, complete with data points labeled by shape and colour, and it adds a legend automatically! Let’s fiddle around a bit more:</p>
+<div class="sourceCode" id="cb10"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb10-1" title="1">iris.ggplot1 &lt;-<span class="st"> </span><span class="co"># assigns plot to an object named &quot;iris.ggplot1&quot;</span></a>
+<a class="sourceLine" id="cb10-2" title="2"><span class="st">  </span><span class="kw">ggplot</span>(<span class="dt">data=</span>iris, <span class="kw">aes</span>(<span class="dt">x =</span> Sepal.Length, <span class="dt">y =</span> Petal.Length)) <span class="op">+</span><span class="st"> </span><span class="co"># calls the ggplot() function</span></a>
+<a class="sourceLine" id="cb10-3" title="3"><span class="st">  </span><span class="kw">geom_point</span>(<span class="kw">aes</span>(<span class="dt">color=</span>Species, <span class="dt">shape=</span>Species)) <span class="op">+</span><span class="st"> </span><span class="co"># specifies that we want a scatterplot</span></a>
+<a class="sourceLine" id="cb10-4" title="4"><span class="st">  </span><span class="kw">ggtitle</span>(<span class="st">&quot;Relationship between sepal length and petal length by Iris species&quot;</span>) <span class="co"># adds a title to our plot</span></a>
+<a class="sourceLine" id="cb10-5" title="5"></a>
+<a class="sourceLine" id="cb10-6" title="6">iris.ggplot1 <span class="co"># calls our saved ggplot object</span></a></code></pre></div>
+<p><img src="BIOL_324_Lab_6_files/figure-html/unnamed-chunk-10-1.png" width="672" /></p>
+<p>Here, we assign our plot to an object that we’ve named <code>iris.ggplot1</code> using the <code>&lt;-</code> operator. We also added the function <code>ggtitle()</code> to our ggplot by adding a <code>+</code> to the end of the previous line. You can keep adding more and more stuff to your plot, just make sure you put a <code>+</code> at the end of each line.</p>
+<p> </p>
+<hr />
+<p><strong>-KNOWLEDGE CHECK-</strong> Make your own plot from the <code>iris</code> dataset. Make sure to plot different variables than the example above. Include your name in the title, and add axis labels using <code>xlab()</code> and <code>ylab()</code> (don’t forget to add a <code>+</code> before adding a new line to your ggplot).</p>
+<p>How would you interpet the plot you made? Think about what the data tell you about the relationship between different floral characters, and how they differ between <em>Iris</em> species.</p>
+<hr />
+<p>   </p>
+</div>
+<div id="data-wrangling" class="section level4">
+<h4>Data Wrangling</h4>
+<p>   </p>
+<p>Now that we’ve visualized some parts of the <code>iris</code> dataset, we can inspect, re-organize, and summarize (‘wrangle’) the data to quantify differences in floral traits. Some of the most useful functions for data wrangling come from the <code>dplyr</code> package, so let’s see what we can do with it. For example, what if we wanted the floral trait data for only one of the <em>Iris</em> species?</p>
+<div class="sourceCode" id="cb11"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb11-1" title="1">iris.virginica &lt;-<span class="st"> </span><span class="co"># assign an object named &quot;iris.virginica&quot;</span></a>
+<a class="sourceLine" id="cb11-2" title="2"><span class="st">  </span>dplyr<span class="op">::</span><span class="kw">filter</span>(iris, Species <span class="op">==</span><span class="st"> &quot;virginica&quot;</span>) <span class="co"># takes only the rows for which &#39;Species&#39; is &#39;virginica&#39; </span></a></code></pre></div>
+<div class="sourceCode" id="cb12"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb12-1" title="1"><span class="kw">head</span>(iris) <span class="co"># head() shows the first 6 lines of any data frame</span></a></code></pre></div>
+<pre><code>##   Sepal.Length Sepal.Width Petal.Length Petal.Width Species
+## 1          5.1         3.5          1.4         0.2  setosa
+## 2          4.9         3.0          1.4         0.2  setosa
+## 3          4.7         3.2          1.3         0.2  setosa
+## 4          4.6         3.1          1.5         0.2  setosa
+## 5          5.0         3.6          1.4         0.2  setosa
+## 6          5.4         3.9          1.7         0.4  setosa</code></pre>
+<div class="sourceCode" id="cb14"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb14-1" title="1"><span class="kw">head</span>(iris.virginica) </a></code></pre></div>
+<pre><code>##   Sepal.Length Sepal.Width Petal.Length Petal.Width   Species
+## 1          6.3         3.3          6.0         2.5 virginica
+## 2          5.8         2.7          5.1         1.9 virginica
+## 3          7.1         3.0          5.9         2.1 virginica
+## 4          6.3         2.9          5.6         1.8 virginica
+## 5          6.5         3.0          5.8         2.2 virginica
+## 6          7.6         3.0          6.6         2.1 virginica</code></pre>
+<p>Notice that the structure of <code>iris</code> and <code>iris.virginica</code> are the same? While <code>iris</code> contains data for all <em>Iris</em> species, <code>iris.virginica</code> contains data only for one species, <em>Iris virginica</em>. Notice that we use the logical double equal sign as in <code>species == "virginica"</code>, and quotations around <code>virginica</code> since this data type is of class <code>character</code>.</p>
+<p> </p>
+<p>We can also filter using multiple conditions:</p>
+<div class="sourceCode" id="cb16"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb16-1" title="1">iris.virginica.sepal6 &lt;-<span class="st"> </span><span class="co"># create a new object</span></a>
+<a class="sourceLine" id="cb16-2" title="2"><span class="st">  </span>dplyr<span class="op">::</span><span class="kw">filter</span>(iris, Species <span class="op">==</span><span class="st"> &quot;virginica&quot;</span>, Sepal.Length <span class="op">&gt;</span><span class="st"> </span><span class="dv">6</span>) <span class="co">#keeps virginica species that have sepals longer than 6</span></a>
+<a class="sourceLine" id="cb16-3" title="3"></a>
+<a class="sourceLine" id="cb16-4" title="4"><span class="kw">head</span>(iris.virginica.sepal6)</a></code></pre></div>
+<pre><code>##   Sepal.Length Sepal.Width Petal.Length Petal.Width   Species
+## 1          6.3         3.3          6.0         2.5 virginica
+## 2          7.1         3.0          5.9         2.1 virginica
+## 3          6.3         2.9          5.6         1.8 virginica
+## 4          6.5         3.0          5.8         2.2 virginica
+## 5          7.6         3.0          6.6         2.1 virginica
+## 6          7.3         2.9          6.3         1.8 virginica</code></pre>
+<p> </p>
+<p>We can also use the <code>dplyr</code> package to select certain columns from a <code>data.frame</code>, while leaving other ones out:</p>
+<div class="sourceCode" id="cb18"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb18-1" title="1">iris.selected &lt;-<span class="st"> </span><span class="co"># create a new object</span></a>
+<a class="sourceLine" id="cb18-2" title="2"><span class="st">  </span><span class="kw">select</span>(iris, Sepal.Length, Sepal.Width, Petal.Length) <span class="co"># list the columns you want to select</span></a>
+<a class="sourceLine" id="cb18-3" title="3"></a>
+<a class="sourceLine" id="cb18-4" title="4">iris.selected2 &lt;-<span class="st"> </span><span class="kw">select</span>(iris, Sepal.Length<span class="op">:</span>Petal.Length) <span class="co"># select all columns from sepal.length to petal.length using colon symbol</span></a></code></pre></div>
+<div class="sourceCode" id="cb19"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb19-1" title="1"><span class="kw">head</span>(iris.selected)</a></code></pre></div>
+<pre><code>##   Sepal.Length Sepal.Width Petal.Length
+## 1          5.1         3.5          1.4
+## 2          4.9         3.0          1.4
+## 3          4.7         3.2          1.3
+## 4          4.6         3.1          1.5
+## 5          5.0         3.6          1.4
+## 6          5.4         3.9          1.7</code></pre>
+<div class="sourceCode" id="cb21"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb21-1" title="1"><span class="kw">head</span>(iris.selected2)</a></code></pre></div>
+<pre><code>##   Sepal.Length Sepal.Width Petal.Length
+## 1          5.1         3.5          1.4
+## 2          4.9         3.0          1.4
+## 3          4.7         3.2          1.3
+## 4          4.6         3.1          1.5
+## 5          5.0         3.6          1.4
+## 6          5.4         3.9          1.7</code></pre>
+<p>Notice that <code>iris.selected</code> and <code>iris.selected2</code> are the same?</p>
+<div class="sourceCode" id="cb23"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb23-1" title="1"><span class="kw">identical</span>(iris.selected, iris.selected2)</a></code></pre></div>
+<pre><code>## [1] TRUE</code></pre>
+<p>Above we used the <code>:</code> symbol to select a series of values. You can use the same concept to select columns/rows in a <code>data.frame</code>:</p>
+<div class="sourceCode" id="cb25"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb25-1" title="1">iris[<span class="dv">1</span><span class="op">:</span><span class="dv">3</span>,]</a>
+<a class="sourceLine" id="cb25-2" title="2">iris[,<span class="dv">1</span><span class="op">:</span><span class="dv">3</span>]</a>
+<a class="sourceLine" id="cb25-3" title="3">iris[<span class="dv">1</span><span class="op">:</span><span class="dv">3</span>,<span class="dv">1</span><span class="op">:</span><span class="dv">3</span>]</a></code></pre></div>
+<p>What do these different bits of code do? Why does each one give different results? Based on the output, what do you think the <code>[</code> operator does with the <code>iris</code> object?</p>
+<p> </p>
+<hr />
+<p><strong>-KNOWLEDGE CHECK-</strong> Write a bit of code that takes the first 3 columns and the first 5 rows of the <code>iris</code> data, and store it in a new object (name it something silly).</p>
+<!-- DrabaIsTheBestGenus <- iris[1:5,1:3] -->
+<hr />
+<p> </p>
+<p>We’ll look at one last <code>dplyr</code> function, <code>summarise()</code>, which is extremely useful for data exploration.</p>
+<div class="sourceCode" id="cb26"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb26-1" title="1">iris.sums &lt;-<span class="st"> </span><span class="kw">summarise</span>(iris, <span class="dt">mean.Sep.length =</span> <span class="kw">mean</span>(Sepal.Length), <span class="dt">mean.Pet.length =</span> <span class="kw">mean</span>(Petal.Length)) <span class="co">#calculate mean of Sepal.Length and Petal.Length, name the columns for our new means, and store in the object &#39;iris.sums&#39;</span></a>
+<a class="sourceLine" id="cb26-2" title="2"></a>
+<a class="sourceLine" id="cb26-3" title="3">iris.sums </a></code></pre></div>
+<pre><code>##   mean.Sep.length mean.Pet.length
+## 1        5.843333           3.758</code></pre>
+<p>This took the average of every value in the <code>Sepal.Length</code> and <code>Petal.Length</code> column, but what if we want the average for each species? Below, we’ll introduce the pipe operator <code>%&gt;%</code>, which allows us to pipe the results of one function into another:</p>
+<div class="sourceCode" id="cb28"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb28-1" title="1">iris.sums.species &lt;-<span class="st"> </span><span class="co"># creates a new object</span></a>
+<a class="sourceLine" id="cb28-2" title="2"><span class="st">  </span>iris <span class="op">%&gt;%</span><span class="st">  </span><span class="co"># takes the iris dataset and pipes into the next function</span></a>
+<a class="sourceLine" id="cb28-3" title="3"><span class="st">  </span><span class="kw">group_by</span>(Species) <span class="op">%&gt;%</span><span class="st"> </span><span class="co"># groups the iris dataset by Species and pipes into the next function</span></a>
+<a class="sourceLine" id="cb28-4" title="4"><span class="st">  </span><span class="kw">summarise</span>(<span class="dt">mean.Sep.length =</span> <span class="kw">mean</span>(Sepal.Length), <span class="dt">mean.Pet.length =</span> <span class="kw">mean</span>(Petal.Length)) <span class="co"># takes the mean per Species</span></a>
+<a class="sourceLine" id="cb28-5" title="5"></a>
+<a class="sourceLine" id="cb28-6" title="6">iris.sums.species</a></code></pre></div>
+<pre><code>## # A tibble: 3 x 3
+##   Species    mean.Sep.length mean.Pet.length
+##   &lt;fct&gt;                &lt;dbl&gt;           &lt;dbl&gt;
+## 1 setosa                5.01            1.46
+## 2 versicolor            5.94            4.26
+## 3 virginica             6.59            5.55</code></pre>
+<p>In the above code, we used the pipe operator <code>%&gt;%</code> to connect our three lines of code kind of like a flow chart. In the line <code>iris %&gt;%</code>, we say we’re going to be using the <code>iris</code> data and piping it into the function that follows. <code>group_by(Species) %&gt;%</code> says we will be grouping the <code>iris</code> data based by <code>Species</code> (you can specify any other variable here as well), and piping the result into the next function. Finally, the last line uses the same <code>summarise()</code> function as above to calculate the means, but this time, the <code>iris</code> data has been grouped by <code>Species</code>. The results is that we get the average <code>Sepal.Length</code> and <code>Petal.Length</code> for all three <em>Iris</em> species, instead of a single mean across all species. Looking back to the first boxplot that we made, do the sepal lengths in this table agree with the plot? Pretty cool, eh? This is just scratching the surface of what <code>dplyr</code> can do to help you wrangle your data and start to make sense of it.</p>
+<hr />
+<p>   </p>
+<p> </p>
+</div>
+<div id="to-submit-within-48-hours-of-lab-time-lab-participation-marks" class="section level3">
+<h3>To submit within 48 hours of lab time (Lab participation marks)</h3>
+<p><strong>All -KNOWLEDGE CHECKS-</strong><br />
+1. Labelled drawings of Lamiaceae<br />
+2. Labelled drawings of Scrophularioids<br />
+3. R script with code from today’s lab<br />
+- Clearly label -KNOWLEDGE CHECK- sections with comments in your code.</p>
+<p> </p>
+<hr />
+</div>
+<div id="homework" class="section level3">
+<h3>Homework</h3>
+<ol style="list-style-type: decimal">
+<li>Complete your Canvas quiz</li>
+<li>Review GBIF</li>
+<li>Lab 7 pre-lab readings</li>
+</ol>
+<hr />
+<p> </p>
+<p><strong>CANVAS QUIZ QUESTIONS</strong><br />
+- What are the different windows (console, script, environment, plot) and what do they do?<br />
+- what is an object?<br />
+- what is a function?<br />
+- Get them to interpret a few plots of the ‘iris’ dataset<br />
+- Label Lamiacious and Scrophulariacious flowers</p>
+<hr />
+<p>   </p>
+</div>
+</div>
+
+
+
+
+</div>
+
+<script>
+
+// add bootstrap table styles to pandoc tables
+function bootstrapStylePandocTables() {
+  $('tr.header').parent('thead').parent('table').addClass('table table-condensed');
+}
+$(document).ready(function () {
+  bootstrapStylePandocTables();
+});
+
+
+</script>
+
+<!-- tabsets -->
+
+<script>
+$(document).ready(function () {
+  window.buildTabsets("TOC");
+});
+
+$(document).ready(function () {
+  $('.tabset-dropdown > .nav-tabs > li').click(function () {
+    $(this).parent().toggleClass('nav-tabs-open')
+  });
+});
+</script>
+
+<!-- code folding -->
+
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    script.src  = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML";
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+
+</body>
+</html>
