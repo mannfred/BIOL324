@@ -39,7 +39,7 @@ Before starting this week's tutorial you will have: <br>
 
 3. navigated through the Genbank website and understand what it is and why it exists. 
 
-4. **MB** Get students to read (for example, something like) Majure et al (2012), Am. J. Bot. if we end up using _Opuntia_ as an example...
+4. **MB** Get students to read (for example, something like) [Majure et al (2012), Am. J. Bot.](https://bsapubs.onlinelibrary.wiley.com/doi/full/10.3732/ajb.1100375) if we end up using _Opuntia_ as an example...
 
 ---
 
@@ -71,8 +71,8 @@ In this lab, we'll explore further the genus _Opuntia_:
 _Opuntia basilaris_ (Mojave Desert, Colorado, Utah) 
 _Opuntia fragilis_  (Northwestern) 
 _Opuntia humifusa_  (Eastern) 
-_Opuntia oricola_   (Coastal sage and chaparral of S. California) 
 _Opuntia polyacantha_ (Great Plains, foothills of Rocky Mountains) 
+_Opuntia stricta_ (Gulf Coast and Caribbean)
 
 **MB** Could add in some natural history background to better motivate this activity. <br>
 
@@ -84,26 +84,26 @@ install.packages(c('ape', 'msa', 'seqinr'))
 ```
 
 Then we'll attach some packages designed specifically for connecting with the Genbank database (`ape`), filtering and organizing our data (`tidyverse`), aligning sequences (`msa`), concatenating sequences (`seqinr`), and constructing phylogenetic trees (`ape`):
-```{r, results = 'hide' }
+```{r, results = 'hide', warning = FALSE, message = FALSE }
 # load packages once they are installed 
-library(ape)
-library(here)
-library(msa)
-library(seqinr)
+library(ape)      
+library(here)   
+library(msa)    
+library(seqinr) 
 library(tidyverse)
 ```
 
 First, we're going to build a spreadsheet that will help us keep track of our _Opuntia_ species and the GenBank accession codes for both the matK and rbcL genes for each species. The accession numbers were found by searching the GenBank website like so:
 
-![Figure 1: Searching Genbank for accession numbers.](genbank.jpg)
+![](./media/genbank.jpg)
 
 Once the accession numbers are found, they can be saved in a data frame:
 ```{r}
 # build data frame
 # accession numbers found by searching GenBank
-species <- c('O. basilaris', 'O. fragilis', 'O. humifusa',  'O. oricola', 'O. polyacantha') 
-matK_acc <- c('JF786750.1', 'JF786786.1', 'JF786791.1', 'JF786812.1', 'JF786823.1') 
-rbcL_acc <- c('JF787189.1', 'JF787223.1', 'JF787227.1', 'JF787249.1', 'JF787259.1') 
+species <- c('O. basilaris', 'O. fragilis', 'O. humifusa', 'O. polyacantha', 'O. stricta') 
+matK_acc <- c('JF786750.1', 'JF786786.1', 'JF786791.1', 'JF786823.1', 'JF786853.1') 
+rbcL_acc <- c('JF787189.1', 'JF787223.1', 'JF787227.1', 'JF787259.1', 'JF787288.1' ) 
 
 df <- data.frame(species, matK_acc, rbcL_acc)
 ```
@@ -152,7 +152,9 @@ matK_alignment <-
       type ='dna', 
       method ='ClustalW',
       verbose = TRUE)
+```
 
+```{r, results='hide'}
 # inspect alignment
 print(matK_alignment) 
 ```
@@ -161,48 +163,25 @@ By using the `print()` function, we see that our sequences are aligned pretty we
 
 We'll now align our rbcL sequences:
 
-```{r}
+```{r, results = 'hide'}
 rbcL_alignment <- 
   msa(unlist(rbcL),
       type ='dna', 
       method ='ClustalW',
       verbose = TRUE)
+```
 
+```{r}
 # inspect alignment
 print(rbcL_alignment)
 ```
 
-Recall that matK and rbcL are two separate segments of the chloroplast genome. By sticking them together, we'll create a super-sequence that contains more information than either of the sequences alone. The more sequence information, the better, because it gives us a bigger sample of the entire genome. Concatenation is done by the `seqinr` package, so we'll need to convert our alignment objects into `seqinr` objects:
-
-```{r}
-# convert alignment object into seqinr object
-matK_r <- msaConvert(matK_alignment, type="seqinr::alignment")
-rbcL_r <- msaConvert(rbcL_alignment, type="seqinr::alignment")
-
-# concatenate (merge) sequences
-conseq <- mapply(paste0, matK_r$seq, rbcL_r$seq)
-names(conseq) <- df$species
-
-# re-align
-con_alignment <-
-  msa(unlist(conseq),
-      type ='dna', 
-      method ='ClustalW',
-      verbose = TRUE)
-
-# inspect 
-print(con_alignment)
-
-# convert alignment object into seqinr object
-con_r <- msaConvert(con_alignment, type="seqinr::alignment")
-```
 
 We're ready to create some phylogenetic trees! First, we'll use the `dist.alignment()` function to calculate how similar or different each species' sequence is from one another. We'll do this for the matK, rbcL, and concatenated sequences, so that we can compare the trees:
 ```{r}
 # create distance matrices
 matK_dist <- dist.alignment(matK_r)
 rbcL_dist <- dist.alignment(rbcL_r)
-con_dist <- dist.alignment(con_r)
 ```
 
 Now, we'll use the `nj()` function to construct trees:
@@ -211,7 +190,6 @@ Now, we'll use the `nj()` function to construct trees:
 # neighbour joining trees
 matK_tree <- nj(matK_dist)
 rbcL_tree <- nj(rbcL_dist)
-con_tree <- nj(con_dist)
 ```
 
 Plot your new trees:
@@ -219,13 +197,41 @@ Plot your new trees:
 # plot trees
 plot(matK_tree, main ='matK tree')
 plot(rbcL_tree, main = 'rbcL tree')
-plot(con_tree, main = 'Consensus tree (matK + rbcL)') 
 ```
 
-**-KNOWLEDGE CHECK-** Do the trees differ? Which phylogenetic relationships have been re-arranged between trees?
+**-KNOWLEDGE CHECK-** How do the matK and rbcL trees differ? Which tree best aligns with the [Majure tree (Figure 3)](https://bsapubs.onlinelibrary.wiley.com/doi/full/10.3732/ajb.1100375)? According to Majure et al (2012), why might our trees differ? 
 
 
 
 
+<!-- For consensus trees: -->
+
+<!-- Recall that matK and rbcL are two separate segments of the chloroplast genome. By sticking them together, we'll create a super-sequence that contains more information than either of the sequences alone. The more sequence information, the better, because it gives us a bigger sample of the entire genome. Concatenation is done by the `seqinr` package, so we'll need to convert our alignment objects into `seqinr` objects: -->
+
+<!-- ```{r, results = 'hide'} -->
+<!-- # convert alignment object into seqinr object -->
+<!-- matK_r <- msaConvert(matK_alignment, type="seqinr::alignment") -->
+<!-- rbcL_r <- msaConvert(rbcL_alignment, type="seqinr::alignment") -->
+
+<!-- # concatenate (merge) sequences -->
+<!-- conseq <- mapply(paste0, matK_r$seq, rbcL_r$seq) -->
+<!-- names(conseq) <- df$species -->
+
+<!-- # re-align -->
+<!-- con_alignment <- -->
+<!--   msa(unlist(conseq), -->
+<!--       type ='dna',  -->
+<!--       method ='ClustalW', -->
+<!--       verbose = TRUE) -->
+<!-- ``` -->
+
+<!-- ```{r} -->
+<!-- # inspect  -->
+<!-- print(con_alignment) -->
+
+<!-- # convert alignment object into seqinr object -->
+<!-- con_r <- msaConvert(con_alignment, type="seqinr::alignment") -->
+
+<!-- ``` -->
 
 
