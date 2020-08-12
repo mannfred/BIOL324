@@ -5,6 +5,8 @@ navbar:
   left:
     - text: "Home"
       href: index.html
+    - text: "Lab 2"
+      href: BIOL_324_Lab_2.html
     - text: "Lab 6"
       href: BIOL_324_Lab_6.html
     - text: "Lab 7"
