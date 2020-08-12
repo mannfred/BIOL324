@@ -1,0 +1,89 @@
+---
+title: "Lab 2: Basic floral structure, Ranunculaceae, and keying."
+author: Evan Hersh
+date: "`r format(Sys.time(), '%d %B, %Y')`"
+---
+
+---
+
+## Botany Basics: Flower and fruit parts
+
+---
+
+![](media/diagram_basic1.png)
+&nbsp;
+
+![](media/diagram_basic2.png)
+&nbsp;
+
+![](media/diagram_basic3.png)
+&nbsp;
+
+![](media/diagram_basic4.png)
+
+&nbsp;
+
+![](media/diagram_basic5.png)
+
+&nbsp;
+
+![](media/diagram_basic6.png)
+
+
+&nbsp;
+
+![](media/diagram_basic7.png)
+
+The purpose of this lab exercise is to familiarize you with basic flower parts, fruit characteristics, and inflorescence structure. Make labeled drawings of the flowers and fruits and answer the questions about them (indicated by **Knowledge Check**.  YOUR DRAWINGS DO NOT NEED TO BE ARTISTIC.  They may be diagrammatic, but should be accurate as to numbers and positions of parts, because accuracy in these details is necessary for plant identification and learning family-specific patterns.  For example, if the flower you are to draw has 8 stamens, draw 8 stamens, not an ill defined bunch of stamens.
+
+NOTE that there is an illustrated glossary of plant parts in another tab on this lab site (**Still building - insert link here**).  There is also a wiki glossary of common botanical terminology [here](https://en.wikipedia.org/wiki/Glossary_of_botanical_terms). It is good practice to refer to these resources when you come across new terms (it will happen a lot), and make sure to utilize your TA's / Lab instructor as well!
+
+**INSERT PHOTOS FOR BASIC FLORAL PARTS LAB**
+
+&nbsp;
+
+---
+
+## Ranunculaceae  
+
+---
+
+&nbsp;
+
+![](media/Ranunculaceae_1.png)
+
+&nbsp;
+
+![](media/Ranunculaceae_2.png)
+
+&nbsp;
+
+![](media/Ranunculaceae_3.png)
+
+**INSERT RANUNCULACEAE PHOTOS AND EXERCISE**
+
+&nbsp;
+
+---
+
+## Keying
+
+---
+
+&nbsp;
+
+**INSERT KEYING MOTIVATION, INTRODUCTION, AND EXERCISE**
+
+&nbsp;
+
+![](media/keying_1.png)
+
+&nbsp;
+
+![](media/keying_2.png)
+
+&nbsp;
+
+![](media/keying_3.png)
+
+
