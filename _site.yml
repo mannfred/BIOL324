@@ -17,6 +17,8 @@ navbar:
       href: BIOL_324_Lab_9.html
     - text: "Lab 10"
       href: BIOL_324_Lab_10.html  
+    - text: "Linnean Typification"
+      href: LinneanTypification.html
 output:
   html_document:
     theme: readable
