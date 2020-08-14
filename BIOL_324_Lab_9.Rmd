@@ -128,7 +128,7 @@ We can inspect the DNA sequence for _O. basilaris_ by running:
 head(matK$`O. basilaris`)
 ```
 
-Cool, [I feel like I'm on CSI](https://pubmed.ncbi.nlm.nih.gov/16100764/). The code for searching and downloading the rbcL sequences is similar:
+Cool, [it's like we're on CSI](https://pubmed.ncbi.nlm.nih.gov/16100764/). The code for searching and downloading the rbcL sequences is similar:
 ```{r}
 # call GenBank
 rbcL <- 
@@ -163,7 +163,7 @@ By using the `print()` function, we see that our sequences are aligned pretty we
 
 We'll now align our rbcL sequences:
 
-```{r, results = 'hide', message = FALSE}
+```{r, message = FALSE}
 rbcL_alignment <- 
   msa(unlist(rbcL),
       type ='dna', 

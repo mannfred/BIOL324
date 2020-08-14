@@ -91,8 +91,8 @@ plot(
   asp = 1.3,
   ftype ="i")
 
-for(i in 1:Ntip(rbcL_tree)){
-  ii<-which(rownames(mcp)==rbcL_tree$tip.label[i])
-  polygon(mcp[ii,2:1],col=make.transparent(colours[rbcL_tree$tip.label[i]],0.8),
+for(i in 1:Ntip(rbcL_rooted)){
+  ii<-which(rownames(mcp)==rbcL_rooted$tip.label[i])
+  polygon(mcp[ii,2:1],col=make.transparent(colours[rbcL_rooted$tip.label[i]],0.8),
           border="darkgrey")
 }

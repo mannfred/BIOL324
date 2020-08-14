@@ -154,12 +154,15 @@ opuntia_accepted <- c(
 "Opuntia polyacantha Haw.",
 "Opuntia stricta (Haw.) Haw.")
 
+country_accepted <- c("United States of America", "Mexico", "Canada")
+
 # filter out synonyms 
-# filter out entries with positive longitude
+# filter out entries outside of North America
 opuntia_fil<-  
   opuntia_combined %>% 
   filter(scientificName == opuntia_accepted) %>% 
-  filter(longitude < 0)
+  filter(longitude < -58 & latitude > 18.1) %>% 
+  filter(basisOfRecord == "HUMAN_OBSERVATION")
 ```
 
 We're ready to map! Pick some colours for your species (you can pick your own [from here](http://www.cookbook-r.com/Graphs/Colors_(ggplot2)/)):

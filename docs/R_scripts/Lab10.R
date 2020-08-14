@@ -8,8 +8,8 @@
 # Opuntia basilaris (Mojave, Colorado, Utah)
 # Opuntia fragilis  ()
 # Opuntia humifusa  (Eastern)  
-# Opuntia oricola   (Coastal sage and chaparral of S. California)
 # Opuntia polyacantha (Great Plains, foothills of Rocky Mtns)
+# Opuntia stricta (Gulf Coast and Caribbean)
 
 library(here)
 library(mapdata)
@@ -21,10 +21,10 @@ library(viridis)
 # import data
 
 # import Opuntia consensus tree from last tutorial
-con_tree_rooted <- readRDS(file = here('Tutorial_4_Phylogenetics/rooted_tree.rds'))
+rbcL_tree <- readRDS(file = here('R_scripts/rbcL_tree.rds'))
 
 # import filtered GBIF data from last tutorial
-opuntia_fil <- readRDS(file=here('Tutorial_5_Phylogeography/filtered_gbif_dataset.rds')) 
+opuntia_fil <- readRDS(file=here('R_scripts/filtered_gbif_dataset.rds')) 
 
 # shorten names and replace spaces with underscores (for phytools)
 opuntia_fil <-
@@ -91,8 +91,8 @@ plot(
   asp = 1.3,
   ftype ="i")
 
-for(i in 1:Ntip(con_tree_rooted)){
-  ii<-which(rownames(mcp)==con_tree_rooted$tip.label[i])
-  polygon(mcp[ii,2:1],col=make.transparent(colours[con_tree_rooted$tip.label[i]],0.8),
+for(i in 1:Ntip(rbcL_tree)){
+  ii<-which(rownames(mcp)==rbcL_tree$tip.label[i])
+  polygon(mcp[ii,2:1],col=make.transparent(colours[rbcL_tree$tip.label[i]],0.8),
           border="darkgrey")
 }
