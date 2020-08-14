@@ -380,7 +380,7 @@ $(document).ready(function () {
 
 <h1 class="title toc-ignore">R Assignment 2: Mapping Species Distributions using R and GBIF</h1>
 <h4 class="author">Mannfred Boehm</h4>
-<h4 class="date">13 August, 2020</h4>
+<h4 class="date">14 August, 2020</h4>
 
 </div>
 
@@ -568,12 +568,15 @@ $(document).ready(function () {
 <a class="sourceLine" id="cb26-5" title="5"><span class="st">&quot;Opuntia polyacantha Haw.&quot;</span>,</a>
 <a class="sourceLine" id="cb26-6" title="6"><span class="st">&quot;Opuntia stricta (Haw.) Haw.&quot;</span>)</a>
 <a class="sourceLine" id="cb26-7" title="7"></a>
-<a class="sourceLine" id="cb26-8" title="8"><span class="co"># filter out synonyms </span></a>
-<a class="sourceLine" id="cb26-9" title="9"><span class="co"># filter out entries with positive longitude</span></a>
-<a class="sourceLine" id="cb26-10" title="10">opuntia_fil&lt;-<span class="st">  </span></a>
-<a class="sourceLine" id="cb26-11" title="11"><span class="st">  </span>opuntia_combined <span class="op">%&gt;%</span><span class="st"> </span></a>
-<a class="sourceLine" id="cb26-12" title="12"><span class="st">  </span><span class="kw">filter</span>(scientificName <span class="op">==</span><span class="st"> </span>opuntia_accepted) <span class="op">%&gt;%</span><span class="st"> </span></a>
-<a class="sourceLine" id="cb26-13" title="13"><span class="st">  </span><span class="kw">filter</span>(longitude <span class="op">&lt;</span><span class="st"> </span><span class="dv">0</span>)</a></code></pre></div>
+<a class="sourceLine" id="cb26-8" title="8">country_accepted &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="st">&quot;United States of America&quot;</span>, <span class="st">&quot;Mexico&quot;</span>, <span class="st">&quot;Canada&quot;</span>)</a>
+<a class="sourceLine" id="cb26-9" title="9"></a>
+<a class="sourceLine" id="cb26-10" title="10"><span class="co"># filter out synonyms </span></a>
+<a class="sourceLine" id="cb26-11" title="11"><span class="co"># filter out entries outside of North America</span></a>
+<a class="sourceLine" id="cb26-12" title="12">opuntia_fil&lt;-<span class="st">  </span></a>
+<a class="sourceLine" id="cb26-13" title="13"><span class="st">  </span>opuntia_combined <span class="op">%&gt;%</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb26-14" title="14"><span class="st">  </span><span class="kw">filter</span>(scientificName <span class="op">==</span><span class="st"> </span>opuntia_accepted) <span class="op">%&gt;%</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb26-15" title="15"><span class="st">  </span><span class="kw">filter</span>(longitude <span class="op">&lt;</span><span class="st"> </span><span class="dv">-58</span> <span class="op">&amp;</span><span class="st"> </span>latitude <span class="op">&gt;</span><span class="st"> </span><span class="fl">18.1</span>) <span class="op">%&gt;%</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb26-16" title="16"><span class="st">  </span><span class="kw">filter</span>(basisOfRecord <span class="op">==</span><span class="st"> &quot;HUMAN_OBSERVATION&quot;</span>)</a></code></pre></div>
 <p>We’re ready to map! Pick some colours for your species (you can pick your own <a href="http://www.cookbook-r.com/Graphs/Colors_(ggplot2)/">from here</a>):</p>
 <div class="sourceCode" id="cb27"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb27-1" title="1">mycolors &lt;-<span class="st"> </span><span class="kw">c</span>( <span class="st">&quot;#E69F00&quot;</span>, <span class="st">&quot;#56B4E9&quot;</span>,  <span class="st">&quot;#F0E442&quot;</span>, <span class="st">&quot;#D55E00&quot;</span>, <span class="st">&quot;#CC79A7&quot;</span>)</a></code></pre></div>
 <p>And map using the <code>map_ggplot()</code> function:</p>
