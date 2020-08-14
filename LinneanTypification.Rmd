@@ -30,6 +30,9 @@ Write a brief report answering the following questions:
 8.	Go to recent online taxonomic resources, such as “The Plant List” and see whether your Linnaean name is still used, or whether it has been rejected, synonymised or recombined for some reason. How is this name applied currently? Does it have a synonymy?
 
 Notes:
+
+&nbsp;
+
 1.	Botanical Latin - bear in mind that botanical Latin is not classical Latin but a technical language derived from it. Linnaeus uses many abbreviations, e.g. “Ind. or.” = “India orientalis” = East Indies
 2.	Symbols. Printing was expensive in the 18th century so L. uses symbols as well as abbreviations; œ (oe ligature); α β γ δ ε (Greek letters, used to distinguish varieties); ✠ ▽ (symbols); astrological symbols: ♄ (Saturn = fruiting); ♃ (Jupiter = perennial); ♂ (Mars = biennial); ☉ (Sun = annual); † (dagger = plants known only from imperfect specimens)
 3.	[Online resources for Botanical Latin](http://www.mobot.org/mobot/LatinDict/search.aspx) 
