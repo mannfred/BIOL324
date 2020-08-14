@@ -21,27 +21,29 @@ date: "`r format(Sys.time(), '%d %B, %Y')`"
 
 #### Motivation
 
-Add section...
+In Labs 7 and 9 we learned how to map species distributions using GBIF data, and how to create phylogenies from DNA sequence data from GenBank. In this final R assignment, we'll combine these methods to create a phylogeographic map of five _Opuntia_ species. By overlaying a phylogeny onto a species distribution map, we can not only better test taxonomic and evolutionary relationships, but also infer migration and colonization histories. 
+
+&nbsp;
+&nbsp;
 
 ---
 
-<br>
-<br>
 
 #### Prerequisites 
 
-Before starting this week's tutorial you will have: <br>
+Before starting this week's tutorial you will have: 
 
-1. completed Assignment 2 (Mapping) and Assignment 4 (Phylogenetics), <br>
+1. completed R Assignment 2 (Mapping) and Assignment 4 (Phylogenetics), 
 
-2. completed some pre-assignment reading on the use of phylogeography in plant taxonomy, <br>
+2. completed some pre-assignment reading on the use of phylogeography in plant taxonomy, 
 
 3. more...
 
+&nbsp;
+&nbsp;
+
 ---
 
-<br>
-<br>
 
 #### Outcomes
 
@@ -51,32 +53,54 @@ By the end of this tutorial you will have: <br>
 
 2. more...
 
+&nbsp;
+&nbsp;
+
 ---
 
-<br>
-<br>
 
 #### Activity 1: Creating a Phylogeographic Map from GBIF and Genbank Data
 
 In previous Assignments we mapped species distributions and constructed phylogenetic trees. In this Assignment, we'll combine both lines of research to simultaneously visualize the phylogenetic and geographic relationships of five _Opuntia_ species.
 
-In this lab, we'll explore further the genus _Opuntia_: <br>
+In this lab, we'll explore further the genus _Opuntia_: 
 
-_Opuntia basilaris_ (Mojave, Colorado, Utah) <br>
-_Opuntia fragilis_  (Northwestern) <br>
-_Opuntia humifusa_  (Eastern) <br>
-_Opuntia oricola_   (Coastal sage and chaparral of S. California) <br>
-_Opuntia polyacantha_ (Great Plains, foothills of Rocky Mtns) <br>
+_Opuntia basilaris_ (Mojave, Colorado, Utah)
+_Opuntia fragilis_  (Northwestern) 
+_Opuntia humifusa_  (Eastern) 
+_Opuntia polyacantha_ (Great Plains, foothills of Rocky Mtns) 
+_Opuntia stricta_ (Gulf Coast and Caribbean)
 
-**MB** If we're using this example, some background will have hopefully been imparted in the last Assignment.
+Let's start by installing the necessary packages. `mapdata` is an slightly more sophisticated package than `mapr` (which we used in Lab 7) &mdash; this will allow us to overlay a phylogeny onto a biogeographic plot. `phytools` is a similar phylogenetics package to `ape` (Lab 9), but contains functions for overlaying phylogenies onto maps. `viridis` is a package for creating custom colour schemes &mdash; our maps gotta look fresh! 
 
-Open this week's .R file ('324_Phylogeography.R') and navigate to the source pane. Install and attach the necessary packages using `install.packages()` and `library()`. Start by importing your species distribution data (from GBIF, Assignment 2) and your phylogenetic tree (Assignment 4). By highlighting and running the entire script, the data are combined and plotted.
+```{r, eval = FALSE}
+install.packages(c('mapdata', 'phytools', 'viridis'))
+```
 
+Attach the packages:
+
+```{r, results = 'hide', warning = FALSE, message = FALSE }
+# attach packages once they are installed 
+library(here)
+library(mapdata)
+library(phytools)
+library(tidyverse)
+library(viridis)
+```
+
+Start by importing your species distribution data (from GBIF, Assignment 2) and your phylogenetic tree (Assignment 4). By highlighting and running the entire script, the data are combined and plotted:
+
+```{r}
+# import Opuntia rbcL tree from last tutorial
+rbcL_tree <- readRDS(file = here('R_scripts/rbcL_tree.rds'))
+
+# import filtered GBIF data from last tutorial
+opuntia_fil <- readRDS(file = here('Tutorial_5_Phylogeography/filtered_gbif_dataset.rds')) 
+```
 
 ---
 
-<br>
-<br>
+
 
 #### Activity 2: Deciphering some code
 

@@ -8,8 +8,8 @@
 # Opuntia basilaris (Mojave, Colorado, Utah)
 # Opuntia fragilis  ()
 # Opuntia humifusa  (Eastern)  
-# Opuntia oricola   (Coastal sage and chaparral of S. California)
 # Opuntia polyacantha (Great Plains, foothills of Rocky Mtns)
+# Opuntia stricta (Gulf Coast and Caribbean)
 
 library(here)
 library(mapdata)
