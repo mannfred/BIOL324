@@ -179,7 +179,7 @@ print(rbcL_alignment)
 
 We're ready to create some phylogenetic trees! First, we'll convert our alignment objects to `seqinr` objects. Then, we'll use the `dist.alignment()` function to calculate how similar or different each species' sequence is from one another. We'll do this for the matK, rbcL, and concatenated sequences, so that we can compare the trees:
 
-```{r, results = 'hide'} 
+```{r,  message=FALSE} 
 # convert alignment object into seqinr object 
 matK_r <- msaConvert(matK_alignment, type="seqinr::alignment") 
 rbcL_r <- msaConvert(rbcL_alignment, type="seqinr::alignment") 
@@ -189,26 +189,29 @@ matK_dist <- dist.alignment(matK_r)
 rbcL_dist <- dist.alignment(rbcL_r)
 ```
 
-Now, we'll use the `nj()` function to construct trees:
+Now, we'll use the `nj()` function to construct trees. In the next step, we'll 'root' our trees by deciding which species is the outgroup:
 
 ```{r}
 # neighbour joining trees
 matK_tree <- nj(matK_dist)
 rbcL_tree <- nj(rbcL_dist)
+
+rbcL_rooted <- root(rbcL_tree, outgroup = 'O. basilaris', resolve.root = T)
+matK_rooted <- root(matK_tree, outgroup = 'O. basilaris', resolve.root = T)
 ```
 
 Plot your new trees:
 ```{r}
 # plot trees
-plot(matK_tree, main ='matK tree')
-plot(rbcL_tree, main = 'rbcL tree')
+plot(matK_rooted, main ='matK tree')
+plot(rbcL_rooted, main = 'rbcL tree')
 ```
 
 Finally, we'll save our trees so that we can use them again in Lab 10:
 
 ```{r}
-saveRDS(matK_tree, file = here('R_scripts/matK_tree.rds'))
-saveRDS(rbcL_tree, file = here('R_scripts/rbcL_tree.rds'))
+saveRDS(matK_rooted, file = here('R_scripts/matK_rooted.rds'))
+saveRDS(rbcL_rooted, file = here('R_scripts/rbcL_rooted.rds'))
 ```
 
 **-KNOWLEDGE CHECK-** How do the matK and rbcL trees differ? Which tree best aligns with the [Majure tree (Figure 3)](https://bsapubs.onlinelibrary.wiley.com/doi/full/10.3732/ajb.1100375)? According to Majure et al (2012), why might our trees differ? 
