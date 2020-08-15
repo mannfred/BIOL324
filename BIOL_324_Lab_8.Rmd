@@ -150,7 +150,7 @@ mds.var.per <- round(mds.analysis$eig/sum(mds.analysis$eig)*100, 1)
 mds.var.per[1:2]
 ```
 
-The `cmdscale()` function finds the axes of greatest variation in our morphometrics dataset. For example, if corolla width was the trait that varied the most between all specimens, `cmdscale()` would assign this variable as _MDS axis 1_. In reality, it's unlikely that a single trait will explain the greatest variation in morphology, instead, MDS axes tend to be combinations of traits. In the second step we calculated how much of the total variation of the datset belongs to each of the MDS axes. The third step prints MDS axis 1 and 2, telling us that MDS axis 1 accounts for 42.3% of the morphological variation in the dataset. 
+The `cmdscale()` function finds the axes of greatest variation in our morphometrics dataset. For example, if corolla width was the trait that varied the most between all specimens, `cmdscale()` would assign this variable as _MDS axis 1_. In reality, it's unlikely that a single trait will explain the greatest variation in morphology, instead, MDS axes tend to be combinations of traits. In the second step we calculated how much of the total variation of the datset belongs to each of the MDS axes. The third step prints MDS axes 1 and 2, telling us that MDS axis 1 accounts for 42.3% of the morphological variation in the dataset. Each *Aquilegia* specimen exists somewhere in the 'shape space' created by MDS axes 1 and 2. For example, if MDS axes 1 and 2 described variation in corolla and sepal width, respectively, *Aquilegia* specimens with wide corollas and sepals would exist in the upper right corner of this 'shape space'. We'll see what this looks like in the plotting step. We'll store the shape space location of each *Aquilegia* sample in an object called `mds.data`:
 
 ```{r}
 mds.values <- mds.analysis$points
@@ -161,24 +161,37 @@ mds.data <- data.frame(Sample = rownames(mds.values),
 ```
 
 
-**Lines 57-64**: At this part of the script we will extract information from our MDS object `mds.analysis` and store this information into various objects. These objects help us to choose which information is most useful to us, and make it easier to create our MDS plot later on. 
+Now we can plot each *Aquilegia* specimen in morphometric shape space:
 
-**Line 57**: Let's extract the percentage variation described by each of _MDS axis 1_ and _MDS axis 2_. Recall from previous tutorials that the `$` operator is a way to subset data (in this case `mds.analysis`) in order to extract information. We'll round the percent variation to the nearest tenth using `round()`. 
+```{r}
 
-**Line 59**: Here, we're using the `$` operator to extract information about where each specimen lies in the morphometric 'shape space'.  
+mds_plot <- 
+  ggplot(
+    data = mds.data, 
+    aes(x = X, y = Y, label = Sample)) + 
+  geom_text(aes(color = Status)) +
+  theme_bw() + 
+  xlab(paste("MDS1 - ", mds.var.per[1], "%",sep="")) +
+  ylab(paste("MDS2 - ", mds.var.per[2], "%",sep="")) +
+  ggtitle(" Unsupervised MDS plot using (1 - Random Forest Proximities)") +
+  scale_colour_manual(name = "Species", 
+                      breaks = c("flavescens", "formosa"), 
+                      labels = c(expression(italic("A. flavescens")), 
+                                 expression(italic("A. formosa"))),
+                      values = c("#009E73", "#CC79A7"))
 
-**Lines 61-64**: We'll create our own spreadsheet of data for plotting using the `data.frame()` function. Each parameter in this function specifies a column in the spreadsheet (`data.frame`). 
+mds_plot
+```
 
-**Lines 62-94**: The `ggplot()` function takes our `mds.data` object and plots it. _MDS1_ is the axis explaining the most morphometric variation in our herbarium dataset. Notice that this axis separates _A. flavescens_ and _A. formosa_. 
+The `ggplot()` function takes our `mds.data` object and plots it. _MDS1_ is the axis explaining the most morphometric variation in our herbarium dataset. Notice that this axis separates _A. flavescens_ and _A. formosa_. 
 
-**MB**: Opportunity here to pose some questions about the 'V' distribution of specimens in the MDS plot. 
 
-**The result**:
+**-KNOWLEDGE CHECK-**
 
-![Figure 1: MDS plot depicting morphometric variation in two species of _Aquilegia_.](aquelgia_mds.jpg)
-<br>
-<br>
+When an individual specimen has a low *MDS2* value, would it be easier or harder to distinguish the species? If your specimen had a high *MDS2* and *MDS1* value, which *Aquilegia* species is it likely to be?
 
+&nbsp;
+&nbsp;
 
 
 
