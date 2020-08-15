@@ -293,7 +293,7 @@ $(document).ready(function () {
 
 <h1 class="title toc-ignore">R Assignment 3: Species Delimitation using Morphometrics and Machine Learning</h1>
 <h4 class="author">Mannfred Boehm</h4>
-<h4 class="date">14 August, 2020</h4>
+<h4 class="date">15 August, 2020</h4>
 
 </div>
 
@@ -301,13 +301,13 @@ $(document).ready(function () {
 <p><br> <br></p>
 <div id="motivation" class="section level4">
 <h4>Motivation</h4>
-<p>Throughout this course we've seen how morphology plays a central role in plant taxonomy. The shapes of stems, leaves, and flowers are often the first traits listed in a dichotomous key. When a trait (like corolla width) is measured and quantified, we are able to use statistical tests to help us make decisions about how to group or split individuals. The science of measuring and analysing shape is called <em>morphometrics</em>. In this lab, we'll be using a dataset of <em>Aquilegia</em> flower morphology (see: Lab 1, Ranunculaceae) to determine whether two species, <em>A. formosa</em> and <em>A. flavescens</em>, show evidence of forming hybrids when co-occuring in a contact zone.</p>
+<p>Throughout this course we’ve seen how morphology plays a central role in plant taxonomy. The shapes of stems, leaves, and flowers are often the first traits listed in a dichotomous key. When a trait (like corolla width) is measured and quantified, we are able to use statistical tests to help us make decisions about how to group or split individuals. The science of measuring and analysing shape is called <em>morphometrics</em>. In this lab, we’ll be using a dataset of <em>Aquilegia</em> flower morphology (see: Lab 1, Ranunculaceae) to determine whether two species, <em>A. formosa</em> and <em>A. flavescens</em>, show evidence of forming hybrids when co-occuring in a contact zone.</p>
 <hr />
 <p><br> <br></p>
 </div>
 <div id="prerequisites" class="section level4">
 <h4>Prerequisites</h4>
-<p>Before starting this week's tutorial you will have: <br></p>
+<p>Before starting this week’s tutorial you will have: <br></p>
 <ol style="list-style-type: decimal">
 <li><p>downloaded the program <a href="https://imagej.nih.gov/ij/download.htm">Image_J</a> for making morphometric measurements, <br></p></li>
 <li><p>downloaded the class google sheet in the file format .csv. Note: if you can’t use imageJ for any reason, don’t panic. Display the digital image of the herbarium sheet on any device and use a ruler held up to the screen to make measurements, <br></p></li>
@@ -353,7 +353,7 @@ $(document).ready(function () {
 <div id="activity-2-delimiting-species-using-morphometrics-and-machine-learning" class="section level4">
 <h4>Activity 2: Delimiting Species using Morphometrics and Machine Learning</h4>
 <p><code>randomForest</code> is an R package that uses machine learning for classification, regression, and clustering. It combines the simplicity of decision trees with flexibility which makes the result more accurate than simply using decision trees alone. There are many tutorials and videos online about <code>randomForest</code> but <a href="https://www.youtube.com/watch?v=J4Wdy0Wc_xQ">this video</a> is useful if you want more background.</p>
-<p><strong>MB</strong>: maybe this video (or other online learning resources) should be a 'pre-assignment'?</p>
+<p><strong>MB</strong>: maybe this video (or other online learning resources) should be a ‘pre-assignment’?</p>
 <p> </p>
 <p>There are a few ways to use <code>randomForest</code> but this tutorial will cover using the package in unsupervised mode. This means that the program will have to find the structure of the data itself, without us training it first.</p>
 <p> </p>
@@ -368,21 +368,21 @@ $(document).ready(function () {
 </div>
 <div id="activity-3-deciphering-some-code" class="section level4">
 <h4>Activity 3: Deciphering some code</h4>
-<p>Let's step through the R script in order to understand what is happening here.</p>
+<p>Let’s step through the R script in order to understand what is happening here.</p>
 <p><br></p>
 <p><strong>Lines 12-15</strong>: The <code>library()</code> function loads various packages designed specifically for machine learning (<code>caret</code>, <code>randomForest</code>), and filtering and plotting data (<code>tidyverse</code>).</p>
 <p><strong>Line 23</strong>: Set the seed for the random number generator. This can be any number.</p>
 <p><strong>MB</strong>: might need to explain the signficance of this step.</p>
-<p><strong>Lines 33-42</strong>: The <code>randomForest()</code> function generates 30000 decision trees (<code>ntree</code>) that attempt to classify the specimens based on binary questions posed to the morphometrics data (<code>columbine_data</code>). Each question ('node') in the decision tree consideres three morphometric variables (<code>mtry</code>). Setting <code>proximity = TRUE</code> tells the function to calculate a similarity metric between specimens. This will come in handy in the following step.</p>
+<p><strong>Lines 33-42</strong>: The <code>randomForest()</code> function generates 30000 decision trees (<code>ntree</code>) that attempt to classify the specimens based on binary questions posed to the morphometrics data (<code>columbine_data</code>). Each question (‘node’) in the decision tree consideres three morphometric variables (<code>mtry</code>). Setting <code>proximity = TRUE</code> tells the function to calculate a similarity metric between specimens. This will come in handy in the following step.</p>
 <p><strong>Line 51</strong>: Create a distance matrix to describing how similar or dissimilar each sample is from one another.</p>
-<p><strong>Line 54</strong>: The <code>cmdscale()</code> function finds the axes of greatest variation in our morphometrics dataset. For example, if corolla width was the trait that varied the most between all specimens, <code>cmdscale()</code> would assign this variable as <em>MDS axis 1</em>. In reality, it's unlikely that a single trait will explain the greatest variation in morphology, instead, MDS axes tend to be combinations of traits.</p>
+<p><strong>Line 54</strong>: The <code>cmdscale()</code> function finds the axes of greatest variation in our morphometrics dataset. For example, if corolla width was the trait that varied the most between all specimens, <code>cmdscale()</code> would assign this variable as <em>MDS axis 1</em>. In reality, it’s unlikely that a single trait will explain the greatest variation in morphology, instead, MDS axes tend to be combinations of traits.</p>
 <p><strong>MB</strong>: maybe this should be part of pre-assignment reading?</p>
 <p><strong>Lines 57-64</strong>: At this part of the script we will extract information from our MDS object <code>mds.analysis</code> and store this information into various objects. These objects help us to choose which information is most useful to us, and make it easier to create our MDS plot later on.</p>
-<p><strong>Line 57</strong>: Let's extract the percentage variation described by each of <em>MDS axis 1</em> and <em>MDS axis 2</em>. Recall from previous tutorials that the <code>$</code> operator is a way to subset data (in this case <code>mds.analysis</code>) in order to extract information. We'll round the percent variation to the nearest tenth using <code>round()</code>.</p>
-<p><strong>Line 59</strong>: Here, we're using the <code>$</code> operator to extract information about where each specimen lies in the morphometric 'shape space'.</p>
-<p><strong>Lines 61-64</strong>: We'll create our own spreadsheet of data for plotting using the <code>data.frame()</code> function. Each parameter in this function specifies a column in the spreadsheet (<code>data.frame</code>).</p>
+<p><strong>Line 57</strong>: Let’s extract the percentage variation described by each of <em>MDS axis 1</em> and <em>MDS axis 2</em>. Recall from previous tutorials that the <code>$</code> operator is a way to subset data (in this case <code>mds.analysis</code>) in order to extract information. We’ll round the percent variation to the nearest tenth using <code>round()</code>.</p>
+<p><strong>Line 59</strong>: Here, we’re using the <code>$</code> operator to extract information about where each specimen lies in the morphometric ‘shape space’.</p>
+<p><strong>Lines 61-64</strong>: We’ll create our own spreadsheet of data for plotting using the <code>data.frame()</code> function. Each parameter in this function specifies a column in the spreadsheet (<code>data.frame</code>).</p>
 <p><strong>Lines 62-94</strong>: The <code>ggplot()</code> function takes our <code>mds.data</code> object and plots it. <em>MDS1</em> is the axis explaining the most morphometric variation in our herbarium dataset. Notice that this axis separates <em>A. flavescens</em> and <em>A. formosa</em>.</p>
-<p><strong>MB</strong>: Opportunity here to pose some questions about the 'V' distribution of specimens in the MDS plot.</p>
+<p><strong>MB</strong>: Opportunity here to pose some questions about the ‘V’ distribution of specimens in the MDS plot.</p>
 <p><strong>The result</strong>:</p>
 <p><img src="aquelgia_mds.jpg" alt="Figure 1: MDS plot depicting morphometric variation in two species of Aquilegia." /> <br> <br></p>
 </div>

@@ -12,12 +12,18 @@
 library(caret)
 library(here)
 library(randomForest)
+library(RCurl)
 library(tidyverse)
 
 
 # --------------------------
 # import morphometric data, saving it as 'columbine_data'
 columbine_data <- read.csv(here("R_scripts/BIOL_324_Lab_8/Columbine_data.csv"))
+
+# alt import from Jeff's github
+columbine_url <- RCurl::getURL('https://raw.githubusercontent.com/jgroh/mosaic/master/data/hrbm-pheno-mosaic.csv')
+columbine_data <- read.csv(text = columbine_url)
+
 
 # random number generator
 set.seed(22)

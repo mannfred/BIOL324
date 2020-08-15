@@ -265,12 +265,12 @@ One more note before we jump in: *this is not a programming class*. Our main goa
 
 <!-- To scratch the surface of GBIF reveals a massive database spanning the entire tree of life. How does one go about efficiently collecting, organizing, validating, and analysing so much information? The solution is made tractable by employing data analysis tools like those found in R (Note: For an introduction to R, see this week's [pre-lab reading in the section below](#prelab)).  By combining the biodiversity resources of GBIF with the analytical tools in R, we can collect, process, and visualize species distribution data on any laptop or tablet. In this week's lab we'll first gather the required tools (R and GBIF) and develop some basic skills using them. In the following lab we'll use our new skills to create research-grade distribution maps.  -->
 
+&nbsp;
+&nbsp;
+
 --- 
 
-<br>
-<br>
-
-#### Pre-lab {#prelab}
+#### Pre-lab
 
 Before starting this week's lab you will have: &nbsp;
 
@@ -282,10 +282,10 @@ Before starting this week's lab you will have: &nbsp;
 
 3. [OPTIONAL] created an RStudio Cloud account. Although ModernDive provides an excellent introduction to R, RStudio Cloud has some [useful interactive primers](https://rstudio.cloud/learn/primers/) that make sense of the R language by getting you to write some simple code. **This pre-lab activity is not required**, but recommended for anyone that is completely new to R, or wants some hands-on experience with R right away. 
 
---- 
+&nbsp;
+&nbsp;
 
-&nbsp;
-&nbsp;
+--- 
 
 #### Outcomes {#outcomes}
 

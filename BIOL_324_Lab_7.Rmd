@@ -30,15 +30,15 @@ At its core, plant taxonomy is the science of naming and grouping plants based o
 
 #### Pre-lab 
 
-Before starting this week's tutorial you will have: 
+Before starting this week's lab you will have: 
 
-1. completed R Assignment 1 (Lab 6) and the pre-readings assigned there, 
+1. Completed R Assignment 1 (Lab 6) and the pre-readings assigned there.
 
-2. insert GBIF video tutorial here? Or have them do it in unit 1 (note: GBIF intro material lives as comments in Lab 6),
+2. Insert GBIF video tutorial here? Or have them do it in unit 1 (note: GBIF intro material lives as comments in Lab 6).
 
-3. 
+3. Read Chapter 2 up to [section 2.3.1 in Modern Dive](https://moderndive.com/2-viz.html). Make sure you are able to produce Figures 2.2 and 2.3 on your own (using the code provided in the textbook). If your R is giving errors while trying to make these figures, please reach out to the TAs to fix them &mdash; it won't be possible to finish this lab without the `ggplot2` package working correctly.
 
-3. selected your favourite plant group for creating a species distribution map (not sure if we're doing this)
+3. Selected your favourite plant group for creating a species distribution map (not sure if we're doing this)
 
 &nbsp;
 &nbsp;
