@@ -20,6 +20,8 @@ date: "`r format(Sys.time(), '%d %B, %Y')`"
 
 At its core, plant taxonomy is the science of naming and grouping plants based on their shared traits. Throughout this course we've seen how growth habit, morphology, and geographic distribution can provide valuable information about how to classify and define plants. When we consider geographic information, we are asking questions like "do the plants occupy similar or distinct habitats?" and "are the ranges of these plants disjunct or overlapping?". Depending on the answer to these questions, our decision to group or separate plants (and give them different names) can be changed dramatically. In this R activity, we'll demonstrate how we can use publically available occurence data to create distribution maps for plants and use these maps to make taxonomic decisions.  
 
+
+
 &nbsp;
 &nbsp;
 
@@ -30,9 +32,11 @@ At its core, plant taxonomy is the science of naming and grouping plants based o
 
 Before starting this week's tutorial you will have: 
 
-1. completed R Activity 1 and the pre-readings assigned there, 
+1. completed R Assignment 1 (Lab 6) and the pre-readings assigned there, 
 
 2. insert GBIF video tutorial here? Or have them do it in unit 1 (note: GBIF intro material lives as comments in Lab 6),
+
+3. 
 
 3. selected your favourite plant group for creating a species distribution map (not sure if we're doing this)
 
