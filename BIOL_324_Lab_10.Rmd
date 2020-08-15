@@ -66,9 +66,13 @@ In previous Assignments we mapped species distributions and constructed phylogen
 In this lab, we'll explore further the genus _Opuntia_: 
 
 _Opuntia basilaris_ (Mojave, Colorado, Utah)
+
 _Opuntia fragilis_  (Northwestern) 
+
 _Opuntia humifusa_  (Eastern) 
+
 _Opuntia polyacantha_ (Great Plains, foothills of Rocky Mtns) 
+
 _Opuntia stricta_ (Gulf Coast and Caribbean)
 
 Let's start by installing the necessary packages. `mapdata` is an slightly more sophisticated package than `mapr` (which we used in Lab 7) &mdash; this will allow us to overlay a phylogeny onto a biogeographic plot. `phytools` is a similar phylogenetics package to `ape` (Lab 9), but contains functions for overlaying phylogenies onto maps. `viridis` is a package for creating custom colour schemes &mdash; our maps gotta look fresh! 

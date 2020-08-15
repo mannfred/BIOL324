@@ -62,7 +62,17 @@ By the end of this tutorial you will have: <br>
 
 #### Mapping Species Distributions
 
-In previous labs we familiarized ourselves with GBIF, R, and RStudio. Today we'll be running a script that collects, filters, and maps distribution data for two species of "prickly pear" cacti _Opuntia fragilis_ Nutt. Haw. and _Opuntia humifusa_ Raf. (Opuntioideae: Cactaceae). 
+In previous labs we familiarized ourselves with GBIF, R, and RStudio. Today we'll be running a script that collects, filters, and maps distribution data for five species of "prickly pear" cacti (Opuntioideae: Cactaceae):
+
+_Opuntia basilaris_ (Mojave, Colorado, Utah)
+
+_Opuntia fragilis_  (Northwestern) 
+
+_Opuntia humifusa_  (Eastern) 
+
+_Opuntia polyacantha_ (Great Plains, foothills of Rocky Mtns) 
+
+_Opuntia stricta_ (Gulf Coast and Caribbean)
 
 First let's install the required packages:
 

@@ -9,7 +9,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=EDGE" />
 
 
-<meta name="author" content="Mannfred Boehm" />
+<meta name="author" content="Gracy Buckholtz, Quentin Cronk, Mannfred Boehm" />
 
 
 <title>R Assignment 3: Species Delimitation using Morphometrics and Machine Learning</title>
@@ -23,6 +23,96 @@
 <script src="site_libs/navigation-1.1/tabsets.js"></script>
 
 
+<style type="text/css">code{white-space: pre;}</style>
+<style type="text/css" data-origin="pandoc">
+a.sourceLine { display: inline-block; line-height: 1.25; }
+a.sourceLine { pointer-events: none; color: inherit; text-decoration: inherit; }
+a.sourceLine:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode { white-space: pre; position: relative; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+code.sourceCode { white-space: pre-wrap; }
+a.sourceLine { text-indent: -1em; padding-left: 1em; }
+}
+pre.numberSource a.sourceLine
+  { position: relative; left: -4em; }
+pre.numberSource a.sourceLine::before
+  { content: attr(title);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; pointer-events: all; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  { background-color: #f8f8f8; }
+@media screen {
+a.sourceLine::before { text-decoration: underline; }
+}
+code span.al { color: #ef2929; } /* Alert */
+code span.an { color: #8f5902; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #c4a000; } /* Attribute */
+code span.bn { color: #0000cf; } /* BaseN */
+code span.cf { color: #204a87; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4e9a06; } /* Char */
+code span.cn { color: #000000; } /* Constant */
+code span.co { color: #8f5902; font-style: italic; } /* Comment */
+code span.cv { color: #8f5902; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #8f5902; font-weight: bold; font-style: italic; } /* Documentation */
+code span.dt { color: #204a87; } /* DataType */
+code span.dv { color: #0000cf; } /* DecVal */
+code span.er { color: #a40000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #0000cf; } /* Float */
+code span.fu { color: #000000; } /* Function */
+code span.im { } /* Import */
+code span.in { color: #8f5902; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #204a87; font-weight: bold; } /* Keyword */
+code span.op { color: #ce5c00; font-weight: bold; } /* Operator */
+code span.ot { color: #8f5902; } /* Other */
+code span.pp { color: #8f5902; font-style: italic; } /* Preprocessor */
+code span.sc { color: #000000; } /* SpecialChar */
+code span.ss { color: #4e9a06; } /* SpecialString */
+code span.st { color: #4e9a06; } /* String */
+code span.va { color: #000000; } /* Variable */
+code span.vs { color: #4e9a06; } /* VerbatimString */
+code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warning */
+
+</style>
+<script>
+// apply pandoc div.sourceCode style to pre.sourceCode instead
+(function() {
+  var sheets = document.styleSheets;
+  for (var i = 0; i < sheets.length; i++) {
+    if (sheets[i].ownerNode.dataset["origin"] !== "pandoc") continue;
+    try { var rules = sheets[i].cssRules; } catch (e) { continue; }
+    for (var j = 0; j < rules.length; j++) {
+      var rule = rules[j];
+      // check if there is a div.sourceCode rule
+      if (rule.type !== rule.STYLE_RULE || rule.selectorText !== "div.sourceCode") continue;
+      var style = rule.style.cssText;
+      // check if color or background-color is set
+      if (rule.style.color === '' && rule.style.backgroundColor === '') continue;
+      // replace div.sourceCode by a pre.sourceCode rule
+      sheets[i].deleteRule(j);
+      sheets[i].insertRule('pre.sourceCode{' + style + '}', j);
+    }
+  }
+})();
+</script>
+<style type="text/css">
+  pre:not([class]) {
+    background-color: white;
+  }
+</style>
 
 
 <style type="text/css">
@@ -292,59 +382,59 @@ $(document).ready(function () {
 
 
 <h1 class="title toc-ignore">R Assignment 3: Species Delimitation using Morphometrics and Machine Learning</h1>
-<h4 class="author">Mannfred Boehm</h4>
+<h4 class="author">Gracy Buckholtz, Quentin Cronk, Mannfred Boehm</h4>
 <h4 class="date">15 August, 2020</h4>
 
 </div>
 
 
-<p><br> <br></p>
+<p>   </p>
 <div id="motivation" class="section level4">
 <h4>Motivation</h4>
-<p>Throughout this course we’ve seen how morphology plays a central role in plant taxonomy. The shapes of stems, leaves, and flowers are often the first traits listed in a dichotomous key. When a trait (like corolla width) is measured and quantified, we are able to use statistical tests to help us make decisions about how to group or split individuals. The science of measuring and analysing shape is called <em>morphometrics</em>. In this lab, we’ll be using a dataset of <em>Aquilegia</em> flower morphology (see: Lab 1, Ranunculaceae) to determine whether two species, <em>A. formosa</em> and <em>A. flavescens</em>, show evidence of forming hybrids when co-occuring in a contact zone.</p>
+<p>Throughout this course we’ve seen how morphology plays a central role in plant taxonomy. The shapes of stems, leaves, and flowers are often the first traits listed in a dichotomous key. When a trait (like corolla width) is measured and quantified, we are able to use statistical tests to decide how to group or split individuals. The science of measuring and analysing shape is called <em>morphometrics</em>. In this lab, we’ll be using a dataset of <em>Aquilegia</em> flower morphology (see: Lab 1, Ranunculaceae) to determine whether two species, <em>A. formosa</em> and <em>A. flavescens</em>, show evidence of forming hybrids when co-occuring in a contact zone.</p>
 <hr />
 <p><br> <br></p>
 </div>
-<div id="prerequisites" class="section level4">
-<h4>Prerequisites</h4>
-<p>Before starting this week’s tutorial you will have: <br></p>
+<div id="pre-lab" class="section level4">
+<h4>Pre-lab</h4>
+<p>Before starting this week’s lab you will have:</p>
 <ol style="list-style-type: decimal">
 <li><p>downloaded the program <a href="https://imagej.nih.gov/ij/download.htm">Image_J</a> for making morphometric measurements, <br></p></li>
 <li><p>downloaded the class google sheet in the file format .csv. Note: if you can’t use imageJ for any reason, don’t panic. Display the digital image of the herbarium sheet on any device and use a ruler held up to the screen to make measurements, <br></p></li>
 <li><p><strong>MB</strong>: probably need to get students to do some pre-assignment reading on machine learning (decision trees, random forests). Also, some reading on MDS and interpreting MDS plots.</p></li>
 </ol>
+<p>   </p>
 <hr />
-<p><br> <br></p>
 </div>
 <div id="outcomes" class="section level4">
 <h4>Outcomes</h4>
-<p>By the end of this tutorial you will: <br></p>
+<p>By the end of this tutorial you will:</p>
 <ol style="list-style-type: decimal">
-<li><p>have experience taking morphometric measurements from herbarium specimens, <br></p></li>
-<li><p>understand some core concepts in machine learning and how it can be used in species delimitation, <br></p></li>
-<li><p>the tools and knowledge needed to implement machine learning in R as part of a taxonomic research programme, <br></p></li>
+<li><p>have experience taking morphometric measurements from herbarium specimens,</p></li>
+<li><p>understand some core concepts in machine learning and how it can be used in species delimitation,</p></li>
+<li><p>the tools and knowledge needed to implement machine learning in R as part of a taxonomic research programme,</p></li>
 <li><p>More?</p></li>
 </ol>
+<p>   </p>
 <hr />
-<p><br> <br></p>
 </div>
-<div id="activity-1-taking-morphometrics-measurements-from-herbarium-specimens-using-imagej" class="section level4">
-<h4>Activity 1: Taking Morphometrics Measurements from Herbarium Specimens using ImageJ</h4>
-<p>ImageJ is an image processing software that was developed by the NIH. It is used to analyze different types of images but this tutorial will cover how to measure certain morphological features from photographs of herbarium specimens. <br></p>
-<p>To use ImageJ you have to import the photographs you want to work with. <br></p>
+<div id="activity-1-taking-morphometric-measurements-from-herbarium-specimens-using-imagej" class="section level4">
+<h4>Activity 1: Taking Morphometric Measurements from Herbarium Specimens using ImageJ</h4>
+<p>ImageJ is an image processing software that was developed by the U.S. National Institutes of Health (NIH). It is used to analyze different types of images but this tutorial will cover how to measure certain morphological features from photographs of herbarium specimens.</p>
+<p>To use ImageJ you have to import the photographs you want to work with.</p>
 <ol style="list-style-type: decimal">
-<li>Drag the file to the lower grey bar. As you are doing this the words &lt;<drag and drop>&gt; should appear. Once the image has been dropped it will open and now it is ready to analyze in ImageJ. <br></li>
+<li>Drag the file to the lower grey bar. As you are doing this the words &lt;<drag and drop>&gt; should appear. Once the image has been dropped it will open and now it is ready to analyze in ImageJ.</li>
 </ol>
-<p>There are many measurements that can be taken with ImageJ. It might be helpful to click through the different buttons at the top of the bar to explore all of the different ways ImageJ can make measurements. This tutorial will use the line button for all of the measurements. <br></p>
+<p>There are many measurements that can be taken with ImageJ. It might be helpful to click through the different buttons at the top of the bar to explore all of the different ways ImageJ can make measurements. This tutorial will use the line button for all of the measurements.</p>
 <ol start="2" style="list-style-type: decimal">
-<li><p>Zoom in on the ruler (Mac: Command shift =, Windows: CTRL + ). Most digitized herbarium specimens will have a ruler in the photograph. This is to help standardized it and is useful for measuring features in ImageJ. <br></p></li>
-<li><p>Use the line button (5th button from the left) and draw a line by clicking and dragging along the bottom of the ruler so that the line goes from the 0 tick to the 5 cm tick. This needs to be very accurate because we are going to use this length to calibrate the rest of the measurements taken in ImageJ. <br></p></li>
+<li><p>Zoom in on the ruler (Mac: Command shift =, Windows: CTRL + ). Most digitized herbarium specimens will have a ruler in the photograph. This is to help standardized it and is useful for measuring features in ImageJ.</p></li>
+<li><p>Use the line button (5th button from the left) and draw a line by clicking and dragging along the bottom of the ruler so that the line goes from the 0 tick to the 5 cm tick. This needs to be very accurate because we are going to use this length to calibrate the rest of the measurements taken in ImageJ.</p></li>
 <li><p>Go to the top bar and hit “analyze”. Then go to “set scale…”. Enter 5 into the Known distance box and enter cm into the Unit of Length box. Hit the box “Global”. By checking “Global” you are ensuring that this is applied to all photos in the current session of ImageJ. Then hit OK. ImageJ is now calibrated using the ruler from your herbarium photo. <br></p></li>
 </ol>
-<p>Now you can go on to take measurements. <br></p>
+<p>Now you can go on to take measurements.</p>
 <ol start="5" style="list-style-type: decimal">
-<li><p>Use the line or the segmented line (you can change between them by right clicking on the line button) draw lines across what you want to measure. Once you have the right length hit (Mac: Command M, Windows: CTRL M) and ImageJ will measure and record the length in a convenient table for you. This table should pop up once you take your first measurement. When you have all of the measurements you need you can either download that table that ImageJ made or just copy and input the data in your own table. You will have to eventually input your data in a group google sheet so keep that in mind as you are recording data. <br></p></li>
-<li><p>Once you have taken and recorded all of the measurements necessary put your findings into the class google spreadsheet so that other people will be able to access, download, and use your data for the next step. <br></p></li>
+<li><p>Use the line or the segmented line (you can change between them by right clicking on the line button) draw lines across what you want to measure. Once you have the right length hit (Mac: Command M, Windows: CTRL M) and ImageJ will measure and record the length in a convenient table for you. This table should pop up once you take your first measurement. When you have all of the measurements you need you can either download that table that ImageJ made or just copy and input the data in your own table. You will have to eventually input your data in a group spreadsheet (on Canvas) so keep that in mind as you are recording data. <br></p></li>
+<li><p>Once you have taken and recorded all of the measurements necessary put your findings into the class spreadsheet (Canvas) so that other people will be able to access, download, and use your data for the next step. <br></p></li>
 </ol>
 <p>Note: <a href="https://imagej.nih.gov/ij/docs/guide/user-guide.pdf">Here is a link</a> to the ImageJ user guide. All the information you will need is in this document, but if you are interested in the program and the other features available, the user guide can provide more information.</p>
 <hr />
@@ -352,39 +442,88 @@ $(document).ready(function () {
 </div>
 <div id="activity-2-delimiting-species-using-morphometrics-and-machine-learning" class="section level4">
 <h4>Activity 2: Delimiting Species using Morphometrics and Machine Learning</h4>
-<p><code>randomForest</code> is an R package that uses machine learning for classification, regression, and clustering. It combines the simplicity of decision trees with flexibility which makes the result more accurate than simply using decision trees alone. There are many tutorials and videos online about <code>randomForest</code> but <a href="https://www.youtube.com/watch?v=J4Wdy0Wc_xQ">this video</a> is useful if you want more background.</p>
-<p><strong>MB</strong>: maybe this video (or other online learning resources) should be a ‘pre-assignment’?</p>
-<p> </p>
-<p>There are a few ways to use <code>randomForest</code> but this tutorial will cover using the package in unsupervised mode. This means that the program will have to find the structure of the data itself, without us training it first.</p>
-<p> </p>
-<ol style="list-style-type: decimal">
-<li><p>Open R and set your working directory. You want the working directory to be wherever the data set you are going to input is located.</p></li>
-<li><p>Install the packages needed for <code>randomForest</code> to run properly. These are <code>randomForest</code>, <code>tidyverse</code>, and <code>caret</code>. Installation only needs to be done once so if you have already downloaded any of these (<code>install.packages()</code>), attach the packages using <code>library()</code>.</p></li>
-<li><p>By highlighting the script from lines 11-91 and pressing <strong>Ctrl+Enter</strong> (or clicking <strong>Run</strong> at the top of the Source Pane), the functions will execute consecutively, storing objects in the <strong>Environment Pane</strong>.</p></li>
-</ol>
-<p><strong>MB</strong>: Might need some additional instruction and R code to help with importing the morphometric data. If this tutorial is done on RStudio Cloud, we can load the data in automatically when they open the assignment.</p>
-<hr />
-<p><br> <br></p>
-</div>
-<div id="activity-3-deciphering-some-code" class="section level4">
-<h4>Activity 3: Deciphering some code</h4>
-<p>Let’s step through the R script in order to understand what is happening here.</p>
-<p><br></p>
-<p><strong>Lines 12-15</strong>: The <code>library()</code> function loads various packages designed specifically for machine learning (<code>caret</code>, <code>randomForest</code>), and filtering and plotting data (<code>tidyverse</code>).</p>
-<p><strong>Line 23</strong>: Set the seed for the random number generator. This can be any number.</p>
-<p><strong>MB</strong>: might need to explain the signficance of this step.</p>
-<p><strong>Lines 33-42</strong>: The <code>randomForest()</code> function generates 30000 decision trees (<code>ntree</code>) that attempt to classify the specimens based on binary questions posed to the morphometrics data (<code>columbine_data</code>). Each question (‘node’) in the decision tree consideres three morphometric variables (<code>mtry</code>). Setting <code>proximity = TRUE</code> tells the function to calculate a similarity metric between specimens. This will come in handy in the following step.</p>
-<p><strong>Line 51</strong>: Create a distance matrix to describing how similar or dissimilar each sample is from one another.</p>
-<p><strong>Line 54</strong>: The <code>cmdscale()</code> function finds the axes of greatest variation in our morphometrics dataset. For example, if corolla width was the trait that varied the most between all specimens, <code>cmdscale()</code> would assign this variable as <em>MDS axis 1</em>. In reality, it’s unlikely that a single trait will explain the greatest variation in morphology, instead, MDS axes tend to be combinations of traits.</p>
-<p><strong>MB</strong>: maybe this should be part of pre-assignment reading?</p>
-<p><strong>Lines 57-64</strong>: At this part of the script we will extract information from our MDS object <code>mds.analysis</code> and store this information into various objects. These objects help us to choose which information is most useful to us, and make it easier to create our MDS plot later on.</p>
-<p><strong>Line 57</strong>: Let’s extract the percentage variation described by each of <em>MDS axis 1</em> and <em>MDS axis 2</em>. Recall from previous tutorials that the <code>$</code> operator is a way to subset data (in this case <code>mds.analysis</code>) in order to extract information. We’ll round the percent variation to the nearest tenth using <code>round()</code>.</p>
-<p><strong>Line 59</strong>: Here, we’re using the <code>$</code> operator to extract information about where each specimen lies in the morphometric ‘shape space’.</p>
-<p><strong>Lines 61-64</strong>: We’ll create our own spreadsheet of data for plotting using the <code>data.frame()</code> function. Each parameter in this function specifies a column in the spreadsheet (<code>data.frame</code>).</p>
-<p><strong>Lines 62-94</strong>: The <code>ggplot()</code> function takes our <code>mds.data</code> object and plots it. <em>MDS1</em> is the axis explaining the most morphometric variation in our herbarium dataset. Notice that this axis separates <em>A. flavescens</em> and <em>A. formosa</em>.</p>
-<p><strong>MB</strong>: Opportunity here to pose some questions about the ‘V’ distribution of specimens in the MDS plot.</p>
-<p><strong>The result</strong>:</p>
-<p><img src="aquelgia_mds.jpg" alt="Figure 1: MDS plot depicting morphometric variation in two species of Aquilegia." /> <br> <br></p>
+<p>Let’s get started by attaching the required packages:</p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb1-1" title="1"><span class="kw">library</span>(caret)</a>
+<a class="sourceLine" id="cb1-2" title="2"><span class="kw">library</span>(here)</a>
+<a class="sourceLine" id="cb1-3" title="3"><span class="kw">library</span>(randomForest)</a>
+<a class="sourceLine" id="cb1-4" title="4"><span class="kw">library</span>(RCurl)</a>
+<a class="sourceLine" id="cb1-5" title="5"><span class="kw">library</span>(tidyverse)</a></code></pre></div>
+<p><code>randomForest</code> and <code>caret</code> are packages with machine learning tools for classification, regression, and clustering. There are a few ways to implement machine learning. In this lab we will cover using ML in unsupervised mode. This means that the program will have to find the structure of the data itself, without us training it first.</p>
+<p>Now we’ll import, subset, and preview the <em>Aquilegia</em> morphometric data from Groh et al (2020):</p>
+<div class="sourceCode" id="cb2"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb2-1" title="1">columbine_url &lt;-<span class="st"> </span></a>
+<a class="sourceLine" id="cb2-2" title="2"><span class="st">  </span>RCurl<span class="op">::</span><span class="kw">getURL</span>(<span class="st">&#39;https://raw.githubusercontent.com/jgroh/mosaic/master/data/hrbm-pheno-mosaic.csv&#39;</span>)</a>
+<a class="sourceLine" id="cb2-3" title="3"></a>
+<a class="sourceLine" id="cb2-4" title="4">columbine_data_full &lt;-<span class="st"> </span><span class="kw">read.csv</span>(<span class="dt">text =</span> columbine_url)</a>
+<a class="sourceLine" id="cb2-5" title="5"></a>
+<a class="sourceLine" id="cb2-6" title="6">columbine_data &lt;-</a>
+<a class="sourceLine" id="cb2-7" title="7"><span class="st">  </span>columbine_data_full <span class="op">%&gt;%</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb2-8" title="8"><span class="st">  </span><span class="kw">select</span>(<span class="dv">1</span>, <span class="dv">3</span>, <span class="dv">12</span><span class="op">:</span><span class="dv">19</span>)</a>
+<a class="sourceLine" id="cb2-9" title="9"></a>
+<a class="sourceLine" id="cb2-10" title="10"><span class="kw">head</span>(columbine_data)</a></code></pre></div>
+<pre><code>##   Accession.Number species.label corolla.width spur.length blade.length
+## 1          V176410    flavescens          1.50         1.1         0.50
+## 2           V64139    flavescens          1.50         1.7         0.50
+## 3           V33047    flavescens          1.55         1.0         0.60
+## 4           V64133    flavescens          1.95         1.4         0.70
+## 5           V33046    flavescens          1.30         1.0         0.48
+## 6           V34060    flavescens          1.80         1.6         0.80
+##   blade.width blade.cleft sepal.length sepal.width anther.exsertion
+## 1        0.60           0          1.7        0.55              0.9
+## 2        0.40           0          1.3        0.40              0.6
+## 3        0.70           0          2.0        0.70              0.8
+## 4        0.70           0          2.2        0.70              0.4
+## 5        0.56           0          1.6        0.50              0.8
+## 6        0.90           0          1.9        0.70              0.5</code></pre>
+<p>Now, we’ll use the <code>randomForest()</code> function to analyse and sort our specimens:</p>
+<div class="sourceCode" id="cb4"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb4-1" title="1"><span class="co"># run the function randomForest() on our morphometric data.</span></a>
+<a class="sourceLine" id="cb4-2" title="2"><span class="co"># ntree tells us how many decision trees to build</span></a>
+<a class="sourceLine" id="cb4-3" title="3"><span class="co"># mtry is the amount of variables that will be tested at each node of the tree </span></a>
+<a class="sourceLine" id="cb4-4" title="4"><span class="co"># proximity=TRUE so that the data saves a proximity matrix</span></a>
+<a class="sourceLine" id="cb4-5" title="5"></a>
+<a class="sourceLine" id="cb4-6" title="6">rf &lt;-<span class="st"> </span></a>
+<a class="sourceLine" id="cb4-7" title="7"><span class="st">  </span><span class="kw">randomForest</span>(</a>
+<a class="sourceLine" id="cb4-8" title="8">    columbine_data[,<span class="op">-</span><span class="dv">1</span>], </a>
+<a class="sourceLine" id="cb4-9" title="9">    <span class="dt">ntree=</span><span class="dv">30000</span>, </a>
+<a class="sourceLine" id="cb4-10" title="10">    <span class="dt">mtry=</span><span class="dv">3</span>, </a>
+<a class="sourceLine" id="cb4-11" title="11">    <span class="dt">proximity=</span><span class="ot">TRUE</span>, </a>
+<a class="sourceLine" id="cb4-12" title="12">    <span class="dt">keep.forest=</span><span class="ot">TRUE</span>) </a></code></pre></div>
+<p>The <code>randomForest()</code> function generates 30,000 decision trees (<code>ntree</code>) that attempt to classify the specimens based on binary questions posed to the morphometrics data (<code>columbine_data</code>). Each question (‘node’) in the decision tree consideres three morphometric variables (<code>mtry</code>). Setting <code>proximity = TRUE</code> tells the function to calculate a similarity metric between specimens. This will help us to calculate a distance matrix describing how similar or dissimilar each sample is from one another:</p>
+<div class="sourceCode" id="cb5"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb5-1" title="1">distance.matrix &lt;-<span class="st"> </span><span class="kw">dist</span>(<span class="dv">1</span> <span class="op">-</span><span class="st"> </span>rf<span class="op">$</span>proximity)</a></code></pre></div>
+<p>Now we’ll perform MDS analysis on the distance matrix:</p>
+<div class="sourceCode" id="cb6"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb6-1" title="1">mds.analysis &lt;-<span class="st"> </span><span class="kw">cmdscale</span>(distance.matrix, <span class="dt">eig=</span><span class="ot">TRUE</span>, <span class="dt">x.ret=</span><span class="ot">TRUE</span>)</a>
+<a class="sourceLine" id="cb6-2" title="2"></a>
+<a class="sourceLine" id="cb6-3" title="3">mds.var.per &lt;-<span class="st"> </span><span class="kw">round</span>(mds.analysis<span class="op">$</span>eig<span class="op">/</span><span class="kw">sum</span>(mds.analysis<span class="op">$</span>eig)<span class="op">*</span><span class="dv">100</span>, <span class="dv">1</span>)</a>
+<a class="sourceLine" id="cb6-4" title="4"></a>
+<a class="sourceLine" id="cb6-5" title="5">mds.var.per[<span class="dv">1</span><span class="op">:</span><span class="dv">2</span>]</a></code></pre></div>
+<pre><code>## [1] 42.3 13.5</code></pre>
+<p>The <code>cmdscale()</code> function finds the axes of greatest variation in our morphometrics dataset. For example, if corolla width was the trait that varied the most between all specimens, <code>cmdscale()</code> would assign this variable as <em>MDS axis 1</em>. In reality, it’s unlikely that a single trait will explain the greatest variation in morphology, instead, MDS axes tend to be combinations of traits. In the second step we calculated how much of the total variation of the datset belongs to each of the MDS axes. The third step prints MDS axes 1 and 2, telling us that MDS axis 1 accounts for 42.3% of the morphological variation in the dataset. Each <em>Aquilegia</em> specimen exists somewhere in the ‘shape space’ created by MDS axes 1 and 2. For example, if MDS axes 1 and 2 described variation in corolla and sepal width, respectively, <em>Aquilegia</em> specimens with wide corollas and sepals would exist in the upper right corner of this ‘shape space’. We’ll see what this looks like in the plotting step. We’ll store the shape space location of each <em>Aquilegia</em> sample in an object called <code>mds.data</code>:</p>
+<div class="sourceCode" id="cb8"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb8-1" title="1">mds.values &lt;-<span class="st"> </span>mds.analysis<span class="op">$</span>points</a>
+<a class="sourceLine" id="cb8-2" title="2">mds.data &lt;-<span class="st"> </span><span class="kw">data.frame</span>(<span class="dt">Sample =</span> <span class="kw">rownames</span>(mds.values),</a>
+<a class="sourceLine" id="cb8-3" title="3">                       <span class="dt">X =</span> mds.values[,<span class="dv">1</span>],</a>
+<a class="sourceLine" id="cb8-4" title="4">                       <span class="dt">Y =</span> mds.values[,<span class="dv">2</span>],</a>
+<a class="sourceLine" id="cb8-5" title="5">                       <span class="dt">Status =</span> columbine_data<span class="op">$</span>species.label)</a></code></pre></div>
+<p>Now we can plot each <em>Aquilegia</em> specimen in morphometric shape space:</p>
+<div class="sourceCode" id="cb9"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb9-1" title="1">mds_plot &lt;-<span class="st"> </span></a>
+<a class="sourceLine" id="cb9-2" title="2"><span class="st">  </span><span class="kw">ggplot</span>(</a>
+<a class="sourceLine" id="cb9-3" title="3">    <span class="dt">data =</span> mds.data, </a>
+<a class="sourceLine" id="cb9-4" title="4">    <span class="kw">aes</span>(<span class="dt">x =</span> X, <span class="dt">y =</span> Y, <span class="dt">label =</span> Sample)) <span class="op">+</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb9-5" title="5"><span class="st">  </span><span class="kw">geom_text</span>(<span class="kw">aes</span>(<span class="dt">color =</span> Status)) <span class="op">+</span></a>
+<a class="sourceLine" id="cb9-6" title="6"><span class="st">  </span><span class="kw">theme_bw</span>() <span class="op">+</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb9-7" title="7"><span class="st">  </span><span class="kw">xlab</span>(<span class="kw">paste</span>(<span class="st">&quot;MDS1 - &quot;</span>, mds.var.per[<span class="dv">1</span>], <span class="st">&quot;%&quot;</span>,<span class="dt">sep=</span><span class="st">&quot;&quot;</span>)) <span class="op">+</span></a>
+<a class="sourceLine" id="cb9-8" title="8"><span class="st">  </span><span class="kw">ylab</span>(<span class="kw">paste</span>(<span class="st">&quot;MDS2 - &quot;</span>, mds.var.per[<span class="dv">2</span>], <span class="st">&quot;%&quot;</span>,<span class="dt">sep=</span><span class="st">&quot;&quot;</span>)) <span class="op">+</span></a>
+<a class="sourceLine" id="cb9-9" title="9"><span class="st">  </span><span class="kw">ggtitle</span>(<span class="st">&quot; Unsupervised MDS plot using (1 - Random Forest Proximities)&quot;</span>) <span class="op">+</span></a>
+<a class="sourceLine" id="cb9-10" title="10"><span class="st">  </span><span class="kw">scale_colour_manual</span>(<span class="dt">name =</span> <span class="st">&quot;Species&quot;</span>, </a>
+<a class="sourceLine" id="cb9-11" title="11">                      <span class="dt">breaks =</span> <span class="kw">c</span>(<span class="st">&quot;flavescens&quot;</span>, <span class="st">&quot;formosa&quot;</span>), </a>
+<a class="sourceLine" id="cb9-12" title="12">                      <span class="dt">labels =</span> <span class="kw">c</span>(<span class="kw">expression</span>(<span class="kw">italic</span>(<span class="st">&quot;A. flavescens&quot;</span>)), </a>
+<a class="sourceLine" id="cb9-13" title="13">                                 <span class="kw">expression</span>(<span class="kw">italic</span>(<span class="st">&quot;A. formosa&quot;</span>))),</a>
+<a class="sourceLine" id="cb9-14" title="14">                      <span class="dt">values =</span> <span class="kw">c</span>(<span class="st">&quot;#009E73&quot;</span>, <span class="st">&quot;#CC79A7&quot;</span>))</a>
+<a class="sourceLine" id="cb9-15" title="15"></a>
+<a class="sourceLine" id="cb9-16" title="16">mds_plot</a></code></pre></div>
+<p><img src="BIOL_324_Lab_8_files/figure-html/unnamed-chunk-7-1.png" width="672" /></p>
+<p>The <code>ggplot()</code> function takes our <code>mds.data</code> object and plots it. <em>MDS1</em> is the axis explaining the most morphometric variation in our herbarium dataset. Notice that this axis separates <em>A. flavescens</em> and <em>A. formosa</em>.</p>
+<p><strong>-KNOWLEDGE CHECK-</strong></p>
+<p>When an individual specimen has a low <em>MDS2</em> value, would it be easier or harder to distinguish the species? If your specimen had a high <em>MDS2</em> and <em>MDS1</em> value, which <em>Aquilegia</em> species is it likely to be?</p>
+<p>   </p>
 </div>
 
 

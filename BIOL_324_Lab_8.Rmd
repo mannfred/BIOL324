@@ -188,7 +188,7 @@ The `ggplot()` function takes our `mds.data` object and plots it. _MDS1_ is the 
 
 **-KNOWLEDGE CHECK-**
 
-When an individual specimen has a low *MDS2* value, would it be easier or harder to distinguish the species? If your specimen had a high *MDS2* and *MDS1* value, which *Aquilegia* species is it likely to be?
+When an individual specimen has a low *MDS2* value, would it be easier or harder to distinguish the species (and why)? If your specimen had a high *MDS2* and *MDS1* value, which *Aquilegia* species is it likely to be?
 
 &nbsp;
 &nbsp;
