@@ -158,7 +158,6 @@ opuntia_accepted <- c(
 "Opuntia polyacantha Haw.",
 "Opuntia stricta (Haw.) Haw.")
 
-country_accepted <- c("United States of America", "Mexico", "Canada")
 
 # filter out synonyms 
 # filter out entries outside of North America
