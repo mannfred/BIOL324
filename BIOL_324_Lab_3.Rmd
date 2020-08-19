@@ -203,7 +203,7 @@ Members of the Onagraceae are easily recognized by their usually 4 merous polype
 
 ---
 
-You've see *Fuschia* already in Lab 2. Take another look at the below photos, noting the long hypanthium and inferior ovary. 
+You've see *Fuschia* already in Lab 2. Take another look at the below photos, noting the long hypanthium, petaloid sepals, and inferior ovary. A conspicuous hypanthium, inferior ovary, and parts in 4's are good characters to help you narrow down to this family.
 
 <p align="center">
 ![](./media/basic_1.jpeg){width=40%} ![](./media/basic_2.jpeg){width=40%}
@@ -213,6 +213,68 @@ You've see *Fuschia* already in Lab 2. Take another look at the below photos, no
 <p align="center">
 ![](./media/basic_4.jpeg){width=80%}
 </p>
+
+&nbsp;
+
+Here is a local weedy example, *Epilobium ciliatum*. It has small flowers with a long ovary that is often mistaken as part of the pedicel. Can you identify all the perianth parts?
+
+<p align="center">
+![](./media/Onagraceae_3.jpeg){width=40%} 
+![](./media/Onagraceae_4.jpeg){width=40%}
+![](./media/Onagraceae_5.jpeg){width=40%}
+![](./media/Onagraceae_6.jpeg){width=40%}
+</p>
+
+&nbsp;
+
+---
+
+Most Onagraceae species form capsules from compound ovaries. Here is a developing ovary from a *Fuchsia* flower. Can you tell how many carpels there are, and the type of placentation?
+
+<p align="center">
+![](./media/Onagraceae_1.jpeg){width=40%} 
+![](./media/Onagraceae_2.jpeg){width=40%}
+</p>
+
+&nbsp;
+
+*Epilobium* capsules dehisce along four sutures, and release hundreds of hairy seeds that disperse in the wind. 
+
+<p align="center">
+![](./media/Onagraceae_7.jpeg){width=40%} 
+![](./media/Onagraceae_8.jpeg){width=40%}
+![](./media/Onagraceae_9.jpeg){width=40%}
+![](./media/Onagraceae_10.jpeg){width=40%}
+</p>
+
+&nbsp;
+
+---
+
+Some showy local examples come from the genus *Chamaenerion*. The top two photos show *C. angustifolium* (fireweed), which is a widespread weed that is often seen on roadsides and disturbed lots. The bottom two photos show *C. latifolium*, which has flowers that look quite similar to fireweed's but is much shorter and only found along subalpine streams. Can you see the parts in 4's?
+
+<p align="center">
+![](./media/Onagraceae_11.jpeg){width=40%} 
+![](./media/Onagraceae_12.jpeg){width=40%}
+</p>
+
+<p align="center">
+![](./media/Onagraceae_13.jpeg){width=40%}
+![](./media/Onagraceae_14.jpeg){width=40%}
+</p>
+
+&nbsp;
+
+---
+
+**-KNOWLEDGE CHECK-**  
+
+Using the above photos, draw the following:  
+- *Fuchsia* flower with long hypanthium  
+- *Epilobium ciliatum* flower with long ovary  
+- *Fuchsia* ovary cross-section displaying carpels and placentation  
+- *Epilobium ciliatum* capsule with hairy seeds  
+- label your drawings with the following terms: sepals, petals, stamens, style, 4-part stigma, hypanthium, ovary, capsule, seeds. 
 
 ---
 
