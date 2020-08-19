@@ -60,7 +60,7 @@ The flower depicted below is *Fuchsia* sp. in the Onagraceae family, which we wi
 This picture displays a longitudinal section of the flower (cut in half length-wise), which allows us to see what's going on inside the flower. It is difficult to see how many stamens there are from the photos, but the numbers of parts in each whorl are often the same or in multiples within each family. Given the number of sepals you see, how many petals and stamens do you think there are? (hint: there are twice the number of stamens as sepals/petals)
 
 <p align="center">
-![](./media/basic_4.jpeg)
+![](./media/basic_4.jpeg){width=80%}
 </p>
 
 &nbsp;

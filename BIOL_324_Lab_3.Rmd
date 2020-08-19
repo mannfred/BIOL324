@@ -1,0 +1,151 @@
+---
+title: "Lab 3: Caryophyllaceae, Polygonaceae, Onagraceae, and intro to GBIF"
+author: Evan Hersh
+date: "`r format(Sys.time(), '%d %B, %Y')`"
+---
+
+## Caryophyllaceae - Pink family
+
+**1.	Herbs.**  
+**2.	Leaves simple, mostly opposite, mostly entire, usually without stipules, nodes often swollen.**  
+**3.	Inflorescence a cyme.  Flowers perfect (rarely imperfect), actinomorphic.  Sepals 5, free or fused.  Petals 5, free. Stamens 5 or 10.  Pistil compound, ovary superior, carpels 2 5, free central placentation.**  
+**4.	Fruit usually a capsule.**  
+**5.	About 80 genera and 2,000 species, mainly in north temperate regions.**  
+
+![](media/diagram_Caryophyllaceae.png)
+
+Caryophyllaceae is the 9th largest family in B.C., with 93 species and varieties.  The family is economically important for a few ornamentals, including *Dianthus* (carnations, pinks, sweet williams), and *Gypsophila* (baby's breath).  The color name pink comes from some species of *Dianthus* (pinks) which are pink.  For those of you with experience in sewing you may have used pinking shears, which are a type of scissor that cut in a zig-zag pattern like the edges of petals of many members of the “pink” family.
+
+&nbsp;
+
+---
+
+Below you can examine the flowers of *Silene dioica*, a species native to Europe that can also be found as a garden escape in North America. You can see its notched petals and inflated calyx, which are common characters in this family. 
+
+<p align="center">
+![](./media/Caryophyllaceae_1.jpeg){width=40%} ![](./media/Caryophyllaceae_2.jpeg){width=40%}
+![](./media/Caryophyllaceae_3.jpeg){width=40%} ![](./media/Caryophyllaceae_4.jpeg){width=40%}
+</p>
+
+&nbsp;
+
+Here is a dissected flower. Can you identify most of the perianth whorls?
+
+<p align="center">
+![](./media/Caryophyllaceae_6.jpeg){width=80%}
+</p>
+
+&nbsp;
+
+Here you can see the characteristic swollen nodes and opposite leaves.
+
+<p align="center">
+![](./media/Caryophyllaceae_5.jpeg){width=80%}
+</p>
+
+&nbsp;
+
+---
+
+Here's a similar example of *Dianthus* sp.
+
+<p align="center">
+![](./media/Caryophyllaceae_7.jpeg){width=40%} ![](./media/Caryophyllaceae_8.jpeg){width=40%}
+![](./media/Caryophyllaceae_9.jpeg){width=40%} ![](./media/Caryophyllaceae_10.jpeg){width=40%}
+</p>
+
+&nbsp;
+
+Here are some photos of a single petal. Can you identify the 'claw' and 'blade'?
+
+<p align="center">
+![](./media/Caryophyllaceae_11.jpeg){width=40%} ![](./media/Caryophyllaceae_12.jpeg){width=40%}
+</p>
+
+&nbsp;
+
+Here is an unripe *Dianthus* fruit. You can see the fruit split open on the right. Can you tell the type of placentation?
+
+<p align="center">
+![](./media/Caryophyllaceae_13.jpeg){width=40%} ![](./media/Caryophyllaceae_14.jpeg){width=40%}
+</p>
+
+&nbsp;
+
+---
+
+Another diagnostic character for the Caryophyllaceae is its inflorescence, which is typically a cyme. Pictured below is an inflorescence of *Stellaria media*, a common weed around the Vancouver area. Is this an example of a simple or a compound cyme?
+
+<p align="center">
+![](./media/Caryophyllaceae_15.jpeg){width=80%} 
+</p>
+
+---
+
+**-KNOWLEDGE CHECK-**  
+
+Using the above photos, indicate the following:  
+- *Silene* or *Dianthus* flower longitudinal section  
+- Swollen nodes with opposite leaves  
+- What is the fruit type? What type of placentation does it have?  
+- Cymose inflorescence structure  
+- Label with the following terms if present: petals, sepals, stamens, pistils, fruit, claw, blade.
+
+&nbsp;
+
+---
+
+## Polygonaceae - Buckwheat family
+
+---
+
+**1.  Herbs, shrubs, or rarely vines or trees.**  
+**2.  Leaves simple, alternate, often with a stipular sheath at the petiole base.  Stems often with swollen nodes.**  
+**3.  Flowers usually perfect, actinomorphic, perianth in one series or of 2 series of 3 tepals each.  Tepals 3 6, usually not fused.  Stamens 6 9.  Pistil compound, ovary superior, carpels 2 4 but ovary with only 1 ovule, placentation basal.**  
+**4.  Fruit an achene.**  
+**5.  About 37 genera and 800 species, mainly in North Temperate regions.**  
+
+![](media/diagram_Polygonaceae.png)
+
+Polygonaceae is the 10th largest family in B.C., with 66 species, however this number includes several introduced weedy species.  Agricultural crops in the Polygonaceae include *Fagopyrum* (buckwheat) and *Rheum* (rhubarb).  A large number of *Polygonum* species have been reclassified to *Persicaria* and *Fallopia*.  When you use FNA and iNaturalist to identify members of this family make sure to check that you have the most current name.
+
+**In Progress**
+
+---
+
+## Onagraceae - Evening-primrose family
+
+--- 
+
+**1.  Mainly herbs**  
+**2. Leaves simple to pinnatifid, opposite or alternate, mostly without stipules**  
+**3. Flowers perfect, mostly actinomorphic, hypanthium often conspicuous.  Sepals 4 (rarely 2 or 5), free or fused.  Petals 4 (rarely 2 6), free.  Stamens 2, 4 or 8.  Pistil compound, ovary inferior, carpels 4, placentation axile.**  
+**4.  Fruit a capsule, or rarely a berry or nutlike.**  
+**5. About 25 genera and 500 species, mainly New World, especially western North America.**  
+
+![](media/diagram_Onagraceae.png)
+
+Members of the Onagraceae are easily recognized by their usually 4 merous polypetalous flowers with an inferior ovary.  It is the 18th largest family in B. C., with 46 taxa.  Several genera, especially Fuchsia, are grown as ornamentals, and oil from Oenothera seeds is used medicinally. 
+
+**In Progress**
+
+---
+
+## Exploring GBIF
+
+---
+
+### Motivation
+
+As taxonomists it is useful to know where species occur and co-occur on continental scales to help inform species delimitations. For example, two sister species separated by a major geographic barrier (such as a mountain range) are not likely to interbreed. This type of information is one piece of the puzzle of delimiting species. To make preliminary estimates of a species' distribution, we can harness the data resources organized by the [Global Biodiversity Information Facility](https://www.gbif.org/what-is-gbif). GBIF is an open-access database housing information about where and when species have been observed or collected. To the modern plant taxonomist, it is indispensable: one can search GBIF for any plant taxon of interest, and immediately have access to all global records of where and when their plant has been observed.
+
+To scratch the surface of GBIF reveals a massive database spanning the entire tree of life. How does one go about efficiently collecting, organizing, validating, and analysing so much information? The solution is made tractable by employing data analysis tools like those found in R (Note: For an introduction to R, see this week's [pre-lab reading in the section below](#prelab)).  By combining the biodiversity resources of GBIF with the analytical tools in R, we can collect, process, and visualize species distribution data on any laptop or tablet. In this week's lab we'll first gather the required tools (R and GBIF) and develop some basic skills using them. In the following lab we'll use our new skills to create research-grade distribution maps.
+
+#### Activity 1: Exploring the GBIF website {#A1}
+
+
+Let's jump into GBIF! First go to the [GBIF website](https://www.gbif.org). In another tab/window follow along with [this video tutorial](https://www.youtube.com/watch?v=40yPnJdeM_A&t=3s) to learn how to navigate through the GBIF website (NOTE: creating an account and downloading the data onto your computer, as suggested in the video, is **NOT necessary**).
+
+By following the video tutorial, you'll learn how to search for GBIF data, what types of data your search will return, and how that data is structured. Notice that GBIF is a biodiversity database aggregator, pulling data from other databases such as eBird and iNaturalist. That means that you can choose to share your BIOL324 iNaturalist observations so that they appear on GBIF!
+
+**Make an activity getting them to make maps of two close relatives using GBIF website**
