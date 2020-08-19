@@ -201,7 +201,18 @@ Using the photos above, make drawings and indicate the following:
 
 Members of the Onagraceae are easily recognized by their usually 4 merous polypetalous flowers with an inferior ovary.  It is the 18th largest family in B. C., with 46 taxa.  Several genera, especially Fuchsia, are grown as ornamentals, and oil from Oenothera seeds is used medicinally. 
 
-**In Progress**
+---
+
+You've see *Fuschia* already in Lab 2. Take another look at the below photos, noting the long hypanthium and inferior ovary. 
+
+<p align="center">
+![](./media/basic_1.jpeg){width=40%} ![](./media/basic_2.jpeg){width=40%}
+![](./media/basic_2.5.jpeg){width=40%} ![](./media/basic_3.jpeg){width=40%}
+</p>
+
+<p align="center">
+![](./media/basic_4.jpeg){width=80%}
+</p>
 
 ---
 
