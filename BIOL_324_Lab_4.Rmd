@@ -90,7 +90,7 @@ Many Fabaceae have their terminal leaflets replaced with tendrils, which help th
 
 ---
 
-The characteristic fruit type of the Fabaceae is the legume, which you got a sneak-peak of in lab 2. Do you remember the characteristics of a legume (e.g., how many carpels, the type of placentation, and type of dehiscence)? Here are examples of actual peas.
+The characteristic fruit type of the Fabaceae is the legume, which you got a sneak-peak of in lab 2. Do you remember the characteristics of a legume (e.g., how many carpels, the type of placentation, and type of dehiscence)? Here are some examples.
 
 <p align="center">
 ![](./media/Fabaceae_20.jpeg){width=40%} ![](./media/Fabaceae_21.jpeg){width=40%}
@@ -117,8 +117,112 @@ Using the above pictures, make drawings of the following:
 - Pinnately and palmately compound leaves  
 - Monodelphous and diadelphous stamens  
 - Legume  
-- Label your drawings with the following terms: banner, wing, keel, leaf, leaflet, petiole, rachis, tendril, ovary wall, seed, placenta,
+- Label your drawings with the following terms: banner, wing, keel, leaf, leaflet, petiole, rachis, tendril, ovary wall, seed, placenta.
 
+&nbsp;
+
+---
+
+## Rosaceae - Rose family
+
+**1.  Herbs, shrubs or trees.**
+**2.  Leaves simple or compound, usually toothed, alternate, stipulate.**
+**3.  Flowers usually perfect, actinomorphic.  Sepals 5, free.  Petals 5, free.  Stamens many, free.  Hypanthium present, either flat or cup shaped or fused with the ovary to produce an inferior ovary.  Pistils simple or compound, ovary superior or inferior, flowers hypogynous, perigynous, or epigynous.  Carpels 1, several (fused or separate) or many (separate).  Placentation axile, parietal (marginal), or basal.**
+**4.  Fruit an achene, follicle, pome, drupe, or aggregation of drupelets.**
+**5.  About 100 genera and 3,000 species, cosmopolitan but commonly in temperate regions.**
+
+![](media/diagram_Rosaceae.png)
+
+Rosaceae is an important family in the B.C. flora, being 6th largest with 142 taxa.  The family is a rather heterogeneous group of plants, but most have a Rosaceous look about them, with 5 sepals and petals,  a hypanthium, and stipulate leaves. Rosaceae is divided into 4 subfamilies, largely on the basis of fruit type.  The Maloideae and Prunoideae are rarely recognized as separate families.
+
+Rosoideae carpels usually numerous, free, fruit an achene or aggregation of drupelets.  *Rosa* (rose), *Fragaria* (strawberry), *Rubus* (blackberry, raspberry) *Potentilla*.
+
+Spiraeoideae carpels 5 or fewer, free, fruit a follicle. *Spiraea* (spiraea, bridal wreath).
+
+Maloideae carpels 2-5, fused, ovary inferior (hypanthium fused to ovary wall), fruit a pome.  *Pyrus* (apple and pear), *Sorbus* (mountain ash), *Amelanchier* (saskatoon berry), *Crataegus* (hawthorn).
+
+Prunoideae (sometimes called Amygdaloideae) carpels 1-5, separate, fruit a drupe.  *Prunus* (peach, nectarine, cherry, sloeberry - used to flavor sloe gin, plum, almond), *Oemleria* (Indian plum or osoberry).
+
+&nbsp;
+
+---
+
+Roseaceae flowers typically have 5 sepals, 5 petals, numerous stamens, and a (often short/shallow) hypanthium. Here are some examples:
+
+<p align="center">
+![](./media/Rosaceae_1.jpeg){width=40%} ![](./media/Rosaceae_2.jpeg){width=40%}
+![](./media/Rosaceae_3.jpeg){width=40%} ![](./media/Rosaceae_4.jpeg){width=40%}
+</p>
+
+&nbsp;
+
+A local example is *Geum macrophyllum*. Notice the 5 yellow petals, numerous stamens, numerous simple pistils that develop into achenes. Does this visual remind you of another family that we've seen? 
+
+<p align="center">
+![](./media/Rosaceae_5.jpeg){width=40%} ![](./media/Rosaceae_6.jpeg){width=40%}
+</p>
+
+&nbsp;
+
+While many flowers look like the ones above, some are a let less obviously Rosaceous...See *Spirea douglasii* (left) and *Prunus* sp. (right).
+
+**Insert photos of Prunus**
+
+<p align="center">
+![](./media/Rosaceae_11.jpeg){width=40%}
+</p>
+
+&nbsp;
+
+---
+
+Rosaceae leaves can be either simple or compound, but are quite often toothed, alternate, and stipulate. Can you identify the stipules?
+
+<p align="center">
+![](./media/Rosaceae_7.jpeg){width=40%} ![](./media/Rosaceae_8.jpeg){width=40%}
+![](./media/Rosaceae_9.jpeg){width=40%} ![](./media/Rosaceae_10.jpeg){width=40%}
+</p>
+
+Herbs, shrubs, and trees can all be found in the Rosaceae. Here is an example of *Prunus* sp (cherry), which has toothed, evergreen leaves. At the base of the leaf blade you can often find 1-3 glands (an example of extra-floral nectaries), which is a good character to identify this genus.
+
+<p align="center">
+![](./media/Rosaceae_12.jpeg){width=40%} ![](./media/Rosaceae_13.jpeg){width=40%}
+</p>
+
+&nbsp;
+
+Some additional vegetative characters include the presence of "spines", "prickles", or "thorns". If you took BIOL 210, you should already be familiar with the fact that prickles are modified epidermis, spines are modified leaves, and thorns are modified stems. Some spiky examples from the Rosaceae include *Rosa* (rose - top) and *Rubus* (blackberry, raspberry - bottom). 
+
+<p align="center">
+![](./media/Rosaceae_14.jpeg){width=40%} ![](./media/Rosaceae_15.jpeg){width=40%}
+![](./media/Rosaceae_16.jpeg){width=40%} ![](./media/Rosaceae_17.jpeg){width=40%}
+</p>
+
+&nbsp;
+
+---
+
+Rosaceae features several different fruit types, including achenes, drupes (and aggregates of 'drupelets'), follicles, and pomes. These tend to be conserved within the above-mentioned subfamilies. 
+
+Many think that a rose "hip" is the fruit of the rose, but in actuality the hip is a fleshy hypanthium and the achenes (the true fruit) are found inside.
+
+<p align="center">
+![](./media/Rosaceae_18.jpeg){width=40%} ![](./media/Rosaceae_19.jpeg){width=40%}
+![](./media/Rosaceae_20.jpeg){width=40%} ![](./media/Rosaceae_21.jpeg){width=40%}
+</p>
+
+&nbsp;
+
+**Take pictures of drupes**
+
+&nbsp;
+
+A pome is a unique fruit type to the Rosaceae. A pome develops from a compound, inferior ovary and has seeds encased within a cartilaginous wall (known as the endocarp of the ovary), with most of the surrounding fleshy part of the fruit derived from the hypanthium, which is fused to the ovary. So when you chomp into a delicious apple, most of the tasty bits are actually hypanthium tissue instead of ovary wall like your typical fruit! Below you can see the pomes of *Pyrus* (apple and pear - top) and *Sorbus* (mountain ash - bottom).
+
+<p align="center">
+![](./media/Rosaceae_23.jpeg){width=40%} ![](./media/Rosaceae_24.jpeg){width=40%}
+![](./media/Rosaceae_25.jpeg){width=40%} ![](./media/Rosaceae_26.jpeg){width=40%}
+</p>
 
 ---
 
