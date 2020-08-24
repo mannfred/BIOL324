@@ -10,7 +10,9 @@ navbar:
     - text: "Lab 3"
       href: BIOL_324_Lab_3.html
     - text: "Lab 4"
-      href: BIOL_324_Lab_4.html    
+      href: BIOL_324_Lab_4.html
+    - text: "Lab 5"
+      href: BIOL_324_Lab_5.html          
     - text: "Lab 6"
       href: BIOL_324_Lab_6.html
     - text: "Lab 7"

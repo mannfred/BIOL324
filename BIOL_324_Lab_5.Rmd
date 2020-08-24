@@ -1,0 +1,34 @@
+---
+title: 'Lab 5: Brassicaceae, Malvaceae, Ericaceae, and intro to phylogenetics'
+author: Evan Hersh
+date: "`r format(Sys.time(), '%d %B, %Y')`"
+---
+
+## Brassicaceae - Mustard family
+
+![](media/diagram_Brassicaceae.png)
+
+&nbsp;
+
+---
+
+## Malvaceae - Mallow family
+
+![](media/diagram_Malvaceae.png)
+
+&nbsp;
+
+---
+
+## Ericaceae - Heath family
+
+![](media/diagram_Ericaceae.png)
+
+&nbsp;
+
+---
+
+## Activity: Introduction to phylogenetics
+
+---
+
