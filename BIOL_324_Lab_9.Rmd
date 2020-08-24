@@ -16,18 +16,17 @@ date: "`r format(Sys.time(), '%d %B, %Y')`"
 
 ---
 
-<br>
-<br>
 
 #### Motivation
 
-Phylogenetics is one of the most important and controversial fields within plant taxonomy. The ability to sequence and compare plant DNA has split, grouped, and uncovered taxa in ways never expected. In modern plant taxonomy, phylogenetic relationships are a key piece of evidence to consider when delimiting species. In this lab, we'll be downloading and aligning DNA sequences from five species of _Opuntia_. Using these sequences, we'll construct a phylogenetic tree and consider how the species relationships hold up to the published literature. 
+Phylogenetics is one of the most important and controversial fields within plant taxonomy. The ability to sequence and compare plant DNA has split, grouped, and uncovered taxa in ways never expected. In modern plant taxonomy, phylogenetic relationships are a key piece of evidence to consider when delimiting species. In this lab, we'll be using R to download and align DNA sequences from five species of _Opuntia_. Using these sequences, we'll construct a phylogenetic tree and consider how the species relationships hold up to the published literature. 
 
 
 ---
 
-<br>
-<br>
+&nbsp;
+&nbsp;
+
 
 #### Prerequisites 
 
@@ -43,8 +42,8 @@ Before starting this week's tutorial you will have: <br>
 
 ---
 
-<br>
-<br>
+&nbsp;
+&nbsp;
 
 #### Outcomes
 
@@ -55,9 +54,6 @@ By the end of this tutorial you will have:
 2. familiarity with Genbank and the types of data that can be obtained, 
 
 3. the tools and knowledge needed to create your own phylogenetic tree as part of a taxonomic research project, 
-
-&nbsp;
-&nbsp;
 
 ---
 
