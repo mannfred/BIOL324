@@ -125,11 +125,11 @@ Using the above pictures, make drawings of the following:
 
 ## Rosaceae - Rose family
 
-**1.  Herbs, shrubs or trees.**
-**2.  Leaves simple or compound, usually toothed, alternate, stipulate.**
-**3.  Flowers usually perfect, actinomorphic.  Sepals 5, free.  Petals 5, free.  Stamens many, free.  Hypanthium present, either flat or cup shaped or fused with the ovary to produce an inferior ovary.  Pistils simple or compound, ovary superior or inferior, flowers hypogynous, perigynous, or epigynous.  Carpels 1, several (fused or separate) or many (separate).  Placentation axile, parietal (marginal), or basal.**
-**4.  Fruit an achene, follicle, pome, drupe, or aggregation of drupelets.**
-**5.  About 100 genera and 3,000 species, cosmopolitan but commonly in temperate regions.**
+**1.  Herbs, shrubs or trees.**  
+**2.  Leaves simple or compound, usually toothed, alternate, stipulate.**  
+**3.  Flowers usually perfect, actinomorphic.  Sepals 5, free.  Petals 5, free.  Stamens many, free.  Hypanthium present, either flat or cup shaped or fused with the ovary to produce an inferior ovary.  Pistils simple or compound, ovary superior or inferior, flowers hypogynous, perigynous, or epigynous.  Carpels 1, several (fused or separate) or many (separate).  Placentation axile, parietal (marginal), or basal.**  
+**4.  Fruit an achene, follicle, pome, drupe, or aggregation of drupelets.**  
+**5.  About 100 genera and 3,000 species, cosmopolitan but commonly in temperate regions.**  
 
 ![](media/diagram_Rosaceae.png)
 
