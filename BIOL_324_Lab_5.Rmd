@@ -1,6 +1,6 @@
 ---
-title: 'Lab 5: Brassicaceae, Malvaceae, Ericaceae, and intro to phylogenetics'
-author: Evan Hersh, Mannfred Boehm
+title: "Lab 5: Brassicaceae, Malvaceae, Ericaceae, and intro to phylogenetics"
+author: Evan Hersh and Mannfred Boehm
 date: "`r format(Sys.time(), '%d %B, %Y')`"
 ---
 
