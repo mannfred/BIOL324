@@ -21,13 +21,14 @@
 <script src="site_libs/bootstrap-3.3.5/shim/html5shiv.min.js"></script>
 <script src="site_libs/bootstrap-3.3.5/shim/respond.min.js"></script>
 <script src="site_libs/navigation-1.1/tabsets.js"></script>
+<script src="site_libs/accessible-code-block-0.0.1/empty-anchor.js"></script>
 
 
 <style type="text/css">code{white-space: pre;}</style>
 <style type="text/css" data-origin="pandoc">
-a.sourceLine { display: inline-block; line-height: 1.25; }
-a.sourceLine { pointer-events: none; color: inherit; text-decoration: inherit; }
-a.sourceLine:empty { height: 1.2em; }
+code.sourceCode > span { display: inline-block; line-height: 1.25; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+code.sourceCode > span:empty { height: 1.2em; }
 .sourceCode { overflow: visible; }
 code.sourceCode { white-space: pre; position: relative; }
 div.sourceCode { margin: 1em 0; }
@@ -37,14 +38,16 @@ div.sourceCode { overflow: auto; }
 }
 @media print {
 code.sourceCode { white-space: pre-wrap; }
-a.sourceLine { text-indent: -1em; padding-left: 1em; }
+code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
 }
-pre.numberSource a.sourceLine
-  { position: relative; left: -4em; }
-pre.numberSource a.sourceLine::before
-  { content: attr(title);
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
     position: relative; left: -1em; text-align: right; vertical-align: baseline;
-    border: none; pointer-events: all; display: inline-block;
+    border: none; display: inline-block;
     -webkit-touch-callout: none; -webkit-user-select: none;
     -khtml-user-select: none; -moz-user-select: none;
     -ms-user-select: none; user-select: none;
@@ -53,9 +56,9 @@ pre.numberSource a.sourceLine::before
   }
 pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
 div.sourceCode
-  { background-color: #f8f8f8; }
+  {  background-color: #f8f8f8; }
 @media screen {
-a.sourceLine::before { text-decoration: underline; }
+code.sourceCode > span > a:first-child::before { text-decoration: underline; }
 }
 code span.al { color: #ef2929; } /* Alert */
 code span.an { color: #8f5902; font-weight: bold; font-style: italic; } /* Annotation */
@@ -392,7 +395,7 @@ $(document).ready(function () {
 
 <h1 class="title toc-ignore">R Assignment 4: Creating Phylogenetic Trees using Genbank data</h1>
 <h4 class="author">Mannfred Boehm</h4>
-<h4 class="date">24 August, 2020</h4>
+<h4 class="date">27 August, 2020</h4>
 
 </div>
 
@@ -432,60 +435,60 @@ $(document).ready(function () {
 <p><em>Opuntia basilaris</em> (Mojave Desert, Colorado, Utah) <em>Opuntia fragilis</em> (Northwestern) <em>Opuntia humifusa</em> (Eastern) <em>Opuntia polyacantha</em> (Great Plains, foothills of Rocky Mountains) <em>Opuntia stricta</em> (Gulf Coast and Caribbean)</p>
 <p><strong>MB</strong> Could add in some natural history background to better motivate this activity. <br></p>
 <p>As usual, we’ll start by installing the necessary packages using <code>install.packages()</code>:</p>
-<div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb1-1" title="1"><span class="kw">install.packages</span>(<span class="kw">c</span>(<span class="st">&#39;ape&#39;</span>, <span class="st">&#39;msa&#39;</span>, <span class="st">&#39;seqinr&#39;</span>))</a></code></pre></div>
+<div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1"></a><span class="kw">install.packages</span>(<span class="kw">c</span>(<span class="st">&#39;ape&#39;</span>, <span class="st">&#39;msa&#39;</span>, <span class="st">&#39;seqinr&#39;</span>))</span></code></pre></div>
 <p>Then we’ll attach some packages designed specifically for connecting with the Genbank database (<code>ape</code>), filtering and organizing our data (<code>tidyverse</code>), aligning sequences (<code>msa</code>), concatenating sequences (<code>seqinr</code>), and constructing phylogenetic trees (<code>ape</code>):</p>
-<div class="sourceCode" id="cb2"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb2-1" title="1"><span class="co"># attach packages once they are installed </span></a>
-<a class="sourceLine" id="cb2-2" title="2"><span class="kw">library</span>(ape)      </a>
-<a class="sourceLine" id="cb2-3" title="3"><span class="kw">library</span>(here)   </a>
-<a class="sourceLine" id="cb2-4" title="4"><span class="kw">library</span>(msa)    </a>
-<a class="sourceLine" id="cb2-5" title="5"><span class="kw">library</span>(seqinr) </a>
-<a class="sourceLine" id="cb2-6" title="6"><span class="kw">library</span>(tidyverse)</a></code></pre></div>
+<div class="sourceCode" id="cb2"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1"></a><span class="co"># attach packages once they are installed </span></span>
+<span id="cb2-2"><a href="#cb2-2"></a><span class="kw">library</span>(ape)      </span>
+<span id="cb2-3"><a href="#cb2-3"></a><span class="kw">library</span>(here)   </span>
+<span id="cb2-4"><a href="#cb2-4"></a><span class="kw">library</span>(msa)    </span>
+<span id="cb2-5"><a href="#cb2-5"></a><span class="kw">library</span>(seqinr) </span>
+<span id="cb2-6"><a href="#cb2-6"></a><span class="kw">library</span>(tidyverse)</span></code></pre></div>
 <p>First, we’re going to build a spreadsheet that will help us keep track of our <em>Opuntia</em> species and the GenBank accession codes for both the matK and rbcL genes for each species. The accession numbers were found by searching the GenBank website like so:</p>
 <p><img src="media/genbank.jpg" /></p>
 <p>Once the accession numbers are found, they can be saved in a data frame:</p>
-<div class="sourceCode" id="cb3"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb3-1" title="1"><span class="co"># build data frame</span></a>
-<a class="sourceLine" id="cb3-2" title="2"><span class="co"># accession numbers found by searching GenBank</span></a>
-<a class="sourceLine" id="cb3-3" title="3">species &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="st">&#39;O. basilaris&#39;</span>, <span class="st">&#39;O. fragilis&#39;</span>, <span class="st">&#39;O. humifusa&#39;</span>, <span class="st">&#39;O. polyacantha&#39;</span>, <span class="st">&#39;O. stricta&#39;</span>) </a>
-<a class="sourceLine" id="cb3-4" title="4">matK_acc &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="st">&#39;JF786750.1&#39;</span>, <span class="st">&#39;JF786786.1&#39;</span>, <span class="st">&#39;JF786791.1&#39;</span>, <span class="st">&#39;JF786823.1&#39;</span>, <span class="st">&#39;JF786853.1&#39;</span>) </a>
-<a class="sourceLine" id="cb3-5" title="5">rbcL_acc &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="st">&#39;JF787189.1&#39;</span>, <span class="st">&#39;JF787223.1&#39;</span>, <span class="st">&#39;JF787227.1&#39;</span>, <span class="st">&#39;JF787259.1&#39;</span>, <span class="st">&#39;JF787288.1&#39;</span> ) </a>
-<a class="sourceLine" id="cb3-6" title="6"></a>
-<a class="sourceLine" id="cb3-7" title="7">df &lt;-<span class="st"> </span><span class="kw">data.frame</span>(species, matK_acc, rbcL_acc)</a></code></pre></div>
+<div class="sourceCode" id="cb3"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1"></a><span class="co"># build data frame</span></span>
+<span id="cb3-2"><a href="#cb3-2"></a><span class="co"># accession numbers found by searching GenBank</span></span>
+<span id="cb3-3"><a href="#cb3-3"></a>species &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="st">&#39;O. basilaris&#39;</span>, <span class="st">&#39;O. fragilis&#39;</span>, <span class="st">&#39;O. humifusa&#39;</span>, <span class="st">&#39;O. polyacantha&#39;</span>, <span class="st">&#39;O. stricta&#39;</span>) </span>
+<span id="cb3-4"><a href="#cb3-4"></a>matK_acc &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="st">&#39;JF786750.1&#39;</span>, <span class="st">&#39;JF786786.1&#39;</span>, <span class="st">&#39;JF786791.1&#39;</span>, <span class="st">&#39;JF786823.1&#39;</span>, <span class="st">&#39;JF786853.1&#39;</span>) </span>
+<span id="cb3-5"><a href="#cb3-5"></a>rbcL_acc &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="st">&#39;JF787189.1&#39;</span>, <span class="st">&#39;JF787223.1&#39;</span>, <span class="st">&#39;JF787227.1&#39;</span>, <span class="st">&#39;JF787259.1&#39;</span>, <span class="st">&#39;JF787288.1&#39;</span> ) </span>
+<span id="cb3-6"><a href="#cb3-6"></a></span>
+<span id="cb3-7"><a href="#cb3-7"></a>df &lt;-<span class="st"> </span><span class="kw">data.frame</span>(species, matK_acc, rbcL_acc)</span></code></pre></div>
 <p>Now we’re ready to search and download the matK sequence for each <em>Opuntia</em> species, using the <code>read.Genbank()</code> function:</p>
-<div class="sourceCode" id="cb4"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb4-1" title="1"><span class="co"># call GenBank</span></a>
-<a class="sourceLine" id="cb4-2" title="2">matK &lt;-<span class="st"> </span></a>
-<a class="sourceLine" id="cb4-3" title="3"><span class="st">  </span><span class="kw">read.GenBank</span>(</a>
-<a class="sourceLine" id="cb4-4" title="4">    df<span class="op">$</span>matK_acc,</a>
-<a class="sourceLine" id="cb4-5" title="5">    <span class="dt">species.names =</span> <span class="ot">FALSE</span>,</a>
-<a class="sourceLine" id="cb4-6" title="6">    <span class="dt">as.character =</span> <span class="ot">TRUE</span>) <span class="op">%&gt;%</span><span class="st"> </span></a>
-<a class="sourceLine" id="cb4-7" title="7"><span class="st">  </span><span class="kw">lapply</span>(., paste0,<span class="dt">collapse=</span><span class="st">&quot;&quot;</span>) <span class="op">%&gt;%</span><span class="st">  </span><span class="co"># remove spaces</span></a>
-<a class="sourceLine" id="cb4-8" title="8"><span class="st">  </span><span class="kw">lapply</span>(., str_to_upper) <span class="co"># capitalize </span></a>
-<a class="sourceLine" id="cb4-9" title="9"></a>
-<a class="sourceLine" id="cb4-10" title="10"><span class="co"># replace Accession IDs with English names</span></a>
-<a class="sourceLine" id="cb4-11" title="11"><span class="kw">names</span>(matK) &lt;-<span class="st"> </span>df<span class="op">$</span>species</a></code></pre></div>
+<div class="sourceCode" id="cb4"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1"></a><span class="co"># call GenBank</span></span>
+<span id="cb4-2"><a href="#cb4-2"></a>matK &lt;-<span class="st"> </span></span>
+<span id="cb4-3"><a href="#cb4-3"></a><span class="st">  </span><span class="kw">read.GenBank</span>(</span>
+<span id="cb4-4"><a href="#cb4-4"></a>    df<span class="op">$</span>matK_acc,</span>
+<span id="cb4-5"><a href="#cb4-5"></a>    <span class="dt">species.names =</span> <span class="ot">FALSE</span>,</span>
+<span id="cb4-6"><a href="#cb4-6"></a>    <span class="dt">as.character =</span> <span class="ot">TRUE</span>) <span class="op">%&gt;%</span><span class="st"> </span></span>
+<span id="cb4-7"><a href="#cb4-7"></a><span class="st">  </span><span class="kw">lapply</span>(., paste0,<span class="dt">collapse=</span><span class="st">&quot;&quot;</span>) <span class="op">%&gt;%</span><span class="st">  </span><span class="co"># remove spaces</span></span>
+<span id="cb4-8"><a href="#cb4-8"></a><span class="st">  </span><span class="kw">lapply</span>(., str_to_upper) <span class="co"># capitalize </span></span>
+<span id="cb4-9"><a href="#cb4-9"></a></span>
+<span id="cb4-10"><a href="#cb4-10"></a><span class="co"># replace Accession IDs with English names</span></span>
+<span id="cb4-11"><a href="#cb4-11"></a><span class="kw">names</span>(matK) &lt;-<span class="st"> </span>df<span class="op">$</span>species</span></code></pre></div>
 <p>We can inspect the DNA sequence for <em>O. basilaris</em> by running:</p>
-<div class="sourceCode" id="cb5"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb5-1" title="1"><span class="kw">head</span>(matK<span class="op">$</span><span class="st">`</span><span class="dt">O. basilaris</span><span class="st">`</span>)</a></code></pre></div>
+<div class="sourceCode" id="cb5"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1"></a><span class="kw">head</span>(matK<span class="op">$</span><span class="st">`</span><span class="dt">O. basilaris</span><span class="st">`</span>)</span></code></pre></div>
 <pre><code>## [1] &quot;TCAATATTTCCCTTTTTCGAGGACAAATTCTTACATTTAAATTATGTGTTAAAAATATTAATACCTTACCCCATTCATCTAGAAATCTTGGTTCAAACTCTTCGTTACTGGGTGAAAGATGCTTCTTCTTTGCATTTATTACGATTCTTTCTTTATGAGTATCGTAATTGGAATAGTCTTATTACTCCCCAAAAATCCATTTCTATTTTTTCAAAAAAGAATCAACGATTATTCTTGTTCCTATATAATTTCCATGTATGTGAATACGAATCCATTTTCGTTTTTCTCTGTAACCAATCCTCTCATTTACGATCTTTTACTTTTGGAGCCCTTCTTGAACGAATCTATTTTTATGGAAAGCGTGAATATCTAGTAAAAGTAAAAACTTTATCTAAGGATTTTCGTCTTATCTTATGGCTTTTCAAAGACCCTTTCCTGCATTATGAATTGTATCGAGGAAAAGAAATTCTGGCTTCAAAGGGGACATCTCTTCTGATGCATAAATGGAAATATTATCTTAACAATTTTTGGCAATGCCATTTTTCCCTGTGGTCTCAACCAAGAAGAATCTATATCAATCGATTATCAAAGCATTCTCTCGACTTTATGAGTTTTTTTTCAAGTGTTCGACTCAATTCTTCAGTGGTACGGAGTCAAATGGTAGAAAATTCATTTCTAATAGATAATCCTATTAAGAAATTCGATACCATAGTTCGAATTATTCCTCTGGTTGGATCGTTGGCTAAAGCGAAATTTTGTAACGTATTAGGACATCCCGTTAGTAAGTCGGTCTGGACCGATTTATTAGATTCTGATATTATTGATCGGTTTGGGCGCATATGCAGAAATCTTTCTCATTATTATAGTGGCTCTTCAAGAAAAAAGAGTTTGTATCGAATAAAGTATATA&quot;</code></pre>
 <p>Cool, <a href="https://pubmed.ncbi.nlm.nih.gov/16100764/">it’s like we’re on CSI</a>. The code for searching and downloading the rbcL sequences is similar:</p>
-<div class="sourceCode" id="cb7"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb7-1" title="1"><span class="co"># call GenBank</span></a>
-<a class="sourceLine" id="cb7-2" title="2">rbcL &lt;-<span class="st"> </span></a>
-<a class="sourceLine" id="cb7-3" title="3"><span class="st">  </span><span class="kw">read.GenBank</span>(</a>
-<a class="sourceLine" id="cb7-4" title="4">    df<span class="op">$</span>rbcL_acc,</a>
-<a class="sourceLine" id="cb7-5" title="5">    <span class="dt">species.names =</span> <span class="ot">FALSE</span>,</a>
-<a class="sourceLine" id="cb7-6" title="6">    <span class="dt">as.character =</span> <span class="ot">TRUE</span>) <span class="op">%&gt;%</span><span class="st"> </span></a>
-<a class="sourceLine" id="cb7-7" title="7"><span class="st">  </span><span class="kw">lapply</span>(., paste0,<span class="dt">collapse=</span><span class="st">&quot;&quot;</span>) <span class="op">%&gt;%</span><span class="st">  </span><span class="co"># remove spaces</span></a>
-<a class="sourceLine" id="cb7-8" title="8"><span class="st">  </span><span class="kw">lapply</span>(., str_to_upper) <span class="co"># capitalize </span></a>
-<a class="sourceLine" id="cb7-9" title="9"></a>
-<a class="sourceLine" id="cb7-10" title="10"><span class="co"># replace Accession IDs with English names</span></a>
-<a class="sourceLine" id="cb7-11" title="11"><span class="kw">names</span>(rbcL) &lt;-<span class="st"> </span>df<span class="op">$</span>species</a></code></pre></div>
+<div class="sourceCode" id="cb7"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1"></a><span class="co"># call GenBank</span></span>
+<span id="cb7-2"><a href="#cb7-2"></a>rbcL &lt;-<span class="st"> </span></span>
+<span id="cb7-3"><a href="#cb7-3"></a><span class="st">  </span><span class="kw">read.GenBank</span>(</span>
+<span id="cb7-4"><a href="#cb7-4"></a>    df<span class="op">$</span>rbcL_acc,</span>
+<span id="cb7-5"><a href="#cb7-5"></a>    <span class="dt">species.names =</span> <span class="ot">FALSE</span>,</span>
+<span id="cb7-6"><a href="#cb7-6"></a>    <span class="dt">as.character =</span> <span class="ot">TRUE</span>) <span class="op">%&gt;%</span><span class="st"> </span></span>
+<span id="cb7-7"><a href="#cb7-7"></a><span class="st">  </span><span class="kw">lapply</span>(., paste0,<span class="dt">collapse=</span><span class="st">&quot;&quot;</span>) <span class="op">%&gt;%</span><span class="st">  </span><span class="co"># remove spaces</span></span>
+<span id="cb7-8"><a href="#cb7-8"></a><span class="st">  </span><span class="kw">lapply</span>(., str_to_upper) <span class="co"># capitalize </span></span>
+<span id="cb7-9"><a href="#cb7-9"></a></span>
+<span id="cb7-10"><a href="#cb7-10"></a><span class="co"># replace Accession IDs with English names</span></span>
+<span id="cb7-11"><a href="#cb7-11"></a><span class="kw">names</span>(rbcL) &lt;-<span class="st"> </span>df<span class="op">$</span>species</span></code></pre></div>
 <p>We now have two DNA sequence objects, <code>matK</code> and <code>rbcL</code>, that contain sequences from each of our five <em>Opuntia</em> species. In the next step, we’ll use the <code>msa()</code> function to align our five matK sequences so that their ends are lined up. You could also do this by eye, but it’s a bit tedious and not as reproducible:</p>
-<div class="sourceCode" id="cb8"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb8-1" title="1"><span class="co"># matK alignment</span></a>
-<a class="sourceLine" id="cb8-2" title="2">matK_alignment &lt;-<span class="st"> </span></a>
-<a class="sourceLine" id="cb8-3" title="3"><span class="st">  </span><span class="kw">msa</span>(<span class="kw">unlist</span>(matK),</a>
-<a class="sourceLine" id="cb8-4" title="4">      <span class="dt">type =</span><span class="st">&#39;dna&#39;</span>, </a>
-<a class="sourceLine" id="cb8-5" title="5">      <span class="dt">method =</span><span class="st">&#39;ClustalW&#39;</span>,</a>
-<a class="sourceLine" id="cb8-6" title="6">      <span class="dt">verbose =</span> <span class="ot">TRUE</span>)</a></code></pre></div>
-<div class="sourceCode" id="cb9"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb9-1" title="1"><span class="co"># inspect alignment</span></a>
-<a class="sourceLine" id="cb9-2" title="2"><span class="kw">print</span>(matK_alignment) </a></code></pre></div>
+<div class="sourceCode" id="cb8"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1"></a><span class="co"># matK alignment</span></span>
+<span id="cb8-2"><a href="#cb8-2"></a>matK_alignment &lt;-<span class="st"> </span></span>
+<span id="cb8-3"><a href="#cb8-3"></a><span class="st">  </span><span class="kw">msa</span>(<span class="kw">unlist</span>(matK),</span>
+<span id="cb8-4"><a href="#cb8-4"></a>      <span class="dt">type =</span><span class="st">&#39;dna&#39;</span>, </span>
+<span id="cb8-5"><a href="#cb8-5"></a>      <span class="dt">method =</span><span class="st">&#39;ClustalW&#39;</span>,</span>
+<span id="cb8-6"><a href="#cb8-6"></a>      <span class="dt">verbose =</span> <span class="ot">TRUE</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb9"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1"></a><span class="co"># inspect alignment</span></span>
+<span id="cb9-2"><a href="#cb9-2"></a><span class="kw">print</span>(matK_alignment) </span></code></pre></div>
 <pre><code>## CLUSTAL 2.1  
 ## 
 ## Call:
@@ -501,14 +504,14 @@ $(document).ready(function () {
 ## Con ---?CATATTTCCCTTTTTCGAGGAC...GAGTTTGTATCGAATAAAGTATATA Consensus</code></pre>
 <p>By using the <code>print()</code> function, we see that our sequences are aligned pretty well! You can also notice some differences in nucleotide position between the species. Those are ‘single nucleotide polymorphisms’ (SNPs) that, when considered across the entire genome, distinguish one species from another.</p>
 <p>We’ll now align our rbcL sequences:</p>
-<div class="sourceCode" id="cb11"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb11-1" title="1">rbcL_alignment &lt;-<span class="st"> </span></a>
-<a class="sourceLine" id="cb11-2" title="2"><span class="st">  </span><span class="kw">msa</span>(<span class="kw">unlist</span>(rbcL),</a>
-<a class="sourceLine" id="cb11-3" title="3">      <span class="dt">type =</span><span class="st">&#39;dna&#39;</span>, </a>
-<a class="sourceLine" id="cb11-4" title="4">      <span class="dt">method =</span><span class="st">&#39;ClustalW&#39;</span>,</a>
-<a class="sourceLine" id="cb11-5" title="5">      <span class="dt">verbose =</span> <span class="ot">TRUE</span>)</a></code></pre></div>
+<div class="sourceCode" id="cb11"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1"></a>rbcL_alignment &lt;-<span class="st"> </span></span>
+<span id="cb11-2"><a href="#cb11-2"></a><span class="st">  </span><span class="kw">msa</span>(<span class="kw">unlist</span>(rbcL),</span>
+<span id="cb11-3"><a href="#cb11-3"></a>      <span class="dt">type =</span><span class="st">&#39;dna&#39;</span>, </span>
+<span id="cb11-4"><a href="#cb11-4"></a>      <span class="dt">method =</span><span class="st">&#39;ClustalW&#39;</span>,</span>
+<span id="cb11-5"><a href="#cb11-5"></a>      <span class="dt">verbose =</span> <span class="ot">TRUE</span>)</span></code></pre></div>
 <pre><code>## use default substitution matrix</code></pre>
-<div class="sourceCode" id="cb13"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb13-1" title="1"><span class="co"># inspect alignment</span></a>
-<a class="sourceLine" id="cb13-2" title="2"><span class="kw">print</span>(rbcL_alignment)</a></code></pre></div>
+<div class="sourceCode" id="cb13"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1"></a><span class="co"># inspect alignment</span></span>
+<span id="cb13-2"><a href="#cb13-2"></a><span class="kw">print</span>(rbcL_alignment)</span></code></pre></div>
 <pre><code>## CLUSTAL 2.1  
 ## 
 ## Call:
@@ -523,29 +526,29 @@ $(document).ready(function () {
 ## [5] --TTTTAAAGTAAACTATGTCGAAAT...TAAAAATTTTCATCAAATTAAGTTG O. polyacantha
 ## Con -----TAAAGTAAACTATGTCGAAAT...TAAAAATTTTCATCAAAT------- Consensus</code></pre>
 <p>We’re ready to create some phylogenetic trees! First, we’ll convert our alignment objects to <code>seqinr</code> objects. Then, we’ll use the <code>dist.alignment()</code> function to calculate how similar or different each species’ sequence is from one another. We’ll do this for the matK, rbcL, and concatenated sequences, so that we can compare the trees:</p>
-<div class="sourceCode" id="cb15"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb15-1" title="1"><span class="co"># convert alignment object into seqinr object </span></a>
-<a class="sourceLine" id="cb15-2" title="2">matK_r &lt;-<span class="st"> </span><span class="kw">msaConvert</span>(matK_alignment, <span class="dt">type=</span><span class="st">&quot;seqinr::alignment&quot;</span>) </a>
-<a class="sourceLine" id="cb15-3" title="3">rbcL_r &lt;-<span class="st"> </span><span class="kw">msaConvert</span>(rbcL_alignment, <span class="dt">type=</span><span class="st">&quot;seqinr::alignment&quot;</span>) </a>
-<a class="sourceLine" id="cb15-4" title="4">  </a>
-<a class="sourceLine" id="cb15-5" title="5"><span class="co"># create distance matrices</span></a>
-<a class="sourceLine" id="cb15-6" title="6">matK_dist &lt;-<span class="st"> </span><span class="kw">dist.alignment</span>(matK_r)</a>
-<a class="sourceLine" id="cb15-7" title="7">rbcL_dist &lt;-<span class="st"> </span><span class="kw">dist.alignment</span>(rbcL_r)</a></code></pre></div>
+<div class="sourceCode" id="cb15"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb15-1"><a href="#cb15-1"></a><span class="co"># convert alignment object into seqinr object </span></span>
+<span id="cb15-2"><a href="#cb15-2"></a>matK_r &lt;-<span class="st"> </span><span class="kw">msaConvert</span>(matK_alignment, <span class="dt">type=</span><span class="st">&quot;seqinr::alignment&quot;</span>) </span>
+<span id="cb15-3"><a href="#cb15-3"></a>rbcL_r &lt;-<span class="st"> </span><span class="kw">msaConvert</span>(rbcL_alignment, <span class="dt">type=</span><span class="st">&quot;seqinr::alignment&quot;</span>) </span>
+<span id="cb15-4"><a href="#cb15-4"></a>  </span>
+<span id="cb15-5"><a href="#cb15-5"></a><span class="co"># create distance matrices</span></span>
+<span id="cb15-6"><a href="#cb15-6"></a>matK_dist &lt;-<span class="st"> </span><span class="kw">dist.alignment</span>(matK_r)</span>
+<span id="cb15-7"><a href="#cb15-7"></a>rbcL_dist &lt;-<span class="st"> </span><span class="kw">dist.alignment</span>(rbcL_r)</span></code></pre></div>
 <p>Now, we’ll use the <code>nj()</code> function to construct trees. In the next step, we’ll ‘root’ our trees by deciding which species is the outgroup:</p>
-<div class="sourceCode" id="cb16"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb16-1" title="1"><span class="co"># neighbour joining trees</span></a>
-<a class="sourceLine" id="cb16-2" title="2">matK_tree &lt;-<span class="st"> </span><span class="kw">nj</span>(matK_dist)</a>
-<a class="sourceLine" id="cb16-3" title="3">rbcL_tree &lt;-<span class="st"> </span><span class="kw">nj</span>(rbcL_dist)</a>
-<a class="sourceLine" id="cb16-4" title="4"></a>
-<a class="sourceLine" id="cb16-5" title="5">rbcL_rooted &lt;-<span class="st"> </span><span class="kw">root</span>(rbcL_tree, <span class="dt">outgroup =</span> <span class="st">&#39;O. basilaris&#39;</span>, <span class="dt">resolve.root =</span> T)</a>
-<a class="sourceLine" id="cb16-6" title="6">matK_rooted &lt;-<span class="st"> </span><span class="kw">root</span>(matK_tree, <span class="dt">outgroup =</span> <span class="st">&#39;O. basilaris&#39;</span>, <span class="dt">resolve.root =</span> T)</a></code></pre></div>
+<div class="sourceCode" id="cb16"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb16-1"><a href="#cb16-1"></a><span class="co"># neighbour joining trees</span></span>
+<span id="cb16-2"><a href="#cb16-2"></a>matK_tree &lt;-<span class="st"> </span><span class="kw">nj</span>(matK_dist)</span>
+<span id="cb16-3"><a href="#cb16-3"></a>rbcL_tree &lt;-<span class="st"> </span><span class="kw">nj</span>(rbcL_dist)</span>
+<span id="cb16-4"><a href="#cb16-4"></a></span>
+<span id="cb16-5"><a href="#cb16-5"></a>rbcL_rooted &lt;-<span class="st"> </span><span class="kw">root</span>(rbcL_tree, <span class="dt">outgroup =</span> <span class="st">&#39;O. basilaris&#39;</span>, <span class="dt">resolve.root =</span> T)</span>
+<span id="cb16-6"><a href="#cb16-6"></a>matK_rooted &lt;-<span class="st"> </span><span class="kw">root</span>(matK_tree, <span class="dt">outgroup =</span> <span class="st">&#39;O. basilaris&#39;</span>, <span class="dt">resolve.root =</span> T)</span></code></pre></div>
 <p>Plot your new trees:</p>
-<div class="sourceCode" id="cb17"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb17-1" title="1"><span class="co"># plot trees</span></a>
-<a class="sourceLine" id="cb17-2" title="2"><span class="kw">plot</span>(matK_rooted, <span class="dt">main =</span><span class="st">&#39;matK tree&#39;</span>)</a></code></pre></div>
+<div class="sourceCode" id="cb17"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb17-1"><a href="#cb17-1"></a><span class="co"># plot trees</span></span>
+<span id="cb17-2"><a href="#cb17-2"></a><span class="kw">plot</span>(matK_rooted, <span class="dt">main =</span><span class="st">&#39;matK tree&#39;</span>)</span></code></pre></div>
 <p><img src="BIOL_324_Lab_9_files/figure-html/unnamed-chunk-13-1.png" width="672" /></p>
-<div class="sourceCode" id="cb18"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb18-1" title="1"><span class="kw">plot</span>(rbcL_rooted, <span class="dt">main =</span> <span class="st">&#39;rbcL tree&#39;</span>)</a></code></pre></div>
+<div class="sourceCode" id="cb18"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb18-1"><a href="#cb18-1"></a><span class="kw">plot</span>(rbcL_rooted, <span class="dt">main =</span> <span class="st">&#39;rbcL tree&#39;</span>)</span></code></pre></div>
 <p><img src="BIOL_324_Lab_9_files/figure-html/unnamed-chunk-13-2.png" width="672" /></p>
 <p>Finally, we’ll save our trees so that we can use them again in Lab 10:</p>
-<div class="sourceCode" id="cb19"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb19-1" title="1"><span class="kw">saveRDS</span>(matK_rooted, <span class="dt">file =</span> <span class="kw">here</span>(<span class="st">&#39;R_scripts/matK_rooted.rds&#39;</span>))</a>
-<a class="sourceLine" id="cb19-2" title="2"><span class="kw">saveRDS</span>(rbcL_rooted, <span class="dt">file =</span> <span class="kw">here</span>(<span class="st">&#39;R_scripts/rbcL_rooted.rds&#39;</span>))</a></code></pre></div>
+<div class="sourceCode" id="cb19"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb19-1"><a href="#cb19-1"></a><span class="kw">saveRDS</span>(matK_rooted, <span class="dt">file =</span> <span class="kw">here</span>(<span class="st">&#39;R_scripts/matK_rooted.rds&#39;</span>))</span>
+<span id="cb19-2"><a href="#cb19-2"></a><span class="kw">saveRDS</span>(rbcL_rooted, <span class="dt">file =</span> <span class="kw">here</span>(<span class="st">&#39;R_scripts/rbcL_rooted.rds&#39;</span>))</span></code></pre></div>
 <p><strong>-KNOWLEDGE CHECK-</strong> How do the matK and rbcL trees differ? Which tree best aligns with the <a href="https://bsapubs.onlinelibrary.wiley.com/doi/full/10.3732/ajb.1100375">Majure tree (Figure 3)</a>? According to Majure et al (2012), why might our trees differ?</p>
 <!-- For consensus trees: -->
 <!-- Recall that matK and rbcL are two separate segments of the chloroplast genome. By sticking them together, we'll create a super-sequence that contains more information than either of the sequences alone. The more sequence information, the better, because it gives us a bigger sample of the entire genome. Concatenation is done by the `seqinr` package, so we'll need to convert our alignment objects into `seqinr` objects: -->
