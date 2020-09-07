@@ -1,6 +1,6 @@
 ---
 title: "Lab 4: Fabaceae, Rosaceae, and intro to morphometrics"
-author: Evan Hersh
+author: Evan Hersh, Mannfred Boehm, Gracy Buckholtz, Quentin Cronk
 date: "`r format(Sys.time(), '%d %B, %Y')`"
 ---
 
