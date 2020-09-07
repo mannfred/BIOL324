@@ -1,0 +1,530 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+
+<meta charset="utf-8" />
+<meta name="generator" content="pandoc" />
+<meta http-equiv="X-UA-Compatible" content="IE=EDGE" />
+
+
+<meta name="author" content="Evan Hersh, Mannfred Boehm, Gracy Buckholtz, Quentin Cronk" />
+
+
+<title>Lab 4: Fabaceae, Rosaceae, and intro to morphometrics</title>
+
+<script src="site_libs/jquery-1.11.3/jquery.min.js"></script>
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<link href="site_libs/bootstrap-3.3.5/css/readable.min.css" rel="stylesheet" />
+<script src="site_libs/bootstrap-3.3.5/js/bootstrap.min.js"></script>
+<script src="site_libs/bootstrap-3.3.5/shim/html5shiv.min.js"></script>
+<script src="site_libs/bootstrap-3.3.5/shim/respond.min.js"></script>
+<script src="site_libs/navigation-1.1/tabsets.js"></script>
+
+
+
+
+<style type="text/css">
+h1 {
+  font-size: 34px;
+}
+h1.title {
+  font-size: 38px;
+}
+h2 {
+  font-size: 30px;
+}
+h3 {
+  font-size: 24px;
+}
+h4 {
+  font-size: 18px;
+}
+h5 {
+  font-size: 16px;
+}
+h6 {
+  font-size: 12px;
+}
+.table th:not([align]) {
+  text-align: left;
+}
+</style>
+
+
+
+
+<style type = "text/css">
+.main-container {
+  max-width: 940px;
+  margin-left: auto;
+  margin-right: auto;
+}
+code {
+  color: inherit;
+  background-color: rgba(0, 0, 0, 0.04);
+}
+img {
+  max-width:100%;
+}
+.tabbed-pane {
+  padding-top: 12px;
+}
+.html-widget {
+  margin-bottom: 20px;
+}
+button.code-folding-btn:focus {
+  outline: none;
+}
+summary {
+  display: list-item;
+}
+</style>
+
+
+<style type="text/css">
+/* padding for bootstrap navbar */
+body {
+  padding-top: 66px;
+  padding-bottom: 40px;
+}
+/* offset scroll position for anchor links (for fixed navbar)  */
+.section h1 {
+  padding-top: 71px;
+  margin-top: -71px;
+}
+.section h2 {
+  padding-top: 71px;
+  margin-top: -71px;
+}
+.section h3 {
+  padding-top: 71px;
+  margin-top: -71px;
+}
+.section h4 {
+  padding-top: 71px;
+  margin-top: -71px;
+}
+.section h5 {
+  padding-top: 71px;
+  margin-top: -71px;
+}
+.section h6 {
+  padding-top: 71px;
+  margin-top: -71px;
+}
+.dropdown-submenu {
+  position: relative;
+}
+.dropdown-submenu>.dropdown-menu {
+  top: 0;
+  left: 100%;
+  margin-top: -6px;
+  margin-left: -1px;
+  border-radius: 0 6px 6px 6px;
+}
+.dropdown-submenu:hover>.dropdown-menu {
+  display: block;
+}
+.dropdown-submenu>a:after {
+  display: block;
+  content: " ";
+  float: right;
+  width: 0;
+  height: 0;
+  border-color: transparent;
+  border-style: solid;
+  border-width: 5px 0 5px 5px;
+  border-left-color: #cccccc;
+  margin-top: 5px;
+  margin-right: -10px;
+}
+.dropdown-submenu:hover>a:after {
+  border-left-color: #ffffff;
+}
+.dropdown-submenu.pull-left {
+  float: none;
+}
+.dropdown-submenu.pull-left>.dropdown-menu {
+  left: -100%;
+  margin-left: 10px;
+  border-radius: 6px 0 6px 6px;
+}
+</style>
+
+<script>
+// manage active state of menu based on current page
+$(document).ready(function () {
+  // active menu anchor
+  href = window.location.pathname
+  href = href.substr(href.lastIndexOf('/') + 1)
+  if (href === "")
+    href = "index.html";
+  var menuAnchor = $('a[href="' + href + '"]');
+
+  // mark it active
+  menuAnchor.parent().addClass('active');
+
+  // if it's got a parent navbar menu mark it active as well
+  menuAnchor.closest('li.dropdown').addClass('active');
+});
+</script>
+
+<!-- tabsets -->
+
+<style type="text/css">
+.tabset-dropdown > .nav-tabs {
+  display: inline-table;
+  max-height: 500px;
+  min-height: 44px;
+  overflow-y: auto;
+  background: white;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+}
+
+.tabset-dropdown > .nav-tabs > li.active:before {
+  content: "";
+  font-family: 'Glyphicons Halflings';
+  display: inline-block;
+  padding: 10px;
+  border-right: 1px solid #ddd;
+}
+
+.tabset-dropdown > .nav-tabs.nav-tabs-open > li.active:before {
+  content: "&#xe258;";
+  border: none;
+}
+
+.tabset-dropdown > .nav-tabs.nav-tabs-open:before {
+  content: "";
+  font-family: 'Glyphicons Halflings';
+  display: inline-block;
+  padding: 10px;
+  border-right: 1px solid #ddd;
+}
+
+.tabset-dropdown > .nav-tabs > li.active {
+  display: block;
+}
+
+.tabset-dropdown > .nav-tabs > li > a,
+.tabset-dropdown > .nav-tabs > li > a:focus,
+.tabset-dropdown > .nav-tabs > li > a:hover {
+  border: none;
+  display: inline-block;
+  border-radius: 4px;
+  background-color: transparent;
+}
+
+.tabset-dropdown > .nav-tabs.nav-tabs-open > li {
+  display: block;
+  float: none;
+}
+
+.tabset-dropdown > .nav-tabs > li {
+  display: none;
+}
+</style>
+
+<!-- code folding -->
+
+
+
+
+</head>
+
+<body>
+
+
+<div class="container-fluid main-container">
+
+
+
+
+<div class="navbar navbar-default  navbar-fixed-top" role="navigation">
+  <div class="container">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar">
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="index.html">BIOL 324 Labs</a>
+    </div>
+    <div id="navbar" class="navbar-collapse collapse">
+      <ul class="nav navbar-nav">
+        <li>
+  <a href="index.html">Home</a>
+</li>
+<li>
+  <a href="BIOL_324_Lab_2.html">Lab 2</a>
+</li>
+<li>
+  <a href="BIOL_324_Lab_3.html">Lab 3</a>
+</li>
+<li>
+  <a href="BIOL_324_Lab_4.html">Lab 4</a>
+</li>
+<li>
+  <a href="BIOL_324_Lab_5.html">Lab 5</a>
+</li>
+<li>
+  <a href="BIOL_324_Lab_6.html">Lab 6</a>
+</li>
+<li>
+  <a href="BIOL_324_Lab_7.html">Lab 7</a>
+</li>
+<li>
+  <a href="BIOL_324_Lab_8.html">Lab 8</a>
+</li>
+<li>
+  <a href="BIOL_324_Lab_9.html">Lab 9</a>
+</li>
+<li>
+  <a href="BIOL_324_Lab_10.html">Lab 10</a>
+</li>
+<li>
+  <a href="LinneanTypification.html">Linnean Typification</a>
+</li>
+      </ul>
+      <ul class="nav navbar-nav navbar-right">
+        
+      </ul>
+    </div><!--/.nav-collapse -->
+  </div><!--/.container -->
+</div><!--/.navbar -->
+
+<div class="fluid-row" id="header">
+
+
+
+<h1 class="title toc-ignore">Lab 4: Fabaceae, Rosaceae, and intro to morphometrics</h1>
+<h4 class="author">Evan Hersh, Mannfred Boehm, Gracy Buckholtz, Quentin Cronk</h4>
+<h4 class="date">06 September, 2020</h4>
+
+</div>
+
+
+<div id="fabaceae---legume-or-pea-family" class="section level2">
+<h2>Fabaceae - Legume or Pea family</h2>
+<p><strong>1. Herbs, vines, shrubs, or trees.</strong> <strong>2. Leaves usually compound, alternate, stipulate. Leaflets often entire margined. Petioles and petiolules with a pulvinus.</strong> <strong>3. Flowers perfect, zygomorphic or actinomorphic. Sepals usually 5, more or less connate. Petals 5. Stamens 10 or numerous, often diadelphous. Pistil simple, ovary superior, carpel 1, placentation parietal.</strong> <strong>4. Fruit a legume or loment.</strong> <strong>5. About 600 genera, 13,000 species, cosmopolitan.</strong></p>
+<p><img src="media/diagram_Fabaceae.png" /> The Fabaceae in the broad sense is composed of 3 rather distinct subfamilies. They are often recognized as separate families. The Mimosoideae and Faboideae are specialized monophyletic groups that evolved from Caesalpinoideae.</p>
+<p>Mimosoideae, or, as a family, Mimosaceae flowers actinomorphic, stamens numerous, petals free or connate below. Acacia (acacia), Mimosa (sensitive plant).</p>
+<p>Caesalpinoideae, or, as a family, Caesalpinaceae flowers zygomorphic, stamens 10, petals free. Cercis (redbud).</p>
+<p>Faboideae (also called Papilionoideae or Lotoideae), or, as a family, Fabaceae flowers zygomorphic and papilionaceous, lower 2 petals fused to form a keel, the other 3 free, stamens 10, usually diadelphous. Ornamentals include Lathyrus (sweet pea), Laburnum (golden chain tree), Wisteria, Cytisus (broom). Important crops include Arachis (peanut), Glycine (soybean), Lens (lentils), Medicago (alfalfa), Phaseolus (beans), Pisum (peas), Trifolium (clover).</p>
+<p>The Mimosoideae and Caesalpinoideae are primarily tropical to warm temperate, and none are native to B. C. The Fabaceae is probably the third largest family of flowering plants in the world, after the Asteraceae and Orchidaceae. The Fabaceae is the 5th largest in B.C., with 168 species and subspecies in the province.</p>
+<p> </p>
+<hr />
+<p>Fabaceae have several unique characteristics that make them possible to identify by sight. We’ll begin with the flowers, which (in BC at least) are all ‘papilionaceous’ (flowers that resemble a butterfly). Papilionaceous flowers have a unique look and are made up of 3 parts: at the top there is a prominent petal called the ‘banner’ (aka ‘standard’); below the banner are two lateral petals called ‘wings’; and at the bottom (often nestled below and/or between the wings) 2 petals are fused to form the ‘keel’. The keel can be pulled down to reveal the stamens and pistil hidden inside. Once you cement the ‘banner, wing, and keel’ visual pattern in your memory, it will rather unmistakably lead you to the Fabaceae.</p>
+<p align="center">
+<img src="https://media.giphy.com/media/fTnBDqYaA0MOfYMuKw/giphy.gif" />
+</p>
+<p> </p>
+<p>Let’s examine some of these flowers from <em>Spartium junceum</em> (Spanish broom), a shrubby species native to the Mediterranean with an intoxicating fragrance. It has a classic papilionaceous look with the banner, wing, and keel being quite obvious. Can you identify them in the photos below?</p>
+<p align="center">
+<img src="media/Fabaceae_1.jpeg" style="width:40.0%" /> <img src="media/Fabaceae_2.jpeg" style="width:40.0%" /> <img src="media/Fabaceae_3.jpeg" style="width:40.0%" /> <img src="media/Fabaceae_4.jpeg" style="width:40.0%" />
+</p>
+<p> </p>
+<p>Here are some more examples of papilionaceous flowers. While they all have banner, wing, and keel morphology, you can see that there is still quite a bit of variation amongst Fabaceae species. As you can see, the keel is quite often hidden from sight in between the wings.</p>
+<p align="center">
+<img src="media/Fabaceae_5.jpeg" style="width:40.0%" /> <img src="media/Fabaceae_7.jpeg" style="width:40.0%" /> <img src="media/Fabaceae_6.jpeg" style="width:40.0%" /> <img src="media/Fabaceae_8.jpeg" style="width:40.0%" />
+</p>
+<p> </p>
+<p>Sometimes, like in <em>Trifolium pratense</em> below, the flowers are quite small and require careful inspection (and probably some magnification) to see their papilionaceous nature.</p>
+<p align="center">
+<img src="media/Fabaceae_11.jpeg" style="width:80.0%" />
+</p>
+<p> </p>
+<p>To get into some more nitty-gritty detail, an important character in the Fabaceae key is to differentiate between ‘monodelphous’ and ‘diadelphous’ stamens. Monodelphous stamens are fused into a tube that surrounds the style, and diadelphous stamens are the same except one lonely stamen hangs free from the staminal tube. Can you determine which is which?</p>
+<p align="center">
+<img src="media/Fabaceae_18.jpeg" style="width:40.0%" /> <img src="media/Fabaceae_19.jpeg" style="width:40.0%" />
+</p>
+<p> </p>
+<hr />
+<p>Fabaceae species tend to have compound leaves (made up of several leaflets). They can be either pinnately compound (with leaflets arranged oppositely along the rachis) or palmately compound (leaflets emerging from a central point). Many species have three leaflets and are referred to as “trifoliate” (hence the genus <em>Trifolium</em>). Can you tell which one is which from the pictures below?</p>
+<p align="center">
+<img src="media/Fabaceae_12.jpeg" style="width:40.0%" /> <img src="media/Fabaceae_13.jpeg" style="width:40.0%" />
+</p>
+<p> </p>
+<p>Many Fabaceae have their terminal leaflets replaced with tendrils, which help the plants climb (usually upon other plants) in competition for sunlight.</p>
+<p align="center">
+<img src="media/Fabaceae_14.jpeg" style="width:40.0%" /> <img src="media/Fabaceae_15.jpeg" style="width:40.0%" /> <img src="media/Fabaceae_16.jpeg" style="width:40.0%" /> <img src="media/Fabaceae_17.jpeg" style="width:40.0%" />
+</p>
+<p> </p>
+<hr />
+<p>The characteristic fruit type of the Fabaceae is the legume, which you got a sneak-peak of in lab 2. Do you remember the characteristics of a legume (e.g., how many carpels, the type of placentation, and type of dehiscence)? Here are some examples.</p>
+<p align="center">
+<img src="media/Fabaceae_20.jpeg" style="width:40.0%" /> <img src="media/Fabaceae_21.jpeg" style="width:40.0%" /> <img src="media/Fabaceae_22.jpeg" style="width:40.0%" /> <img src="media/Fabaceae_23.jpeg" style="width:40.0%" />
+</p>
+<p> </p>
+<p>Not all legumes look pea-like, however. For example, some take a coiled shape like in <em>Medicago sativa</em> (alfalfa) on the left or a crescent shape like in <em>Astragalus nutzotinensis</em> (a wonderful plant that can only be found in Northwestern BC / Yukon territory) on the right.</p>
+<p align="center">
+<img src="media/Fabaceae_24.jpeg" style="width:40.0%" /> <img src="media/Fabaceae_25.jpeg" style="width:40.0%" />
+</p>
+<p> </p>
+<hr />
+<p><strong>-KNOWLEDGE CHECK-</strong></p>
+<p>Using the above pictures, make drawings of the following:</p>
+<ul>
+<li>Papilionaceous flower<br />
+</li>
+<li>Pinnately and palmately compound leaves<br />
+</li>
+<li>Monodelphous and diadelphous stamens<br />
+</li>
+<li>Legume<br />
+</li>
+<li>Label your drawings with the following terms: banner, wing, keel, leaf, leaflet, petiole, rachis, tendril, ovary wall, seed, placenta.</li>
+</ul>
+<p> </p>
+<hr />
+</div>
+<div id="rosaceae---rose-family" class="section level2">
+<h2>Rosaceae - Rose family</h2>
+<p><strong>1. Herbs, shrubs or trees.</strong><br />
+<strong>2. Leaves simple or compound, usually toothed, alternate, stipulate.</strong><br />
+<strong>3. Flowers usually perfect, actinomorphic. Sepals 5, free. Petals 5, free. Stamens many, free. Hypanthium present, either flat or cup shaped or fused with the ovary to produce an inferior ovary. Pistils simple or compound, ovary superior or inferior, flowers hypogynous, perigynous, or epigynous. Carpels 1, several (fused or separate) or many (separate). Placentation axile, parietal (marginal), or basal.</strong><br />
+<strong>4. Fruit an achene, follicle, pome, drupe, or aggregation of drupelets.</strong><br />
+<strong>5. About 100 genera and 3,000 species, cosmopolitan but commonly in temperate regions.</strong></p>
+<p><img src="media/diagram_Rosaceae.png" /></p>
+<p>Rosaceae is an important family in the B.C. flora, being 6th largest with 142 taxa. The family is a rather heterogeneous group of plants, but most have a Rosaceous look about them, with 5 sepals and petals, a hypanthium, and stipulate leaves. Rosaceae is divided into 4 subfamilies, largely on the basis of fruit type. The Maloideae and Prunoideae are rarely recognized as separate families.</p>
+<p>Rosoideae carpels usually numerous, free, fruit an achene or aggregation of drupelets. <em>Rosa</em> (rose), <em>Fragaria</em> (strawberry), <em>Rubus</em> (blackberry, raspberry) <em>Potentilla</em>.</p>
+<p>Spiraeoideae carpels 5 or fewer, free, fruit a follicle. <em>Spiraea</em> (spiraea, bridal wreath).</p>
+<p>Maloideae carpels 2-5, fused, ovary inferior (hypanthium fused to ovary wall), fruit a pome. <em>Pyrus</em> (apple and pear), <em>Sorbus</em> (mountain ash), <em>Amelanchier</em> (saskatoon berry), <em>Crataegus</em> (hawthorn).</p>
+<p>Prunoideae (sometimes called Amygdaloideae) carpels 1-5, separate, fruit a drupe. <em>Prunus</em> (peach, nectarine, cherry, sloeberry - used to flavor sloe gin, plum, almond), <em>Oemleria</em> (Indian plum or osoberry).</p>
+<p> </p>
+<hr />
+<p>Roseaceae flowers typically have 5 sepals, 5 petals, numerous stamens, and a (often short/shallow) hypanthium. Here are some examples:</p>
+<p align="center">
+<img src="media/Rosaceae_1.jpeg" style="width:40.0%" /> <img src="media/Rosaceae_2.jpeg" style="width:40.0%" /> <img src="media/Rosaceae_3.jpeg" style="width:40.0%" /> <img src="media/Rosaceae_4.jpeg" style="width:40.0%" />
+</p>
+<p> </p>
+<p>A local example is <em>Geum macrophyllum</em>. Notice the 5 yellow petals, numerous stamens, numerous simple pistils that develop into achenes. Does this visual remind you of another family that we’ve seen?</p>
+<p align="center">
+<img src="media/Rosaceae_5.jpeg" style="width:40.0%" /> <img src="media/Rosaceae_6.jpeg" style="width:40.0%" />
+</p>
+<p> </p>
+<p>While many flowers look like the ones above, some are a let less obviously Rosaceous…See <em>Spirea douglasii</em> (left) and <em>Prunus</em> sp. (right).</p>
+<p><strong>Insert photos of Prunus</strong></p>
+<p align="center">
+<img src="media/Rosaceae_11.jpeg" style="width:40.0%" />
+</p>
+<p> </p>
+<hr />
+<p>Rosaceae leaves can be either simple or compound, but are quite often toothed, alternate, and stipulate. Can you identify the stipules?</p>
+<p align="center">
+<img src="media/Rosaceae_7.jpeg" style="width:40.0%" /> <img src="media/Rosaceae_8.jpeg" style="width:40.0%" /> <img src="media/Rosaceae_9.jpeg" style="width:40.0%" /> <img src="media/Rosaceae_10.jpeg" style="width:40.0%" />
+</p>
+<p> </p>
+<p>Herbs, shrubs, and trees can all be found in the Rosaceae. Here is an example of <em>Prunus</em> sp (cherry), which has toothed, evergreen leaves. At the base of the leaf blade you can often find 1-3 glands (an example of extra-floral nectaries), which is a good character to identify this genus.</p>
+<p align="center">
+<img src="media/Rosaceae_12.jpeg" style="width:40.0%" /> <img src="media/Rosaceae_13.jpeg" style="width:40.0%" />
+</p>
+<p> </p>
+<p>Some additional vegetative characters include the presence of “spines”, “prickles”, or “thorns”. If you took BIOL 210, you should already be familiar with the fact that prickles are modified epidermis, spines are modified leaves, and thorns are modified stems. Some spiky examples from the Rosaceae include <em>Rosa</em> (rose - top) and <em>Rubus</em> (blackberry, raspberry - bottom).</p>
+<p align="center">
+<img src="media/Rosaceae_14.jpeg" style="width:40.0%" /> <img src="media/Rosaceae_15.jpeg" style="width:40.0%" /> <img src="media/Rosaceae_16.jpeg" style="width:40.0%" /> <img src="media/Rosaceae_17.jpeg" style="width:40.0%" />
+</p>
+<p> </p>
+<hr />
+<p>Rosaceae features several different fruit types, including achenes, drupes (and aggregates of ‘drupelets’), follicles, and pomes. These tend to be conserved within the above-mentioned subfamilies.</p>
+<p>Many think that a rose “hip” is the fruit of the rose, but in actuality the hip is a fleshy hypanthium and the achenes (the true fruit) are found inside.</p>
+<p align="center">
+<img src="media/Rosaceae_18.jpeg" style="width:40.0%" /> <img src="media/Rosaceae_19.jpeg" style="width:40.0%" /> <img src="media/Rosaceae_20.jpeg" style="width:40.0%" /> <img src="media/Rosaceae_21.jpeg" style="width:40.0%" />
+</p>
+<p> </p>
+<p><strong>Take pictures of drupes</strong></p>
+<p> </p>
+<p>A pome is a unique fruit type to the Rosaceae. A pome develops from a compound, inferior ovary and has seeds encased within a cartilaginous wall (known as the endocarp of the ovary), with most of the surrounding fleshy part of the fruit derived from the hypanthium, which is fused to the ovary. So when you chomp into a delicious apple, most of the tasty bits are actually hypanthium tissue instead of ovary wall like your typical fruit! Below you can see the pomes of <em>Pyrus</em> (apple and pear - top) and <em>Sorbus</em> (mountain ash - bottom).</p>
+<p align="center">
+<img src="media/Rosaceae_23.jpeg" style="width:40.0%" /> <img src="media/Rosaceae_24.jpeg" style="width:40.0%" /> <img src="media/Rosaceae_25.jpeg" style="width:40.0%" /> <img src="media/Rosaceae_26.jpeg" style="width:40.0%" />
+</p>
+<p> </p>
+<hr />
+<p><strong>-KNOWLEDGE CHECK-</strong></p>
+<p>Using the above photos, make drawings of the following:</p>
+<ul>
+<li>Flower<br />
+</li>
+<li>Toothed leaves with stipules<br />
+</li>
+<li>“Spiky” bits. Try to figure out whether these would be considered prickles, spines, or thorns…<br />
+</li>
+<li>Rose hip longitudinal section<br />
+</li>
+<li>Pome<br />
+</li>
+<li>Label your drawings with the following if present: sepals, petals, stamens, leaf, leaflet, stipules, toothed, spines, prickles, thorns, achene, pome.</li>
+</ul>
+<hr />
+<div id="activity-1-taking-morphometric-measurements-from-herbarium-specimens-using-imagej" class="section level4">
+<h4>Activity 1: Taking Morphometric Measurements from Herbarium Specimens using ImageJ</h4>
+<p>ImageJ is an image processing software that was developed by the U.S. National Institutes of Health (NIH). It is used to analyze different types of images but this tutorial will cover how to measure certain morphological features from photographs of herbarium specimens.</p>
+<p>To use ImageJ you have to import the photographs you want to work with.</p>
+<ol style="list-style-type: decimal">
+<li>Drag the file to the lower grey bar. As you are doing this the words &lt;<drag and drop>&gt; should appear. Once the image has been dropped it will open and now it is ready to analyze in ImageJ.</li>
+</ol>
+<p>There are many measurements that can be taken with ImageJ. It might be helpful to click through the different buttons at the top of the bar to explore all of the different ways ImageJ can make measurements. This tutorial will use the line button for all of the measurements.</p>
+<ol start="2" style="list-style-type: decimal">
+<li><p>Zoom in on the ruler (Mac: Command shift =, Windows: CTRL + ). Most digitized herbarium specimens will have a ruler in the photograph. This is to help standardized it and is useful for measuring features in ImageJ.</p></li>
+<li><p>Use the line button (5th button from the left) and draw a line by clicking and dragging along the bottom of the ruler so that the line goes from the 0 tick to the 5 cm tick. This needs to be very accurate because we are going to use this length to calibrate the rest of the measurements taken in ImageJ.</p></li>
+<li><p>Go to the top bar and hit “analyze”. Then go to “set scale…”. Enter 5 into the Known distance box and enter cm into the Unit of Length box. Hit the box “Global”. By checking “Global” you are ensuring that this is applied to all photos in the current session of ImageJ. Then hit OK. ImageJ is now calibrated using the ruler from your herbarium photo. <br></p></li>
+</ol>
+<p>Now you can go on to take measurements.</p>
+<ol start="5" style="list-style-type: decimal">
+<li><p>Use the line or the segmented line (you can change between them by right clicking on the line button) draw lines across what you want to measure. Once you have the right length hit (Mac: Command M, Windows: CTRL M) and ImageJ will measure and record the length in a convenient table for you. This table should pop up once you take your first measurement. When you have all of the measurements you need you can either download that table that ImageJ made or just copy and input the data in your own table. You will have to eventually input your data in a group spreadsheet (on Canvas) so keep that in mind as you are recording data. <br></p></li>
+<li><p>Once you have taken and recorded all of the measurements necessary put your findings into the class spreadsheet (Canvas) so that other people will be able to access, download, and use your data for the next step. <br></p></li>
+</ol>
+<p>Note: <a href="https://imagej.nih.gov/ij/docs/guide/user-guide.pdf">Here is a link</a> to the ImageJ user guide. All the information you will need is in this document, but if you are interested in the program and the other features available, the user guide can provide more information.</p>
+</div>
+</div>
+
+
+
+
+</div>
+
+<script>
+
+// add bootstrap table styles to pandoc tables
+function bootstrapStylePandocTables() {
+  $('tr.header').parent('thead').parent('table').addClass('table table-condensed');
+}
+$(document).ready(function () {
+  bootstrapStylePandocTables();
+});
+
+
+</script>
+
+<!-- tabsets -->
+
+<script>
+$(document).ready(function () {
+  window.buildTabsets("TOC");
+});
+
+$(document).ready(function () {
+  $('.tabset-dropdown > .nav-tabs > li').click(function () {
+    $(this).parent().toggleClass('nav-tabs-open')
+  });
+});
+</script>
+
+<!-- code folding -->
+
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    script.src  = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML";
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+
+</body>
+</html>

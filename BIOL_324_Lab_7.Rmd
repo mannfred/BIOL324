@@ -78,6 +78,7 @@ First let's install the required packages:
 
 ```{r eval = FALSE}
 install.packages("mapr", "rgbif", "spocc", "taxize")
+
 ```
 
 These packages are designed for connecting with the GBIF database (`rgbif`, `spocc`, `taxize`), filtering data (`tidyverse`), and mapping (`mapr`). Once installed, use the `library()` function to attach the packages (we'll also attach `tidyverse` to help with data wrangling and plotting):
@@ -118,8 +119,8 @@ opuntia_ids[1]
 The output tells us that the taxon ID for *O. basilaris* is `"5384070"`. Now, let's use our 'taxon ID object' to download occurence data directly from GBIF (this can take a minute depending on how many records there are for a taxon):
 
 ```{r}
-opuntia_metadata <- 
-  spocc::occ(ids=opuntia_ids, from='gbif', limit=1000)
+
+  one <- occ(query = 'Accipiter striatus', from = 'gbif', limit = 5)
 ```
 
 In this code we've created a new object called `opuntia_metadata`. This object contains occurence records found by the `occ()` function, where we specified our taxon ID (contained in `opuntia_ids`) and told the function that we wanted our data `from = gbif` (instead of another database) and that we wanted a maximum of `1000` records. Let's inspect the structure of the `opuntia_metadata` object:
