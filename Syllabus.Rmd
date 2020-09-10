@@ -73,6 +73,7 @@ Our goal is for you to leave this course with the following knowledge/skills:
 **Programs we'll be using**
 
 * R (https://cran.r-project.org/mirrors.html)
+  + This is a good introductory resource to help get you started with R: https://moderndive.com/1-getting-started.html
 * Rstudio [install R first] (https://rstudio.com/products/rstudio/download/)
   + Install Rstudio Desktop - Free version
 * ImageJ (https://imagej.nih.gov/ij/download.html)
@@ -118,7 +119,7 @@ There will be weekly Canvas quizzes and participation marks associated with each
 * Mannfred Boehm (Teaching Assistant)
   + mannfred.boehm@botany.ubc.ca
 
-If you need to contact us directly, please send us an email or a message through Canvas. For questions about lab content, **please post on the Piazza** (link on left side of Canvas) as other students may want to know or have the same question! We do not have set office hours, but will establish "open lab" times on Fridays that you can virtually attend to get help with your projects from your teaching team and fellow students. 
+If you need to contact us directly, please send us an email or a message through Canvas. For questions about lab content, **please post on the Piazza** (link on left side of Canvas) as other students may want to know or have the same question! We do not have set office hours, but will establish "open lab" times that work for as many people as possible (TBD) that you can virtually attend to get help with your projects from your teaching team and fellow students. 
 
 ---
 
