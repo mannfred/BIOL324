@@ -294,7 +294,7 @@ By the end of this tutorial you will have:
 
 #### Activity 1: Search Genbank for sequence data
 
-After selecting your five focal species, [navigate to the Genbank website](https://www.ncbi.nlm.nih.gov/genbank/). From the drop-down menu next to the search bar, make sure that the database selected is *Nucleotide*. Type in scientific name of your first plant, followed by the name of the barcode. For demonstration purposes we'll use five species of pussytoes (*Antennaria*, Asteraceae), and the rbcL barcode. As an outgroup we'll use Pearly Everlasting (*Anaphalis margaritacea*, Asteraceae). Here's what our first search looks like:
+After selecting your five focal species, [navigate to the Genbank website](https://www.ncbi.nlm.nih.gov/genbank/). From the drop-down menu next to the search bar, make sure that the database selected is *Nucleotide*. Type in scientific name of your first plant, followed by the name of the barcode. For demonstration purposes we'll use five species of pussytoes (*Antennaria*, Asteraceae), and the rbcL barcode. Here's what our first search looks like:
 
 ![](media/lab5_genbank1.png) 
 

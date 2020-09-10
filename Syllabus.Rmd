@@ -6,7 +6,11 @@ title: "BIOL 324 Syllabus"
 
 ---
 
+---
+
 *We would like to acknowledge that the UBC-Vancouver campus is situated on the traditional, ancestral, and unceded territory of the Musqueam people.*
+
+---
 
 ---
 
@@ -16,7 +20,7 @@ title: "BIOL 324 Syllabus"
 |--------------------------|--------------------------------------------------|---------------------------------------------------|
 | Sep 9-10                 | **No labs** (Imagine)                                |                                                   |
 | Sep 16-17 <br/> **Lab 1**      | Lab Introduction and Virtual Field Trip                                       | Introduction to iNaturalist                             |
-| Sep 23-24 <br/> **Lab 2**      | Basic floral morphology <br/> Ranunculaceae            | Keying                                   |
+| Sep 23-24 <br/> **Lab 2**      | Basic floral morphology <br/> Ranunculaceae            | Introduction to Keying                                   |
 | Sep 30 – Oct 1 <br/> **Lab 3** | Caryophyllaceae <br/>  Onagraceae <br/>  Polygonaceae      | Introduction to the Global Biodiversity Information Facility (GBIF)                                      |
 | Oct 7-8 <br/> **Lab 4**        | Fabaceae <br/>  Roseaceae                             | Measure digital herbarium specimens with ImageJ   |
 | Oct 14-15 <br/> **Lab 5**      | Brassicaceae <br/>  Malvaceae <br/>  Ericaceae             | Introduction to Phylogenetics                                     |
@@ -105,7 +109,7 @@ There will be weekly Canvas quizzes and participation marks associated with each
 
 ---
 
-# Communicating with the Teaching Team
+# Communication with the Teaching Team
 
 * Evan Hersh (Lab Coordinator)
   + evan.hersh@botany.ubc.ca
