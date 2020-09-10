@@ -5,27 +5,31 @@ navbar:
   left:
     - text: "Home"
       href: index.html
-    - text: "Lab 2"
-      href: BIOL_324_Lab_2.html
-    - text: "Lab 3"
-      href: BIOL_324_Lab_3.html
-    - text: "Lab 4"
-      href: BIOL_324_Lab_4.html
-    - text: "Lab 5"
-      href: BIOL_324_Lab_5.html          
-    - text: "Lab 6"
-      href: BIOL_324_Lab_6.html
-    - text: "Lab 7"
-      href: BIOL_324_Lab_7.html
-    - text: "Lab 8"
-      href: BIOL_324_Lab_8.html
-    - text: "Lab 9"
-      href: BIOL_324_Lab_9.html
-    - text: "Lab 10"
-      href: BIOL_324_Lab_10.html  
-    - text: "Linnean Typification"
-      href: LinneanTypification.html
+    - text: "Syllabus"
+      href: Syllabus.html
+    # - text: "Lab 2"
+    #   href: BIOL_324_Lab_2.html
+    # - text: "Lab 3"
+    #   href: BIOL_324_Lab_3.html
+    # - text: "Lab 4"
+    #   href: BIOL_324_Lab_4.html
+    # - text: "Lab 5"
+    #   href: BIOL_324_Lab_5.html          
+    # - text: "Lab 6"
+    #   href: BIOL_324_Lab_6.html
+    # - text: "Lab 7"
+    #   href: BIOL_324_Lab_7.html
+    # - text: "Lab 8"
+    #   href: BIOL_324_Lab_8.html
+    # - text: "Lab 9"
+    #   href: BIOL_324_Lab_9.html
+    # - text: "Lab 10"
+    #   href: BIOL_324_Lab_10.html  
+    # - text: "Linnean Typification"
+    #   href: LinneanTypification.html
 output:
   html_document:
+    toc: true
+    toc_depth: 3
     theme: readable
     highlight: tango

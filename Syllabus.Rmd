@@ -1,0 +1,157 @@
+---
+title: "BIOL 324 Syllabus"
+# author: "Evan Hersh"
+# date: "`r format(Sys.time(), '%d %B, %Y')`"
+---
+
+---
+
+*We would like to acknowledge that the UBC-Vancouver campus is situated on the traditional, ancestral, and unceded territory of the Musqueam people.*
+
+---
+
+# Schedule
+
+| Lab Dates                | Topics                                           | In-Lab Activities                                 |
+|--------------------------|--------------------------------------------------|---------------------------------------------------|
+| Sep 9-10                 | **No labs** (Imagine)                                |                                                   |
+| Sep 16-17 <br/> **Lab 1**      | Lab Introduction and Virtual Field Trip                                       | Introduction to iNaturalist                             |
+| Sep 23-24 <br/> **Lab 2**      | Basic floral morphology <br/> Ranunculaceae            | Keying                                   |
+| Sep 30 – Oct 1 <br/> **Lab 3** | Caryophyllaceae <br/>  Onagraceae <br/>  Polygonaceae      | Introduction to the Global Biodiversity Information Facility (GBIF)                                      |
+| Oct 7-8 <br/> **Lab 4**        | Fabaceae <br/>  Roseaceae                             | Measure digital herbarium specimens with ImageJ   |
+| Oct 14-15 <br/> **Lab 5**      | Brassicaceae <br/>  Malvaceae <br/>  Ericaceae             | Introduction to Phylogenetics                                     |
+| Oct 21-22 <br/> **Lab 6**      | Lamiaceae <br/>  Scrophularioid families                      | Introduction to R                                        |
+| Oct 28-29  <br/> **Lab 7**      | Boraginaceae  <br/> Solanaceae  <br/> Apiaceae             | GBIF in R                                           |
+| Nov 4-5 <br/> **Lab 8**          | Asteraceae                                       | Machine learning / morphometrics in R             |
+| Nov 11-12                | **No labs**    (Remembrance day)                     |                                                   |
+| Nov 18-19 <br/> **Lab 9**        | Lily-like monocots <br/>  Iridaceae  <br/> Orchidaceae     | Phylogenetics in R                                |
+| Nov 25-26 <br/> **Lab 10**       | Poaceae <br/> Juncaceae <br/> Cyperaceae                     | Phylogeography in R                               |
+| Dec 2-3 <br/> **Lab 11**         | Gymnosperms                                      | Open lab – work on projects                       |
+---
+
+---
+
+# Learning Objectives
+
+Our goal is for you to leave this course with the following knowledge/skills:
+
+* Appreciation of the structure and diversity of prominent seed plant families. 
+* Ability to identify the characters of plant families covered in this course in order to identify them by sight.  
+* The use of iNaturalist to make observations in your local area and contribute to citizen science.
+* Experience with modern taxonomic tools including:
+  + Using a taxonomic key
+  + Mapping
+  + Measuring herbarium specimens
+  + Morphometrics
+  + Phylogenetics and phylogeography
+* Become familiar with the R statistical environment, and gain experience using the above tools in R. 
+
+---
+
+---
+
+# Things you will need for lab
+
+**Essential**  
+
+* Access to a computer with a working internet connection
+* Access to a digital camera (preferably on a smartphone)
+* A notebook and pen/pencil
+
+**Helpful but not essential**
+
+* A smartphone with camera
+* A field guide to your local flora
+  + If you are in Vancouver / Lower Mainland, then Pojar and MacKinnon's *Plants of the Pacific Northwest Coast: Washington, Oregon, British Columbia and Alaska* is an amazing resource. It can easily be purchased online (e.g., Amazon) or at a local bookstore (including UBC bookstore). 
+* A hand lens (10x)
+  + Probably most easily found online. Search "hand lens" or "loupe", and make sure to get one with 10x magnification (higher magnifications make it very difficult to keep things in focus).  Here's an affordable example: https://www.amazon.ca/Yasumai-Magnifier-Magnification-Folding-Jewelers/dp/B06Y3TTXML/ref=sr_1_10?dchild=1&keywords=hand+lens+10x&qid=1599691457&sr=8-10
+
+**Programs we'll be using**
+
+* R (https://cran.r-project.org/mirrors.html)
+* Rstudio [install R first] (https://rstudio.com/products/rstudio/download/)
+  + Install Rstudio Desktop - Free version
+* ImageJ (https://imagej.nih.gov/ij/download.html)
+
+---
+
+---
+
+# Online Lab Manual
+
+You will be using a virtual lab manual this term. You can find it here:
+
+https://mannfred.github.io/BIOL324/index.html
+
+We will also post .pdf copies of the lab manual on Canvas. We will post the content for each lab at the beginning of the week. 
+  
+---
+
+---
+
+# Mark Scheme
+
+The Lab component of the course is worth **35%** of your overall mark. 
+
+**Breakdown**
+
+* Participation/Quizzes: **15%**
+* Project 1 (iNaturalist): **10%**
+* Project 2 (Phylogeography): **10%**
+
+There will be weekly Canvas quizzes and participation marks associated with each lab. Project 1 will be due halfway through the term (details provided in Lab 1), and Project 2 will be due at the end of term (details provided in Lab 6). 
+
+---
+
+---
+
+# Communicating with the Teaching Team
+
+* Evan Hersh (Lab Coordinator)
+  + evan.hersh@botany.ubc.ca
+* Mikko Paajanen (Teaching Assistant)
+  + mikko.paajanen@botany.ubc.ca
+* Mannfred Boehm (Teaching Assistant)
+  + mannfred.boehm@botany.ubc.ca
+
+If you need to contact us directly, please send us an email or a message through Canvas. For questions about lab content, **please post on the Piazza** (link on left side of Canvas) as other students may want to know or have the same question! We do not have set office hours, but will establish "open lab" times on Fridays that you can virtually attend to get help with your projects from your teaching team and fellow students. 
+
+---
+
+---
+
+# Online learning and COVID-19 Safety
+
+The labs will be 100% virtual for this course, but we will be asking you to explore your local area on your own time for Project 1 (iNaturalist). Please ensure that you maintain physical distancing and use hand sanitizer where appropriate when you are out and about. If you are feeling ill or have tested positive for COVID-19, self-isolate immediately and let your teaching team know right away if this affects your coursework.
+
+**Directive from provost's office regarding online learning for international students**
+
+*"During this pandemic, the shift to online learning has greatly altered teaching and studying at UBC, including changes to health and safety considerations. Keep in mind that some UBC courses might cover topics that are censored or considered illegal by non-Canadian governments. This may include, but is not limited to, human rights, representative government, defamation, obscenity, gender or sexuality, and historical or current geopolitical controversies. If you are a student living abroad, you will be subject to the laws of your local jurisdiction, and your local authorities might limit your access to course material or take punitive action against you. UBC is strongly committed to academic freedom, but has no control over foreign authorities (please visit http://www.calendar.ubc.ca/vancouver/index.cfm?tree=3,33,86,0 for an articulation of the values of the University conveyed in the Senate Statement on Academic Freedom). Thus, we recognize that students will have legitimate reason to exercise caution in studying certain subjects. If you have concerns regarding your personal situation, consider postponing taking a course with manifest risks, until you are back on campus or reach out to your academic advisor to find substitute courses. For further information and support, please visit: http://academic.ubc.ca/support-resources/freedom-expression”*
+
+---
+
+---
+
+# Academic integrity
+
+UBC is very serious about academic integrity, and we have a zero tolerance policy in regards to plagiarism. While you may work in groups, the work you turn in for this lab must be your own (including projects, quizzes, and drawings). There will times where we share R code with each other, which is fine (this is a big part of learning to code), but the final product we ask you to turn in must be your own. Please do not hesitate to ask if you have any questions.
+
+---
+
+---
+
+# Equity, Diversity, and Inclusion
+
+UBC is dedicated to creating a welcoming and inclusive learning environment, and we strive to uphold these same values in BIOL 324. Please let a member of the teaching team know if you are concerned about inclusivity or discrimination (or contact UBC's Equity and Inclusion Office: https://equity.ubc.ca/about/contact/). 
+
+**UBC Statement on Respectful Environment for Students, Faculty, and Staff:**
+
+*"UBC envisions a climate in which students, faculty and staff are provided with the best possible conditions for learning, researching and working, including an environment that is dedicated to excellence, equity and mutual respect. UBC strives to realize this vision by establishing employment and educational practices that respect the dignity of individuals and make it possible for everyone to live, work, and study in a positive and supportive environment, free from harmful behaviours such as bullying and harassment."*
+
+---
+
+---
+
+# Accessibility
+
+UBC makes accommodations for students with disabilities and accessibility issues. Please visit UBC's Centre for Accessibility if you need accommodation (https://students.ubc.ca/about-student-services/centre-for-accessibility). In addition, please let Quentin and/or Evan know if you have any questions or concerns relating to accessibility or other difficulties with your coursework. 
