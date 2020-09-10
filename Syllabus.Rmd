@@ -139,7 +139,7 @@ The labs will be 100% virtual for this course, but we will be asking you to expl
 
 # Academic integrity
 
-UBC is very serious about academic integrity, and we have a zero tolerance policy in regards to plagiarism. While you may work in groups, the work you turn in for this lab must be your own (including projects, quizzes, and drawings). There will times where we share R code with each other, which is fine (this is a big part of learning to code), but the final product we ask you to turn in must be your own. Please do not hesitate to ask if you have any questions.
+UBC is very serious about academic integrity, and we have a zero tolerance policy in regards to plagiarism. While you may work in groups, the work you turn in for this lab must be your own (including projects, quizzes, and drawings). There will be times where we share R code with each other, which is fine (this is a big part of learning to code), but the final product we ask you to turn in must be your own. Please do not hesitate to ask if you have any questions.
 
 ---
 
