@@ -1,0 +1,195 @@
+---
+title: "R Assignment 5: Combining Phylogenetics with Biogeography"
+# title: "<span style='font-size: 30px'> R Assignment 5: Combining Phylogenetics with Biogeography </style>"
+author: Mannfred Boehm
+date: "`r format(Sys.time(), '%d %B, %Y')`"
+# output:
+#   word_document:
+#     fig_caption: yes
+#     reference_docx: ms_word_reference.docx
+# output:
+#    html_document:
+#    number_sections: no
+#    theme: flatly
+#output: github_document
+#urlcolor: blue
+
+---
+
+<br>
+<br>
+
+#### Motivation
+
+In Labs 7 and 9 we learned how to map species distributions using GBIF data, and how to create phylogenies from DNA sequence data from GenBank. In this final R assignment, we'll combine these methods to create a phylogeographic map of five _Opuntia_ species. By overlaying a phylogeny onto a species distribution map, we can not only better test taxonomic and evolutionary relationships, but also infer migration and colonization histories. 
+
+&nbsp;
+&nbsp;
+
+---
+
+
+#### Prerequisites 
+
+Before starting this week's tutorial you will have: 
+
+1. completed R Assignment 2 (Mapping) and Assignment 4 (Phylogenetics), 
+
+2. completed some pre-assignment reading on the use of phylogeography in plant taxonomy, 
+
+3. more...
+
+&nbsp;
+&nbsp;
+
+---
+
+
+#### Outcomes
+
+By the end of this tutorial you will have: <br>
+
+1. the ability to combine distribution data from GBIF with sequence data from Genbank to create phylogeographic maps of species distributions,
+
+2. more...
+
+&nbsp;
+&nbsp;
+
+---
+
+
+#### Activity 1: Creating a Phylogeographic Map from GBIF and Genbank Data
+
+In previous Assignments we mapped species distributions and constructed phylogenetic trees. In this Assignment, we'll combine both lines of research to simultaneously visualize the phylogenetic and geographic relationships of five _Opuntia_ species.
+
+In this lab, we'll explore further the genus _Opuntia_: 
+
+_Opuntia basilaris_ (Mojave, Colorado, Utah)
+
+_Opuntia fragilis_  (Northwestern) 
+
+_Opuntia humifusa_  (Eastern) 
+
+_Opuntia polyacantha_ (Great Plains, foothills of Rocky Mtns) 
+
+_Opuntia stricta_ (Gulf Coast and Caribbean)
+
+Let's start by installing the necessary packages. `mapdata` is an slightly more sophisticated package than `mapr` (which we used in Lab 7) &mdash; this will allow us to overlay a phylogeny onto a biogeographic plot. `phytools` is a similar phylogenetics package to `ape` (Lab 9), but contains functions for overlaying phylogenies onto maps. `viridis` is a package for creating custom colour schemes &mdash; our maps gotta look fresh! 
+
+```{r, eval = FALSE}
+install.packages(c('mapdata', 'phytools', 'viridis'))
+```
+
+Attach the packages:
+
+```{r, results = 'hide', warning = FALSE, message = FALSE }
+# attach packages once they are installed 
+library(here)
+library(mapdata)
+library(phytools)
+library(tidyverse)
+library(viridis)
+```
+
+Let's import our species distribution data (from GBIF, Assignment 2) and phylogenetic tree (Assignment 4):
+
+```{r}
+# import Opuntia rbcL tree from last tutorial
+rbcL_rooted <- readRDS(file = here('R_scripts/rbcL_rooted.rds'))
+
+# import filtered GBIF data from last tutorial
+opuntia_fil <- readRDS(file = here('R_scripts/filtered_gbif_dataset.rds')) 
+```
+
+Then, we'll simplify the species names in the GBIF dataset (this is required to use `phytools`). We can change the names of variables using the `mutate()` function:
+
+```{r}
+opuntia_fil <-
+ opuntia_fil %>% 
+ mutate(short_names = case_when(
+   name == "Opuntia basilaris Engelm. & J.M.Bigelow" ~ "O_basilaris",
+   name == "Opuntia fragilis (Nutt.) Haw." ~ "O_fragilis",
+   name == "Opuntia humifusa Raf." ~ "O_humifusa",
+   name == "Opuntia stricta (Haw.) Haw." ~ "O_stricta",
+   name == "Opuntia polyacantha Haw." ~ "O_polyacantha"
+ ))
+```
+
+Some more data organizing is needed.. we'll reverse the order of the latitude and longitude columns in our GBIF dataset, and convert the `tibble` into a `matrix` (for `phytools`):
+
+```{r}
+latlong <- 
+  opuntia_fil %>% 
+  select(c(3,2)) %>% # reverse long-lat to lat-long
+  as.matrix()
+```
+
+We'll need to give each row (i.e. GBIF observation) a species name in order to overlay a phylogeny. Entries with missing information (`NA`s) also need to be removed:
+
+```{r}
+# assign species names to rows
+rownames(latlong) <- opuntia_fil$short_names
+
+# removes rows with NAs
+latlong <- na.omit(latlong)
+```
+
+The species names need to match the exact spelling and format as in the phylogeny:
+
+```{r}
+rbcL_rooted$tip.label <- 
+  c("O_basilaris", "O_stricta", "O_humifusa", "O_fragilis", "O_polyacantha")
+```
+
+And each species needs a unique colour:
+
+```{r}
+colours <- 
+  setNames(c('#999999', '#E69F00', '#56B4E9', '#009E73', '#F0E442'),
+           rbcL_rooted$tip.label)
+```
+
+```{r, message=FALSE}
+
+obj <- 
+  phylo.to.map(
+    rbcL_rooted, 
+    latlong, 
+    rotate = FALSE,
+    regions = c("Canada", "USA", "Mexico"),
+    database = "worldHires",
+    xlim = c(-135, -55 ),  
+    ylim = c(10, 45),
+    asp = 4,
+    lwd = 1,
+    plot = FALSE)
+
+plot(
+  obj, 
+  direction = "rightwards", 
+  colors = sapply(colours, make.transparent, 0.4),
+  pts = TRUE,
+  cex.points = c(0,1),
+  lwd = c(3,1),
+  asp = 1.3,
+  ftype ="i")
+
+
+
+```
+
+
+<!-- To plot polygons, set pts = FALSE and cex.point = c(0,0) in plot() and run: -->
+
+<!-- for(i in 1:Ntip(rbcL_rooted)){ -->
+<!--   spr<-latlong[which(rownames(latlong)==rbcL_rooted$tip.label[i]),] -->
+<!--   mcp<-if(i==1) spr[chull(spr),] else rbind(mcp,spr[chull(spr),]) -->
+<!-- } -->
+
+<!-- for(i in 1:Ntip(rbcL_rooted)){ -->
+<!--   ii<-which(rownames(mcp)==rbcL_rooted$tip.label[i]) -->
+<!--   polygon(mcp[ii,2:1],col=make.transparent(colours[rbcL_rooted$tip.label[i]],0.8), -->
+<!--           border="darkgrey") -->
+<!-- } -->
+

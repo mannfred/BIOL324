@@ -7,6 +7,10 @@ navbar:
       href: index.html
     - text: "Syllabus"
       href: Syllabus.html
+    - text: "Resources"
+      menu:
+      - text: "Morphological Terminology"
+        href: Morphological_Terminology.html  
     # - text: "Lab 2"
     #   href: BIOL_324_Lab_2.html
     # - text: "Lab 3"
@@ -30,6 +34,7 @@ navbar:
 output:
   html_document:
     toc: true
+    toc_float: true
     toc_depth: 3
     theme: readable
     highlight: tango
