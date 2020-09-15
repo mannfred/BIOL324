@@ -14,7 +14,7 @@ title: "BIOL 324 Syllabus"
 
 ---
 
-# Schedule
+# Schedule {#Schedule}
 
 | Lab Dates                | Topics                                           | In-Lab Activities                                 |
 |--------------------------|--------------------------------------------------|---------------------------------------------------|
@@ -160,3 +160,62 @@ UBC is dedicated to creating a welcoming and inclusive learning environment, and
 # Accessibility
 
 UBC makes accommodations for students with disabilities and accessibility issues. Please visit UBC's Centre for Accessibility if you need accommodation (https://students.ubc.ca/about-student-services/centre-for-accessibility). In addition, please let Quentin and/or Evan know if you have any questions or concerns relating to accessibility or other difficulties with your coursework. 
+
+---
+
+---
+
+# Lab Overview {#LabOverview}
+
+Welcome to the new and improved Introduction to Seed Plant Taxonomy (BIOL 324) labs! Our teaching team has worked hard over the summer to re-vamp the labs from the ground-up, both to modernize them (incorporating newer informatics tools) and to get them ready for virtual teaching. While it is disappointing that we will not be able to play with plants in a physical lab setting, this challenge has required us to adapt in creative ways that we believe will result in a better learning experience for you in the end. 
+
+---
+
+---
+
+## Structure of the labs
+
+Each lab will start with a short lecture given by myself, Mikko, and Mannfred. After that, each lab will typically be split into two parts, a **plant-facing** section in the first half and an **informatics** section in the second half. In the plant-facing parts of lab, you will be learning about the morphological diversity (and plenty of terms!) of several prominent plant families. You'll accomplish this primarily by looking at photos and making labeled drawings (some of which you may be asked to submit as part of your weekly Canvas quiz). In the informatics sections, you'll be learning how to use several important tools and databases that are used in the field of taxonomy today. In the first half of term, we will focus on exploring browser-based informatics tools, and in the second half of term we will switch gears to using similar tools but in the **R statistical environment**. We may also ask you to submit the product/output of your informatics exercises (e.g., maps, phylogenetic trees, plots, etc.) as part of your Canvas quizzes. 
+
+You can see the [Schedule](#Schedule) for the outline of what topics will be covered in each lab. Labs are scheduled for 3 hours (2-5 pm), and we highly encourage you to attend them in real time as **attendance will be taken in the form of a poll each week (incorporated into lab participation marks)**. We will be putting you in groups of 4-5 where you will work together on your lab exercises, and your lab instructors will check in on you and help out throughout the lab period. 
+
+---
+
+---
+
+## Drawings
+
+There are several purposes for requiring you to make drawings of what you see. 
+
+1. It will force you to observe the important features of the plants. 
+2. It allows your instructors to check to see that you have understood and correctly interpreted what you've seen. 
+3. By making the drawing, you will be more likely to remember what you've seen. 
+4. Your drawings will provide useful notes for studying for quizzes and exams. 
+
+Therefore, it is important that your drawings be CLEAR and ACCURATE.  The drawings do not need to be artistic or even aesthetically pleasing.  They can be diagrammatic.  But if a flower has 10 stamens, your drawing should have 10 stamens, not an ill defined bunch of stamens.  Numbers and positions of parts are crucial in learning and identifying plants. It is also good practice to use as many relevant [morphological terms](Morphological_Terminology.html) as possible when labeling your drawings.
+
+---
+
+---
+
+## Knowledge Checks
+
+As you navigate through your online lab manual, you will find sections labeled **-KNOWLEDGE CHECK-**. These are there to help clarify the learning objectives for each section, as well as indicate what you will be responsible for knowing (and things you may be tested on in a Canvas quiz).
+
+---
+
+---
+
+## Quizzes
+
+Each lab will be associated with a Canvas quiz **that is due within 48 hours of the end of your lab period**. This means that if you are in the Wednesday lab, quizzes will be due by Friday at 5pm, and if you are in the Thursday lab quizzes will be due by Saturday at 5pm. The quizzes themselves will also be timed (30 minutes?), so make sure you have completed your lab exercises beforehand as we may ask you to submit drawings, etc. in your quiz. 
+
+---
+
+---
+
+## Projects
+
+You can find information on Project 1 (iNaturalist) [here]()
+
+Information will be released for Project 2 (Phylogeography) in Lab 6.
