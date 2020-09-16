@@ -1,0 +1,594 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+
+<meta charset="utf-8" />
+<meta name="generator" content="pandoc" />
+<meta http-equiv="X-UA-Compatible" content="IE=EDGE" />
+
+
+
+
+<title>Project 1 (iNaturalist)</title>
+
+<script src="site_libs/jquery-1.11.3/jquery.min.js"></script>
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<link href="site_libs/bootstrap-3.3.5/css/readable.min.css" rel="stylesheet" />
+<script src="site_libs/bootstrap-3.3.5/js/bootstrap.min.js"></script>
+<script src="site_libs/bootstrap-3.3.5/shim/html5shiv.min.js"></script>
+<script src="site_libs/bootstrap-3.3.5/shim/respond.min.js"></script>
+<script src="site_libs/jqueryui-1.11.4/jquery-ui.min.js"></script>
+<link href="site_libs/tocify-1.9.1/jquery.tocify.css" rel="stylesheet" />
+<script src="site_libs/tocify-1.9.1/jquery.tocify.js"></script>
+<script src="site_libs/navigation-1.1/tabsets.js"></script>
+<script src="site_libs/accessible-code-block-0.0.1/empty-anchor.js"></script>
+
+
+
+
+<style type="text/css">
+h1 {
+  font-size: 34px;
+}
+h1.title {
+  font-size: 38px;
+}
+h2 {
+  font-size: 30px;
+}
+h3 {
+  font-size: 24px;
+}
+h4 {
+  font-size: 18px;
+}
+h5 {
+  font-size: 16px;
+}
+h6 {
+  font-size: 12px;
+}
+.table th:not([align]) {
+  text-align: left;
+}
+</style>
+
+
+
+
+<style type = "text/css">
+.main-container {
+  max-width: 940px;
+  margin-left: auto;
+  margin-right: auto;
+}
+code {
+  color: inherit;
+  background-color: rgba(0, 0, 0, 0.04);
+}
+img {
+  max-width:100%;
+}
+.tabbed-pane {
+  padding-top: 12px;
+}
+.html-widget {
+  margin-bottom: 20px;
+}
+button.code-folding-btn:focus {
+  outline: none;
+}
+summary {
+  display: list-item;
+}
+</style>
+
+
+<style type="text/css">
+/* padding for bootstrap navbar */
+body {
+  padding-top: 66px;
+  padding-bottom: 40px;
+}
+/* offset scroll position for anchor links (for fixed navbar)  */
+.section h1 {
+  padding-top: 71px;
+  margin-top: -71px;
+}
+.section h2 {
+  padding-top: 71px;
+  margin-top: -71px;
+}
+.section h3 {
+  padding-top: 71px;
+  margin-top: -71px;
+}
+.section h4 {
+  padding-top: 71px;
+  margin-top: -71px;
+}
+.section h5 {
+  padding-top: 71px;
+  margin-top: -71px;
+}
+.section h6 {
+  padding-top: 71px;
+  margin-top: -71px;
+}
+.dropdown-submenu {
+  position: relative;
+}
+.dropdown-submenu>.dropdown-menu {
+  top: 0;
+  left: 100%;
+  margin-top: -6px;
+  margin-left: -1px;
+  border-radius: 0 6px 6px 6px;
+}
+.dropdown-submenu:hover>.dropdown-menu {
+  display: block;
+}
+.dropdown-submenu>a:after {
+  display: block;
+  content: " ";
+  float: right;
+  width: 0;
+  height: 0;
+  border-color: transparent;
+  border-style: solid;
+  border-width: 5px 0 5px 5px;
+  border-left-color: #cccccc;
+  margin-top: 5px;
+  margin-right: -10px;
+}
+.dropdown-submenu:hover>a:after {
+  border-left-color: #ffffff;
+}
+.dropdown-submenu.pull-left {
+  float: none;
+}
+.dropdown-submenu.pull-left>.dropdown-menu {
+  left: -100%;
+  margin-left: 10px;
+  border-radius: 6px 0 6px 6px;
+}
+</style>
+
+<script>
+// manage active state of menu based on current page
+$(document).ready(function () {
+  // active menu anchor
+  href = window.location.pathname
+  href = href.substr(href.lastIndexOf('/') + 1)
+  if (href === "")
+    href = "index.html";
+  var menuAnchor = $('a[href="' + href + '"]');
+
+  // mark it active
+  menuAnchor.parent().addClass('active');
+
+  // if it's got a parent navbar menu mark it active as well
+  menuAnchor.closest('li.dropdown').addClass('active');
+});
+</script>
+
+<!-- tabsets -->
+
+<style type="text/css">
+.tabset-dropdown > .nav-tabs {
+  display: inline-table;
+  max-height: 500px;
+  min-height: 44px;
+  overflow-y: auto;
+  background: white;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+}
+
+.tabset-dropdown > .nav-tabs > li.active:before {
+  content: "";
+  font-family: 'Glyphicons Halflings';
+  display: inline-block;
+  padding: 10px;
+  border-right: 1px solid #ddd;
+}
+
+.tabset-dropdown > .nav-tabs.nav-tabs-open > li.active:before {
+  content: "&#xe258;";
+  border: none;
+}
+
+.tabset-dropdown > .nav-tabs.nav-tabs-open:before {
+  content: "";
+  font-family: 'Glyphicons Halflings';
+  display: inline-block;
+  padding: 10px;
+  border-right: 1px solid #ddd;
+}
+
+.tabset-dropdown > .nav-tabs > li.active {
+  display: block;
+}
+
+.tabset-dropdown > .nav-tabs > li > a,
+.tabset-dropdown > .nav-tabs > li > a:focus,
+.tabset-dropdown > .nav-tabs > li > a:hover {
+  border: none;
+  display: inline-block;
+  border-radius: 4px;
+  background-color: transparent;
+}
+
+.tabset-dropdown > .nav-tabs.nav-tabs-open > li {
+  display: block;
+  float: none;
+}
+
+.tabset-dropdown > .nav-tabs > li {
+  display: none;
+}
+</style>
+
+<!-- code folding -->
+
+
+
+<style type="text/css">
+
+#TOC {
+  margin: 25px 0px 20px 0px;
+}
+@media (max-width: 768px) {
+#TOC {
+  position: relative;
+  width: 100%;
+}
+}
+
+@media print {
+.toc-content {
+  /* see https://github.com/w3c/csswg-drafts/issues/4434 */
+  float: right;
+}
+}
+
+.toc-content {
+  padding-left: 30px;
+  padding-right: 40px;
+}
+
+div.main-container {
+  max-width: 1200px;
+}
+
+div.tocify {
+  width: 20%;
+  max-width: 260px;
+  max-height: 85%;
+}
+
+@media (min-width: 768px) and (max-width: 991px) {
+  div.tocify {
+    width: 25%;
+  }
+}
+
+@media (max-width: 767px) {
+  div.tocify {
+    width: 100%;
+    max-width: none;
+  }
+}
+
+.tocify ul, .tocify li {
+  line-height: 20px;
+}
+
+.tocify-subheader .tocify-item {
+  font-size: 0.90em;
+}
+
+.tocify .list-group-item {
+  border-radius: 0px;
+}
+
+
+</style>
+
+
+
+</head>
+
+<body>
+
+
+<div class="container-fluid main-container">
+
+
+<!-- setup 3col/9col grid for toc_float and main content  -->
+<div class="row-fluid">
+<div class="col-xs-12 col-sm-4 col-md-3">
+<div id="TOC" class="tocify">
+</div>
+</div>
+
+<div class="toc-content col-xs-12 col-sm-8 col-md-9">
+
+
+
+
+<div class="navbar navbar-default  navbar-fixed-top" role="navigation">
+  <div class="container">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar">
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="index.html">BIOL 324 Labs</a>
+    </div>
+    <div id="navbar" class="navbar-collapse collapse">
+      <ul class="nav navbar-nav">
+        <li>
+  <a href="index.html">Home</a>
+</li>
+<li>
+  <a href="Syllabus.html">Syllabus</a>
+</li>
+<li class="dropdown">
+  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
+    Resources
+     
+    <span class="caret"></span>
+  </a>
+  <ul class="dropdown-menu" role="menu">
+    <li>
+      <a href="Morphological_Terminology.html">Morphological Terminology</a>
+    </li>
+  </ul>
+</li>
+<li class="dropdown">
+  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
+    Projects
+     
+    <span class="caret"></span>
+  </a>
+  <ul class="dropdown-menu" role="menu">
+    <li>
+      <a href="BIOL_324_Project_1.html">Project 1 (iNaturalist)</a>
+    </li>
+  </ul>
+</li>
+<li class="dropdown">
+  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
+    Labs
+     
+    <span class="caret"></span>
+  </a>
+  <ul class="dropdown-menu" role="menu">
+    <li>
+      <a href="BIOL_324_Lab_1.html">Lab 1</a>
+    </li>
+  </ul>
+</li>
+      </ul>
+      <ul class="nav navbar-nav navbar-right">
+        
+      </ul>
+    </div><!--/.nav-collapse -->
+  </div><!--/.container -->
+</div><!--/.navbar -->
+
+<div class="fluid-row" id="header">
+
+
+
+<h1 class="title toc-ignore">Project 1 (iNaturalist)</h1>
+
+</div>
+
+
+<hr />
+<hr />
+<div id="motivation" class="section level1">
+<h1>Motivation</h1>
+<p>iNaturalist is an incredible tool that facilitates taxonomic education while contributing to global biodiversity data through citizen science. Previous iterations of this course placed a strong emphasis on using taxonomic keys to identify plant species in a physical lab environment, but this is an exercise that is unfortunately not very doable in a Virtual Lab environment. iNaturalist provides an excellent opportunity to get you outside and observing real live plants in a safe and physically distanced matter (plus it’s fun…think of it like Pokemon GO but for plants!). Our hope is that this project will give you important experience with field taxonomic methods, plant identification, and biodiversity informatics.</p>
+<hr />
+<hr />
+</div>
+<div id="project-overview" class="section level1">
+<h1>Project Overview</h1>
+<p>This project is made up of two components:</p>
+<ol style="list-style-type: decimal">
+<li>Make <strong>10 iNaturalist observations</strong> and submit to the BIOL 324 iNaturalist project.
+<ul>
+<li>80% of project marks</li>
+</ul></li>
+<li>A <strong>short (1-2 page) report on the phylogenetic relationships</strong> of the 10 species you observed.
+<ul>
+<li>20% of project marks</li>
+<li>You will learn how to make a simple phylogenetic tree in Lab 5, and will receive more detailed information on the report requirements at that time.</li>
+</ul></li>
+</ol>
+<p><strong>This project is due by the beginning of Lab 6 (2 pm on October 21st or 22nd depending on your assigned lab section).</strong> Your iNaturalist observations must be completed and uploaded to the BIOL 324 iNaturalist project by this time. You will submit your report through Canvas.</p>
+<hr />
+<hr />
+</div>
+<div id="observation-requirements" class="section level1">
+<h1>Observation Requirements</h1>
+<p>Before you can begin submitting observations, <strong>you must create an iNaturalist account and provide me with your username</strong> in order for me to invite you to the BIOL 324 iNaturalist Project. Please <a href="https://docs.google.com/spreadsheets/d/1lUajuGPwVc29feAesxS9DYLhfNqYxRrawvofaE6bYjA/edit?usp=sharing">enter your name and iNaturalist id into this Google sheet</a>.</p>
+<p>The goal is for you to make 10 high quality observations (please do not submit more than 10). We will evaluate your observations based on these criteria:</p>
+<p></br></p>
+<ul>
+<li>Please be sure to add your observations to the official BIOL 324 iNaturalist project. Feel free to make personal observations if you like (they will not be marked if they are not submitted to the BIOL 324 project).</li>
+</ul>
+<p></br></p>
+<ul>
+<li>Photographs
+<ul>
+<li>For plants, it is ideal to include multiple photographs per observation. A good rule of thumb is one picture of the entire plant, one of the leaves, and one of the reproductive structures (flowers and/or fruits). It is a good idea to include other features that may be helpful for identification (depending on the species), such as the the underside of leaves or the presence of hairs.</li>
+<li><strong>You must submit your own pictures (do NOT take them from the internet).</strong></li>
+<li>A smartphone is the most straightforward way to take and submit images to iNaturalist, but you can also easily submit photos taken by a digital camera using the iNaturalist website. Please let Evan know if you do not have access to a smartphone or digital camera.</li>
+</ul></li>
+</ul>
+<p></br></p>
+<ul>
+<li>Location information
+<ul>
+<li>You must supply GPS coordinates with each observation. This information is often included automatically when you submit photos taken with a smartphone through the iNaturalist app, but if not it is easy to set coordinates manually when you make your observation.</li>
+</ul></li>
+</ul>
+<p></br></p>
+<ul>
+<li>Identifications
+<ul>
+<li><strong>Your observations must be identified to species.</strong> The iNaturalist machine learning algorithm will help provide suggestions, but it is up to you to confirm your ID’s using other resources. Marks will be associated with correct family, genus, and species (so you will still get partial marks if you get the family and genus right but the wrong species).</li>
+<li><strong>Please do not provide identifications for your fellow student’s observations in the BIOL 324 iNaturalist project.</strong></li>
+</ul></li>
+</ul>
+<p></br></p>
+<ul>
+<li><strong>Cultivated plants (those planted in gardens or for horticultural purposes) will not be accepted.</strong> Your observed plants must be growing naturally.
+<ul>
+<li>Good places to look are along roadsides, in parks (e.g., Pacific Spirit Park or Jericho Park if in Vancouver), or natural fields. Weeds growing in urban areas are fair game as well, as long as they are not cultivated.</li>
+<li>It is sometimes difficult to tell what is cultivated or not. If the base of the plant is surrounded by mulch and the area looks manicured, it is probably cultivated. Same for front yards / back yards (observations of your grandparent’s beautiful rose bushes are a no-go!). If you are having trouble discerning whether a plant is cultivated or not, please ask your Lab instructors for help.</li>
+</ul></li>
+</ul>
+<p></br></p>
+<ul>
+<li>Notes
+<ul>
+<li>Provide detailed morphological descriptions in the “Notes” field for each observation. These may include descriptions of the leaves (e.g., simple vs compound, toothed, presence of trichomes, etc) and flowers/fruits (e.g., number of petals/sepals, type of fruit). Ideally you will use terms you will be learning in lab, and you can utilize the <a href="Morphological_Terminology.html">morphological terminology page</a> as well.</li>
+<li>Provide demographic / ecological information. This can include information on the abundance of the plant in that area (e.g., solitary individual, a few scattered individuals, or a large/dense population). You should also put any relevant habitat information here as well (e.g., a dry meadow, wet forest understory, roadside ditch, or growing out of cracks in the sidewalk).</li>
+</ul></li>
+</ul>
+<p></br></p>
+<ul>
+<li>Provide phenology information
+<ul>
+<li>You must indicate the phenology of each plant you observe (i.e., bare, budding, flower, or fruit). This annotation field should show up automatically once you select the BIOL 324 project when using the smartphone app, but may not show up automatically when using the browser version of iNaturalist. It is easy to edit this field (or any other aspect of your observations) after they’ve been submitted.</li>
+<li>Keep in mind that plants without reproductive structures are often difficult to confidently identify to species.</li>
+</ul></li>
+</ul>
+<p></br></p>
+<ul>
+<li>Keep in mind that you can edit, add, or remove observations at will until the project is due.</li>
+</ul>
+<hr />
+<hr />
+</div>
+<div id="observation-marking" class="section level1">
+<h1>Observation marking</h1>
+<p>Each observation will be worth 10 marks (for a total of 100).</p>
+<ul>
+<li>1 mark for correct family</li>
+<li>2 marks for correct genus</li>
+<li>2 marks for correct species</li>
+<li>5 marks for associated information listed above (i.e., location, phenology, and notes).</li>
+</ul>
+<p>Marks will be deducted if the photos are unclear, or if it is not possible to identify the plant with the images provided.</p>
+<hr />
+<hr />
+</div>
+<div id="report-on-phylogenetic-relationships" class="section level1">
+<h1>Report on phylogenetic relationships</h1>
+<p>Details coming soon…</p>
+<hr />
+<hr />
+</div>
+<div id="resources" class="section level1">
+<h1>Resources</h1>
+<ul>
+<li>iNaturalist
+<ul>
+<li><a href="http://www.sdplantatlas.org/inat/iNatPhotoguide.html">Photographing plants for iNaturalist</a> - San Diego Plant Atlas Project</li>
+<li><a href="https://www.inaturalist.org/projects/abisko-plants-and-phenology/journal/17621-getting-great-plant-photos-for-identification-in-inaturalist">Getting great plant photos for identification in iNaturalist</a> - Abisko Natural Park, Sweden</li>
+<li><a href="https://www.inaturalist.org/pages/getting+started">Getting started with iNaturalist</a></li>
+</ul></li>
+<li><strong>Help with identifications</strong>
+<ul>
+<li><a href="http://www.efloras.org/flora_page.aspx?flora_id=1">Flora of North America</a></li>
+<li><a href="https://ibis.geog.ubc.ca/biodiversity/eflora/">E-Flora BC</a></li>
+<li>Google image search</li>
+<li>You can always check with your Lab instructors if you need help with ID’s.</li>
+</ul></li>
+</ul>
+</div>
+
+
+
+</div>
+</div>
+
+</div>
+
+<script>
+
+// add bootstrap table styles to pandoc tables
+function bootstrapStylePandocTables() {
+  $('tr.header').parent('thead').parent('table').addClass('table table-condensed');
+}
+$(document).ready(function () {
+  bootstrapStylePandocTables();
+});
+
+
+</script>
+
+<!-- tabsets -->
+
+<script>
+$(document).ready(function () {
+  window.buildTabsets("TOC");
+});
+
+$(document).ready(function () {
+  $('.tabset-dropdown > .nav-tabs > li').click(function () {
+    $(this).parent().toggleClass('nav-tabs-open')
+  });
+});
+</script>
+
+<!-- code folding -->
+
+<script>
+$(document).ready(function ()  {
+
+    // move toc-ignore selectors from section div to header
+    $('div.section.toc-ignore')
+        .removeClass('toc-ignore')
+        .children('h1,h2,h3,h4,h5').addClass('toc-ignore');
+
+    // establish options
+    var options = {
+      selectors: "h1,h2,h3",
+      theme: "bootstrap3",
+      context: '.toc-content',
+      hashGenerator: function (text) {
+        return text.replace(/[.\\/?&!#<>]/g, '').replace(/\s/g, '_');
+      },
+      ignoreSelector: ".toc-ignore",
+      scrollTo: 0
+    };
+    options.showAndHide = true;
+    options.smoothScroll = true;
+
+    // tocify
+    var toc = $("#TOC").tocify(options).data("toc-tocify");
+});
+</script>
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    script.src  = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML";
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+
+</body>
+</html>

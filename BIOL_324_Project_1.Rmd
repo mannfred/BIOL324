@@ -1,0 +1,123 @@
+---
+title: 'Project 1 (iNaturalist)'
+---
+
+---
+
+---
+
+# Motivation
+
+iNaturalist is an incredible tool that facilitates taxonomic education while contributing to global biodiversity data through citizen science. Previous iterations of this course placed a strong emphasis on using taxonomic keys to identify plant species in a physical lab environment, but this is an exercise that is unfortunately not very doable in a Virtual Lab environment. iNaturalist provides an excellent opportunity to get you outside and observing real live plants in a safe and physically distanced matter (plus it's fun...think of it like Pokemon GO but for plants!). Our hope is that this project will give you important experience with field taxonomic methods, plant identification, and biodiversity informatics.
+
+---
+
+---
+
+# Project Overview
+
+This project is made up of two components:
+
+1. Make **10 iNaturalist observations** and submit to the BIOL 324 iNaturalist project.
+    - 80% of project marks
+2. A **short (1-2 page) report on the phylogenetic relationships** of the 10 species you observed.
+    - 20% of project marks
+    - You will learn how to make a simple phylogenetic tree in Lab 5, and will receive more detailed information on the report requirements at that time.
+    
+**This project is due by the beginning of Lab 6 (2 pm on October 21st or 22nd depending on your assigned lab section).** Your iNaturalist observations must be completed and uploaded to the BIOL 324 iNaturalist project by this time. You will submit your report through Canvas. 
+    
+---
+
+---
+
+# Observation Requirements
+
+Before you can begin submitting observations, **you must create an iNaturalist account and provide me with your username** in order for me to invite you to the BIOL 324 iNaturalist Project. Please [enter your name and iNaturalist id into this Google sheet](https://docs.google.com/spreadsheets/d/1lUajuGPwVc29feAesxS9DYLhfNqYxRrawvofaE6bYjA/edit?usp=sharing).
+
+The goal is for you to make 10 high quality observations (please do not submit more than 10). We will evaluate your observations based on these criteria:
+
+</br>
+
+* Please be sure to add your observations to the official BIOL 324 iNaturalist project. Feel free to make personal observations if you like (they will not be marked if they are not submitted to the BIOL 324 project).
+
+</br>
+
+* Photographs
+    + For plants, it is ideal to include multiple photographs per observation. A good rule of thumb is one picture of the entire plant, one of the leaves, and one of the reproductive structures (flowers and/or fruits). It is a good idea to include other features that may be helpful for identification (depending on the species), such as the the underside of leaves or the presence of hairs.
+    + **You must submit your own pictures (do NOT take them from the internet).**
+    + A smartphone is the most straightforward way to take and submit images to iNaturalist, but you can also easily submit photos taken by a digital camera using the iNaturalist website. Please let Evan know if you do not have access to a smartphone or digital camera. 
+    
+</br>
+  
+* Location information
+    + You must supply GPS coordinates with each observation. This information is often included automatically when you submit photos taken with a smartphone through the iNaturalist app, but if not it is easy to set coordinates manually when you make your observation.
+    
+</br>
+  
+* Identifications
+    + **Your observations must be identified to species.** The iNaturalist machine learning algorithm will help provide suggestions, but it is up to you to confirm your ID's using other resources. Marks will be associated with correct family, genus, and species (so you will still get partial marks if you get the family and genus right but the wrong species).
+    + **Please do not provide identifications for your fellow student's observations in the BIOL 324 iNaturalist project.**
+    
+</br>
+  
+* **Cultivated plants (those planted in gardens or for horticultural purposes) will not be accepted.** Your observed plants must be growing naturally.
+    + Good places to look are along roadsides, in parks (e.g., Pacific Spirit Park or Jericho Park if in Vancouver), or natural fields. Weeds growing in urban areas are fair game as well, as long as they are not cultivated.
+    + It is sometimes difficult to tell what is cultivated or not. If the base of the plant is surrounded by mulch and the area looks manicured, it is probably cultivated. Same for front yards / back yards (observations of your grandparent's beautiful rose bushes are a no-go!). If you are having trouble discerning whether a plant is cultivated or not, please ask your Lab instructors for help.
+    
+</br>
+  
+* Notes
+    + Provide detailed morphological descriptions in the "Notes" field for each observation. These may include descriptions of the leaves (e.g., simple vs compound, toothed, presence of trichomes, etc) and flowers/fruits (e.g., number of petals/sepals, type of fruit). Ideally you will use terms you will be learning in lab, and you can utilize the [morphological terminology page](Morphological_Terminology.html) as well.
+    + Provide demographic / ecological information. This can include information on the abundance of the plant in that area (e.g., solitary individual, a few scattered individuals, or a large/dense population). You should also put any relevant habitat information here as well (e.g., a dry meadow, wet forest understory, roadside ditch, or growing out of cracks in the sidewalk).
+    
+</br>
+  
+* Provide phenology information
+    + You must indicate the phenology of each plant you observe (i.e., bare, budding, flower, or fruit). This annotation field should show up automatically once you select the BIOL 324 project when using the smartphone app, but may not show up automatically when using the browser version of iNaturalist. It is easy to edit this field (or any other aspect of your observations) after they've been submitted.
+    + Keep in mind that plants without reproductive structures are often difficult to confidently identify to species.
+  
+</br>
+
+* Keep in mind that you can edit, add, or remove observations at will until the project is due. 
+
+---
+
+---
+
+# Observation marking
+
+Each observation will be worth 10 marks (for a total of 100). 
+
+- 1 mark for correct family
+- 2 marks for correct genus
+- 2 marks for correct species
+- 5 marks for associated information listed above (i.e., location, phenology, and notes).
+
+Marks will be deducted if the photos are unclear, or if it is not possible to identify the plant with the images provided. 
+
+---
+
+---
+
+# Report on phylogenetic relationships
+
+Details coming soon...
+
+---
+
+---
+
+# Resources
+
+* iNaturalist
+    + [Photographing plants for iNaturalist](http://www.sdplantatlas.org/inat/iNatPhotoguide.html) - San Diego Plant Atlas Project
+    + [Getting great plant photos for identification in iNaturalist](https://www.inaturalist.org/projects/abisko-plants-and-phenology/journal/17621-getting-great-plant-photos-for-identification-in-inaturalist) - Abisko Natural Park, Sweden
+    + [Getting started with iNaturalist](https://www.inaturalist.org/pages/getting+started)
+
+* **Help with identifications**
+    + [Flora of North America](http://www.efloras.org/flora_page.aspx?flora_id=1)
+    + [E-Flora BC](https://ibis.geog.ubc.ca/biodiversity/eflora/)
+    + Google image search
+    + You can always check with your Lab instructors if you need help with ID's.
+
+  
