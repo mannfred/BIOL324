@@ -11,7 +11,15 @@ navbar:
     - text: "Resources"
       menu:
       - text: "Morphological Terminology"
-        href: Morphological_Terminology.html  
+        href: Morphological_Terminology.html
+    - text: "Projects"
+      menu:
+      - text: "Project 1 (iNaturalist)"
+        href: BIOL_324_Project_1.html 
+    - text: "Labs"
+      menu:
+      - text: "Lab 1"
+        href: BIOL_324_Lab_1.html
     # - text: "Lab 2"
     #   href: BIOL_324_Lab_2.html
     # - text: "Lab 3"
