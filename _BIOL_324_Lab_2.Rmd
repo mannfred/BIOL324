@@ -6,9 +6,11 @@ title: "Lab 2: Basic floral structure, Ranunculaceae, and keying."
 
 ---
 
+---
+
 # Botany Basics: Flower and fruit parts
 
----
+
 
 ![](media/diagram_basic1.png)
 
@@ -38,7 +40,11 @@ title: "Lab 2: Basic floral structure, Ranunculaceae, and keying."
 
 ---
 
+---
+
 The purpose of this lab exercise is to familiarize you with basic flower parts, fruit characteristics, and inflorescence structure. Follow the instructions and take labeled drawings of the flowers and fruits below and answer the questions about them (indicated by **-Knowledge Check-** ). Remember that there is an [illustrated glossary of plant parts](Morphological_Terminology.html) that may be useful when you're making your drawings.  There is also a wiki glossary of common botanical terminology [here](https://en.wikipedia.org/wiki/Glossary_of_botanical_terms). It is good practice to refer to these resources when you come across new terms (it will happen a lot), and make sure to utilize your TA's / Lab instructor as well!
+
+---
 
 ---
 
@@ -65,6 +71,8 @@ This picture displays a longitudinal section of the flower (cut in half length-w
 
 ---
 
+---
+
 The pictures below display *Antirrhinum* sp. (snapdragons). We will go into the Scrophularioid families in greater detail in Lab 6. In this case the petals are fused, which makes it a little bit trickier to tell how many petals there are...you can, however, count the number of petal lobes to get an indication of the number of fused parts.
 
 <p align="center">
@@ -80,6 +88,8 @@ In these photos, the petals are removed to unveil the reproductive parts inside 
 
 ---
 
+---
+
 ## -KNOWLEDGE CHECK 2.1-
 
 Using the above photos, make drawings of the *Fuchsia* and *Antirrhinum* flowers and indicate the following:  
@@ -91,6 +101,8 @@ Using the above photos, make drawings of the *Fuchsia* and *Antirrhinum* flowers
 - Is a hypanthium present?  
 - What type of inflorescence does *Antirrhinum* have?  
 - Label your drawing with the following terms if present: sepal, petal, stamen, anther, filament, pistil, ovary, style, stigma, hypanthium.  
+
+---
 
 ---
 
@@ -118,6 +130,8 @@ The cucumber is another fruit derived from a compound pistil.
 
 ---
 
+---
+
 ## -KNOWLEDGE CHECK 2.2-  
 Draw sections (longitudinal-section of pea, cross-sections of tomato and cucumber) of the above fruits and indicate the following:  
 - What is the type of fruit?  (hint: use the list of fruit types found here **point to fruit list**)  
@@ -130,9 +144,11 @@ Draw sections (longitudinal-section of pea, cross-sections of tomato and cucumbe
 
 ---
 
+---
+
 # Ranunculaceae (Buttercup family)  
 
----
+</br>
 
 **1. Usually herbs.**  
 **2. Leaves simple to compound, usually alternate, without stipules, often palmately veined.**  
@@ -141,6 +157,9 @@ Draw sections (longitudinal-section of pea, cross-sections of tomato and cucumbe
 **5. About 50 genera and 1900 species, mainly in North Temperate regions.**  
 
 ---
+
+---
+
 
 ![](media/diagram_Ranunculaceae1.png)
 
@@ -208,6 +227,8 @@ Here are some developing *Aconitum* fruit. Can you tell the fruit type?
 
 ---
 
+---
+
 ## -KNOWLEDGE CHECK 2.3- 
 
 Using the above photos, draw *Thalictrum* and *Aconitum* and indicate the following:
@@ -222,9 +243,10 @@ Using the above photos, draw *Thalictrum* and *Aconitum* and indicate the follow
 
 ---
 
+---
+
 # Keying
 
----
 
 The use of dichotomous keys to identify species is an absolutely crucial aspect of taxonomy. In many cases, the only way to confirm a species' ID is to wade through the key with a specimen in hand that has reproductive structures present (preferably flowers AND fruits) and some form of magnification (preferably a dissecting microscope). Typical plant taxonomy courses have students spending the majority of their time keying, but it is rather difficult to do in a virtual lab environment. Nonetheless, we have prepared a virtual keying exercise to give you some experience and exposure to this vital part of taxonomy.
 
@@ -245,6 +267,11 @@ You will use the below pictures to attempt to identify the plant to species! Sta
 &nbsp;
 
 ![](media/keying_3.png)
+
+---
+
+---
+
 
 ## -KNOWLEDGE CHECK 2.4-
 
