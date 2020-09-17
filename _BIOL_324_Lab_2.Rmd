@@ -6,7 +6,7 @@ title: "Lab 2: Basic floral structure, Ranunculaceae, and keying."
 
 ---
 
-## Botany Basics: Flower and fruit parts
+# Botany Basics: Flower and fruit parts
 
 ---
 
@@ -38,13 +38,11 @@ title: "Lab 2: Basic floral structure, Ranunculaceae, and keying."
 
 ---
 
-The purpose of this lab exercise is to familiarize you with basic flower parts, fruit characteristics, and inflorescence structure. Follow the instructions and take labeled drawings of the flowers and fruits below and answer the questions about them (indicated by **-Knowledge Check-** ).  YOUR DRAWINGS DO NOT NEED TO BE ARTISTIC.  They may be diagrammatic, but should be accurate as to numbers and positions of parts, because accuracy in these details is necessary for plant identification and learning family-specific patterns.  For example, if the flower you are to draw has 8 stamens, draw 8 stamens, not an ill defined bunch of stamens.
-
-NOTE that there is an illustrated glossary of plant parts in another tab on this lab site (**Still building - insert link here**).  There is also a wiki glossary of common botanical terminology [here](https://en.wikipedia.org/wiki/Glossary_of_botanical_terms). It is good practice to refer to these resources when you come across new terms (it will happen a lot), and make sure to utilize your TA's / Lab instructor as well!
+The purpose of this lab exercise is to familiarize you with basic flower parts, fruit characteristics, and inflorescence structure. Follow the instructions and take labeled drawings of the flowers and fruits below and answer the questions about them (indicated by **-Knowledge Check-** ). Remember that there is an [illustrated glossary of plant parts](Morphological_Terminology.html) that may be useful when you're making your drawings.  There is also a wiki glossary of common botanical terminology [here](https://en.wikipedia.org/wiki/Glossary_of_botanical_terms). It is good practice to refer to these resources when you come across new terms (it will happen a lot), and make sure to utilize your TA's / Lab instructor as well!
 
 ---
 
-### Flowers
+## Flowers
 
 The flower depicted below is *Fuchsia* sp. in the Onagraceae family, which we will explore in detail in Lab 3. 
 
@@ -67,7 +65,7 @@ This picture displays a longitudinal section of the flower (cut in half length-w
 
 ---
 
-The pictures below display *Antirrhinum* sp. (snapdragons). We will go into the Scrophularioid families in greater detail in Lab 6. In this case the petals are fused, which makes it a little bit trickier to tell how many petals there are...you can count the number of petal lobes.
+The pictures below display *Antirrhinum* sp. (snapdragons). We will go into the Scrophularioid families in greater detail in Lab 6. In this case the petals are fused, which makes it a little bit trickier to tell how many petals there are...you can, however, count the number of petal lobes to get an indication of the number of fused parts.
 
 <p align="center">
 ![](./media/basic_12.jpeg){width=40%} ![](./media/basic_11.jpeg){width=40%}
@@ -82,7 +80,7 @@ In these photos, the petals are removed to unveil the reproductive parts inside 
 
 ---
 
-**-Knowledge check-**  
+## -KNOWLEDGE CHECK 2.1-
 
 Using the above photos, make drawings of the *Fuchsia* and *Antirrhinum* flowers and indicate the following:  
 - What type of symmetry does this flower have?  
@@ -120,8 +118,8 @@ The cucumber is another fruit derived from a compound pistil.
 
 ---
 
-**-KNOWLEDGE CHECK-**  
-Draw the above pictured fruits and indicate the following:  
+## -KNOWLEDGE CHECK 2.2-  
+Draw sections (longitudinal-section of pea, cross-sections of tomato and cucumber) of the above fruits and indicate the following:  
 - What is the type of fruit?  (hint: use the list of fruit types found here **point to fruit list**)  
 - How many carpels does it have?  
 - How many locules does it have?    
@@ -132,13 +130,13 @@ Draw the above pictured fruits and indicate the following:
 
 ---
 
-## Ranunculaceae (Buttercup family)  
+# Ranunculaceae (Buttercup family)  
 
 ---
 
 **1. Usually herbs.**  
 **2. Leaves simple to compound, usually alternate, without stipules, often palmately veined.**  
-**3. Flower perfect (or imperfect), mostly actinomorphic, the parts spirally arranged.  Sepals 3 20, often 5, free.  Petals 0, 2, 4, 5  10, free.  Stamens usually numerous.  Pistils simple, ovary superior, carpels usually several to numerous, placentation parietal (marginal).**  
+**3. Flower perfect (or imperfect), mostly actinomorphic, the parts spirally arranged.  Sepals 3-20, often 5, free.  Petals 0, 2, 4, 5  10, free.  Stamens usually numerous.  Pistils simple, ovary superior, carpels usually several to numerous, placentation parietal (marginal).**  
 **4. Fruit an achene, follicle, (or berry).**  
 **5. About 50 genera and 1900 species, mainly in North Temperate regions.**  
 
@@ -156,7 +154,7 @@ Draw the above pictured fruits and indicate the following:
 
 ---
 
-Ranunculaceae is the 8th largest family in B.C. with 97 species and varieties.  The family contains many poisonous plants; some such as *Delphinium* can cause serious livestock poisoning.  Cultivated ornamentals include *Aconitum* (monkshood), *Anemone* (windflower), *Aquilegia* (columbine), *Clematis*, and *Delphinium* (larkspur).
+Ranunculaceae is the 8th largest family in B.C. with 97 species and varieties.  The family contains many poisonous plants; some, such as *Delphinium* can cause serious livestock poisoning.  Cultivated ornamentals include *Aconitum* (monkshood), *Anemone* (windflower), *Aquilegia* (columbine), *Clematis*, and *Delphinium* (larkspur).
 
 ---
 
@@ -210,7 +208,7 @@ Here are some developing *Aconitum* fruit. Can you tell the fruit type?
 
 ---
 
-**-KNOWLEDGE CHECK-** 
+## -KNOWLEDGE CHECK 2.3- 
 
 Using the above photos, draw *Thalictrum* and *Aconitum* and indicate the following:
 
@@ -224,7 +222,7 @@ Using the above photos, draw *Thalictrum* and *Aconitum* and indicate the follow
 
 ---
 
-## Keying
+# Keying
 
 ---
 
@@ -248,4 +246,7 @@ You will use the below pictures to attempt to identify the plant to species! Sta
 
 ![](media/keying_3.png)
 
+## -KNOWLEDGE CHECK 2.4-
+
+Write down your journey through the key (e.g., 1, 2+, 3, 4, 8+, etc), and indicate the genus and species you landed on. Make sure to list the authority after the species name. 
 

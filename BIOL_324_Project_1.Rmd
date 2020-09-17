@@ -89,11 +89,11 @@ The goal is for you to make 10 high quality observations (please do not submit m
 Each observation will be worth 10 marks (for a total of 100). 
 
 - 1 mark for correct family
-- 2 marks for correct genus
-- 2 marks for correct species
+- 1 marks for correct genus
+- 3 marks for correct species
 - 5 marks for associated information listed above (i.e., location, phenology, and notes).
 
-Marks will be deducted if the photos are unclear, or if it is not possible to identify the plant with the images provided. 
+Marks will be deducted if the photos are unclear, or if it is not possible to identify the plant with the images/specimen provided. Make sure to include accurate terminology in the "Notes" field of your observations.
 
 ---
 
