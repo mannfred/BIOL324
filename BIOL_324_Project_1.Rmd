@@ -36,27 +36,31 @@ Before you can begin submitting observations, **you must create an iNaturalist a
 
 The goal is for you to make 10 high quality observations (please do not submit more than 10). We will evaluate your observations based on these criteria:
 
-* **9 out of 10 of your observations must be of angiosperms! We will allow 1 gymnosperm per student**
 * Please be sure to add your observations to the official BIOL 324 iNaturalist project. Feel free to make personal observations if you like (they will not be marked if they are not submitted to the BIOL 324 project).
+* **9 out of 10 of your observations must be of angiosperms! We will allow 1 gymnosperm per student** (but you can submit 10 angiosperms if you wish).
+* **Cultivated plants (those planted in gardens or for horticultural purposes) will not be accepted.** Your observed plants must be growing naturally.
+    + Good places to look are along roadsides, in parks (e.g., Pacific Spirit Park or Jericho Park if in Vancouver), or natural fields. Weeds growing in urban areas are fair game as well, as long as they are not cultivated.
+    + It is sometimes difficult to tell what is cultivated or not. If the base of the plant is surrounded by mulch and the area looks manicured, it is probably cultivated. Same for front yards / back yards (observations of your grandparent's beautiful rose bushes are a no-go!). If you are having trouble discerning whether a plant is cultivated or not, please ask your Lab instructors for help.
+* Keep in mind that you can edit, add, or remove observations at will until the project is due. 
+    
+</br>
+
 * Photographs
     + For plants, it is ideal to include multiple photographs per observation. A good rule of thumb is one picture of the entire plant, one of the leaves, and one of the reproductive structures (flowers and/or fruits). It is a good idea to include other features that may be helpful for identification (depending on the species), such as the the underside of leaves or the presence of hairs.
     + **You must submit your own pictures (do NOT take them from the internet).**
     + A smartphone is the most straightforward way to take and submit images to iNaturalist, but you can also easily submit photos taken by a digital camera using the iNaturalist website. Please let Evan know if you do not have access to a smartphone or digital camera. 
-* Location information
-    + You must supply GPS coordinates with each observation. This information is often included automatically when you submit photos taken with a smartphone through the iNaturalist app, but if not it is easy to set coordinates manually when you make your observation.
 * Identifications
     + **Your observations must be identified to species.** The iNaturalist machine learning algorithm will help provide suggestions, but it is up to you to confirm your ID's using other resources. Marks will be associated with correct family, genus, and species (so you will still get partial marks if you get the family and genus right but the wrong species).
     + **Please do not provide identifications for your fellow student's observations in the BIOL 324 iNaturalist project.**
-* **Cultivated plants (those planted in gardens or for horticultural purposes) will not be accepted.** Your observed plants must be growing naturally.
-    + Good places to look are along roadsides, in parks (e.g., Pacific Spirit Park or Jericho Park if in Vancouver), or natural fields. Weeds growing in urban areas are fair game as well, as long as they are not cultivated.
-    + It is sometimes difficult to tell what is cultivated or not. If the base of the plant is surrounded by mulch and the area looks manicured, it is probably cultivated. Same for front yards / back yards (observations of your grandparent's beautiful rose bushes are a no-go!). If you are having trouble discerning whether a plant is cultivated or not, please ask your Lab instructors for help.
+* Location information
+    + You must supply GPS coordinates with each observation. This information is often included automatically when you submit photos taken with a smartphone through the iNaturalist app, but if not it is easy to set coordinates manually when you make your observation.
 * Notes
     + Provide detailed morphological descriptions in the "Notes" field for each observation. These may include descriptions of the leaves (e.g., simple vs compound, toothed, presence of trichomes, etc) and flowers/fruits (e.g., number of petals/sepals, type of fruit). Ideally you will use terms you will be learning in lab, and you can utilize the [morphological terminology page](Morphological_Terminology.html) as well.
     + Provide demographic / ecological information. This can include information on the abundance of the plant in that area (e.g., solitary individual, a few scattered individuals, or a large/dense population). You should also put any relevant habitat information here as well (e.g., a dry meadow, wet forest understory, roadside ditch, or growing out of cracks in the sidewalk).
 * Provide phenology information
     + You must indicate the phenology of each plant you observe (i.e., bare, budding, flower, or fruit). This annotation field should show up automatically once you select the BIOL 324 project when using the smartphone app, but may not show up automatically when using the browser version of iNaturalist. It is easy to edit this field (or any other aspect of your observations) after they've been submitted.
     + Keep in mind that plants without reproductive structures are often difficult to confidently identify to species.
-* Keep in mind that you can edit, add, or remove observations at will until the project is due. 
+
 
 ---
 
