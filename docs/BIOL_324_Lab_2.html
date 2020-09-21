@@ -9,7 +9,6 @@
 <meta http-equiv="X-UA-Compatible" content="IE=EDGE" />
 
 
-<meta name="author" content="Evan Hersh" />
 
 
 <title>Lab 2: Basic floral structure, Ranunculaceae, and keying.</title>
@@ -20,7 +19,11 @@
 <script src="site_libs/bootstrap-3.3.5/js/bootstrap.min.js"></script>
 <script src="site_libs/bootstrap-3.3.5/shim/html5shiv.min.js"></script>
 <script src="site_libs/bootstrap-3.3.5/shim/respond.min.js"></script>
+<script src="site_libs/jqueryui-1.11.4/jquery-ui.min.js"></script>
+<link href="site_libs/tocify-1.9.1/jquery.tocify.css" rel="stylesheet" />
+<script src="site_libs/tocify-1.9.1/jquery.tocify.js"></script>
 <script src="site_libs/navigation-1.1/tabsets.js"></script>
+<script src="site_libs/accessible-code-block-0.0.1/empty-anchor.js"></script>
 
 
 
@@ -232,6 +235,69 @@ $(document).ready(function () {
 
 
 
+<style type="text/css">
+
+#TOC {
+  margin: 25px 0px 20px 0px;
+}
+@media (max-width: 768px) {
+#TOC {
+  position: relative;
+  width: 100%;
+}
+}
+
+@media print {
+.toc-content {
+  /* see https://github.com/w3c/csswg-drafts/issues/4434 */
+  float: right;
+}
+}
+
+.toc-content {
+  padding-left: 30px;
+  padding-right: 40px;
+}
+
+div.main-container {
+  max-width: 1200px;
+}
+
+div.tocify {
+  width: 20%;
+  max-width: 260px;
+  max-height: 85%;
+}
+
+@media (min-width: 768px) and (max-width: 991px) {
+  div.tocify {
+    width: 25%;
+  }
+}
+
+@media (max-width: 767px) {
+  div.tocify {
+    width: 100%;
+    max-width: none;
+  }
+}
+
+.tocify ul, .tocify li {
+  line-height: 20px;
+}
+
+.tocify-subheader .tocify-item {
+  font-size: 0.90em;
+}
+
+.tocify .list-group-item {
+  border-radius: 0px;
+}
+
+
+</style>
+
+
 
 </head>
 
@@ -239,6 +305,16 @@ $(document).ready(function () {
 
 
 <div class="container-fluid main-container">
+
+
+<!-- setup 3col/9col grid for toc_float and main content  -->
+<div class="row-fluid">
+<div class="col-xs-12 col-sm-4 col-md-3">
+<div id="TOC" class="tocify">
+</div>
+</div>
+
+<div class="toc-content col-xs-12 col-sm-8 col-md-9">
 
 
 
@@ -259,34 +335,46 @@ $(document).ready(function () {
   <a href="index.html">Home</a>
 </li>
 <li>
-  <a href="BIOL_324_Lab_2.html">Lab 2</a>
+  <a href="Syllabus.html">Syllabus</a>
 </li>
-<li>
-  <a href="BIOL_324_Lab_3.html">Lab 3</a>
+<li class="dropdown">
+  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
+    Resources
+     
+    <span class="caret"></span>
+  </a>
+  <ul class="dropdown-menu" role="menu">
+    <li>
+      <a href="Morphological_Terminology.html">Morphological Terminology</a>
+    </li>
+  </ul>
 </li>
-<li>
-  <a href="BIOL_324_Lab_4.html">Lab 4</a>
+<li class="dropdown">
+  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
+    Projects
+     
+    <span class="caret"></span>
+  </a>
+  <ul class="dropdown-menu" role="menu">
+    <li>
+      <a href="BIOL_324_Project_1.html">Project 1 (iNaturalist)</a>
+    </li>
+  </ul>
 </li>
-<li>
-  <a href="BIOL_324_Lab_5.html">Lab 5</a>
-</li>
-<li>
-  <a href="BIOL_324_Lab_6.html">Lab 6</a>
-</li>
-<li>
-  <a href="BIOL_324_Lab_7.html">Lab 7</a>
-</li>
-<li>
-  <a href="BIOL_324_Lab_8.html">Lab 8</a>
-</li>
-<li>
-  <a href="BIOL_324_Lab_9.html">Lab 9</a>
-</li>
-<li>
-  <a href="BIOL_324_Lab_10.html">Lab 10</a>
-</li>
-<li>
-  <a href="LinneanTypification.html">Linnean Typification</a>
+<li class="dropdown">
+  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
+    Labs
+     
+    <span class="caret"></span>
+  </a>
+  <ul class="dropdown-menu" role="menu">
+    <li>
+      <a href="BIOL_324_Lab_1.html">Lab 1</a>
+    </li>
+    <li>
+      <a href="BIOL_324_Lab_2.html">Lab 2</a>
+    </li>
+  </ul>
 </li>
       </ul>
       <ul class="nav navbar-nav navbar-right">
@@ -301,16 +389,16 @@ $(document).ready(function () {
 
 
 <h1 class="title toc-ignore">Lab 2: Basic floral structure, Ranunculaceae, and keying.</h1>
-<h4 class="author">Evan Hersh</h4>
-<h4 class="date">06 September, 2020</h4>
 
 </div>
 
 
 <hr />
-<div id="botany-basics-flower-and-fruit-parts" class="section level2">
-<h2>Botany Basics: Flower and fruit parts</h2>
 <hr />
+<div id="basic-floral-parts" class="section level1">
+<h1>Basic Floral parts</h1>
+<div id="diagrams" class="section level2">
+<h2>Diagrams</h2>
 <p><img src="media/diagram_basic1.png" /></p>
 <hr />
 <p><img src="media/diagram_basic2.png" /></p>
@@ -325,13 +413,14 @@ $(document).ready(function () {
 <hr />
 <p><img src="media/diagram_basic7.png" /></p>
 <hr />
-<p>The purpose of this lab exercise is to familiarize you with basic flower parts, fruit characteristics, and inflorescence structure. Follow the instructions and take labeled drawings of the flowers and fruits below and answer the questions about them (indicated by <strong>-Knowledge Check-</strong> ). YOUR DRAWINGS DO NOT NEED TO BE ARTISTIC. They may be diagrammatic, but should be accurate as to numbers and positions of parts, because accuracy in these details is necessary for plant identification and learning family-specific patterns. For example, if the flower you are to draw has 8 stamens, draw 8 stamens, not an ill defined bunch of stamens.</p>
-<p>NOTE that there is an illustrated glossary of plant parts in another tab on this lab site (<strong>Still building - insert link here</strong>). There is also a wiki glossary of common botanical terminology <a href="https://en.wikipedia.org/wiki/Glossary_of_botanical_terms">here</a>. It is good practice to refer to these resources when you come across new terms (it will happen a lot), and make sure to utilize your TA’s / Lab instructor as well!</p>
 <hr />
-<div id="flowers" class="section level3">
-<h3>Flowers</h3>
-<p>The flower depicted below is <em>Fuchsia</em> sp. in the Onagraceae family, which we will explore in detail in Lab 3.</p>
-<p> </p>
+<p>The purpose of this lab exercise is to familiarize you with basic flower parts, fruit characteristics, and inflorescence structure. Follow the instructions and take labeled drawings of the flowers and fruits below and answer the questions about them (indicated by <strong>-Knowledge Check-</strong> ). Remember that there is an <a href="Morphological_Terminology.html">illustrated glossary of plant parts</a> that may be useful when you’re making your drawings. There is also a wiki glossary of common botanical terminology <a href="https://en.wikipedia.org/wiki/Glossary_of_botanical_terms">here</a>. It is good practice to refer to these resources when you come across new terms (it will happen a lot), and make sure to utilize your TA’s / Lab instructor as well!</p>
+<hr />
+<hr />
+</div>
+<div id="flowers" class="section level2">
+<h2>Flowers</h2>
+<p>The flower depicted below is from <em>Fuchsia</em> sp. in the Onagraceae family, which we will explore in detail in Lab 3.</p>
 <p align="center">
 <img src="media/basic_1.jpeg" style="width:40.0%" /> <img src="media/basic_2.jpeg" style="width:40.0%" /> <img src="media/basic_2.5.jpeg" style="width:40.0%" /> <img src="media/basic_3.jpeg" style="width:40.0%" />
 </p>
@@ -342,16 +431,21 @@ $(document).ready(function () {
 </p>
 <p> </p>
 <hr />
-<p>The pictures below display <em>Antirrhinum</em> sp. (snapdragons). We will go into the Scrophularioid families in greater detail in Lab 6. In this case the petals are fused, which makes it a little bit trickier to tell how many petals there are…you can count the number of petal lobes.</p>
+<hr />
+<p>The pictures below display <em>Antirrhinum</em> sp. (snapdragons). We will go into the Scrophularioid families in greater detail in Lab 6. In this case the petals are fused, which makes it a little bit trickier to tell how many petals there are…you can, however, count the number of petal lobes to get an indication of the number of fused parts.</p>
 <p align="center">
 <img src="media/basic_12.jpeg" style="width:40.0%" /> <img src="media/basic_11.jpeg" style="width:40.0%" /> <img src="media/basic_13.jpeg" style="width:40.0%" /> <img src="media/basic_14.jpeg" style="width:40.0%" />
 </p>
+<p></br></p>
 <p>In these photos, the petals are removed to unveil the reproductive parts inside the flower tube. You can see that there are only four stamens, so not all plants follow the rule of multiples between whorls…</p>
 <p align="center">
 <img src="media/basic_15.jpeg" style="width:40.0%" /> <img src="media/basic_16.jpeg" style="width:40.0%" />
 </p>
 <hr />
-<p><strong>-Knowledge check-</strong></p>
+<hr />
+</div>
+<div id="knowledge-check-2.1-" class="section level2">
+<h2>-KNOWLEDGE CHECK 2.1-</h2>
 <p>Using the above photos, make drawings of the <em>Fuchsia</em> and <em>Antirrhinum</em> flowers and indicate the following:<br />
 - What type of symmetry does this flower have?<br />
 - How many sepals?<br />
@@ -362,9 +456,10 @@ $(document).ready(function () {
 - What type of inflorescence does <em>Antirrhinum</em> have?<br />
 - Label your drawing with the following terms if present: sepal, petal, stamen, anther, filament, pistil, ovary, style, stigma, hypanthium.</p>
 <hr />
+<hr />
 </div>
-<div id="fruits" class="section level3">
-<h3>Fruits</h3>
+<div id="fruits" class="section level2">
+<h2>Fruits</h2>
 <p>Most people do not realize that in many cases that fruit are just as important for identification as flowers (in some cases fruit are even more important!). As a refresher: after a flower has been pollinated and the ovules (located within the ovary) have been fertilized, the ovary begins to transform into a fruit (and typically the sepals, petals, and stamens wither away) and the ovules develop into seeds. This means that (botanically speaking) <strong>every fruit was once the ovary of a flower</strong>. So in this course, forget about your grocery store definition of “fruits and vegetables”…in our world, tomatoes, cucumbers, pea pods, and peppers are all considered fruits!</p>
 <p>In the case of a pea, the pod is the fruit and the peas inside are the seeds. A pea pod is a legume, a fruit formed from a single carpel (a simple pistil). It dehisces (splits open when ripe) along two sutures (lines that split open). Below you can see that the seeds are attached to the margins of the ovary wall - this is called marginal placentation (a type of parietal placentation).</p>
 <p align="center">
@@ -378,8 +473,11 @@ $(document).ready(function () {
 <p>The cucumber is another fruit derived from a compound pistil.</p>
 <p><strong>INSERT CUCUMBER PICTURES</strong></p>
 <hr />
-<p><strong>-KNOWLEDGE CHECK-</strong><br />
-Draw the above pictured fruits and indicate the following:<br />
+<hr />
+</div>
+<div id="knowledge-check-2.2-" class="section level2">
+<h2>-KNOWLEDGE CHECK 2.2-</h2>
+<p>Draw sections (longitudinal-section of pea, cross-sections of tomato and cucumber) of the above fruits and indicate the following:<br />
 - What is the type of fruit? (hint: use the list of fruit types found here <strong>point to fruit list</strong>)<br />
 - How many carpels does it have?<br />
 - How many locules does it have?<br />
@@ -387,34 +485,42 @@ Draw the above pictured fruits and indicate the following:<br />
 - Label your drawings with the following terms: ovary wall, seeds, placenta, locule(s).</p>
 <p> </p>
 <hr />
-</div>
-</div>
-<div id="ranunculaceae-buttercup-family" class="section level2">
-<h2>Ranunculaceae (Buttercup family)</h2>
 <hr />
+</div>
+</div>
+<div id="ranunculaceae-buttercup-family" class="section level1">
+<h1>Ranunculaceae (Buttercup family)</h1>
+<p></br></p>
 <p><strong>1. Usually herbs.</strong><br />
 <strong>2. Leaves simple to compound, usually alternate, without stipules, often palmately veined.</strong><br />
-<strong>3. Flower perfect (or imperfect), mostly actinomorphic, the parts spirally arranged. Sepals 3 20, often 5, free. Petals 0, 2, 4, 5 10, free. Stamens usually numerous. Pistils simple, ovary superior, carpels usually several to numerous, placentation parietal (marginal).</strong><br />
+<strong>3. Flower perfect (or imperfect), mostly actinomorphic, the parts spirally arranged. Sepals 3-20, often 5, free. Petals 0, 2, 4, 5 10, free. Stamens usually numerous. Pistils simple, ovary superior, carpels usually several to numerous, placentation parietal (marginal).</strong><br />
 <strong>4. Fruit an achene, follicle, (or berry).</strong><br />
 <strong>5. About 50 genera and 1900 species, mainly in North Temperate regions.</strong></p>
 <hr />
+<hr />
+<div id="diagrams-1" class="section level2">
+<h2>Diagrams</h2>
+<p></br></p>
 <p><img src="media/diagram_Ranunculaceae1.png" /></p>
 <hr />
 <p><img src="media/diagram_Ranunculaceae2.png" /></p>
 <hr />
 <p><img src="media/diagram_Ranunculaceae3.png" /></p>
 <hr />
-<p>Ranunculaceae is the 8th largest family in B.C. with 97 species and varieties. The family contains many poisonous plants; some such as <em>Delphinium</em> can cause serious livestock poisoning. Cultivated ornamentals include <em>Aconitum</em> (monkshood), <em>Anemone</em> (windflower), <em>Aquilegia</em> (columbine), <em>Clematis</em>, and <em>Delphinium</em> (larkspur).</p>
+<p>Ranunculaceae is the 8th largest family in B.C. with 97 species and varieties. The family contains many poisonous plants; some, such as <em>Delphinium</em> can cause serious livestock poisoning. Cultivated ornamentals include <em>Aconitum</em> (monkshood), <em>Anemone</em> (windflower), <em>Aquilegia</em> (columbine), <em>Clematis</em>, and <em>Delphinium</em> (larkspur).</p>
+<p></br></p>
 <hr />
 <p>Below are photos of Japanese anemone (<em>Eriocapitella</em> sp., previously placed in <em>Anemone</em>). In this case the sepals are petaloid (they are coloured and appear like petals), and the petals are missing. In plants where it looks like either sepals or petals are missing, typically the petals are absent and the sepals remain. The third picture shows a close-up of the pistils, with the sepals and stamens removed.</p>
 <p align="center">
 <img src="media/Ranunculaceae_1.jpeg" style="width:40.0%" /> <img src="media/Ranunculaceae_2.jpeg" style="width:40.0%" /> <img src="media/Ranunculaceae_3.jpeg" style="width:40.0%" />
 </p>
+<p></br></p>
 <hr />
-<p>Similar examples are <em>Thalictrum</em> spp., which are small flowers that also have missing petals. The first two photos show flowers at very different stages of development. Can you guess what type of fruits <em>Thalictrum</em> has?</p>
+<p>Similar examples are <em>Thalictrum</em> spp., which have small flowers that are also missing petals. The first two photos show flowers at very different stages of development. Can you guess what type of fruits <em>Thalictrum</em> has?</p>
 <p align="center">
 <img src="media/Ranunculaceae_4.jpeg" style="width:40.0%" /> <img src="media/Ranunculaceae_5.jpeg" style="width:40.0%" /> <img src="media/Ranunculaceae_6.jpeg" style="width:40.0%" /> <img src="media/Ranunculaceae_7.jpeg" style="width:40.0%" />
 </p>
+<p></br></p>
 <hr />
 <p>Ranunculaceae also has species with quite intricate and modified floral structures, like in <em>Aconitum</em> sp. (left) and <em>Delphinium</em> sp. (right). The showy purple bits are the sepals, and the petals are highly modified and somewhat hidden in the center of the flower.</p>
 <p align="center">
@@ -436,8 +542,11 @@ Draw the above pictured fruits and indicate the following:<br />
 <img src="media/Ranunculaceae_15.jpeg" style="width:40.0%" /> <img src="media/Ranunculaceae_16.jpeg" style="width:40.0%" />
 </p>
 <hr />
-<p><strong>-KNOWLEDGE CHECK-</strong></p>
-<p>Using the above photos, draw <em>Thalictrum</em> and <em>Aconitum</em> and indicate the following:</p>
+<hr />
+</div>
+<div id="knowledge-check-2.3-" class="section level2">
+<h2>-KNOWLEDGE CHECK 2.3-</h2>
+<p>Using the above photos, draw one <em>Thalictrum</em> and one <em>Aconitum</em> flower and indicate the following:</p>
 <ul>
 <li>What type of symmetry does the flower have?<br />
 </li>
@@ -450,10 +559,11 @@ Draw the above pictured fruits and indicate the following:<br />
 </ul>
 <p> </p>
 <hr />
-</div>
-<div id="keying" class="section level2">
-<h2>Keying</h2>
 <hr />
+</div>
+</div>
+<div id="keying" class="section level1">
+<h1>Keying</h1>
 <p>The use of dichotomous keys to identify species is an absolutely crucial aspect of taxonomy. In many cases, the only way to confirm a species’ ID is to wade through the key with a specimen in hand that has reproductive structures present (preferably flowers AND fruits) and some form of magnification (preferably a dissecting microscope). Typical plant taxonomy courses have students spending the majority of their time keying, but it is rather difficult to do in a virtual lab environment. Nonetheless, we have prepared a virtual keying exercise to give you some experience and exposure to this vital part of taxonomy.</p>
 <p>Your instructor will give you an overview of how keying works using the online Flora of North America (FNA), but the same basic concepts apply to any dichotomous key you might use. Basically, keys work through “couplets” (e.g., 1A vs 1B), where you choose the option of the two that more closely fits your specimen. Once you choose a path, it will direct you to the next couplet (e.g. 2A vs 2B, though in some cases it will direct to skip over several couplets) where you will choose the best option, and so on and so forth. Eventually, you will reach the end of a path and have narrowed down a species. At this point, you can read the species description (and cross-reference other keys and lots of pictures) to make sure your ID is correct.</p>
 <p>Keying is a lot easier if you already know what family your plant is in - that’s why we place such a great emphasis in this course on identifying families by sight! If you are confident on the family, you can skip right to that part of the key and start right away on narrowing down the genus. Once you follow the path of the key and land on a genus, click on that genus and you will start from 1A vs 1B again until you reach the species.</p>
@@ -464,10 +574,18 @@ Draw the above pictured fruits and indicate the following:<br />
 <p><img src="media/keying_2.png" /></p>
 <p> </p>
 <p><img src="media/keying_3.png" /></p>
+<hr />
+<hr />
+<div id="knowledge-check-2.4-" class="section level2">
+<h2>-KNOWLEDGE CHECK 2.4-</h2>
+<p>Write down your journey through the key (e.g., 1, 2+, 3, 4, 8+, etc), and indicate the genus and species you landed on. Make sure to list the authority after the species name.</p>
+</div>
 </div>
 
 
 
+</div>
+</div>
 
 </div>
 
@@ -500,6 +618,32 @@ $(document).ready(function () {
 
 <!-- code folding -->
 
+<script>
+$(document).ready(function ()  {
+
+    // move toc-ignore selectors from section div to header
+    $('div.section.toc-ignore')
+        .removeClass('toc-ignore')
+        .children('h1,h2,h3,h4,h5').addClass('toc-ignore');
+
+    // establish options
+    var options = {
+      selectors: "h1,h2,h3",
+      theme: "bootstrap3",
+      context: '.toc-content',
+      hashGenerator: function (text) {
+        return text.replace(/[.\\/?&!#<>]/g, '').replace(/\s/g, '_');
+      },
+      ignoreSelector: ".toc-ignore",
+      scrollTo: 0
+    };
+    options.showAndHide = true;
+    options.smoothScroll = true;
+
+    // tocify
+    var toc = $("#TOC").tocify(options).data("toc-tocify");
+});
+</script>
 
 <!-- dynamically load mathjax for compatibility with self-contained -->
 <script>

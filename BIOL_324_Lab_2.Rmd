@@ -8,7 +8,9 @@ title: "Lab 2: Basic floral structure, Ranunculaceae, and keying."
 
 ---
 
-# Botany Basics: Flower and fruit parts
+# Basic Floral parts
+
+## Diagrams
 
 
 
@@ -50,9 +52,7 @@ The purpose of this lab exercise is to familiarize you with basic flower parts, 
 
 ## Flowers
 
-The flower depicted below is *Fuchsia* sp. in the Onagraceae family, which we will explore in detail in Lab 3. 
-
-&nbsp;
+The flower depicted below is from *Fuchsia* sp. in the Onagraceae family, which we will explore in detail in Lab 3. 
 
 <p align="center">
 ![](./media/basic_1.jpeg){width=40%} ![](./media/basic_2.jpeg){width=40%}
@@ -80,6 +80,8 @@ The pictures below display *Antirrhinum* sp. (snapdragons). We will go into the 
 ![](./media/basic_13.jpeg){width=40%} ![](./media/basic_14.jpeg){width=40%}
 </p>
 
+</br>
+
 In these photos, the petals are removed to unveil the reproductive parts inside the flower tube. You can see that there are only four stamens, so not all plants follow the rule of multiples between whorls...
 
 <p align="center">
@@ -106,7 +108,7 @@ Using the above photos, make drawings of the *Fuchsia* and *Antirrhinum* flowers
 
 ---
 
-### Fruits
+## Fruits
 
 Most people do not realize that in many cases that fruit are just as important for identification as flowers (in some cases fruit are even more important!). As a refresher: after a flower has been pollinated and the ovules (located within the ovary) have been fertilized, the ovary begins to transform into a fruit (and typically the sepals, petals, and stamens wither away) and the ovules develop into seeds. This means that (botanically speaking) **every fruit was once the ovary of a flower**. So in this course, forget about your grocery store definition of "fruits and vegetables"...in our world, tomatoes, cucumbers, pea pods, and peppers are all considered fruits!
 
@@ -160,6 +162,9 @@ Draw sections (longitudinal-section of pea, cross-sections of tomato and cucumbe
 
 ---
 
+## Diagrams
+
+</br>
 
 ![](media/diagram_Ranunculaceae1.png)
 
@@ -175,6 +180,8 @@ Draw sections (longitudinal-section of pea, cross-sections of tomato and cucumbe
 
 Ranunculaceae is the 8th largest family in B.C. with 97 species and varieties.  The family contains many poisonous plants; some, such as *Delphinium* can cause serious livestock poisoning.  Cultivated ornamentals include *Aconitum* (monkshood), *Anemone* (windflower), *Aquilegia* (columbine), *Clematis*, and *Delphinium* (larkspur).
 
+</br>
+
 ---
 
 Below are photos of Japanese anemone (*Eriocapitella* sp., previously placed in *Anemone*). In this case the sepals are petaloid (they are coloured and appear like petals), and the petals are missing. In plants where it looks like either sepals or petals are missing, typically the petals are absent and the sepals remain. The third picture shows a close-up of the pistils, with the sepals and stamens removed.
@@ -183,14 +190,18 @@ Below are photos of Japanese anemone (*Eriocapitella* sp., previously placed in 
 ![](./media/Ranunculaceae_1.jpeg){width=40%} ![](./media/Ranunculaceae_2.jpeg){width=40%} ![](./media/Ranunculaceae_3.jpeg){width=40%}
 </p>
 
+</br>
+
 ---
 
-Similar examples are *Thalictrum* spp., which are small flowers that also have missing petals. The first two photos show flowers at very different stages of development. Can you guess what type of fruits *Thalictrum* has?
+Similar examples are *Thalictrum* spp., which have small flowers that are also missing petals. The first two photos show flowers at very different stages of development. Can you guess what type of fruits *Thalictrum* has?
 
 <p align="center">
 ![](./media/Ranunculaceae_4.jpeg){width=40%} ![](./media/Ranunculaceae_5.jpeg){width=40%} ![](./media/Ranunculaceae_6.jpeg){width=40%}
 ![](./media/Ranunculaceae_7.jpeg){width=40%}
 </p>
+
+</br>
 
 ---
 
@@ -231,7 +242,7 @@ Here are some developing *Aconitum* fruit. Can you tell the fruit type?
 
 ## -KNOWLEDGE CHECK 2.3- 
 
-Using the above photos, draw *Thalictrum* and *Aconitum* and indicate the following:
+Using the above photos, draw one *Thalictrum* and one *Aconitum* flower and indicate the following:
 
 - What type of symmetry does the flower have?  
 - How many sepals?  

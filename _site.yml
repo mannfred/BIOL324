@@ -20,8 +20,8 @@ navbar:
       menu:
       - text: "Lab 1"
         href: BIOL_324_Lab_1.html
-    # - text: "Lab 2"
-    #   href: BIOL_324_Lab_2.html
+      - text: "Lab 2"
+        href: BIOL_324_Lab_2.html
     # - text: "Lab 3"
     #   href: BIOL_324_Lab_3.html
     # - text: "Lab 4"
