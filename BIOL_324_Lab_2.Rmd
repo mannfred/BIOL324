@@ -290,11 +290,11 @@ You will use the below pictures to attempt to identify the plant to species! Sta
 
 ## -KNOWLEDGE CHECK 2.4-
 
-Write down your journey through the key (e.g., 1, 2+, 3, 4, 8+, etc), and indicate the genus and species you landed on. Make sure to list the authority after the species name, and use proper scientific nomenclature (capitalize genus name, specific epithet is lower case, italicize if typing, underline if writing by hand.) 
+Write down your journey through the key, and indicate the genus and species you landed on. Make sure to list the authority after the species name, and use proper scientific nomenclature (capitalize genus name, specific epithet is lower case, italicize if typing, underline if writing by hand.) 
 
 Example answer:
 
-Ranunculaceae
+Ranunculaceae  
 1  
 2  
 *Aconitum*  
