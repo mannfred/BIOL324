@@ -61,7 +61,7 @@ The flower depicted below is from *Fuchsia* sp. in the Onagraceae family, which 
 
 &nbsp;
 
-This picture displays a longitudinal section of the flower (cut in half length-wise), which allows us to see what's going on inside the flower. It is difficult to see how many stamens there are from the photos, but the numbers of parts in each whorl are often the same or in multiples within each family. Given the number of sepals you see, how many petals and stamens do you think there are? (hint: there are twice the number of stamens as sepals/petals)
+This picture displays a longitudinal section of the flower (cut in half length-wise), which allows us to see what's going on inside the flower. It is difficult to see how many stamens there are from the photos, but the numbers of parts in each whorl are often the same or in multiples within each family. Given the number of sepals you see, how many petals and stamens do you think there are? (hint: there are twice the number of stamens as sepals/petals). 
 
 <p align="center">
 ![](./media/basic_4.jpeg){width=80%}
@@ -126,9 +126,13 @@ A tomato fruit develops from a compound pistil. Here is a cross-section through 
 ![](./media/basic_7.jpeg){width=40%} ![](./media/basic_8.jpeg){width=40%}
 </p>
 
+</br>
+
 The cucumber is another fruit derived from a compound pistil. 
 
-**INSERT CUCUMBER PICTURES**
+<p align="center">
+![](./media/basic_19.jpeg){width=80%}
+</p>
 
 ---
 
@@ -136,7 +140,7 @@ The cucumber is another fruit derived from a compound pistil.
 
 ## -KNOWLEDGE CHECK 2.2-  
 Draw sections (longitudinal-section of pea, cross-sections of tomato and cucumber) of the above fruits and indicate the following:  
-- What is the type of fruit?  (hint: use the list of fruit types found here **point to fruit list**)  
+- What is the type of fruit?  (hint: use the list of fruit types found [here](Morphological_Terminology.html))  
 - How many carpels does it have?  
 - How many locules does it have?    
 - What type of placentation does it have?  
@@ -286,5 +290,5 @@ You will use the below pictures to attempt to identify the plant to species! Sta
 
 ## -KNOWLEDGE CHECK 2.4-
 
-Write down your journey through the key (e.g., 1, 2+, 3, 4, 8+, etc), and indicate the genus and species you landed on. Make sure to list the authority after the species name. 
+Write down your journey through the key (e.g., 1, 2+, 3, 4, 8+, etc), and indicate the genus and species you landed on. Make sure to list the authority after the species name, and use proper scientific nomenclature (capitalize genus name, specific epithet is lower case, italicize if typing, underline if writing by hand.) 
 
