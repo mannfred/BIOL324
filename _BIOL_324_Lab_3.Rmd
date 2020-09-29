@@ -1,10 +1,14 @@
 ---
 title: "Lab 3: Caryophyllaceae, Polygonaceae, Onagraceae, and intro to GBIF"
-author: Evan Hersh
-date: "`r format(Sys.time(), '%d %B, %Y')`"
+# author: Evan Hersh
+# date: "`r format(Sys.time(), '%d %B, %Y')`"
 ---
 
-## Caryophyllaceae - Pink family
+---
+
+# Caryophyllaceae - Pink family
+
+---
 
 **1.	Herbs.**  
 **2.	Leaves simple, mostly opposite, mostly entire, usually without stipules, nodes often swollen.**  
@@ -12,13 +16,21 @@ date: "`r format(Sys.time(), '%d %B, %Y')`"
 **4.	Fruit usually a capsule.**  
 **5.	About 80 genera and 2,000 species, mainly in north temperate regions.**  
 
+---
+
+## Diagrams
+
 ![](media/diagram_Caryophyllaceae.png)
+
+---
 
 Caryophyllaceae is the 9th largest family in B.C., with 93 species and varieties.  The family is economically important for a few ornamentals, including *Dianthus* (carnations, pinks, sweet williams), and *Gypsophila* (baby's breath).  The color name pink comes from some species of *Dianthus* (pinks) which are pink.  For those of you with experience in sewing you may have used pinking shears, which are a type of scissor that cut in a zig-zag pattern like the edges of petals of many members of the “pink” family.
 
 &nbsp;
 
 ---
+
+## Flowers
 
 Below you can examine the flowers of *Silene dioica*, a species native to Europe that can also be found as a garden escape in North America. You can see its notched petals and inflated calyx, which are common characters in this family. 
 
@@ -37,26 +49,18 @@ Here is a dissected flower. Can you identify most of the perianth whorls?
 
 &nbsp;
 
-Here you can see the characteristic swollen nodes and opposite leaves.
-
-<p align="center">
-![](./media/Caryophyllaceae_5.jpeg){width=80%}
-</p>
-
-&nbsp;
-
 ---
 
-Here's a similar example of *Dianthus* sp.
+Here's a similar example of *Dianthus* sp. (carnations). *Dianthus* species are mainly native to Europe and Asia, but the genus is full of beautiful ornamentals that are planted worldwide. 
 
 <p align="center">
 ![](./media/Caryophyllaceae_7.jpeg){width=40%} ![](./media/Caryophyllaceae_8.jpeg){width=40%}
-![](./media/Caryophyllaceae_9.jpeg){width=40%} ![](./media/Caryophyllaceae_10.jpeg){width=40%}
+![](./media/Caryophyllaceae_10.jpeg){width=40%}
 </p>
 
 &nbsp;
 
-Here are some photos of a single petal. Can you identify the 'claw' and 'blade'?
+Here are some photos of a single petal from *Dianthus* sp. Can you identify the 'claw' and 'blade'?
 
 <p align="center">
 ![](./media/Caryophyllaceae_11.jpeg){width=40%} ![](./media/Caryophyllaceae_12.jpeg){width=40%}
@@ -64,7 +68,27 @@ Here are some photos of a single petal. Can you identify the 'claw' and 'blade'?
 
 &nbsp;
 
-Here is an unripe *Dianthus* fruit. You can see the fruit split open on the right. Can you tell the type of placentation?
+---
+
+## Leaves
+
+Here you can see swollen nodes and opposite leaves, which are very common vegetative features in the Caryophyllaceae.
+
+<p align="center">
+![](./media/Caryophyllaceae_5.jpeg){width=80%}
+</p>
+
+<p align="center">
+![](./media/Caryophyllaceae_9.jpeg){width=80%}
+</p>
+
+&nbsp;
+
+---
+
+## Fruit
+
+Here is an unripe *Dianthus* fruit. You can see the fruit split open on the right. Can you tell the fruit type and placentation?
 
 <p align="center">
 ![](./media/Caryophyllaceae_13.jpeg){width=40%} ![](./media/Caryophyllaceae_14.jpeg){width=40%}
@@ -72,7 +96,18 @@ Here is an unripe *Dianthus* fruit. You can see the fruit split open on the righ
 
 &nbsp;
 
+Here is a more mature example from *Silene dioica*.
+
+<p align="center">
+![](./media/Caryophyllaceae_16.jpeg){width=40%} ![](./media/Caryophyllaceae_17.jpeg){width=40%}
+![](./media/Caryophyllaceae_18.jpeg){width=40%}
+</p>
+
+
+
 ---
+
+## Inflorescence
 
 Another diagnostic character for the Caryophyllaceae is its inflorescence, which is typically a cyme. Pictured below is an inflorescence of *Stellaria media*, a common weed around the Vancouver area. Is this an example of a simple or a compound cyme?
 
@@ -80,22 +115,32 @@ Another diagnostic character for the Caryophyllaceae is its inflorescence, which
 ![](./media/Caryophyllaceae_15.jpeg){width=80%} 
 </p>
 
+</br>
+
+*Silene dioica* also exhibits a cymose inflorescence structure.
+
+<p align="center">
+![](./media/Caryophyllaceae_19.jpeg){width=80%} 
+</p>
+
 ---
 
-**-KNOWLEDGE CHECK-**  
+## -KNOWLEDGE CHECK 3.1-
 
-Using the above photos, indicate the following:  
-- *Silene* or *Dianthus* flower longitudinal section  
-- Swollen nodes with opposite leaves  
-- What is the fruit type? What type of placentation does it have?  
-- Cymose inflorescence structure  
-- Label with the following terms if present: petals, sepals, stamens, pistils, fruit, claw, blade.
+Draw a member of the Caryophyllaceae and include the following in your drawing: 
+
+* Fused calyx  
+* Notched petals
+* Swollen nodes with opposite leaves
+* Typical fruit and placentation 
+* Cymose inflorescence structure  
+* Make sure to label using the following terms: corolla, calyx, stamens, pistil, fruit (indicate fruit and placentation type)
 
 &nbsp;
 
 ---
 
-## Polygonaceae - Buckwheat family
+# Polygonaceae - Buckwheat family
 
 ---
 
@@ -105,11 +150,19 @@ Using the above photos, indicate the following:
 **4.  Fruit an achene.**  
 **5.  About 37 genera and 800 species, mainly in North Temperate regions.**  
 
+---
+
+## Diagrams
+
 ![](media/diagram_Polygonaceae.png)
+
+---
 
 Polygonaceae is the 10th largest family in B.C., with 66 species, however this number includes several introduced weedy species.  Agricultural crops in the Polygonaceae include *Fagopyrum* (buckwheat) and *Rheum* (rhubarb).  A large number of *Polygonum* species have been reclassified to *Persicaria* and *Fallopia*.  When you use FNA and iNaturalist to identify members of this family make sure to check that you have the most current name.
 
 ---
+
+## Flowers
 
 Polygonaceae species typically have small white or pink flowers with parts in threes. Below you can see pictures of *Persicaria hydropiperoides*, a species that can be found around Vancouver in wet areas. Notice the crowded inflorescence with tiny pinkish flowers.
 
@@ -130,6 +183,8 @@ Another example is *Aconogonum campanulatum*, a species from the Himalayas that 
 
 ---
 
+## Nodes
+
 An important diagnostic character for Polygonaceae is associated with their nodes, which are often swollen and have a stipular sheath (called an 'ocrea'). Can you see these characters in *P. hydropiperoides*?
 
 <p align="center">
@@ -146,6 +201,8 @@ Here are the nodes of *A. campanulatum*. In this species, the ocrea wraps around
 
 ---
 
+## Heterostyly
+
 The species *Fagopyrum esculentum* (buckwheat - not to be mistaken for *Eriogonum* sp. which are also called buckwheat...that's the problem with common names y'all!!!) is cultivated for its achenes (see below) and as a cover crop. *F. esculentum* is a great example of 'heterostyly', a condition that promotes outcrossing where flowers take two forms: 'pin' flowers that have long styles and short stamens, and 'thrum' flowers that have long stamens and short styles. Within an individual, every flower is either pin or thrum, and can only be pollinated by an insect that has visited the opposing form first. Can you differentiate between pin and thrum flowers in the pictures below?
 
 <p align="center">
@@ -156,6 +213,8 @@ The species *Fagopyrum esculentum* (buckwheat - not to be mistaken for *Eriogonu
 &nbsp;
 
 ---
+
+## Fruit
 
 Polygonaceae fruit are classified as achenes, despite the fact that they develop from a compound pistil. Even though they can have 2-4 carpels, only one ovule is formed within the ovary. Here you can see the three-sided achene of *F. esculentum*.
 
@@ -174,20 +233,21 @@ Achenes in the genus *Rumex* (docks and sorrels) are unique within the Polygonac
 
 ---
 
-**-KNOWLEDGE CHECK-**  
+## -KNOWLEDGE CHECK 3.2-
 
-Using the photos above, make drawings and indicate the following:  
-- Small flowers  
-- Swollen nodes and stipular sheath  
-- Pin and thrum flowers  
-- *Fagopyrum* and *Rumex* achenes  
-- Use the following terms to label your drawings: tepals, styles, stamens, ocrea, node, pin flower, thrum flower, achene, callosity.  
+Draw a Polygonaceae plant and include the following in your drawing:
+
+* Small flowers with tepals 
+* Swollen nodes and ocrea
+* Simple leaves
+* An achene (pretend your plant has achenes that resemble those found in the genus *Rumex*)
+* Use the following terms to label your drawing: tepals, styles, stamens, node, achene, callosity, petiole, leaf blade, ocrea.  
 
 &nbsp;
 
 ---
 
-## Onagraceae - Evening-primrose family
+# Onagraceae - Evening-primrose family
 
 --- 
 
@@ -197,13 +257,21 @@ Using the photos above, make drawings and indicate the following:
 **4.  Fruit a capsule, or rarely a berry or nutlike.**  
 **5. About 25 genera and 500 species, mainly New World, especially western North America.**  
 
-![](media/diagram_Onagraceae.png)
+---
 
-Members of the Onagraceae are easily recognized by their usually 4 merous polypetalous flowers with an inferior ovary.  It is the 18th largest family in B. C., with 46 taxa.  Several genera, especially Fuchsia, are grown as ornamentals, and oil from Oenothera seeds is used medicinally. 
+## Diagrams
+
+![](media/diagram_Onagraceae.png)
 
 ---
 
-You've see *Fuschia* already in Lab 2. Take another look at the below photos, noting the long hypanthium, petaloid sepals, and inferior ovary. A conspicuous hypanthium, inferior ovary, and parts in 4's are good characters to help you narrow down to this family.
+Members of the Onagraceae are easily recognized by their usually 4-merous polypetalous flowers with an inferior ovary.  It is the 18th largest family in B. C., with 46 taxa.  Several genera, especially *Fuchsia*, are grown as ornamentals, and oil from *Oenothera* seeds is used medicinally. 
+
+---
+
+## Flowers
+
+You've seen *Fuschia* already in Lab 2. Take another look at the below photos, noting the long hypanthium, petaloid sepals, and inferior ovary. A conspicuous hypanthium, inferior ovary, and parts in 4's are good characters to help you narrow down to this family.
 
 <p align="center">
 ![](./media/basic_1.jpeg){width=40%} ![](./media/basic_2.jpeg){width=40%}
@@ -216,7 +284,7 @@ You've see *Fuschia* already in Lab 2. Take another look at the below photos, no
 
 &nbsp;
 
-Here is a local weedy example, *Epilobium ciliatum*. It has small flowers with a long ovary that is often mistaken as part of the pedicel. Can you identify all the perianth parts?
+Here is a local weedy example, *Epilobium ciliatum*. It has small flowers with a long, slender ovary that is often mistaken as part of the pedicel. Can you identify all the whorls?
 
 <p align="center">
 ![](./media/Onagraceae_3.jpeg){width=40%} 
@@ -228,6 +296,8 @@ Here is a local weedy example, *Epilobium ciliatum*. It has small flowers with a
 &nbsp;
 
 ---
+
+## Fruit
 
 Most Onagraceae species form capsules from compound ovaries. Here is a developing ovary from a *Fuchsia* flower. Can you tell how many carpels there are, and the type of placentation?
 
@@ -267,32 +337,90 @@ Some showy local examples come from the genus *Chamaenerion*. The top two photos
 
 ---
 
-**-KNOWLEDGE CHECK-**  
+## -KNOWLEDGE CHECK 3.3- 
 
-Using the above photos, draw the following:  
-- *Fuchsia* flower with long hypanthium  
-- *Epilobium ciliatum* flower with long ovary  
-- *Fuchsia* ovary cross-section displaying carpels and placentation  
-- *Epilobium ciliatum* capsule with hairy seeds  
-- label your drawings with the following terms: sepals, petals, stamens, style, 4-part stigma, hypanthium, ovary, capsule, seeds. 
+Using the above photos, draw *Epilobium ciliatum* and include the following:  
+* A drawing of a flower including long slender ovary
+* A drawing of a mature, dehiscing capsule with hairy seeds  
+* label your drawings with the following terms: sepals, petals, stamens, style, stigma, ovary, capsule, seeds. 
 
 ---
 
-## Exploring GBIF
+# Exploring GBIF
 
 ---
 
-### Motivation
+## Motivation
 
 As taxonomists it is useful to know where species occur and co-occur on continental scales to help inform species delimitations. For example, two sister species separated by a major geographic barrier (such as a mountain range) are not likely to interbreed. This type of information is one piece of the puzzle of delimiting species. To make preliminary estimates of a species' distribution, we can harness the data resources organized by the [Global Biodiversity Information Facility](https://www.gbif.org/what-is-gbif). GBIF is an open-access database housing information about where and when species have been observed or collected. To the modern plant taxonomist, it is indispensable: one can search GBIF for any plant taxon of interest, and immediately have access to all global records of where and when their plant has been observed.
 
-To scratch the surface of GBIF reveals a massive database spanning the entire tree of life. How does one go about efficiently collecting, organizing, validating, and analysing so much information? The solution is made tractable by employing data analysis tools like those found in R (Note: For an introduction to R, see this week's [pre-lab reading in the section below](#prelab)).  By combining the biodiversity resources of GBIF with the analytical tools in R, we can collect, process, and visualize species distribution data on any laptop or tablet. In this week's lab we'll first gather the required tools (R and GBIF) and develop some basic skills using them. In the following lab we'll use our new skills to create research-grade distribution maps.
-
-#### Activity 1: Exploring the GBIF website {#A1}
 
 
-Let's jump into GBIF! First go to the [GBIF website](https://www.gbif.org). In another tab/window follow along with [this video tutorial](https://www.youtube.com/watch?v=40yPnJdeM_A&t=3s) to learn how to navigate through the GBIF website (NOTE: creating an account and downloading the data onto your computer, as suggested in the video, is **NOT necessary**).
+<!-- To scratch the surface of GBIF reveals a massive database spanning the entire tree of life. How does one go about efficiently collecting, organizing, validating, and analyzing so much information? The solution is made tractable by employing data analysis tools like those found in R. By combining the biodiversity resources of GBIF with the analytical tools in R, we can collect, process, and visualize species distribution data on any laptop or tablet. In this week's lab we'll first gather the required tools (R and GBIF) and develop some basic skills using them. In the following lab we'll use our new skills to create research-grade distribution maps. -->
 
-By following the video tutorial, you'll learn how to search for GBIF data, what types of data your search will return, and how that data is structured. Notice that GBIF is a biodiversity database aggregator, pulling data from other databases such as eBird and iNaturalist. That means that you can choose to share your BIOL324 iNaturalist observations so that they appear on GBIF!
+</br>
 
-**Make an activity getting them to make maps of two close relatives using GBIF website**
+---
+
+## Activity: Look up the occurrence of a local species
+
+---
+
+Let's jump into GBIF! First go to the [GBIF website](https://www.gbif.org). For this exercise, we'll focus on looking up species occurrence data. Click the "Get Data" tab at the top and select "Species" from the drop-down menu. Then type in your species of interest.
+
+<p align="center">
+![](./media/gbif_1.png){width=100%}
+</p>
+
+</br>
+
+You can see the first name in the list is the "main" species page, and then it lists a series of hybrids (indicated by an 'x' between the two specific epithets). Clicking on the main entry will bring up an overview of the database for that species.
+
+<p align="center">
+![](./media/gbif_2.png){width=100%}
+</p>
+
+</br>
+
+Just above the map on the top-left, it lists the total number of records in the database worldwide. Scrolling down a bit will show you a list of countries in which that species is considered "introduced" in, as well as the number of names for that species that occur in the database. *Epilobium ciliatum* is the only name used for this species in the GBIF database.
+
+<p align="center">
+![](./media/gbif_4.png){width=100%}
+</p>
+
+</br>
+
+The map has tons of useful features for filtering data, including filters by year (slider at bottom-left) and by observation type (button in bottom-right). For example, we can zoom in on Europe (just like you would in Google Maps), and filter observations to only include human observations that were made after the year 1900. If we then click the "Explore area" button, we can view the data that matches our filtering criteria.
+
+<p align="center">
+![](./media/gbif_3.png){width=100%}
+</p>
+
+</br>
+
+The "Metrics" tab will show us some great summary statistics of our filtered observations. At the top we see that our filters resulted in 82,617 occurrences (out of 123,331 total), so it appears that the majority of the observations of *E. ciliatum* come from Europe! Scrolling down a bit, we can see metrics on number of occurrences by month and year. This species is observed primarily between May and October (but a lot in January too), and the number of observations really takes off around 1975.
+
+<p align="center">
+![](./media/gbif_5.png){width=100%}
+</p>
+
+</br>
+
+We can also adjust our filters using the pane on the left. Let's say we want to restrict our results to only those found on iNaturalist. Click "Dataset" tab and type in "iNaturalist" and select "iNaturalist Research-grade Observations". Now, we only have 230 observations! Why do you think there are so few? What happens if you do the same thing but in North America? What databases do the majority of *E. ciliatum* observations occur in in Europe?
+
+---
+
+## -KNOWLEDGE CHECK 3.4-
+
+Using GBIF, look up one of the species you've observed for your iNaturalist project (or look up a nearby observation made by someone else). Restrict your observations to only those found within your continent after the year 1900, and answer the following questions:
+
+* How many occurrences of this species are there in all databases? 
+* How many names are used for this species?
+* How many countries has this species been introduced to?
+* In which month and year is this species observed the most?
+* What database has the most occurrences?
+* How many occurrences does iNaturalist have?
+* How would you describe this species' geographic range?
+
+
+
