@@ -9,7 +9,6 @@
 <meta http-equiv="X-UA-Compatible" content="IE=EDGE" />
 
 
-<meta name="author" content="Evan Hersh" />
 
 
 <title>Lab 3: Caryophyllaceae, Polygonaceae, Onagraceae, and intro to GBIF</title>
@@ -20,7 +19,11 @@
 <script src="site_libs/bootstrap-3.3.5/js/bootstrap.min.js"></script>
 <script src="site_libs/bootstrap-3.3.5/shim/html5shiv.min.js"></script>
 <script src="site_libs/bootstrap-3.3.5/shim/respond.min.js"></script>
+<script src="site_libs/jqueryui-1.11.4/jquery-ui.min.js"></script>
+<link href="site_libs/tocify-1.9.1/jquery.tocify.css" rel="stylesheet" />
+<script src="site_libs/tocify-1.9.1/jquery.tocify.js"></script>
 <script src="site_libs/navigation-1.1/tabsets.js"></script>
+<script src="site_libs/accessible-code-block-0.0.1/empty-anchor.js"></script>
 
 
 
@@ -232,6 +235,69 @@ $(document).ready(function () {
 
 
 
+<style type="text/css">
+
+#TOC {
+  margin: 25px 0px 20px 0px;
+}
+@media (max-width: 768px) {
+#TOC {
+  position: relative;
+  width: 100%;
+}
+}
+
+@media print {
+.toc-content {
+  /* see https://github.com/w3c/csswg-drafts/issues/4434 */
+  float: right;
+}
+}
+
+.toc-content {
+  padding-left: 30px;
+  padding-right: 40px;
+}
+
+div.main-container {
+  max-width: 1200px;
+}
+
+div.tocify {
+  width: 20%;
+  max-width: 260px;
+  max-height: 85%;
+}
+
+@media (min-width: 768px) and (max-width: 991px) {
+  div.tocify {
+    width: 25%;
+  }
+}
+
+@media (max-width: 767px) {
+  div.tocify {
+    width: 100%;
+    max-width: none;
+  }
+}
+
+.tocify ul, .tocify li {
+  line-height: 20px;
+}
+
+.tocify-subheader .tocify-item {
+  font-size: 0.90em;
+}
+
+.tocify .list-group-item {
+  border-radius: 0px;
+}
+
+
+</style>
+
+
 
 </head>
 
@@ -239,6 +305,16 @@ $(document).ready(function () {
 
 
 <div class="container-fluid main-container">
+
+
+<!-- setup 3col/9col grid for toc_float and main content  -->
+<div class="row-fluid">
+<div class="col-xs-12 col-sm-4 col-md-3">
+<div id="TOC" class="tocify">
+</div>
+</div>
+
+<div class="toc-content col-xs-12 col-sm-8 col-md-9">
 
 
 
@@ -259,34 +335,49 @@ $(document).ready(function () {
   <a href="index.html">Home</a>
 </li>
 <li>
-  <a href="BIOL_324_Lab_2.html">Lab 2</a>
+  <a href="Syllabus.html">Syllabus</a>
 </li>
-<li>
-  <a href="BIOL_324_Lab_3.html">Lab 3</a>
+<li class="dropdown">
+  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
+    Resources
+     
+    <span class="caret"></span>
+  </a>
+  <ul class="dropdown-menu" role="menu">
+    <li>
+      <a href="Morphological_Terminology.html">Morphological Terminology</a>
+    </li>
+  </ul>
 </li>
-<li>
-  <a href="BIOL_324_Lab_4.html">Lab 4</a>
+<li class="dropdown">
+  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
+    Projects
+     
+    <span class="caret"></span>
+  </a>
+  <ul class="dropdown-menu" role="menu">
+    <li>
+      <a href="BIOL_324_Project_1.html">Project 1 (iNaturalist)</a>
+    </li>
+  </ul>
 </li>
-<li>
-  <a href="BIOL_324_Lab_5.html">Lab 5</a>
-</li>
-<li>
-  <a href="BIOL_324_Lab_6.html">Lab 6</a>
-</li>
-<li>
-  <a href="BIOL_324_Lab_7.html">Lab 7</a>
-</li>
-<li>
-  <a href="BIOL_324_Lab_8.html">Lab 8</a>
-</li>
-<li>
-  <a href="BIOL_324_Lab_9.html">Lab 9</a>
-</li>
-<li>
-  <a href="BIOL_324_Lab_10.html">Lab 10</a>
-</li>
-<li>
-  <a href="LinneanTypification.html">Linnean Typification</a>
+<li class="dropdown">
+  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
+    Labs
+     
+    <span class="caret"></span>
+  </a>
+  <ul class="dropdown-menu" role="menu">
+    <li>
+      <a href="BIOL_324_Lab_1.html">Lab 1</a>
+    </li>
+    <li>
+      <a href="BIOL_324_Lab_2.html">Lab 2</a>
+    </li>
+    <li>
+      <a href="BIOL_324_Lab_3.html">Lab 3</a>
+    </li>
+  </ul>
 </li>
       </ul>
       <ul class="nav navbar-nav navbar-right">
@@ -301,23 +392,30 @@ $(document).ready(function () {
 
 
 <h1 class="title toc-ignore">Lab 3: Caryophyllaceae, Polygonaceae, Onagraceae, and intro to GBIF</h1>
-<h4 class="author">Evan Hersh</h4>
-<h4 class="date">06 September, 2020</h4>
 
 </div>
 
 
-<div id="caryophyllaceae---pink-family" class="section level2">
-<h2>Caryophyllaceae - Pink family</h2>
+<hr />
+<div id="caryophyllaceae---pink-family" class="section level1">
+<h1>Caryophyllaceae - Pink family</h1>
+<hr />
 <p><strong>1. Herbs.</strong><br />
 <strong>2. Leaves simple, mostly opposite, mostly entire, usually without stipules, nodes often swollen.</strong><br />
 <strong>3. Inflorescence a cyme. Flowers perfect (rarely imperfect), actinomorphic. Sepals 5, free or fused. Petals 5, free. Stamens 5 or 10. Pistil compound, ovary superior, carpels 2 5, free central placentation.</strong><br />
 <strong>4. Fruit usually a capsule.</strong><br />
 <strong>5. About 80 genera and 2,000 species, mainly in north temperate regions.</strong></p>
+<hr />
+<div id="diagrams" class="section level2">
+<h2>Diagrams</h2>
 <p><img src="media/diagram_Caryophyllaceae.png" /></p>
+<hr />
 <p>Caryophyllaceae is the 9th largest family in B.C., with 93 species and varieties. The family is economically important for a few ornamentals, including <em>Dianthus</em> (carnations, pinks, sweet williams), and <em>Gypsophila</em> (baby’s breath). The color name pink comes from some species of <em>Dianthus</em> (pinks) which are pink. For those of you with experience in sewing you may have used pinking shears, which are a type of scissor that cut in a zig-zag pattern like the edges of petals of many members of the “pink” family.</p>
 <p> </p>
 <hr />
+</div>
+<div id="flowers" class="section level2">
+<h2>Flowers</h2>
 <p>Below you can examine the flowers of <em>Silene dioica</em>, a species native to Europe that can also be found as a garden escape in North America. You can see its notched petals and inflated calyx, which are common characters in this family.</p>
 <p align="center">
 <img src="media/Caryophyllaceae_1.jpeg" style="width:40.0%" /> <img src="media/Caryophyllaceae_2.jpeg" style="width:40.0%" /> <img src="media/Caryophyllaceae_3.jpeg" style="width:40.0%" /> <img src="media/Caryophyllaceae_4.jpeg" style="width:40.0%" />
@@ -328,54 +426,92 @@ $(document).ready(function () {
 <img src="media/Caryophyllaceae_6.jpeg" style="width:80.0%" />
 </p>
 <p> </p>
-<p>Here you can see the characteristic swollen nodes and opposite leaves.</p>
-<p align="center">
-<img src="media/Caryophyllaceae_5.jpeg" style="width:80.0%" />
-</p>
-<p> </p>
 <hr />
-<p>Here’s a similar example of <em>Dianthus</em> sp.</p>
+<p>Here’s a similar example of <em>Dianthus</em> sp. (carnations). <em>Dianthus</em> species are mainly native to Europe and Asia, but the genus is full of beautiful ornamentals that are planted worldwide.</p>
 <p align="center">
-<img src="media/Caryophyllaceae_7.jpeg" style="width:40.0%" /> <img src="media/Caryophyllaceae_8.jpeg" style="width:40.0%" /> <img src="media/Caryophyllaceae_9.jpeg" style="width:40.0%" /> <img src="media/Caryophyllaceae_10.jpeg" style="width:40.0%" />
+<img src="media/Caryophyllaceae_7.jpeg" style="width:40.0%" /> <img src="media/Caryophyllaceae_8.jpeg" style="width:40.0%" /> <img src="media/Caryophyllaceae_10.jpeg" style="width:40.0%" />
 </p>
 <p> </p>
-<p>Here are some photos of a single petal. Can you identify the ‘claw’ and ‘blade’?</p>
+<p>Here are some photos of a single petal from <em>Dianthus</em> sp. Can you identify the ‘claw’ and ‘blade’?</p>
 <p align="center">
 <img src="media/Caryophyllaceae_11.jpeg" style="width:40.0%" /> <img src="media/Caryophyllaceae_12.jpeg" style="width:40.0%" />
 </p>
 <p> </p>
-<p>Here is an unripe <em>Dianthus</em> fruit. You can see the fruit split open on the right. Can you tell the type of placentation?</p>
+<hr />
+</div>
+<div id="leaves" class="section level2">
+<h2>Leaves</h2>
+<p>Here you can see swollen nodes and opposite leaves, which are very common vegetative features in the Caryophyllaceae.</p>
+<p align="center">
+<img src="media/Caryophyllaceae_5.jpeg" style="width:80.0%" />
+</p>
+<p align="center">
+<img src="media/Caryophyllaceae_9.jpeg" style="width:80.0%" />
+</p>
+<p> </p>
+<hr />
+</div>
+<div id="fruit" class="section level2">
+<h2>Fruit</h2>
+<p>Here is an unripe <em>Dianthus</em> fruit. You can see the fruit split open on the right. Can you tell the fruit type and placentation?</p>
 <p align="center">
 <img src="media/Caryophyllaceae_13.jpeg" style="width:40.0%" /> <img src="media/Caryophyllaceae_14.jpeg" style="width:40.0%" />
 </p>
 <p> </p>
+<p>Here is a more mature example from <em>Silene dioica</em>.</p>
+<p align="center">
+<img src="media/Caryophyllaceae_16.jpeg" style="width:40.0%" /> <img src="media/Caryophyllaceae_17.jpeg" style="width:40.0%" /> <img src="media/Caryophyllaceae_18.jpeg" style="width:40.0%" />
+</p>
 <hr />
+</div>
+<div id="inflorescence" class="section level2">
+<h2>Inflorescence</h2>
 <p>Another diagnostic character for the Caryophyllaceae is its inflorescence, which is typically a cyme. Pictured below is an inflorescence of <em>Stellaria media</em>, a common weed around the Vancouver area. Is this an example of a simple or a compound cyme?</p>
 <p align="center">
 <img src="media/Caryophyllaceae_15.jpeg" style="width:80.0%" />
 </p>
+<p></br></p>
+<p><em>Silene dioica</em> also exhibits a cymose inflorescence structure.</p>
+<p align="center">
+<img src="media/Caryophyllaceae_19.jpeg" style="width:80.0%" />
+</p>
 <hr />
-<p><strong>-KNOWLEDGE CHECK-</strong></p>
-<p>Using the above photos, indicate the following:<br />
-- <em>Silene</em> or <em>Dianthus</em> flower longitudinal section<br />
-- Swollen nodes with opposite leaves<br />
-- What is the fruit type? What type of placentation does it have?<br />
-- Cymose inflorescence structure<br />
-- Label with the following terms if present: petals, sepals, stamens, pistils, fruit, claw, blade.</p>
+</div>
+<div id="knowledge-check-3.1-" class="section level2">
+<h2>-KNOWLEDGE CHECK 3.1-</h2>
+<p>Draw a member of the Caryophyllaceae and include the following in your drawing:</p>
+<ul>
+<li>Fused calyx<br />
+</li>
+<li>Notched petals</li>
+<li>Swollen nodes with opposite leaves</li>
+<li>Typical fruit and placentation</li>
+<li>Cymose inflorescence structure<br />
+</li>
+<li>Make sure to label using the following terms: corolla, calyx, stamens, pistil, fruit (indicate fruit and placentation type)</li>
+</ul>
 <p> </p>
 <hr />
 </div>
-<div id="polygonaceae---buckwheat-family" class="section level2">
-<h2>Polygonaceae - Buckwheat family</h2>
+</div>
+<div id="polygonaceae---buckwheat-family" class="section level1">
+<h1>Polygonaceae - Buckwheat family</h1>
 <hr />
 <p><strong>1. Herbs, shrubs, or rarely vines or trees.</strong><br />
 <strong>2. Leaves simple, alternate, often with a stipular sheath at the petiole base. Stems often with swollen nodes.</strong><br />
 <strong>3. Flowers usually perfect, actinomorphic, perianth in one series or of 2 series of 3 tepals each. Tepals 3 6, usually not fused. Stamens 6 9. Pistil compound, ovary superior, carpels 2 4 but ovary with only 1 ovule, placentation basal.</strong><br />
 <strong>4. Fruit an achene.</strong><br />
 <strong>5. About 37 genera and 800 species, mainly in North Temperate regions.</strong></p>
+<hr />
+<div id="diagrams-1" class="section level2">
+<h2>Diagrams</h2>
 <p><img src="media/diagram_Polygonaceae.png" /></p>
+<hr />
 <p>Polygonaceae is the 10th largest family in B.C., with 66 species, however this number includes several introduced weedy species. Agricultural crops in the Polygonaceae include <em>Fagopyrum</em> (buckwheat) and <em>Rheum</em> (rhubarb). A large number of <em>Polygonum</em> species have been reclassified to <em>Persicaria</em> and <em>Fallopia</em>. When you use FNA and iNaturalist to identify members of this family make sure to check that you have the most current name.</p>
 <hr />
+</div>
+<div id="flowers-1" class="section level2">
+<h2>Flowers</h2>
 <p>Polygonaceae species typically have small white or pink flowers with parts in threes. Below you can see pictures of <em>Persicaria hydropiperoides</em>, a species that can be found around Vancouver in wet areas. Notice the crowded inflorescence with tiny pinkish flowers.</p>
 <p align="center">
 <img src="media/Polygonaceae_3.jpeg" style="width:40.0%" /> <img src="media/Polygonaceae_4.jpeg" style="width:40.0%" />
@@ -387,6 +523,9 @@ $(document).ready(function () {
 </p>
 <p> </p>
 <hr />
+</div>
+<div id="nodes" class="section level2">
+<h2>Nodes</h2>
 <p>An important diagnostic character for Polygonaceae is associated with their nodes, which are often swollen and have a stipular sheath (called an ‘ocrea’). Can you see these characters in <em>P. hydropiperoides</em>?</p>
 <p align="center">
 <img src="media/Polygonaceae_1.jpeg" style="width:40.0%" /> <img src="media/Polygonaceae_2.jpeg" style="width:40.0%" />
@@ -397,12 +536,18 @@ $(document).ready(function () {
 <img src="media/Polygonaceae_9.jpeg" style="width:40.0%" /> <img src="media/Polygonaceae_10.jpeg" style="width:40.0%" />
 </p>
 <hr />
+</div>
+<div id="heterostyly" class="section level2">
+<h2>Heterostyly</h2>
 <p>The species <em>Fagopyrum esculentum</em> (buckwheat - not to be mistaken for <em>Eriogonum</em> sp. which are also called buckwheat…that’s the problem with common names y’all!!!) is cultivated for its achenes (see below) and as a cover crop. <em>F. esculentum</em> is a great example of ‘heterostyly’, a condition that promotes outcrossing where flowers take two forms: ‘pin’ flowers that have long styles and short stamens, and ‘thrum’ flowers that have long stamens and short styles. Within an individual, every flower is either pin or thrum, and can only be pollinated by an insect that has visited the opposing form first. Can you differentiate between pin and thrum flowers in the pictures below?</p>
 <p align="center">
 <img src="media/Polygonaceae_11.jpeg" style="width:40.0%" /> <img src="media/Polygonaceae_12.jpeg" style="width:40.0%" /> <img src="media/Polygonaceae_13.jpeg" style="width:40.0%" /> <img src="media/Polygonaceae_14.jpeg" style="width:40.0%" />
 </p>
 <p> </p>
 <hr />
+</div>
+<div id="fruit-1" class="section level2">
+<h2>Fruit</h2>
 <p>Polygonaceae fruit are classified as achenes, despite the fact that they develop from a compound pistil. Even though they can have 2-4 carpels, only one ovule is formed within the ovary. Here you can see the three-sided achene of <em>F. esculentum</em>.</p>
 <p align="center">
 <img src="media/Polygonaceae_15.jpeg" style="width:40.0%" /> <img src="media/Polygonaceae_16.jpeg" style="width:40.0%" />
@@ -413,28 +558,40 @@ $(document).ready(function () {
 <img src="media/Polygonaceae_17.jpeg" style="width:40.0%" /> <img src="media/Polygonaceae_18.jpeg" style="width:40.0%" /> <img src="media/Polygonaceae_19.jpeg" style="width:40.0%" /> <img src="media/Polygonaceae_20.jpeg" style="width:40.0%" />
 </p>
 <hr />
-<p><strong>-KNOWLEDGE CHECK-</strong></p>
-<p>Using the photos above, make drawings and indicate the following:<br />
-- Small flowers<br />
-- Swollen nodes and stipular sheath<br />
-- Pin and thrum flowers<br />
-- <em>Fagopyrum</em> and <em>Rumex</em> achenes<br />
-- Use the following terms to label your drawings: tepals, styles, stamens, ocrea, node, pin flower, thrum flower, achene, callosity.</p>
+</div>
+<div id="knowledge-check-3.2-" class="section level2">
+<h2>-KNOWLEDGE CHECK 3.2-</h2>
+<p>Draw a Polygonaceae plant and include the following in your drawing:</p>
+<ul>
+<li>Small flowers with tepals</li>
+<li>Swollen nodes and ocrea</li>
+<li>Simple leaves</li>
+<li>An achene (pretend your plant has achenes that resemble those found in the genus <em>Rumex</em>)</li>
+<li>Use the following terms to label your drawing: tepals, styles, stamens, node, achene, callosity, petiole, leaf blade, ocrea.</li>
+</ul>
 <p> </p>
 <hr />
 </div>
-<div id="onagraceae---evening-primrose-family" class="section level2">
-<h2>Onagraceae - Evening-primrose family</h2>
+</div>
+<div id="onagraceae---evening-primrose-family" class="section level1">
+<h1>Onagraceae - Evening-primrose family</h1>
 <hr />
 <p><strong>1. Mainly herbs</strong><br />
 <strong>2. Leaves simple to pinnatifid, opposite or alternate, mostly without stipules</strong><br />
 <strong>3. Flowers perfect, mostly actinomorphic, hypanthium often conspicuous. Sepals 4 (rarely 2 or 5), free or fused. Petals 4 (rarely 2 6), free. Stamens 2, 4 or 8. Pistil compound, ovary inferior, carpels 4, placentation axile.</strong><br />
 <strong>4. Fruit a capsule, or rarely a berry or nutlike.</strong><br />
 <strong>5. About 25 genera and 500 species, mainly New World, especially western North America.</strong></p>
-<p><img src="media/diagram_Onagraceae.png" /></p>
-<p>Members of the Onagraceae are easily recognized by their usually 4 merous polypetalous flowers with an inferior ovary. It is the 18th largest family in B. C., with 46 taxa. Several genera, especially Fuchsia, are grown as ornamentals, and oil from Oenothera seeds is used medicinally.</p>
 <hr />
-<p>You’ve see <em>Fuschia</em> already in Lab 2. Take another look at the below photos, noting the long hypanthium, petaloid sepals, and inferior ovary. A conspicuous hypanthium, inferior ovary, and parts in 4’s are good characters to help you narrow down to this family.</p>
+<div id="diagrams-2" class="section level2">
+<h2>Diagrams</h2>
+<p><img src="media/diagram_Onagraceae.png" /></p>
+<hr />
+<p>Members of the Onagraceae are easily recognized by their usually 4-merous polypetalous flowers with an inferior ovary. It is the 18th largest family in B. C., with 46 taxa. Several genera, especially <em>Fuchsia</em>, are grown as ornamentals, and oil from <em>Oenothera</em> seeds is used medicinally.</p>
+<hr />
+</div>
+<div id="flowers-2" class="section level2">
+<h2>Flowers</h2>
+<p>You’ve seen <em>Fuschia</em> already in Lab 2. Take another look at the below photos, noting the long hypanthium, petaloid sepals, and inferior ovary. A conspicuous hypanthium, inferior ovary, and parts in 4’s are good characters to help you narrow down to this family.</p>
 <p align="center">
 <img src="media/basic_1.jpeg" style="width:40.0%" /> <img src="media/basic_2.jpeg" style="width:40.0%" /> <img src="media/basic_2.5.jpeg" style="width:40.0%" /> <img src="media/basic_3.jpeg" style="width:40.0%" />
 </p>
@@ -442,12 +599,15 @@ $(document).ready(function () {
 <img src="media/basic_4.jpeg" style="width:80.0%" />
 </p>
 <p> </p>
-<p>Here is a local weedy example, <em>Epilobium ciliatum</em>. It has small flowers with a long ovary that is often mistaken as part of the pedicel. Can you identify all the perianth parts?</p>
+<p>Here is a local weedy example, <em>Epilobium ciliatum</em>. It has small flowers with a long, slender ovary that is often mistaken as part of the pedicel. Can you identify all the whorls?</p>
 <p align="center">
 <img src="media/Onagraceae_3.jpeg" style="width:40.0%" /> <img src="media/Onagraceae_4.jpeg" style="width:40.0%" /> <img src="media/Onagraceae_5.jpeg" style="width:40.0%" /> <img src="media/Onagraceae_6.jpeg" style="width:40.0%" />
 </p>
 <p> </p>
 <hr />
+</div>
+<div id="fruit-2" class="section level2">
+<h2>Fruit</h2>
 <p>Most Onagraceae species form capsules from compound ovaries. Here is a developing ovary from a <em>Fuchsia</em> flower. Can you tell how many carpels there are, and the type of placentation?</p>
 <p align="center">
 <img src="media/Onagraceae_1.jpeg" style="width:40.0%" /> <img src="media/Onagraceae_2.jpeg" style="width:40.0%" />
@@ -468,33 +628,75 @@ $(document).ready(function () {
 </p>
 <p> </p>
 <hr />
-<p><strong>-KNOWLEDGE CHECK-</strong></p>
-<p>Using the above photos, draw the following:<br />
-- <em>Fuchsia</em> flower with long hypanthium<br />
-- <em>Epilobium ciliatum</em> flower with long ovary<br />
-- <em>Fuchsia</em> ovary cross-section displaying carpels and placentation<br />
-- <em>Epilobium ciliatum</em> capsule with hairy seeds<br />
-- label your drawings with the following terms: sepals, petals, stamens, style, 4-part stigma, hypanthium, ovary, capsule, seeds.</p>
+</div>
+<div id="knowledge-check-3.3-" class="section level2">
+<h2>-KNOWLEDGE CHECK 3.3-</h2>
+<p>Using the above photos, draw <em>Epilobium ciliatum</em> and include the following:<br />
+* A drawing of a flower including long slender ovary * A drawing of a mature, dehiscing capsule with hairy seeds<br />
+* label your drawings with the following terms: sepals, petals, stamens, style, stigma, ovary, capsule, seeds.</p>
 <hr />
 </div>
-<div id="exploring-gbif" class="section level2">
-<h2>Exploring GBIF</h2>
+</div>
+<div id="exploring-gbif" class="section level1">
+<h1>Exploring GBIF</h1>
 <hr />
-<div id="motivation" class="section level3">
-<h3>Motivation</h3>
+<div id="motivation" class="section level2">
+<h2>Motivation</h2>
 <p>As taxonomists it is useful to know where species occur and co-occur on continental scales to help inform species delimitations. For example, two sister species separated by a major geographic barrier (such as a mountain range) are not likely to interbreed. This type of information is one piece of the puzzle of delimiting species. To make preliminary estimates of a species’ distribution, we can harness the data resources organized by the <a href="https://www.gbif.org/what-is-gbif">Global Biodiversity Information Facility</a>. GBIF is an open-access database housing information about where and when species have been observed or collected. To the modern plant taxonomist, it is indispensable: one can search GBIF for any plant taxon of interest, and immediately have access to all global records of where and when their plant has been observed.</p>
-<p>To scratch the surface of GBIF reveals a massive database spanning the entire tree of life. How does one go about efficiently collecting, organizing, validating, and analysing so much information? The solution is made tractable by employing data analysis tools like those found in R (Note: For an introduction to R, see this week’s <a href="#prelab">pre-lab reading in the section below</a>). By combining the biodiversity resources of GBIF with the analytical tools in R, we can collect, process, and visualize species distribution data on any laptop or tablet. In this week’s lab we’ll first gather the required tools (R and GBIF) and develop some basic skills using them. In the following lab we’ll use our new skills to create research-grade distribution maps.</p>
-<div id="A1" class="section level4">
-<h4>Activity 1: Exploring the GBIF website</h4>
-<p>Let’s jump into GBIF! First go to the <a href="https://www.gbif.org">GBIF website</a>. In another tab/window follow along with <a href="https://www.youtube.com/watch?v=40yPnJdeM_A&amp;t=3s">this video tutorial</a> to learn how to navigate through the GBIF website (NOTE: creating an account and downloading the data onto your computer, as suggested in the video, is <strong>NOT necessary</strong>).</p>
-<p>By following the video tutorial, you’ll learn how to search for GBIF data, what types of data your search will return, and how that data is structured. Notice that GBIF is a biodiversity database aggregator, pulling data from other databases such as eBird and iNaturalist. That means that you can choose to share your BIOL324 iNaturalist observations so that they appear on GBIF!</p>
-<p><strong>Make an activity getting them to make maps of two close relatives using GBIF website</strong></p>
+<!-- To scratch the surface of GBIF reveals a massive database spanning the entire tree of life. How does one go about efficiently collecting, organizing, validating, and analyzing so much information? The solution is made tractable by employing data analysis tools like those found in R. By combining the biodiversity resources of GBIF with the analytical tools in R, we can collect, process, and visualize species distribution data on any laptop or tablet. In this week's lab we'll first gather the required tools (R and GBIF) and develop some basic skills using them. In the following lab we'll use our new skills to create research-grade distribution maps. -->
+<p></br></p>
+<hr />
 </div>
+<div id="activity-look-up-the-occurrence-of-a-local-species" class="section level2">
+<h2>Activity: Look up the occurrence of a local species</h2>
+<hr />
+<p>Let’s jump into GBIF! First go to the <a href="https://www.gbif.org">GBIF website</a>. For this exercise, we’ll focus on looking up species occurrence data. Click the “Get Data” tab at the top and select “Species” from the drop-down menu. Then type in your species of interest.</p>
+<p align="center">
+<img src="media/gbif_1.png" style="width:100.0%" />
+</p>
+<p></br></p>
+<p>You can see the first name in the list is the “main” species page, and then it lists a series of hybrids (indicated by an ‘x’ between the two specific epithets). Clicking on the main entry will bring up an overview of the database for that species.</p>
+<p align="center">
+<img src="media/gbif_2.png" style="width:100.0%" />
+</p>
+<p></br></p>
+<p>Just above the map on the top-left, it lists the total number of records in the database worldwide. Scrolling down a bit will show you a list of countries in which that species is considered “introduced” in, as well as the number of names for that species that occur in the database. <em>Epilobium ciliatum</em> is the only name used for this species in the GBIF database.</p>
+<p align="center">
+<img src="media/gbif_4.png" style="width:100.0%" />
+</p>
+<p></br></p>
+<p>The map has tons of useful features for filtering data, including filters by year (slider at bottom-left) and by observation type (button in bottom-right). For example, we can zoom in on Europe (just like you would in Google Maps), and filter observations to only include human observations that were made after the year 1900. If we then click the “Explore area” button, we can view the data that matches our filtering criteria.</p>
+<p align="center">
+<img src="media/gbif_3.png" style="width:100.0%" />
+</p>
+<p></br></p>
+<p>The “Metrics” tab will show us some great summary statistics of our filtered observations. At the top we see that our filters resulted in 82,617 occurrences (out of 123,331 total), so it appears that the majority of the observations of <em>E. ciliatum</em> come from Europe! Scrolling down a bit, we can see metrics on number of occurrences by month and year. This species is observed primarily between May and October (but a lot in January too), and the number of observations really takes off around 1975.</p>
+<p align="center">
+<img src="media/gbif_5.png" style="width:100.0%" />
+</p>
+<p></br></p>
+<p>We can also adjust our filters using the pane on the left. Let’s say we want to restrict our results to only those found on iNaturalist. Click “Dataset” tab and type in “iNaturalist” and select “iNaturalist Research-grade Observations”. Now, we only have 230 observations! Why do you think there are so few? What happens if you do the same thing but in North America? What databases do the majority of <em>E. ciliatum</em> observations occur in in Europe?</p>
+<hr />
+</div>
+<div id="knowledge-check-3.4-" class="section level2">
+<h2>-KNOWLEDGE CHECK 3.4-</h2>
+<p>Using GBIF, look up one of the species you’ve observed for your iNaturalist project (or look up a nearby observation made by someone else). Restrict your observations to only those found within your continent after the year 1900, and answer the following questions:</p>
+<ul>
+<li>How many occurrences of this species are there in all databases?</li>
+<li>How many names are used for this species?</li>
+<li>How many countries has this species been introduced to?</li>
+<li>In which month and year is this species observed the most?</li>
+<li>What database has the most occurrences?</li>
+<li>How many occurrences does iNaturalist have?</li>
+<li>How would you describe this species’ geographic range?</li>
+</ul>
 </div>
 </div>
 
 
 
+</div>
+</div>
 
 </div>
 
@@ -527,6 +729,32 @@ $(document).ready(function () {
 
 <!-- code folding -->
 
+<script>
+$(document).ready(function ()  {
+
+    // move toc-ignore selectors from section div to header
+    $('div.section.toc-ignore')
+        .removeClass('toc-ignore')
+        .children('h1,h2,h3,h4,h5').addClass('toc-ignore');
+
+    // establish options
+    var options = {
+      selectors: "h1,h2,h3",
+      theme: "bootstrap3",
+      context: '.toc-content',
+      hashGenerator: function (text) {
+        return text.replace(/[.\\/?&!#<>]/g, '').replace(/\s/g, '_');
+      },
+      ignoreSelector: ".toc-ignore",
+      scrollTo: 0
+    };
+    options.showAndHide = true;
+    options.smoothScroll = true;
+
+    // tocify
+    var toc = $("#TOC").tocify(options).data("toc-tocify");
+});
+</script>
 
 <!-- dynamically load mathjax for compatibility with self-contained -->
 <script>
