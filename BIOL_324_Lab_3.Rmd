@@ -448,5 +448,6 @@ Using GBIF, look up one of the species you've observed for your iNaturalist proj
 # For next week (Lab 4)
 
 * Please download and install ImageJ (https://imagej.nih.gov/ij/download.html), as we will be using it next week for Lab 4. 
-* Also, if you haven't already, please put your info into the class google sheet (https://docs.google.com/spreadsheets/d/1lUajuGPwVc29feAesxS9DYLhfNqYxRrawvofaE6bYjA/edit#gid=0) so that I can invite you to our BIOL 324 iNaturalist project space. Also, you will be using this sheet to fill in your herbarium specimen measurements for lab next week.
+* Also, if you haven't already, please put your info into the class google sheet (https://docs.google.com/spreadsheets/d/1lUajuGPwVc29feAesxS9DYLhfNqYxRrawvofaE6bYjA/edit#gid=0) so that I can invite you to our BIOL 324 iNaturalist project space. You will be using this sheet to fill in your herbarium specimen measurements for lab next week.
+  + If you go to the second tab in the google sheet, you can put in your super-duper-cool custom team name ;-)
 
