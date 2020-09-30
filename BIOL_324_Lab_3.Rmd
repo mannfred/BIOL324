@@ -12,7 +12,7 @@ title: "Lab 3: Caryophyllaceae, Polygonaceae, Onagraceae, and intro to GBIF"
 
 **1.	Herbs.**  
 **2.	Leaves simple, mostly opposite, mostly entire, usually without stipules, nodes often swollen.**  
-**3.	Inflorescence a cyme.  Flowers perfect (rarely imperfect), actinomorphic.  Sepals 5, free or fused.  Petals 5, free. Stamens 5 or 10.  Pistil compound, ovary superior, carpels 2 5, free central placentation.**  
+**3.	Inflorescence a cyme.  Flowers perfect (rarely imperfect), actinomorphic.  Sepals 5, free or fused.  Petals 5, free. Stamens 5 or 10.  Pistil compound, ovary superior, carpels 2-5, free central placentation.**  
 **4.	Fruit usually a capsule.**  
 **5.	About 80 genera and 2,000 species, mainly in north temperate regions.**  
 
@@ -20,7 +20,15 @@ title: "Lab 3: Caryophyllaceae, Polygonaceae, Onagraceae, and intro to GBIF"
 
 ## Diagrams
 
-![](media/diagram_Caryophyllaceae.png)
+![](media/diagram_Caryophyllaceae1.png)
+
+</br>
+
+![](media/diagram_Caryophyllaceae2.png)
+
+</br>
+
+![](media/diagram_Caryophyllaceae3.png)
 
 ---
 
@@ -41,7 +49,7 @@ Below you can examine the flowers of *Silene dioica*, a species native to Europe
 
 &nbsp;
 
-Here is a dissected flower. Can you identify most of the perianth whorls?
+Here is a dissected flower. Can you identify all of the floral parts?
 
 <p align="center">
 ![](./media/Caryophyllaceae_6.jpeg){width=80%}
@@ -146,7 +154,7 @@ Draw a member of the Caryophyllaceae and include the following in your drawing:
 
 **1.  Herbs, shrubs, or rarely vines or trees.**  
 **2.  Leaves simple, alternate, often with a stipular sheath at the petiole base.  Stems often with swollen nodes.**  
-**3.  Flowers usually perfect, actinomorphic, perianth in one series or of 2 series of 3 tepals each.  Tepals 3 6, usually not fused.  Stamens 6 9.  Pistil compound, ovary superior, carpels 2 4 but ovary with only 1 ovule, placentation basal.**  
+**3.  Flowers usually perfect, actinomorphic, perianth in one series or of 2 series of 3 tepals each.  Tepals 3-6, usually not fused.  Stamens 6-9.  Pistil compound, ovary superior, carpels 2-4 but ovary with only 1 ovule, placentation basal.**  
 **4.  Fruit an achene.**  
 **5.  About 37 genera and 800 species, mainly in North Temperate regions.**  
 
@@ -154,7 +162,15 @@ Draw a member of the Caryophyllaceae and include the following in your drawing:
 
 ## Diagrams
 
-![](media/diagram_Polygonaceae.png)
+![](media/diagram_Polygonaceae1.png)
+
+</br>
+
+![](media/diagram_Polygonaceae2.png)
+
+</br>
+
+![](media/diagram_Polygonaceae3.png)
 
 ---
 
@@ -224,7 +240,7 @@ Polygonaceae fruit are classified as achenes, despite the fact that they develop
 
 &nbsp;
 
-Achenes in the genus *Rumex* (docks and sorrels) are unique within the Polygonaceae. They have achenes with three sides that are often adorned with wings or barbs, in addition to a round tubercule or 'callosity' on one or all three sides. See examples of *Rumex* achenes below. They often change to a reddish-brownish colour as they age. Can you spot the barbs and callosity? If you see anything like this out and about you can be pretty sure you've found *Rumex* sp....
+Achenes in the genus *Rumex* (docks and sorrels) are unique within the Polygonaceae. The inner three tepals are closely accrescent to the achene inside, forming a three-sided structure that is often adorned with wings or barbs on the margins. In addition, these inner tepals often have a round tubercule or 'callosity' on one or all three sides. See examples of *Rumex* achenes below. They often change to a reddish-brownish colour as they age. Can you spot the barbs and callosity? If you see anything like this out and about you can be pretty sure you've found *Rumex* sp....
 
 <p align="center">
 ![](./media/Polygonaceae_17.jpeg){width=40%} ![](./media/Polygonaceae_18.jpeg){width=40%}
@@ -253,7 +269,7 @@ Draw a Polygonaceae plant and include the following in your drawing:
 
 **1.  Mainly herbs**  
 **2. Leaves simple to pinnatifid, opposite or alternate, mostly without stipules**  
-**3. Flowers perfect, mostly actinomorphic, hypanthium often conspicuous.  Sepals 4 (rarely 2 or 5), free or fused.  Petals 4 (rarely 2 6), free.  Stamens 2, 4 or 8.  Pistil compound, ovary inferior, carpels 4, placentation axile.**  
+**3. Flowers perfect, mostly actinomorphic, hypanthium often conspicuous.  Sepals 4 (rarely 2 or 5), free or fused.  Petals 4 (rarely 2-6), free.  Stamens 2, 4 or 8.  Pistil compound, ovary inferior, carpels 4, placentation axile.**  
 **4.  Fruit a capsule, or rarely a berry or nutlike.**  
 **5. About 25 genera and 500 species, mainly New World, especially western North America.**  
 
@@ -261,7 +277,11 @@ Draw a Polygonaceae plant and include the following in your drawing:
 
 ## Diagrams
 
-![](media/diagram_Onagraceae.png)
+![](media/diagram_Onagraceae1.png)
+
+</br>
+
+![](media/diagram_Onagraceae2.png)
 
 ---
 
@@ -284,7 +304,7 @@ You've seen *Fuschia* already in Lab 2. Take another look at the below photos, n
 
 &nbsp;
 
-Here is a local weedy example, *Epilobium ciliatum*. It has small flowers with a long, slender ovary that is often mistaken as part of the pedicel. Can you identify all the whorls?
+Here is a local weedy example, *Epilobium ciliatum*. It has small flowers with a long, slender ovary that is often mistaken as part of the pedicel. Can you identify all of the whorls?
 
 <p align="center">
 ![](./media/Onagraceae_3.jpeg){width=40%} 
@@ -299,7 +319,7 @@ Here is a local weedy example, *Epilobium ciliatum*. It has small flowers with a
 
 ## Fruit
 
-Most Onagraceae species form capsules from compound ovaries. Here is a developing ovary from a *Fuchsia* flower. Can you tell how many carpels there are, and the type of placentation?
+Most Onagraceae species form capsules from compound ovaries (though *Fuchsia* forms a berry). Here is a developing ovary from a *Fuchsia* flower. Can you tell how many carpels there are, and the type of placentation?
 
 <p align="center">
 ![](./media/Onagraceae_1.jpeg){width=40%} 
@@ -339,10 +359,11 @@ Some showy local examples come from the genus *Chamaenerion*. The top two photos
 
 ## -KNOWLEDGE CHECK 3.3- 
 
-Using the above photos, draw *Epilobium ciliatum* and include the following:  
+Using the above photos, draw *Epilobium ciliatum* and include the following: 
+
 * A drawing of a flower including long slender ovary
 * A drawing of a mature, dehiscing capsule with hairy seeds  
-* label your drawings with the following terms: sepals, petals, stamens, style, stigma, ovary, capsule, seeds. 
+* Label your drawings with the following terms: sepals, petals, stamens, style, stigma, ovary, capsule, seeds. 
 
 ---
 
