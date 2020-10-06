@@ -24,8 +24,8 @@ navbar:
         href: BIOL_324_Lab_2.html
       - text: "Lab 3"
         href: BIOL_324_Lab_3.html
-    # - text: "Lab 4"
-    #   href: BIOL_324_Lab_4.html
+      - text: "Lab 4"
+        href: BIOL_324_Lab_4.html
     # - text: "Lab 5"
     #   href: BIOL_324_Lab_5.html          
     # - text: "Lab 6"
