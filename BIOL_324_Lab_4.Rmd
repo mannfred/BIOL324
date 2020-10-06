@@ -67,7 +67,7 @@ Let's examine some of these flowers from *Spartium junceum* (Spanish broom), a s
 
 &nbsp;
 
-Here are some more examples of papilionaceous flowers. While they all have banner, wing, and keel morphology, you can see that there is still quite a bit of variation amongst Fabaceae species. As you can see, the keel is quite often hidden from sight in between the wings.
+Here are some more examples of papilionaceous flowers (*Vicia* on the left, *Lathyrus* on the right). While they all have banner, wing, and keel morphology, you can see that there is still quite a bit of variation amongst Fabaceae species. As you can see, the keel is quite often hidden from sight in between the wings. Zoom in on *Vicia* sp. on the left - can you see the connate sepals hugging the bottom of the corolla?
 
 <p align="center">
 ![](./media/Fabaceae_5.jpeg){width=40%} ![](./media/Fabaceae_7.jpeg){width=40%}
@@ -134,17 +134,23 @@ Not all legumes look pea-like, however. For example, some take a coiled shape li
 
 &nbsp;
 
+Some genera produce "loments", a modified legume that has crosswise segments (each containing one seed) that break off in pieces instead of dehiscing along two sutures like your typical legume. Below you can see photos of the loments of *Hedysarum hedysaroides* (left) and *Desmodium incanum* (right).
+
+<p align="center">
+![](./media/Fabaceae_26.jpg){width=40%} ![](./media/Fabaceae_27.jpg){width=40%}
+</p>
+
 ---
 
 ## -KNOWLEDGE CHECK 4.1-
 
-Using the above pictures, draw a Fabaceae flower and fruit. Make sure to include the following:  
+Using the above pictures, draw an representative Fabaceae flower and fruit (feel free to use your imagination). Make sure to include the following:  
 
 - Papilionaceous flower  
 - Compound leaves - indicate the type (i.e., palmate or pinnate, tendrils present or not)  
 - Monodelphous or diadelphous stamens (label the type drawn) 
 - Legume (include a longitudinal section showing parts inside the fruit)
-- Label your drawings with the following terms: banner, wing, keel, leaf, leaflet, petiole, rachis, tendrils (if present), ovary wall, seed, placenta, locule.
+- Label your drawings with the following terms: sepals, banner, wing, keel, leaf, leaflet, petiole, rachis, tendrils (if present), ovary wall, seed, placenta, locule.
 
 &nbsp;
 
@@ -274,7 +280,7 @@ At first one might think that a rose "hip" is the fruit of the rose (with in inf
 
 ---
 
-Many members of the Rosaceae have drupes, defined as fruit where the fruit wall is made up of three layers: The outer skin (exocarp), middle fleshy bit (mesocarp), and the inner hard/woody shell (endocarp) that surrounds the seed. Some members of the family, like in the genus *Rubus* (blackberry), produce berries made up of dozens of tiny drupes, AKA an "aggregate of drupelets". 
+Many members of the Rosaceae have drupes, defined as fruit where the fruit wall is made up of three layers: The outer skin (exocarp), middle fleshy bit (mesocarp), and the inner hard/woody shell (endocarp) that surrounds the seed. Some members of the family, like in the genus *Rubus* (blackberry), produce "berries" made up of dozens of tiny drupes, AKA an "aggregate of drupelets". 
 
 ![](./media/Rosaceae_28.png){width=100%}
 
@@ -282,7 +288,7 @@ Many members of the Rosaceae have drupes, defined as fruit where the fruit wall 
 
 ---
 
-A pome is a unique fruit type to the Rosaceae. A pome develops from a compound, inferior ovary and has seeds encased within a cartilaginous wall (known as the endocarp of the ovary), with most of the surrounding fleshy part of the fruit derived from the hypanthium, which is fused to the ovary. So when you chomp into a delicious apple, most of the tasty bits are actually hypanthium tissue instead of ovary wall like your typical fruit! Below you can see the pomes of *Pyrus* (apple and pear - top) and *Sorbus* (mountain ash - bottom).
+A pome is a unique fruit type to the Rosaceae. A pome develops from a compound, inferior ovary and has seeds encased within a cartilaginous wall (known as the endocarp of the ovary), with most of the surrounding fleshy part of the fruit derived from the hypanthium, which is fused to the ovary. So when you chomp into a delicious apple, most of the tasty bits are actually hypanthium tissue instead of ovary wall like your typical fruit! Below you can see the pomes of *Malus* (apple - top) and *Sorbus* (mountain ash - bottom).
 
 <p align="center">
 ![](./media/Rosaceae_23.jpeg){width=40%} ![](./media/Rosaceae_24.jpeg){width=40%}
@@ -295,13 +301,13 @@ A pome is a unique fruit type to the Rosaceae. A pome develops from a compound, 
 
 ## -KNOWLEDGE CHECK 4.2-
 
-Using the above photos, make drawings of a Roseaceae flower and fruit. Make sure to include the following:
+Using the above photos, make drawings of a Rosaceae flower and fruit (use your imagination). Make sure to include the following:
 
 - Flower with shallow hypanthium 
 - Toothed leaves with stipules  
 - "Spiky" bits.  Make sure to indicate whether they are prickles, spines, or thorns...  
 - A drawing of a developed fruit. Indicate the fruit type. 
-- Label your drawings with the following (if present): sepals, petals, stamens, hypanthium, leaf, leaflet, petiole, rachis, stipules, spines, prickles, thorns, achene, pome, follicle, drupe.  
+- Label your drawings with the following (if present): sepals, petals, stamens, ovary, hypanthium, leaf (indicate type), petiole, rachis, stipules, spines, prickles, thorns, achene, pome, follicle, drupe.  
 
 
 ---
