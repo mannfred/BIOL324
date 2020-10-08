@@ -4,7 +4,9 @@ author: Evan Hersh and Mannfred Boehm
 date: "`r format(Sys.time(), '%d %B, %Y')`"
 ---
 
-## Brassicaceae - Mustard family
+# Brassicaceae - Mustard family
+
+---
 
 **1.  Herbs.**  
 **2.	Leaves simple, pinnatifid, or pinnately compound, alternate, without stipulates.**  
@@ -14,9 +16,15 @@ date: "`r format(Sys.time(), '%d %B, %Y')`"
 
 &nbsp;
 
+---
+
+## Diagrams
+
 ![](media/diagram_Brassicaceae.png)
 
 &nbsp;
+
+---
 
 Brassicaceae is the 4th largest family in B.C., with 169 species and varieties.  The family is very important economically, providing cabbage, broccoli, cauliflower (all species or varieties of *Brassica*), mustard, turnips, rapeseed or canola, radish (*Raphanus*), horseradish (*Amoracia rusticana*), and watercress (*Rorippa*).  Numerous genera are cultivated as ornamentals, including *Lobularia* (sweet alyssum), *Matthiola* (stocks), and *Aubrieta*.
 
@@ -24,7 +32,9 @@ Brassicaceae is the 4th largest family in B.C., with 169 species and varieties. 
 
 ---
 
-Brassicaceae flowers are very characteristic, making it easy to identify to family. The genera and species are more difficult however, and often require ripe fruit and sometimes a microscope to examine minute trichome structure. Let's look at some flowers. Below you can see the typical 'cruciform' (cross-like) structure of the petals, and 'tetradynamous' stamens.
+## Flowers
+
+Brassicaceae flowers are very characteristic, making them fairly easy to identify to family. The genera and species are more difficult however, and often require ripe fruit and sometimes a microscope to examine minute trichome (hair) structure. Let's look at some flowers. Below you can see the typical 'cruciform' (cross-like) structure of the petals, and 'tetradynamous' stamens.
 
 <p align="center">
 ![](./media/Brassicaceae_1.jpeg){width=40%} ![](./media/Brassicaceae_2.jpeg){width=40%}
@@ -42,6 +52,8 @@ The petals typically have a narrow "claw" at the base, with the "blade" bending 
 &nbsp;
 
 ---
+
+## Fruit
 
 As mentioned above, much of the Brassicaceae key is concerned with the fruits. The family has two unique fruit types, siliques and silicles. Siliques are more the twice as long as they are wide (appearing long and narrow), while silicles are less than two times as long as wide (appearing short and wide in comparison). Can you identify which is which from the photos below?
 
@@ -67,7 +79,9 @@ Siliques and silicles are dehiscent fruit from a 2-carpellate, 2-loculed ovary. 
 
 ---
 
-Brassicaceae leaves can be simple or compound, and are arranged alternatively and without stipules. Many leaves are pinnately compound or "pinnatifid", which are pinnately divided or lobes but not all the way to the midrib of the leaf. 
+## Leaves
+
+Brassicaceae leaves can be simple or compound, and are arranged alternatively and without stipules. Many leaves are pinnately compound or "pinnatifid", which are pinnately divided or lobed but not all the way to the midrib of the leaf. 
 
 <p align="center">
 ![](./media/Brassicaceae_17.jpeg){width=40%} 
@@ -75,7 +89,7 @@ Brassicaceae leaves can be simple or compound, and are arranged alternatively an
 
 &nbsp;
 
-Another important characteristic for identification is trichomes, which can be quite complex and varied in the Brassicaceae. A stunning example of intricate trichome morphology is displayed in the genus *Draba* (Evan's personal favorite genus!!!), a hyper-diverse group that are typically only found in alpine areas. *Draba* (amongst many other members of Brassicaceae) have particular trichome patterns that can be useful (and sometimes necessary) to identify identify individual species. Can you identify different types of trichomes in the two *Draba* species below?
+Another important characteristic for identification is trichomes, which can be quite complex and varied in the Brassicaceae. A stunning example of intricate trichome morphology is displayed in the genus *Draba* (Evan's personal favorite genus!!!), a hyper-diverse group that are typically only found in alpine areas. *Draba* (amongst many other members of Brassicaceae) have particular trichome patterns that can be useful (and sometimes necessary) to identify identify individual species. Can you identify different types of trichomes in the two *Draba* species below? Make sure you zoom in!
 
 <p align="center">
 ![](./media/Brassicaceae_18.jpeg){width=40%}
@@ -86,7 +100,15 @@ Another important characteristic for identification is trichomes, which can be q
 
 ---
 
-## Malvaceae - Mallow family
+## KNOWLEDGE CHECK 5.1
+
+
+
+---
+
+# Malvaceae - Mallow family
+
+---
 
 **1.	Mostly herbs, some shrubs or small trees, usually with stellate hairs.**  
 **2.	Leaves simple, petiolate, alternate, palmately veined and often palmately lobed, 	with stipules.**  
