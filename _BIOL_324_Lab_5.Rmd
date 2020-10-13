@@ -1,7 +1,7 @@
 ---
 title: "Lab 5: Brassicaceae, Malvaceae, Ericaceae, and intro to phylogenetics"
-author: Evan Hersh and Mannfred Boehm
-date: "`r format(Sys.time(), '%d %B, %Y')`"
+# author: Evan Hersh and Mannfred Boehm
+# date: "`r format(Sys.time(), '%d %B, %Y')`"
 ---
 
 # Brassicaceae - Mustard family
@@ -20,9 +20,15 @@ date: "`r format(Sys.time(), '%d %B, %Y')`"
 
 ## Diagrams
 
-![](media/diagram_Brassicaceae.png)
+![](media/diagram_Brassicaceae1.png)
 
 &nbsp;
+
+![](media/diagram_Brassicaceae2.png)
+
+</br>
+
+![](media/diagram_Brassicaceae3.png)
 
 ---
 
@@ -51,11 +57,18 @@ The petals typically have a narrow "claw" at the base, with the "blade" bending 
 
 &nbsp;
 
+Petals tend to be white, yellow, or pink/purple in the Brassicaceae. Keep in mind these colours, along with 4-petals arranged in a cross-shape and tetradynamous stamens, to help yourself identify this family confidently. 
+
+<p align="center">
+![](./media/Brassicaceae_20.jpeg){width=40%}
+![](./media/Brassicaceae_21.jpeg){width=40%}
+</p>
+
 ---
 
 ## Fruit
 
-As mentioned above, much of the Brassicaceae key is concerned with the fruits. The family has two unique fruit types, siliques and silicles. Siliques are more the twice as long as they are wide (appearing long and narrow), while silicles are less than two times as long as wide (appearing short and wide in comparison). Can you identify which is which from the photos below?
+As mentioned above, much of the Brassicaceae key is concerned with fruits. The family has two unique fruit types, siliques and silicles. Siliques are more the twice as long as they are wide (appearing long and narrow), while silicles are less than two times as long as wide (appearing short and wide in comparison). Can you identify which is which from the photos below?
 
 <p align="center">
 ![](./media/Brassicaceae_7.jpeg){width=40%} ![](./media/Brassicaceae_8.jpeg){width=40%}
@@ -81,15 +94,23 @@ Siliques and silicles are dehiscent fruit from a 2-carpellate, 2-loculed ovary. 
 
 ## Leaves
 
-Brassicaceae leaves can be simple or compound, and are arranged alternatively and without stipules. Many leaves are pinnately compound or "pinnatifid", which are pinnately divided or lobed but not all the way to the midrib of the leaf. 
+Brassicaceae leaves can be simple or compound, and are arranged alternatively and without stipules. Many leaves are "pinnatifid", which are pinnately divided or lobed but not all the way to the midrib of the leaf (do you see how this is different from compound leaves?). 
 
 <p align="center">
-![](./media/Brassicaceae_17.jpeg){width=40%} 
+![](./media/Brassicaceae_17.jpeg){width=80%} 
 </p>
 
 &nbsp;
 
-Another important characteristic for identification is trichomes, which can be quite complex and varied in the Brassicaceae. A stunning example of intricate trichome morphology is displayed in the genus *Draba* (Evan's personal favorite genus!!!), a hyper-diverse group that are typically only found in alpine areas. *Draba* (amongst many other members of Brassicaceae) have particular trichome patterns that can be useful (and sometimes necessary) to identify identify individual species. Can you identify different types of trichomes in the two *Draba* species below? Make sure you zoom in!
+A variation on pinnatifid is lyrate, which is similar except the leaves have a large/rounded terminal lobe with the lobes getting smaller towards the base of the leaf. Here is an example from *Arabidopsis lyrata*.
+
+<p align="center">
+![](./media/Brassicaceae_22.png){width=80%} 
+</p>
+
+</br>
+
+Another important characteristic for identification is trichomes, which can be quite complex and varied in the Brassicaceae. A stunning example of intricate trichome morphology is displayed in the genus *Draba* (Evan's personal favorite genus!!!), a hyper-diverse group that are typically only found in alpine areas. *Draba* (amongst many other members of Brassicaceae) have particular trichome patterns that can be useful (and sometimes necessary) to identify individual species. Can you identify different types of trichomes in the two *Draba* species below? Make sure you zoom in!
 
 <p align="center">
 ![](./media/Brassicaceae_18.jpeg){width=40%}
@@ -98,11 +119,19 @@ Another important characteristic for identification is trichomes, which can be q
 
 &nbsp;
 
+
+
 ---
 
 ## KNOWLEDGE CHECK 5.1
 
+Draw a representative Brassicaceae plant (feel free to use your imagination), and make sure to include the following:
 
+- Flowers with typical Brassicaceous features.
+- A fully developed fruit. Indicate whether it is a silicle or a silique. Include a section to see the parts inside.
+- Pinnatifid or Lyrate leaves
+- Trichomes - pick a type from the diagrams and make sure to label properly.
+- Make sure to label your drawing with the following terms (if present): sepals, petals, claw and blade, stamens, pistil (label all parts), silicle or silique, valves and replum. 
 
 ---
 
@@ -116,15 +145,27 @@ Another important characteristic for identification is trichomes, which can be q
 **4.	Fruit usually a capsule or schizocarp, separating into mericarps.**  
 **5.	About 100 genera and 2000 species, widespread but mostly tropical, often in dry 	areas.**  
 
-![](media/diagram_Malvaceae.png)
+## Diagrams
+
+![](media/diagram_Malvaceae1.png)
 
 &nbsp;
 
-Malvaceae is easily recognized by the filaments connate into a tube around the ovary, and the alternate, palmately 3-veined leaves with stellate or scaly pubescence.  It is a small family in B.C. with 10 taxa, half of them introduced weeds.  Several genera are grown as ornamentals, including *Althea*, hollycock, *Hibiscus*, *Sidalcea*, and *Lavatera*.  Cotton (*Gossypium*) is the most important crop in the family; unripe fruits of okra, *Abelmoschus esculentus*, are used as a vegetable and the fleshy red calyxes of *Hibiscus sabdariffa* (roselle or jamaica flower) are used for herbal teas, cold drinks, and jelly.
+![](media/diagram_Malvaceae2.png)
+
+&nbsp;
+
+![](media/diagram_Malvaceae3.png)
+
+---
+
+Malvaceae is easily recognized by the filaments connate into a tube around the ovary, and the alternate, palmately-veined leaves with stellate or scaly pubescence.  It is a small family in B.C. with 10 taxa, half of them introduced weeds.  Several genera are grown as ornamentals, including *Althea*, hollycock, *Hibiscus*, *Sidalcea*, and *Lavatera*.  Cotton (*Gossypium*) is the most important crop in the family; unripe fruits of okra, *Abelmoschus esculentus*, are used as a vegetable and the fleshy red calyxes of *Hibiscus sabdariffa* (roselle or Jamaica flower) are used for herbal teas, cold drinks, and jelly.
 
 &nbsp;
 
 ---
+
+## Flowers
 
 Those familiar with *Hibiscus* flowers should have a pretty good search image in mind for this family. The flowers tend to be large and conspicuous, 5 showy petals, and numerous stamens and styles fused into a prominent central tube rising out of the center. Here are some examples:
 
@@ -141,6 +182,8 @@ Here you can see a longitudinal section of the flower:
 ![](./media/Malvaceae_3.jpeg){width=80%}
 </p>
 
+</br>
+
 And close-ups of the staminal tube with styles emerging through the center:
 
 <p align="center">
@@ -152,13 +195,15 @@ And close-ups of the staminal tube with styles emerging through the center:
 
 &nbsp;
 
-Malvaceae flowers tend to have 5 sepals, and many appear to have two sets of sepals. In actuality, the lower ones are a set of calyx-like involucral bracts. 
+Malvaceae flowers tend to have 5 sepals, and many appear to have two sets of sepals. In actuality, the lower ones are a set of calyx-like bracts. 
 
 <p align="center">
 ![](./media/Malvaceae_8.jpeg){width=80%}
 </p>
 
 ---
+
+## Leaves
 
 Malvaceae species often have leaves with palmate lobes and venation. Many species also have dense pubescence all over the leaves, stems, and calyxes, often comprised of "stellate" trichomes. 
 
@@ -173,7 +218,9 @@ Malvaceae species often have leaves with palmate lobes and venation. Many specie
 
 ---
 
-Malvaceae species either have capsules (in the case of cotton) or "schizocarps" as their fruit type. A schizocarp is a cool looking fruit that somewhat resembles a bundt cake in appearance. It splits into several segments called "mericarps", each representing a single, indehiscent carpel with one seed inside. Once the schizocarp is mature, the mericarps harden and fall out individually.
+## Fruit
+
+Malvaceae species either have capsules (in the case of cotton) or "schizocarps" as their fruit type. A schizocarp is a cool looking fruit that somewhat resembles a [bundt cake](https://www.google.com/search?q=bundt+cake&safe=off&client=safari&rls=en&sxsrf=ALeKk00iVqmWeDYha5X2g7WETJ6cTLqxzA:1602280390497&source=lnms&tbm=isch&sa=X&ved=2ahUKEwjo8YXMv6jsAhWXvp4KHfKxD54Q_AUoAXoECDYQAw&biw=1881&bih=994) in appearance. It splits into several segments called "mericarps", each representing a single, indehiscent carpel with one seed inside. Once the schizocarp is mature, the mericarps harden and fall out individually.
 
 <p align="center">
 ![](./media/Malvaceae_13.jpeg){width=40%}
@@ -186,16 +233,42 @@ Malvaceae species either have capsules (in the case of cotton) or "schizocarps" 
 
 ---
 
-## Ericaceae - Heath family
+## KNOWLEDGE CHECK 5.2
+
+Draw a Malvaceae plant (feel free to use your imagination), and make sure to include the following:
+
+- Representative flower complete with calyx-like bracts and stamen tube.
+- Palmately lobed leaves with trichomes.
+- A fully developed schizocarp.
+- Make sure to include the following labels: petals, sepals, bracts, stamens, styles, leaf, trichomes, schizocarp, mericarp.
+
+---
+
+# Ericaceae - Heath family
+
+---
 
 **1.	Mostly shrubs or autotrophic or saprophytic herbs which are sometimes separated into two other families, the Monotropaceae and Pyrolaceae.**  
 **2.	Leaves simple, alternate, often leathery and evergreen, without stipules.**  
-**3.	Flowers perfect, usually actinomorphic.  Sepals usually 4 or 5.  Petals usually 4 or 5, usually fused.  Stamens usually 4, 5, 8 or 10, free from corolla, anthers usually with poricidal dehiscence.  Pistil compound, ovary superior or inferior, carpels usually 4 12, placentation axile.**  
+**3.	Flowers perfect, usually actinomorphic.  Sepals usually 4 or 5.  Petals usually 4 or 5, usually fused.  Stamens usually 4, 5, 8 or 10, free from corolla, anthers usually with poricidal dehiscence.  Pistil compound, ovary superior or inferior, carpels usually 4-12, placentation axile.**  
 **4. 	Fruit a capsule, berry, or berrylike drupe.**  
 **5.	About 75 genera and 2,000 species, primarily in cold temperate regions and at high elevations on tropical mountains, often growing in acid soils or bogs.**  
 
+---
 
-![](media/diagram_Ericaceae.png)
+## Diagrams
+
+![](media/diagram_Ericaceae1.png)
+
+</br>
+
+![](media/diagram_Ericaceae2.png)
+
+</br>
+
+![](media/diagram_Ericaceae3.png)
+
+---
 
 Members of the Ericaceae are common shrubs in B.C.  Familiar genera include *Arbutus*, *Arctostaphylos* (kinnikinnick), *Gaultheria* (salal, wintergreen), *Kalmia* (swamp laurel), *Ledum* (now *Rhododendron*, Labrador tea), *Rhododendron*, and *Vaccinium* (blueberries, cranberries, and huckleberries).  Many genera are cultivated as ornamentals.
 
@@ -211,6 +284,8 @@ Recent cladistic analyses of DNA sequences have resulted in Empetraceae and Epac
 &nbsp;
 
 ---
+
+## Flowers
 
 Ericaceae flowers are characterized as "urceolate" or urn-shaped. The corollas are sympetalous (peak at the top to count the number of corolla lobes), and flowers can have superior or inferior ovaries. 
 
@@ -236,6 +311,8 @@ Ericaceae species have very cool stamens that are adapted to buzz pollination. T
 
 ---
 
+## Fruit
+
 Ericaceae often have berries or berry-like capsules as their fruit type. 
 
 <p align="center">
@@ -247,7 +324,7 @@ Ericaceae often have berries or berry-like capsules as their fruit type.
 
 &nbsp;
 
-Most are familiar with blueberries (*Vaccinium* sp), which produce berries from an inferior ovary. What indicates that blueberries develop from inferior ovaries?
+Most are familiar with blueberries (*Vaccinium* sp.), which produce berries from an inferior ovary. What indicates that blueberries develop from inferior ovaries?
 
 <p align="center">
 ![](./media/Ericaceae_14.jpeg){width=40%}
@@ -270,78 +347,121 @@ If you look closely at a salal "berry", you'll see that it actually has a capsul
 
 ---
 
-## Introduction to phylogenetics
+## Leaves
 
-&nbsp;
-&nbsp;
+Members of the Ericaceae tend to have simple, evergreen, leathery leaves without stipules. These features may help you differentiate this family from Rosaceae, which may appear similar at times (e.g., comparing a Rosaceous plant with pomes vs an Ericaceous plant with berries...).
 
-#### Motivation
+<p align="center">
+![](./media/Ericaceae_16.jpeg){width=40%}![](./media/Ericaceae_17.jpeg){width=40%}
+![](./media/Ericaceae_18.jpeg){width=40%}![](./media/Ericaceae_19.jpeg){width=40%}
+</p>
 
-Phylogenetics is one of the most important and controversial fields within plant taxonomy. The ability to sequence and compare plant DNA has split, grouped, and uncovered taxa in ways never expected. In modern plant taxonomy, phylogenetic relationships are a key piece of evidence to consider when delimiting species. In this lab, we'll be downloading and aligning DNA sequences from five species chosen from your iNaturalist observations. Using these sequences, we'll construct a phylogenetic tree and consider whether the species relationships support what you have learned about the taxonomic organization (e.g. grouping by family) of these taxa. 
-
----
-
-&nbsp;
-&nbsp;
-
-#### Prerequisites 
-
-Before starting this week's tutorial you will have: 
-
-1. completed some pre-assignment reading on DNA barcoding, multiple sequence alignment, phylogenetics, and their role in plant taxonomy, 
-
-2. completed some pre-assignment reading on why/how Genbank is used by plant taxonomists, 
-
-3. chosen five plant species from your iNaturalist project to use in this activity.
+</br>
 
 ---
 
+## KNOWLEDGE CHECK 5.3
+
+Draw a typical member of the Ericaceae (feel free to use your imagination), and include the following:
+
+- An Ericaceous flower with urceolate corolla and characteristic stamens.
+- Simple, evergreen leaves.
+- Include a drawing of a mature fruit. Make sure to label the type, and whether it originated from a superior or inferior ovary.
+- Make sure to include the following labels: calyx, corolla, stamens (label all parts), pistil (label position and all parts, fruit (label the type), leaves. 
+
+---
+
+# Introduction to phylogenetics
+
 &nbsp;
 &nbsp;
 
-#### Outcomes
+## Motivation
+
+Phylogenetics is one of the most important and controversial fields within plant taxonomy. The ability to sequence and compare plant DNA has split, grouped, and uncovered taxa in ways never expected. In modern plant taxonomy, phylogenetic relationships are a key piece of evidence to consider when delimiting species. In this lab, we'll be downloading and aligning DNA sequences from the species you found in your iNaturalist project! Using these sequences, we'll construct a phylogenetic tree and consider whether the species relationships support what you have learned about the taxonomic organization (e.g. grouping by family) of these taxa. 
+
+Specifically, you will be downloading sequences from the *rbcL* gene region, a region of the genome that is commonly used for plant **DNA barcoding**. DNA barcodes are universally recoverable chunks of DNA that are used for the identification of taxa at the species level. These regions of the genome vary between species, but are conserved enough (not evolving rapidly) within species that they can be confidently used for species identification. DNA barcoding has become an extremely useful tool for researchers, allowing species identification from all types of tissue (i.e., stems, leaves, fruit, seeds, even old/damaged herbarium specimens!), the identification of cryptic (very morphologically similar) species, and even the discovery of new species! In addition, genetic variation of barcoded regions can be compared between species to give a cursory overview of their phylogenetic relationships - this is what you'll be using *rbcL* for today! 
+
+If you are interested in learning more about DNA barcoding, read [this paper](https://onlinelibrary.wiley.com/doi/10.1111/jse.12254) by John Kress (2017) to get a recent overview of the past and future applications of plant DNA barcodes.
+
+</br>
+
+---
+
+## Outcomes
 
 By the end of this tutorial you will have: 
 
-1. experience using Genbank, MUSCLE, and NCBI tree viewer.
+1. Experience using Genbank, MUSCLE, and NCBI tree viewer.
 
-2. familiarity with Genbank and the types of data that can be obtained, 
+2. Familiarity with Genbank and the types of data that can be obtained, 
 
-3. the tools and knowledge needed to create your own phylogenetic tree as part of a taxonomic research project.
+3. The tools and knowledge needed to create your own phylogenetic tree to be included in the written component of Project 1 (iNaturalist).
 
 ---
 
-&nbsp;
-&nbsp;
+## Activity 1: Search Genbank for sequence data
 
-#### Activity 1: Search Genbank for sequence data
-
-After selecting your five focal species, [navigate to the Genbank website](https://www.ncbi.nlm.nih.gov/genbank/). From the drop-down menu next to the search bar, make sure that the database selected is *Nucleotide*. Type in scientific name of your first plant, followed by the name of the barcode. For demonstration purposes we'll use five species of pussytoes (*Antennaria*, Asteraceae), and the rbcL barcode. Here's what our first search looks like:
+After you have identified your 10 iNaturalist species, [navigate to the GenBank website](https://www.ncbi.nlm.nih.gov/genbank/). From the drop-down menu next to the search bar, make sure that the database selected is *Nucleotide*. Type in the scientific name of your first plant, followed by the name of the barcode. For demonstration purposes we'll use five species (two of which are from the same family, the other three from different families), and the *rbcL* barcode. Here's what our first search looks like:
 
 ![](media/lab5_genbank1.png) 
 
-The search will return list of sequence submissions from various authors and projects that have barcoded *Antennaria*. When possible, use sequences that were generated from the same project &mdash; you can check by clicking on an entry and looking at the AUTHORS and TITLE entries. For our *Antennaria* sequences, we'll be using rbcL sequences generated by [Fenneman and Graham (2016)](https://open.library.ubc.ca/cIRcle/collections/ubctheses/24/items/1.0340546) as part of their contribution to barcode over 5000 vascular plants [representing the flora of Canada](https://bsapubs.onlinelibrary.wiley.com/doi/full/10.3732/apps.1700079). 
+</br>
+
+The search will return list of sequence submissions from various authors and projects that have barcoded that species. When possible, use sequences that were generated from the same project &mdash; you can check by clicking on an entry and looking at the AUTHORS and TITLE entries. If you can't find sequences from the same project, try to find entries that are of similar length (e.g., 500-600 bp). 
+
+<!-- For our *Antennaria* sequences, we'll be using rbcL sequences generated by [Fenneman and Graham (2016)](https://open.library.ubc.ca/cIRcle/collections/ubctheses/24/items/1.0340546) as part of their contribution to barcode over 5000 vascular plants [representing the flora of Canada](https://bsapubs.onlinelibrary.wiley.com/doi/full/10.3732/apps.1700079).  -->
 
 After entering your search query, click on the 'FASTA' option under any entry to see the DNA sequence:
 
 ![](media/lab5_genbank2.png)
 
-To save the sequence, we'll copy sequence string, as well as the header information (everything in the box above). Paste the FASTA entry into a text editor. Repeat this procedure for the remaining four taxa, pasting the FASTA entries into your text document, with each entry separated by a space. Then, simplify the headers by writing the scientific name with the genus and species separated by an underscore "_". Make sure to keep the ">" symbol at the beginning. 
+</br>
+
+To save the sequence, we'll copy sequence string, as well as the header information (everything in the box above). Paste the FASTA entry into a text editor. Repeat this procedure for the remaining taxa, pasting the FASTA entries into your text document, with each entry separated by a blank line. Then, simplify the headers by writing the scientific name with the genus,species, and family separated by underscores "_". Make sure to keep the ">" symbol at the beginning.
 
 ![](media/lab5_genbank3.png)
 
-&nbsp;
+Once you've done this for your 10 iNaturalist species, you will **add one more** *rbcL* sequence from *Selaginella kraussiana* (Selaginellaceae). This is a species of clubmoss (some of you may recognize it from BIOL 210), which is an early-diverging seedless vascular plant that will serve as your **outgroup**. In phylogenetics, [outgroups](https://en.wikipedia.org/wiki/Outgroup_(cladistics)) are taxa that are more distantly related to your focal taxa (or "ingroup"), and will help provide a point of comparison for the relationships between your iNaturalist species.
+
 &nbsp;
 
-#### Activity 2: Multiple Sequence Alignment
+## Activity 2: Multiple Sequence Alignment
 
-In order to compare the similarities of our sequences, we need to first align them. This ensures that any differences between samples are not caused simply by different reading frames. While we *could* align our sequences by eye, we'll use the MUSCLE algorithm which is much faster and reproducible. [Navigate to the MUSCLE webpage](https://www.ebi.ac.uk/Tools/msa/muscle/), and paste all of your sequencs into the first box:
+In order to compare the similarities of our sequences, we need to first align them. This ensures that any differences between samples are not caused simply by different reading frames. While we *could* align our sequences by eye, we'll use the MUSCLE algorithm which is much faster and reproducible. [Navigate to the MUSCLE webpage](https://www.ebi.ac.uk/Tools/msa/muscle/), and paste all of your sequences into the first box:
 
 ![](media/lab5_muscle1.png)
 
-After pasting your sequences, scroll down and click "Submit". The results page will show you the optimal alignment of your five rbcL sequences. To see the associated phylogram, click on "Phylogenetic Tree" tab:
+</br>
+
+After pasting your sequences, scroll down and click "Submit". The results page will show you the optimal alignment of your *rbcL* sequences. To see the associated phylogram, click on "Phylogenetic Tree" tab. Copy the text under "Tree Data" to use for Activity 3.
 
 ![](media/lab5_muscle2.png)
 
-**MB** maybe we want to get them to continue by pasting the Tree Data in to [NCBI Tree Viewer?](https://www.ncbi.nlm.nih.gov/projects/treeview/)
+</br>
 
+## Activity 3: Making a custom phylogenetic tree
+
+Now that you've aligned your sequences and generated a phylogenetic tree, we can visualize it in the [NCBI Tree Viewer?](https://www.ncbi.nlm.nih.gov/projects/treeview/). Click on the "Upload your data" button, select "Text" from the left-side panel, and paste in your tree data from the previous activity. Click upload and it will generate your tree!
+
+![](media/lab5_tree1.png)
+
+![](media/lab5_tree2.png)
+
+</br>
+
+You've now made your very own phylogenetic tree! You can click the "Tool" drop-down menu at the top right to play with the options a little bit, for example you can change the layout from the "Radial" default to another of your choosing. You now have the possibility to export your tree to a variety of formats that can be used in more advanced phylogenetics programs, or export it as a .pdf. Unfortunately, the pdf export option does not work very well (text is huge and cut off, and the scale bar does not appear accurate either). The simplest option is to take a screenshot of your tree in the browser, and make sure to include the scalebar as well.
+
+![](media/lab5_tree3.png)
+
+---
+
+## KNOWLEDGE CHECK 5.4
+
+Follow the above instructions to create a phylogenetic tree of your iNaturalist observations. Here are some tips:
+
+* Make sure to include all 10 of your iNaturalist observations as well as *Selaginella kraussiana* as an outgroup. 
+  * Ensure that the species in your tree match up with the identifications on your iNaturalist observations. Don't worry, if your identification is wrong for your iNaturalist component, you won't be docked twice for it also being wrong in your tree ;-)
+  * Most plant species should have an *rbcL* sequence on GenBank, but if there isn't one for one of your plants you can try to find another species from the same genus. If there are no sequences from any other member of the genus, then you can leave it out of your tree. In either case (you included a different species from the same genus or could not include one in your tree), **you must make a note of it in your report and discuss why it might be missing from GenBank**.
+* Make sure to include the scalebar. This is an important component of any phylogenetic tree (or map for that matter) and needs to be included.
+* Make sure that none of your species/family names are cut off (you can see "Selaginellaceae" is cut off in the above example). If they are cut off, try re-making your tree without the family name and insert it manually using an external program (Preview, Paint, or Powerpoint are good options for this). 

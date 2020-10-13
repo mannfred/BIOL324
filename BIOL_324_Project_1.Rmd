@@ -24,13 +24,15 @@ This project is made up of two components:
     - 20% of project marks
     - You will learn how to make a simple phylogenetic tree in Lab 5, and will receive more detailed information on the report requirements at that time.
     
-**This project is due by the beginning of Lab 6 (2 pm on October 21st or 22nd depending on your assigned lab section).** Your iNaturalist observations must be completed and uploaded to the BIOL 324 iNaturalist project by this time. You will submit your report through Canvas. 
+**This project is NOW DUE AT THE BEGINNING OF LAB 7 (2 pm on October 28th or 29th depending on your assigned lab section).** Your iNaturalist observations must be completed and uploaded to the BIOL 324 iNaturalist project by this time. You will submit your report through Canvas. 
     
 ---
 
+# iNaturalist component
+
 ---
 
-# Observation Requirements
+## Observation Requirements
 
 The goal is for you to make **10 high quality observations** (please do not submit more than 10). We will evaluate your observations based on these criteria:
 
@@ -60,9 +62,7 @@ The goal is for you to make **10 high quality observations** (please do not subm
 
 ---
 
----
-
-# Observation marking
+## Observation marking
 
 Each observation will be worth 10 marks (for a total of 100). 
 
@@ -77,13 +77,35 @@ Marks will be deducted if the photos are unclear, or if it is not possible to id
 
 ---
 
----
-
-# Report on phylogenetic relationships
-
-Details coming soon...
+# Written component
 
 ---
+
+## Report on phylogenetic relationships
+
+You must write a short report (1-2 pages) detailing the types of plants you found for your iNaturalist project. Your report should focus on the different types of plants you found (growth form, size, geographic range, flower/fruit types, ecology, etc.) and a discussion of their phylogenetic relationships. Try to reconcile your experience with these plants in the field with what you've learned from your phylogenetic tree (e.g., do the plants that are more closely related on your tree share morphological traits?). 
+
+Report requirements:
+
+- Include a simple phylogenetic tree (see Lab 5 and KNOWLEDGE CHECK 5.4).
+  - It must include all 10 of the species you identified for the iNaturalist component, as well as the *Selaginella kraussiana* outgroup. If there are no *rbcL* sequences on GenBank for one of your taxa, search for another member of the same genus. If there are no sequences from any other members of the genus, then you can leave it out of your tree. In either case (you included a different species from the same genus or could not include one in your tree) **you must make a note of it in your report and discuss why it might be missing from GenBank**.
+  - Ensure that the species in your tree match up with the identifications on your iNaturalist observations. Don't worry, if your identification is wrong for your iNaturalist component, you won't be docked twice for it also being wrong in your tree ;-)
+  - It must include the full genus, species, and family name for each taxon. 
+  - Names should not be cut off.
+  - Scale bar must be included. 
+  - Your figure must include a caption.
+- You must cite your figure in the text using proper citation formatting. 
+- You should include at least 2(?) scientific references that are properly cited in the text, and included in a References section at the end of your report.
+
+---
+
+## Report Marking
+
+The report is worth 25 marks overall.
+
+- Phylogenetic tree (10 marks)
+- Content (10 marks)
+- Style (5 marks)
 
 ---
 
