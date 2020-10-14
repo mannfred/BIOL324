@@ -274,10 +274,10 @@ Members of the Ericaceae are common shrubs in B.C.  Familiar genera include *Arb
 
 The Ericaceae traditionally consists of 4 subfamilies which are sometimes but incorrectly considered separate families.
 
-Ericoideae -  Photosynthetic shrubs, ovary superior, petals usually fused, sometimes free, anthers usually with pores, sometimes slits, pollen shed in tetrads.  (Erica, Rhododendron, Gaultheria).  
-Vaccinioideae  -  Photosynthetic shrubs, ovary inferior, petals fused, anthers with pores, pollen shed in tetrads (Vaccinium).  
-Pyroloideae - Photosynthetic or saprophytic herbs, ovary superior, petals free or slightly fused, anthers with pores, pollen shed in tetrads (Pyrola).  
-Monotropoideae - Saprophytic herbs, ovary superior, petals fused or free, anthers with slits, pollen grains shed individually (Monotropa, Allotropa).  
+Ericoideae -  Photosynthetic shrubs, ovary superior, petals usually fused, sometimes free, anthers usually with pores, sometimes slits, pollen shed in tetrads.  (*Erica*, *Rhododendron*, *Gaultheria*).  
+Vaccinioideae  -  Photosynthetic shrubs, ovary inferior, petals fused, anthers with pores, pollen shed in tetrads (*Vaccinium*).  
+Pyroloideae - Photosynthetic or saprophytic herbs, ovary superior, petals free or slightly fused, anthers with pores, pollen shed in tetrads (*Pyrola*).  
+Monotropoideae - Saprophytic herbs, ovary superior, petals fused or free, anthers with slits, pollen grains shed individually (*Monotropa*, *Allotropa*).  
 
 Recent cladistic analyses of DNA sequences have resulted in Empetraceae and Epacridaceae being added to Ericaceae.  *Empetrum* (crowberry) occurs in B.C. and is basically a wind pollinated Ericaceae with reduced flowers.  Epacridaceae were primarily Australian, and no one could tell them from Ericaceae anyway.
 
@@ -367,14 +367,18 @@ Draw a typical member of the Ericaceae (feel free to use your imagination), and 
 - An Ericaceous flower with urceolate corolla and characteristic stamens.
 - Simple, evergreen leaves.
 - Include a drawing of a mature fruit. Make sure to label the type, and whether it originated from a superior or inferior ovary.
-- Make sure to include the following labels: calyx, corolla, stamens (label all parts), pistil (label position and all parts, fruit (label the type), leaves. 
+- Make sure to include the following labels: calyx, corolla, stamens (label all parts), pistil (label position and all parts), fruit (label the type), leaves. 
+
+</br>
 
 ---
 
 # Introduction to phylogenetics
 
+---
+
 &nbsp;
-&nbsp;
+
 
 ## Motivation
 
@@ -418,7 +422,7 @@ After entering your search query, click on the 'FASTA' option under any entry to
 
 </br>
 
-To save the sequence, we'll copy sequence string, as well as the header information (everything in the box above). Paste the FASTA entry into a text editor. Repeat this procedure for the remaining taxa, pasting the FASTA entries into your text document, with each entry separated by a blank line. Then, simplify the headers by writing the scientific name with the genus,species, and family separated by underscores "_". Make sure to keep the ">" symbol at the beginning.
+To save the sequence, we'll copy the sequence string, as well as the header information (everything in the box above). Paste the FASTA entry into a text editor. Repeat this procedure for the remaining taxa, pasting the FASTA entries into your text document, with each entry separated by a blank line. Then, simplify the headers by writing the scientific name with the genus, species, and family separated by underscores "_". Make sure to keep the ">" symbol at the beginning.
 
 ![](media/lab5_genbank3.png)
 
@@ -442,7 +446,7 @@ After pasting your sequences, scroll down and click "Submit". The results page w
 
 ## Activity 3: Making a custom phylogenetic tree
 
-Now that you've aligned your sequences and generated a phylogenetic tree, we can visualize it in the [NCBI Tree Viewer?](https://www.ncbi.nlm.nih.gov/projects/treeview/). Click on the "Upload your data" button, select "Text" from the left-side panel, and paste in your tree data from the previous activity. Click upload and it will generate your tree!
+Now that you've aligned your sequences and generated a phylogenetic tree, we can visualize it in the [NCBI Tree Viewer](https://www.ncbi.nlm.nih.gov/projects/treeview/). Click on the "Upload your data" button, select "Text" from the left-side panel, and paste in your tree data from the previous activity. Click upload and it will generate your tree!
 
 ![](media/lab5_tree1.png)
 
@@ -450,7 +454,7 @@ Now that you've aligned your sequences and generated a phylogenetic tree, we can
 
 </br>
 
-You've now made your very own phylogenetic tree! You can click the "Tool" drop-down menu at the top right to play with the options a little bit, for example you can change the layout from the "Radial" default to another of your choosing. You now have the possibility to export your tree to a variety of formats that can be used in more advanced phylogenetics programs, or export it as a .pdf. Unfortunately, the pdf export option does not work very well (text is huge and cut off, and the scale bar does not appear accurate either). The simplest option is to take a screenshot of your tree in the browser, and make sure to include the scalebar as well.
+You've now made your very own phylogenetic tree! You can click the "Tool" drop-down menu at the top right to play with the options a little bit, for example you can change the layout from the "Radial" default to another of your choosing. You now have the possibility to export your tree to a variety of formats that can be used in more advanced phylogenetics programs, or export it as a .pdf. Unfortunately, the .pdf export option does not work very well (text is huge and cut off, and the scale bar does not appear accurate either). The simplest option is to take a screenshot of your tree in the browser, and make sure to include the scalebar as well.
 
 ![](media/lab5_tree3.png)
 
@@ -458,10 +462,12 @@ You've now made your very own phylogenetic tree! You can click the "Tool" drop-d
 
 ## KNOWLEDGE CHECK 5.4
 
-Follow the above instructions to create a phylogenetic tree of your iNaturalist observations. Here are some tips:
+Follow the above instructions to create a phylogenetic tree of your iNaturalist observations. This will be included in your [Project 1](BIOL_324_Lab_1.html) written component. 
+
+Here are some tips:
 
 * Make sure to include all 10 of your iNaturalist observations as well as *Selaginella kraussiana* as an outgroup. 
   * Ensure that the species in your tree match up with the identifications on your iNaturalist observations. Don't worry, if your identification is wrong for your iNaturalist component, you won't be docked twice for it also being wrong in your tree ;-)
   * Most plant species should have an *rbcL* sequence on GenBank, but if there isn't one for one of your plants you can try to find another species from the same genus. If there are no sequences from any other member of the genus, then you can leave it out of your tree. In either case (you included a different species from the same genus or could not include one in your tree), **you must make a note of it in your report and discuss why it might be missing from GenBank**.
 * Make sure to include the scalebar. This is an important component of any phylogenetic tree (or map for that matter) and needs to be included.
-* Make sure that none of your species/family names are cut off (you can see "Selaginellaceae" is cut off in the above example). If they are cut off, try re-making your tree without the family name and insert it manually using an external program (Preview, Paint, or Powerpoint are good options for this). 
+* Make sure that none of your species/family names are cut off (you can see "Selaginellaceae" is cut off in the above example). If they are cut off, try re-making your tree without the family name and insert it manually using another program (Preview, Paint, or Powerpoint are good options for this). 
