@@ -471,3 +471,13 @@ Here are some tips:
   * Most plant species should have an *rbcL* sequence on GenBank, but if there isn't one for one of your plants you can try to find another species from the same genus. If there are no sequences from any other member of the genus, then you can leave it out of your tree. In either case (you included a different species from the same genus or could not include one in your tree), **you must make a note of it in your report and discuss why it might be missing from GenBank**.
 * Make sure to include the scalebar. This is an important component of any phylogenetic tree (or map for that matter) and needs to be included.
 * Make sure that none of your species/family names are cut off (you can see "Selaginellaceae" is cut off in the above example). If they are cut off, try re-making your tree without the family name and insert it manually using another program (Preview, Paint, or Powerpoint are good options for this). 
+
+---
+
+# For next week
+
+You will be getting an introduction to R next week (yay!), so it would be a good idea to get R and R studio installed on your computers so that you are ready to go. We also highly recommend you follow along with Chapter 1 in ModernDive, which is a great free online textbook for using R. Here are some links:
+
+- Read Chapter 1 of ModernDive (https://moderndive.com/1-getting-started.html)
+- Install R (https://cran.r-project.org/mirrors.html)
+- Install RStudio (https://rstudio.com/products/rstudio/download/)
