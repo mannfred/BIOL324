@@ -518,7 +518,7 @@ Here, we assign our plot to an object that we've named `iris.ggplot1` using the 
 Make your own ggplot from the `iris` dataset. Make sure to:
 
 - Plot different variables than the example above. 
-- Make your own title, and make sure to**include your name in the title**. 
+- Make your own title, and make sure to **include your name in the title**. 
 - Add axis labels using `xlab()` and `ylab()` (don't forget to add a `+` before adding a new line to your ggplot).
 - Interpet the plot you made. Think about what the data tell you about the relationship between different floral characters, and how they differ between *Iris* species.
 - Export your plot. In the lower right-hand pane in RStudio, select the "Plots" tab and click the "Export" button to save it to your computer.
