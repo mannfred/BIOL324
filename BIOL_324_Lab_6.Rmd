@@ -200,7 +200,7 @@ Example: *Paulownia* (foxglove tree).
 
 ## Flowers
 
-Most members of the Scrophularioid families have fused, tubulur, and bilabiate corollas. Some of these can be quite showy, as pictured below in *Penstemon davidsonii* (left) and *Erythranthe lewisii* (right); both of these plants can be found along subalpine streambanks in the Pacific Northwest.
+While there can be quite a bit of variation amongst these groups, most members of the Scrophularioid families have fused, tubulur, and bilabiate corollas. Their flowers are often quite showy, as pictured below in *Penstemon davidsonii* (left) and *Erythranthe lewisii* (right); both of these plants can be found along subalpine streambanks in the Pacific Northwest.
 
 <p align="center">
 ![](./media/Scroph_5.jpeg){width=40%} ![](./media/Scroph_4.jpeg){width=40%}
@@ -216,7 +216,7 @@ A more common and widespread example is foxglove (*Digitalis purpurea*). Like ot
 
 &nbsp;
 
-The stamens are "epipetalous", meaning that the filaments are fused to the petals instead of emerging separately from the receptacle. See the dissected foxglove flower below:
+The stamens are typically "epipetalous", meaning that the filaments are fused to the petals instead of emerging separately from the receptacle. See the dissected foxglove flower below:
 
 <p align="center">
 ![](./media/Scroph_6.jpeg){width=60%}
@@ -225,7 +225,7 @@ The stamens are "epipetalous", meaning that the filaments are fused to the petal
 
 &nbsp;
 
-These families exhibit a wide diversity of floral forms, which makes it a difficult group to identify by sight. For example, *Antirrhinum* (snapdragons - left) and *Linaria* (toadflax - right) both have petal spurs. Can you identify the spurs? What other family have we seen spurs in?
+These families exhibit a wide diversity of floral forms, which can make them difficult to identify by sight. For example, *Antirrhinum* (snapdragons - left) and *Linaria* (toadflax - right) both have petal spurs. Can you identify the spurs? What other family have we seen spurs in?
 
 
 <p align="center">
@@ -242,7 +242,7 @@ Some genera, like the beautiful and dainty *Veronica* (left) and *Euphrasia* (ri
 
 &nbsp;
 
-The family Orobanchaceae (also originally housed within Scrophulariaceae) has many plants with wild floral structures, like *Castilleja* (paintbrushes - left) and *Pedicularis* (louseworts - right). Most of these plants are parasitic on the roots of other plants, with some (the holoparasites) completely lacking clorophyll. In paintbrushes, most of the vibrantly coloured (in this case red) bits are actually bracts (modified leaves)- can you see which bits might be parts of the perianth? In the Elephant's head lousewort (*Pedicularis groenlandica*) displayed on the right, the upper corolla lip is strongly galeate and beaked, resembling the head and trunk of an elephant.
+The family Orobanchaceae (also originally housed within Scrophulariaceae) has many plants with wild floral structures, like *Castilleja* (paintbrushes - left) and *Pedicularis* (louseworts - right). Most of these plants are parasitic on the roots of other plants. Most are "hemiparasitic" (only partially depending on other plants for nutrients), but some ("holoparasites") are completely parasitic and lack clorophyll entirely. In paintbrushes, most of the vibrantly coloured (in this case red) bits are actually bracts (modified leaves)- can you see which bits might be parts of the perianth? In the Elephant's head lousewort (*Pedicularis groenlandica*) displayed on the right, the upper corolla lip is strongly galeate and beaked, resembling the head and trunk of an elephant.
 
 <p align="center">
 ![](./media/Scroph_12.jpeg){width=40%} ![](./media/Scroph_13.jpeg){width=40%}
@@ -518,7 +518,8 @@ Here, we assign our plot to an object that we've named `iris.ggplot1` using the 
 Make your own ggplot from the `iris` dataset. Make sure to:
 
 - Plot different variables than the example above. 
-- Include your name in the title, and add axis labels using `xlab()` and `ylab()` (don't forget to add a `+` before adding a new line to your ggplot).
+- Make your own title, and make sure to**include your name in the title**. 
+- Add axis labels using `xlab()` and `ylab()` (don't forget to add a `+` before adding a new line to your ggplot).
 - Interpet the plot you made. Think about what the data tell you about the relationship between different floral characters, and how they differ between *Iris* species.
 - Export your plot. In the lower right-hand pane in RStudio, select the "Plots" tab and click the "Export" button to save it to your computer.
 
