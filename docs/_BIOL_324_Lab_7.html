@@ -1,0 +1,674 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+
+<meta charset="utf-8" />
+<meta name="generator" content="pandoc" />
+<meta http-equiv="X-UA-Compatible" content="IE=EDGE" />
+
+
+
+
+<title>Boraginaceae, Solonaceae, Apiaceae, and mapping in R</title>
+
+<script src="site_libs/jquery-1.11.3/jquery.min.js"></script>
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<link href="site_libs/bootstrap-3.3.5/css/readable.min.css" rel="stylesheet" />
+<script src="site_libs/bootstrap-3.3.5/js/bootstrap.min.js"></script>
+<script src="site_libs/bootstrap-3.3.5/shim/html5shiv.min.js"></script>
+<script src="site_libs/bootstrap-3.3.5/shim/respond.min.js"></script>
+<script src="site_libs/jqueryui-1.11.4/jquery-ui.min.js"></script>
+<link href="site_libs/tocify-1.9.1/jquery.tocify.css" rel="stylesheet" />
+<script src="site_libs/tocify-1.9.1/jquery.tocify.js"></script>
+<script src="site_libs/navigation-1.1/tabsets.js"></script>
+<script src="site_libs/accessible-code-block-0.0.1/empty-anchor.js"></script>
+
+
+
+
+<style type="text/css">
+h1 {
+  font-size: 34px;
+}
+h1.title {
+  font-size: 38px;
+}
+h2 {
+  font-size: 30px;
+}
+h3 {
+  font-size: 24px;
+}
+h4 {
+  font-size: 18px;
+}
+h5 {
+  font-size: 16px;
+}
+h6 {
+  font-size: 12px;
+}
+.table th:not([align]) {
+  text-align: left;
+}
+</style>
+
+
+
+
+<style type = "text/css">
+.main-container {
+  max-width: 940px;
+  margin-left: auto;
+  margin-right: auto;
+}
+code {
+  color: inherit;
+  background-color: rgba(0, 0, 0, 0.04);
+}
+img {
+  max-width:100%;
+}
+.tabbed-pane {
+  padding-top: 12px;
+}
+.html-widget {
+  margin-bottom: 20px;
+}
+button.code-folding-btn:focus {
+  outline: none;
+}
+summary {
+  display: list-item;
+}
+</style>
+
+
+<style type="text/css">
+/* padding for bootstrap navbar */
+body {
+  padding-top: 66px;
+  padding-bottom: 40px;
+}
+/* offset scroll position for anchor links (for fixed navbar)  */
+.section h1 {
+  padding-top: 71px;
+  margin-top: -71px;
+}
+.section h2 {
+  padding-top: 71px;
+  margin-top: -71px;
+}
+.section h3 {
+  padding-top: 71px;
+  margin-top: -71px;
+}
+.section h4 {
+  padding-top: 71px;
+  margin-top: -71px;
+}
+.section h5 {
+  padding-top: 71px;
+  margin-top: -71px;
+}
+.section h6 {
+  padding-top: 71px;
+  margin-top: -71px;
+}
+.dropdown-submenu {
+  position: relative;
+}
+.dropdown-submenu>.dropdown-menu {
+  top: 0;
+  left: 100%;
+  margin-top: -6px;
+  margin-left: -1px;
+  border-radius: 0 6px 6px 6px;
+}
+.dropdown-submenu:hover>.dropdown-menu {
+  display: block;
+}
+.dropdown-submenu>a:after {
+  display: block;
+  content: " ";
+  float: right;
+  width: 0;
+  height: 0;
+  border-color: transparent;
+  border-style: solid;
+  border-width: 5px 0 5px 5px;
+  border-left-color: #cccccc;
+  margin-top: 5px;
+  margin-right: -10px;
+}
+.dropdown-submenu:hover>a:after {
+  border-left-color: #ffffff;
+}
+.dropdown-submenu.pull-left {
+  float: none;
+}
+.dropdown-submenu.pull-left>.dropdown-menu {
+  left: -100%;
+  margin-left: 10px;
+  border-radius: 6px 0 6px 6px;
+}
+</style>
+
+<script>
+// manage active state of menu based on current page
+$(document).ready(function () {
+  // active menu anchor
+  href = window.location.pathname
+  href = href.substr(href.lastIndexOf('/') + 1)
+  if (href === "")
+    href = "index.html";
+  var menuAnchor = $('a[href="' + href + '"]');
+
+  // mark it active
+  menuAnchor.parent().addClass('active');
+
+  // if it's got a parent navbar menu mark it active as well
+  menuAnchor.closest('li.dropdown').addClass('active');
+});
+</script>
+
+<!-- tabsets -->
+
+<style type="text/css">
+.tabset-dropdown > .nav-tabs {
+  display: inline-table;
+  max-height: 500px;
+  min-height: 44px;
+  overflow-y: auto;
+  background: white;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+}
+
+.tabset-dropdown > .nav-tabs > li.active:before {
+  content: "";
+  font-family: 'Glyphicons Halflings';
+  display: inline-block;
+  padding: 10px;
+  border-right: 1px solid #ddd;
+}
+
+.tabset-dropdown > .nav-tabs.nav-tabs-open > li.active:before {
+  content: "&#xe258;";
+  border: none;
+}
+
+.tabset-dropdown > .nav-tabs.nav-tabs-open:before {
+  content: "";
+  font-family: 'Glyphicons Halflings';
+  display: inline-block;
+  padding: 10px;
+  border-right: 1px solid #ddd;
+}
+
+.tabset-dropdown > .nav-tabs > li.active {
+  display: block;
+}
+
+.tabset-dropdown > .nav-tabs > li > a,
+.tabset-dropdown > .nav-tabs > li > a:focus,
+.tabset-dropdown > .nav-tabs > li > a:hover {
+  border: none;
+  display: inline-block;
+  border-radius: 4px;
+  background-color: transparent;
+}
+
+.tabset-dropdown > .nav-tabs.nav-tabs-open > li {
+  display: block;
+  float: none;
+}
+
+.tabset-dropdown > .nav-tabs > li {
+  display: none;
+}
+</style>
+
+<!-- code folding -->
+
+
+
+<style type="text/css">
+
+#TOC {
+  margin: 25px 0px 20px 0px;
+}
+@media (max-width: 768px) {
+#TOC {
+  position: relative;
+  width: 100%;
+}
+}
+
+@media print {
+.toc-content {
+  /* see https://github.com/w3c/csswg-drafts/issues/4434 */
+  float: right;
+}
+}
+
+.toc-content {
+  padding-left: 30px;
+  padding-right: 40px;
+}
+
+div.main-container {
+  max-width: 1200px;
+}
+
+div.tocify {
+  width: 20%;
+  max-width: 260px;
+  max-height: 85%;
+}
+
+@media (min-width: 768px) and (max-width: 991px) {
+  div.tocify {
+    width: 25%;
+  }
+}
+
+@media (max-width: 767px) {
+  div.tocify {
+    width: 100%;
+    max-width: none;
+  }
+}
+
+.tocify ul, .tocify li {
+  line-height: 20px;
+}
+
+.tocify-subheader .tocify-item {
+  font-size: 0.90em;
+}
+
+.tocify .list-group-item {
+  border-radius: 0px;
+}
+
+
+</style>
+
+
+
+</head>
+
+<body>
+
+
+<div class="container-fluid main-container">
+
+
+<!-- setup 3col/9col grid for toc_float and main content  -->
+<div class="row-fluid">
+<div class="col-xs-12 col-sm-4 col-md-3">
+<div id="TOC" class="tocify">
+</div>
+</div>
+
+<div class="toc-content col-xs-12 col-sm-8 col-md-9">
+
+
+
+
+<div class="navbar navbar-default  navbar-fixed-top" role="navigation">
+  <div class="container">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar">
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="index.html">BIOL 324 Labs</a>
+    </div>
+    <div id="navbar" class="navbar-collapse collapse">
+      <ul class="nav navbar-nav">
+        <li>
+  <a href="index.html">Home</a>
+</li>
+<li>
+  <a href="Syllabus.html">Syllabus</a>
+</li>
+<li class="dropdown">
+  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
+    Resources
+     
+    <span class="caret"></span>
+  </a>
+  <ul class="dropdown-menu" role="menu">
+    <li>
+      <a href="Morphological_Terminology.html">Morphological Terminology</a>
+    </li>
+  </ul>
+</li>
+<li class="dropdown">
+  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
+    Projects
+     
+    <span class="caret"></span>
+  </a>
+  <ul class="dropdown-menu" role="menu">
+    <li>
+      <a href="BIOL_324_Project_1.html">Project 1 (iNaturalist)</a>
+    </li>
+  </ul>
+</li>
+<li class="dropdown">
+  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
+    Labs
+     
+    <span class="caret"></span>
+  </a>
+  <ul class="dropdown-menu" role="menu">
+    <li>
+      <a href="BIOL_324_Lab_1.html">Lab 1</a>
+    </li>
+    <li>
+      <a href="BIOL_324_Lab_2.html">Lab 2</a>
+    </li>
+    <li>
+      <a href="BIOL_324_Lab_3.html">Lab 3</a>
+    </li>
+    <li>
+      <a href="BIOL_324_Lab_4.html">Lab 4</a>
+    </li>
+    <li>
+      <a href="BIOL_324_Lab_5.html">Lab 5</a>
+    </li>
+    <li>
+      <a href="BIOL_324_Lab_6.html">Lab 6</a>
+    </li>
+  </ul>
+</li>
+      </ul>
+      <ul class="nav navbar-nav navbar-right">
+        
+      </ul>
+    </div><!--/.nav-collapse -->
+  </div><!--/.container -->
+</div><!--/.navbar -->
+
+<div class="fluid-row" id="header">
+
+
+
+<h1 class="title toc-ignore">Boraginaceae, Solonaceae, Apiaceae, and mapping in R</h1>
+
+</div>
+
+
+<hr />
+<div id="boraginaceae" class="section level1">
+<h1>Boraginaceae</h1>
+<p><strong>Borage Family</strong></p>
+<hr />
+<p><strong>1. Herbs (some tropical species are trees or shrubs)</strong><br />
+<strong>2. Leaves simple, alternate, commonly hairy, without stipules.</strong><br />
+<strong>3. Flowers perfect, usually actinomorphic, usually borne in a scorpioid or helicoid cyme (drepanium). Sepals 5, free or partially fused. Petals 5, fused. Stamens 5, epipetalous. Pistil compound, ovary superior, carpels 2, but deeply lobed, appearing as 4, style gynobasic, placentation basal.</strong><br />
+<strong>4. Fruit 4 nutlets.</strong><br />
+<strong>5. About 100 genera and 2000 species, widely distributed.</strong></p>
+<div id="diagrams" class="section level2">
+<h2>Diagrams</h2>
+<hr />
+</div>
+<div id="leaves" class="section level2">
+<h2>Leaves</h2>
+<p>Boraginaceae does not have super distinctive leaf characteristics - they are typically simple, alternate, and lacking stipules. One good character, however, is that they tend to be covered in stiff (and irritating to touch!) trichomes. These trichomes cover most vegetative parts of the plant, including the stems, leaves, peduncles/petioles, and calyxes.</p>
+<p align="center">
+<img src="media/Boraginaceae1.jpeg" style="width:100.0%" />
+</p>
+<p></br></p>
+<p align="center">
+<img src="media/Boraginaceae2.jpeg" style="width:100.0%" />
+</p>
+<hr />
+</div>
+<div id="flowers" class="section level2">
+<h2>Flowers</h2>
+<p>The flowers and inflorescence structure of Boraginaceae are quite distinctive, and once you get the visual in your mind it should be fairly easy to narrow down to this family. The flowers are usually actinomorphic, with 5 sepals, 5 fused petals, and 5 stamens. In addition, there are often corolla appendages (aka fornix) forming a ring around the throat of the flower. You can see the fornices quite well in the <em>Myositis</em> sp. (Forge-me-nots) below.</p>
+<p align="center">
+<img src="media/Boraginaceae3.jpeg" style="width:100.0%" />
+</p>
+<p></br></p>
+<p>Here’s another example from <em>Anchusa</em> sp.</p>
+<p align="center">
+<img src="media/Boraginaceae4.jpeg" style="width:100.0%" />
+</p>
+<p></br></p>
+<p><em>Borago officinalis</em> (Borage) takes the corolla appendages to the next level, forming two fornices on each petal (instead of the single fornix that is usually present). The inner fornix takes the shape of a tower or pedestal, with epipetalous stamens emerging from the inner curve of the fornix. Examine the below pictures (use the family diagrams to help you), and see if you can identify the different parts of the Borage flower.</p>
+<p align="center">
+<img src="media/Boraginaceae5.jpeg" style="width:100.0%" />
+</p>
+<p></br></p>
+<p align="center">
+<img src="media/Boraginaceae6.jpeg" style="width:100.0%" />
+</p>
+<p></br></p>
+<p align="center">
+<img src="media/Boraginaceae7.jpeg" style="width:49.0%" /> <img src="media/Boraginaceae8.jpeg" style="width:49.0%" />
+</p>
+<!-- --- -->
+<!-- # R Assignment 2 -->
+<!-- **Mapping Species Distributions using R and GBIF** -->
+<!-- --- -->
+<!-- ## Motivation -->
+<!-- At its core, plant taxonomy is the science of naming and grouping plants based on their shared traits. Throughout this course we've seen how growth habit, morphology, and geographic distribution can provide valuable information about how to classify and define plants. When we consider geographic information, we are asking questions like "do the plants occupy similar or distinct habitats?" and "are the ranges of these plants disjunct or overlapping?". Depending on the answer to these questions, our decision to group or separate plants (and give them different names) can be changed dramatically. In this R activity, we'll demonstrate how we can use publically available occurence data to create distribution maps for plants and use these maps to make taxonomic decisions.   -->
+<!-- &nbsp; -->
+<!-- &nbsp; -->
+<!-- <!-- ## Pre-lab  -->
+<p>–&gt;</p>
+<!-- <!-- Before starting this week's lab you will have:  -->
+<p>–&gt;</p>
+<!-- <!-- 1. Completed R Assignment 1 (Lab 6) and the pre-readings assigned there. -->
+<p>–&gt;</p>
+<!-- <!-- 2. Insert GBIF video tutorial here? Or have them do it in unit 1 (note: GBIF intro material lives as comments in Lab 6). -->
+<p>–&gt;</p>
+<!-- <!-- 3. Read Chapter 2 up to [section 2.3.1 in Modern Dive](https://moderndive.com/2-viz.html). Make sure you are able to produce Figures 2.2 and 2.3 on your own (using the code provided in the textbook). If your R is giving errors while trying to make these figures, please reach out to the TAs to fix them &mdash; it won't be possible to finish this lab without the `ggplot2` package working correctly. -->
+<p>–&gt;</p>
+<!-- <!-- 3. Selected your favourite plant group for creating a species distribution map (not sure if we're doing this) -->
+<p>–&gt;</p>
+<!-- <!-- &nbsp; -->
+<p>–&gt; <!-- <!-- &nbsp; --> –&gt;</p>
+<!-- <!-- --- -->
+<p>–&gt;</p>
+<!-- <!-- #### Outcomes -->
+<p>–&gt;</p>
+<!-- <!-- By the end of this tutorial you will have: <br> -->
+<p>–&gt;</p>
+<!-- <!-- 1. experience manipulating and mapping species distribution data in R, <br> -->
+<p>–&gt;</p>
+<!-- <!-- 2. familiarity with GBIF and the types of data that can be obtained, <br> -->
+<p>–&gt;</p>
+<!-- <!-- 3. More? -->
+<p>–&gt;</p>
+<!-- <!-- &nbsp; -->
+<p>–&gt; <!-- <!-- &nbsp; --> –&gt;</p>
+<!-- --- -->
+<!-- ## Mapping Species Distributions -->
+<!-- In previous labs we familiarized ourselves with GBIF, R, and RStudio. Today we'll be running a script that collects, filters, and maps distribution data for five species of "prickly pear" cacti (Opuntioideae: Cactaceae): -->
+<!-- _Opuntia basilaris_ (Mojave, Colorado, Utah) -->
+<!-- _Opuntia fragilis_  (Northwestern)  -->
+<!-- _Opuntia humifusa_  (Eastern)  -->
+<!-- _Opuntia polyacantha_ (Great Plains, foothills of Rocky Mtns)  -->
+<!-- _Opuntia stricta_ (Gulf Coast and Caribbean) -->
+<!-- First let's install the required packages: -->
+<!-- ```{r eval = FALSE} -->
+<!-- install.packages("mapr", "rgbif", "spocc", "taxize") -->
+<!-- ``` -->
+<!-- These packages are designed for connecting with the GBIF database (`rgbif`, `spocc`, `taxize`), filtering data (`tidyverse`), and mapping (`mapr`). Once installed, use the `library()` function to attach the packages (we'll also attach `tidyverse` to help with data wrangling and plotting): -->
+<!-- ```{r, results = 'hide', warning = FALSE, message = FALSE } -->
+<!-- library(here) -->
+<!-- library(mapdata) -->
+<!-- library(mapr) -->
+<!-- library(spocc) -->
+<!-- library(taxize) -->
+<!-- library(tidyverse) -->
+<!-- ``` -->
+<!-- Now let's get some occurrence data from GBIF!  -->
+<!-- ```{r} -->
+<!-- opuntia_ids <-  -->
+<!--   taxize::get_gbifid( -->
+<!--     sci=c("Opuntia basilaris Engelm. & J.M.Bigelow", -->
+<!--           "Opuntia fragilis (Nutt.) Haw.", -->
+<!--           "Opuntia humifusa Raf.", -->
+<!--           "Opuntia polyacantha Haw.", -->
+<!--           "Opuntia stricta (Haw.) Haw."),  -->
+<!--     rank='species', -->
+<!--     rows = 1) -->
+<!-- ``` -->
+<!-- The `get_gbifid()` function searches GBIF for taxon IDs associated with your search query. We wrote the code as `taxize::get_gbifid()` to be clear about which package the function originated from (`taxize`), but this isn't usually necessary. The `<-` operator stores the results in an object that we named `opuntia_ids`. By storing the results in an object we can later return to the object and inspect it, subset it, and pipe it to other functions. The output message is telling us that the `get_gbif()` function found 1 taxon ID for each *Opuntia* species. This is ideal because it means that there aren't any synonyms to deal with! To find out what the taxon ID for the first species (*O. basilaris*), we'll look inside our `opuntia_ids` object for the first element: -->
+<!-- ```{r chunk4} -->
+<!-- opuntia_ids[1] -->
+<!-- ``` -->
+<!-- The output tells us that the taxon ID for *O. basilaris* is `"5384070"`. Now, let's use our 'taxon ID object' to download occurrence data directly from GBIF (this can take a minute depending on how many records there are for a taxon): -->
+<!-- ```{r} -->
+<!--   one <- occ(query = 'Accipiter striatus', from = 'gbif', limit = 5) -->
+<!-- ``` -->
+<!-- In this code we've created a new object called `opuntia_metadata`. This object contains occurrence records found by the `occ()` function, where we specified our taxon ID (contained in `opuntia_ids`) and told the function that we wanted our data `from = gbif` (instead of another database) and that we wanted a maximum of `1000` records. Let's inspect the structure of the `opuntia_metadata` object: -->
+<!-- ```{r} -->
+<!-- str(opuntia_metadata, max.level=1) -->
+<!-- ``` -->
+<!-- The output tells us that `opuntia_metadata` is a `List` object with 9 named elements. We are specifically interested in the named element `$gbif`, so we can simplify our object by subsetting: -->
+<!-- ```{r chunk7} -->
+<!-- opuntia_simple <- opuntia_metadata$gbif$data -->
+<!-- ``` -->
+<!-- While writing this code, we discovered that the `opuntia_metadata` object is pretty complex and with lots of layers! The code above says to take the large object `opuntia_metadata` and select the element named `$gbif`. Then, within the element `$gbif`, select the sub-element `$data`. Within `$data` there are 5 elements, each one contains the lat-long information for one of our *Opuntia* species.  -->
+<!-- Let's look at the lat-long data for *O. basilaris*: -->
+<!-- ```{r} -->
+<!-- opuntia_simple$`5384070` -->
+<!-- ``` -->
+<!-- The output is pretty big and messy! The output tells us that it's a `tibble` (a type of spreadsheet) with 1000 rows and 75 columns. Each row is a record of where _Opuntia basilaris_ has been found or collected. Each column is some information associated with that record. While some of the columns are useful (e.g. the latitude and longitude), most columns aren't needed (we'll get rid of them later). In the next step, we'll combine the five separate `tibbles` into one: -->
+<!-- ```{r, message = FALSE} -->
+<!-- opuntia_combined <- -->
+<!--   full_join(opuntia_simple$`5384070`[, c(1:3, 7, 16, 50, 53)], opuntia_simple$`5384113`[, c(1:3, 7, 16, 53)]) %>%  -->
+<!--   full_join(., opuntia_simple$`5384047`[, c(1:3, 7, 16, 50, 53)]) %>%  -->
+<!--   full_join(., opuntia_simple$`5384095`[, c(1:3, 7, 16, 50, 53)]) %>%  -->
+<!--   full_join(., opuntia_simple$`5384075`[, c(1:3, 7, 16, 50, 53)]) -->
+<!-- ``` -->
+<!-- Above, we used the `full_join()` function to merge the data. We specified that we only wanted to keep certain columns (columns `1:3, 7, 16, 50, 53`). Everything else was discarded. Whew! This is a lot of organizing.. we're almost there. Before we get to mapping, we should check our data for synonyms. The `unique()` function tells us how many unique entries exist within a column: -->
+<!-- ```{r} -->
+<!-- unique(opuntia_combined$scientificName) -->
+<!-- ``` -->
+<!-- Unfortunately, lots of synonyms were included in the results. We'll make a object containing the names we want to keep, and use the `filter()` function to get rid of everything else: -->
+<!-- ```{r} -->
+<!-- opuntia_accepted <- c( -->
+<!-- "Opuntia basilaris Engelm. & J.M.Bigelow", -->
+<!-- "Opuntia fragilis (Nutt.) Haw.", -->
+<!-- "Opuntia humifusa Raf.", -->
+<!-- "Opuntia polyacantha Haw.", -->
+<!-- "Opuntia stricta (Haw.) Haw.") -->
+<!-- # filter out synonyms  -->
+<!-- # filter out entries outside of North America -->
+<!-- opuntia_fil<-   -->
+<!--   opuntia_combined %>%  -->
+<!--   filter(scientificName == opuntia_accepted) %>%  -->
+<!--   filter(longitude < -58 & latitude > 18.1) %>%  -->
+<!--   filter(basisOfRecord == "HUMAN_OBSERVATION") -->
+<!-- ``` -->
+<!-- We're ready to map! Pick some colours for your species (you can pick your own [from here](http://www.cookbook-r.com/Graphs/Colors_(ggplot2)/)): -->
+<!-- ```{r} -->
+<!-- mycolors <- c( "#E69F00", "#56B4E9",  "#F0E442", "#D55E00", "#CC79A7") -->
+<!-- ``` -->
+<!-- And map using the `map_ggplot()` function: -->
+<!-- ```{r} -->
+<!-- mapr::map_ggplot(opuntia_fil[,1:3], color = mycolors) +  -->
+<!--       coord_fixed(xlim = c(-135, -55 ),  ylim = c(10, 90))  -->
+<!-- ``` -->
+<!-- Beauty! After all of that hard work, we'll save the lat-long data object as an .rds file. We'll use this data again in Lab 10. If you downloaded or forked the [BIOL324 folder from the GitHub site](https://github.com/mannfred/BIOL324), you can run this code: -->
+<!-- ```{r} -->
+<!-- saveRDS(opuntia_fil, file = here('R_scripts/filtered_gbif_dataset.rds')) -->
+<!-- ``` -->
+<!-- --- -->
+<!-- &nbsp; -->
+<!-- &nbsp; -->
+<!-- #### Activity 3: Creating your own species distribution map -->
+<!-- MB: Not sure if we're going this route.. let's discuss! -->
+<!-- MB: Basically, the existing code can be modified to replace _Opuntia_ with any other plant name. Re-running the code will create a map for any species that GBIF has records for. Of course, some taxa are have more complicated nomenclature, and sometimes weird entries make it onto the map. In these cases, a little troubleshooting is required. Also, if one wanted to search for genera, families, orders, etc. some additional modifications are needed. For the majority of students in BIOL413, generating their own maps didn't require my intervention.  -->
+<!-- <br> -->
+<!-- <br> -->
+</div>
+</div>
+
+
+
+</div>
+</div>
+
+</div>
+
+<script>
+
+// add bootstrap table styles to pandoc tables
+function bootstrapStylePandocTables() {
+  $('tr.header').parent('thead').parent('table').addClass('table table-condensed');
+}
+$(document).ready(function () {
+  bootstrapStylePandocTables();
+});
+
+
+</script>
+
+<!-- tabsets -->
+
+<script>
+$(document).ready(function () {
+  window.buildTabsets("TOC");
+});
+
+$(document).ready(function () {
+  $('.tabset-dropdown > .nav-tabs > li').click(function () {
+    $(this).parent().toggleClass('nav-tabs-open')
+  });
+});
+</script>
+
+<!-- code folding -->
+
+<script>
+$(document).ready(function ()  {
+
+    // move toc-ignore selectors from section div to header
+    $('div.section.toc-ignore')
+        .removeClass('toc-ignore')
+        .children('h1,h2,h3,h4,h5').addClass('toc-ignore');
+
+    // establish options
+    var options = {
+      selectors: "h1,h2,h3",
+      theme: "bootstrap3",
+      context: '.toc-content',
+      hashGenerator: function (text) {
+        return text.replace(/[.\\/?&!#<>]/g, '').replace(/\s/g, '_');
+      },
+      ignoreSelector: ".toc-ignore",
+      scrollTo: 0
+    };
+    options.showAndHide = true;
+    options.smoothScroll = true;
+
+    // tocify
+    var toc = $("#TOC").tocify(options).data("toc-tocify");
+});
+</script>
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    script.src  = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML";
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+
+</body>
+</html>
