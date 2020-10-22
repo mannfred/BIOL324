@@ -19,9 +19,9 @@ iNaturalist is an incredible tool that facilitates taxonomic education while con
 This project is made up of two components:
 
 1. Make **10 iNaturalist observations** and submit to the BIOL 324 iNaturalist project.
-    - 80% of project marks
-2. A **short (1-2 page) report on the phylogenetic relationships** of the 10 species you observed.
-    - 20% of project marks
+    - 80% of project marks (100 marks)
+2. A **short (~2 page) report on the phylogenetic relationships** of the 10 species you observed.
+    - 20% of project marks (25 marks)
     - You will learn how to make a simple phylogenetic tree in Lab 5, and will receive more detailed information on the report requirements at that time.
     
 **This project is NOW DUE AT THE BEGINNING OF LAB 7 (2 pm on October 28th or 29th depending on your assigned lab section).** Your iNaturalist observations must be completed and uploaded to the BIOL 324 iNaturalist project by this time. You will submit your report through Canvas. 
@@ -67,7 +67,7 @@ The goal is for you to make **10 high quality observations** (please do not subm
 Each observation will be worth 10 marks (for a total of 100). 
 
 - 1 mark for correct family
-- 1 marks for correct genus
+- 1 mark for correct genus
 - 3 marks for correct species
 - 5 marks for associated information listed above (i.e., location, phenology, and notes).
 
@@ -75,27 +75,47 @@ Each observation will be worth 10 marks (for a total of 100).
 
 Marks will be deducted if the photos are unclear, or if it is not possible to identify the plant with the images/specimen provided. Make sure to include accurate terminology in the "Notes" field of your observations.
 
+</br>
+
 ---
 
 # Written component
 
 ---
 
-## Report on phylogenetic relationships
+## Overview
 
-You must write a short report (1-2 pages) detailing the types of plants you found for your iNaturalist project. Your report should focus on the different types of plants you found (growth form, size, geographic range, flower/fruit types, ecology, etc.) and a discussion of their phylogenetic relationships. Try to reconcile your experience with these plants in the field with what you've learned from your phylogenetic tree (e.g., do the plants that are more closely related on your tree share morphological traits?). 
+You will write a short report (no more than 500-600 words, not including references - about two pages double-spaced) detailing the types of plants you found for your iNaturalist project. Your report should include: (1) a figure displaying a phylogenetic tree of the 10 species you found for the iNaturalist component, (2) a discussion of the phylogenetic relationships between your observed species (basically interpret your tree), and (3) a more in-depth comparison between two of the species you found. You should find some scientific references to support the comparison between your two species, but we leave the content up to you! For example, you can compare their morphology, ecology, habitat, geographic range, physiology, etc, whatever you find interesting.
 
-Report requirements:
 
-- Include a simple phylogenetic tree (see Lab 5 and KNOWLEDGE CHECK 5.4).
+
+---
+
+## Report requirements
+
+**Phylogenetic Tree**
+
+- Include a simple phylogenetic tree (see [Lab 5](BIOL_324_Lab_5.html) and KNOWLEDGE CHECK 5.4).
   - It must include all 10 of the species you identified for the iNaturalist component, as well as the *Selaginella kraussiana* outgroup. If there are no *rbcL* sequences on GenBank for one of your taxa, search for another member of the same genus. If there are no sequences from any other members of the genus, then you can leave it out of your tree. In either case (you included a different species from the same genus or could not include one in your tree) **you must make a note of it in your report and discuss why it might be missing from GenBank**.
   - Ensure that the species in your tree match up with the identifications on your iNaturalist observations. Don't worry, if your identification is wrong for your iNaturalist component, you won't be docked twice for it also being wrong in your tree ;-)
   - It must include the full genus, species, and family name for each taxon. 
   - Names should not be cut off.
   - Scale bar must be included. 
-  - Your figure must include a caption.
-- You must cite your figure in the text using proper citation formatting. 
-- You should include at least 2(?) scientific references that are properly cited in the text, and included in a References section at the end of your report.
+  - You must include a caption with your figure.
+  
+**Content**
+
+- Interpret your tree, and discuss the evolutionary relationships between your 10 species.
+- Compare two of the species you found, and support with scientific references. The points of comparison are up to you, but may relate to any aspect of their biology that you find interesting, including: morphology, physiology, pollination, ecology, geographic range, etc.
+- You must include a References section at the end of the report.
+
+**Style**
+
+- Your Figure and references must be cited in the text. You should include at least two scientific references (one for each species you are comparing, of course more are welcome), and follow [APA formatting](https://owl.purdue.edu/owl/research_and_citation/apa_style/apa_formatting_and_style_guide/reference_list_basic_rules.html) for your in-text citations and reference section.
+  - No need for a title page, but you should include your full name at the top of the page on the right-hand side.
+  - You do not need to include page numbers in your in-text citations (author and year is fine).
+- Your report should be written in "essay format", with your ideas structured into paragraphs (no point-form or bullets). To follow the tenets of scientific writing, your writing should be concise and well-organized, avoiding extraneous information that does not connect with the rest of your report's content.
+- Your writing should be clear, grammatically correct, and spell-checked. 
 
 ---
 
