@@ -98,206 +98,208 @@ Here you can see a close-up of the inner fornix with the stamen attached.
 
 
 
-<!-- --- -->
+---
 
-<!-- # R Assignment 2 -->
+# R Assignment 2
 
-<!-- **Mapping Species Distributions using R and GBIF** -->
+**Mapping Species Distributions using R and GBIF**
 
-<!-- --- -->
+---
 
-<!-- ## Motivation -->
+## Motivation
 
-<!-- At its core, plant taxonomy is the science of naming and grouping plants based on their shared traits. Throughout this course we've seen how growth habit, morphology, and geographic distribution can provide valuable information about how to classify and define plants. When we consider geographic information, we are asking questions like "do the plants occupy similar or distinct habitats?" and "are the ranges of these plants disjunct or overlapping?". Depending on the answer to these questions, our decision to group or separate plants (and give them different names) can be changed dramatically. In this R activity, we'll demonstrate how we can use publically available occurence data to create distribution maps for plants and use these maps to make taxonomic decisions.   -->
+At its core, plant taxonomy is the science of naming and grouping plants based on their shared traits. Throughout this course we've seen how growth habit, morphology, and geographic distribution can provide valuable information about how to classify and define plants. When we consider geographic information, we are asking questions like "do the plants occupy similar or distinct habitats?" and "are the ranges of these plants disjunct or overlapping?". Depending on the answer to these questions, our decision to group or separate plants (and give them different names) can be changed dramatically. In this R activity, we'll demonstrate how we can use publically available occurence data to create distribution maps for plants and use these maps to make taxonomic decisions.
 
 
 
-<!-- &nbsp; -->
-<!-- &nbsp; -->
+&nbsp;
+&nbsp;
 
-<!-- <!-- ## Pre-lab  --> -->
+## Pre-lab
 
-<!-- <!-- Before starting this week's lab you will have:  --> -->
+Before starting this week's lab you will have:
 
-<!-- <!-- 1. Completed R Assignment 1 (Lab 6) and the pre-readings assigned there. --> -->
+1. Completed R Assignment 1 (Lab 6) and the pre-readings assigned there.
 
-<!-- <!-- 2. Insert GBIF video tutorial here? Or have them do it in unit 1 (note: GBIF intro material lives as comments in Lab 6). --> -->
+2. Insert GBIF video tutorial here? Or have them do it in unit 1 (note: GBIF intro material lives as comments in Lab 6).
 
-<!-- <!-- 3. Read Chapter 2 up to [section 2.3.1 in Modern Dive](https://moderndive.com/2-viz.html). Make sure you are able to produce Figures 2.2 and 2.3 on your own (using the code provided in the textbook). If your R is giving errors while trying to make these figures, please reach out to the TAs to fix them &mdash; it won't be possible to finish this lab without the `ggplot2` package working correctly. --> -->
+3. Read Chapter 2 up to [section 2.3.1 in Modern Dive](https://moderndive.com/2-viz.html). Make sure you are able to produce Figures 2.2 and 2.3 on your own (using the code provided in the textbook). If your R is giving errors while trying to make these figures, please reach out to the TAs to fix them &mdash; it won't be possible to finish this lab without the `ggplot2` package working correctly.
 
-<!-- <!-- 3. Selected your favourite plant group for creating a species distribution map (not sure if we're doing this) --> -->
+3. Selected your favourite plant group for creating a species distribution map (not sure if we're doing this)
 
-<!-- <!-- &nbsp; --> -->
-<!-- <!-- &nbsp; --> -->
+&nbsp;
+&nbsp;
 
-<!-- <!-- --- --> -->
+---
 
-<!-- <!-- #### Outcomes --> -->
+#### Outcomes
 
-<!-- <!-- By the end of this tutorial you will have: <br> --> -->
+By the end of this tutorial you will have: <br>
 
-<!-- <!-- 1. experience manipulating and mapping species distribution data in R, <br> --> -->
+1. experience manipulating and mapping species distribution data in R, <br>
 
-<!-- <!-- 2. familiarity with GBIF and the types of data that can be obtained, <br> --> -->
+2. familiarity with GBIF and the types of data that can be obtained, <br>
 
-<!-- <!-- 3. More? --> -->
+3. More?
 
-<!-- <!-- &nbsp; --> -->
-<!-- <!-- &nbsp; --> -->
+&nbsp;
+&nbsp;
 
-<!-- --- -->
+---
 
-<!-- ## Mapping Species Distributions -->
+## Mapping Species Distributions
 
-<!-- In previous labs we familiarized ourselves with GBIF, R, and RStudio. Today we'll be running a script that collects, filters, and maps distribution data for five species of "prickly pear" cacti (Opuntioideae: Cactaceae): -->
+In previous labs we familiarized ourselves with GBIF, R, and RStudio. Today we'll be running a script that collects, filters, and maps distribution data for five species of "prickly pear" cacti (Opuntioideae: Cactaceae):
 
-<!-- _Opuntia basilaris_ (Mojave, Colorado, Utah) -->
+_Opuntia basilaris_ (Mojave, Colorado, Utah)
 
-<!-- _Opuntia fragilis_  (Northwestern)  -->
+_Opuntia fragilis_  (Northwestern)
 
-<!-- _Opuntia humifusa_  (Eastern)  -->
+_Opuntia humifusa_  (Eastern)
 
-<!-- _Opuntia polyacantha_ (Great Plains, foothills of Rocky Mtns)  -->
+_Opuntia polyacantha_ (Great Plains, foothills of Rocky Mtns)
 
-<!-- _Opuntia stricta_ (Gulf Coast and Caribbean) -->
+_Opuntia stricta_ (Gulf Coast and Caribbean)
 
-<!-- First let's install the required packages: -->
+First let's install the required packages:
 
-<!-- ```{r eval = FALSE} -->
-<!-- install.packages("mapr", "rgbif", "spocc", "taxize") -->
+```{r eval = FALSE}
+install.packages("mapr", "rgbif", "spocc", "taxize")
 
-<!-- ``` -->
+```
 
-<!-- These packages are designed for connecting with the GBIF database (`rgbif`, `spocc`, `taxize`), filtering data (`tidyverse`), and mapping (`mapr`). Once installed, use the `library()` function to attach the packages (we'll also attach `tidyverse` to help with data wrangling and plotting): -->
+These packages are designed for connecting with the GBIF database (`rgbif`, `spocc`, `taxize`), filtering data (`tidyverse`), and mapping (`mapr`). Once installed, use the `library()` function to attach the packages (we'll also attach `tidyverse` to help with data wrangling and plotting):
 
-<!-- ```{r, results = 'hide', warning = FALSE, message = FALSE } -->
+```{r, results = 'hide', warning = FALSE, message = FALSE }
 
-<!-- library(here) -->
-<!-- library(mapdata) -->
-<!-- library(mapr) -->
-<!-- library(spocc) -->
-<!-- library(taxize) -->
-<!-- library(tidyverse) -->
+library(here)
+library(mapdata)
+library(mapr)
+library(spocc)
+library(taxize)
+library(tidyverse)
 
-<!-- ``` -->
+```
 
 
-<!-- Now let's get some occurrence data from GBIF!  -->
+Now let's get some occurrence data from GBIF!
 
-<!-- ```{r} -->
-<!-- opuntia_ids <-  -->
-<!--   taxize::get_gbifid( -->
-<!--     sci=c("Opuntia basilaris Engelm. & J.M.Bigelow", -->
-<!--           "Opuntia fragilis (Nutt.) Haw.", -->
-<!--           "Opuntia humifusa Raf.", -->
-<!--           "Opuntia polyacantha Haw.", -->
-<!--           "Opuntia stricta (Haw.) Haw."),  -->
-<!--     rank='species', -->
-<!--     rows = 1) -->
-<!-- ``` -->
+```{r}
+# The `get_gbifid()` function searches GBIF for taxon IDs associated with your search query. We wrote the code as `taxize::get_gbifid()` to be clear about which package the function originated from (`taxize`), but this isn't usually necessary. 
 
 
-<!-- The `get_gbifid()` function searches GBIF for taxon IDs associated with your search query. We wrote the code as `taxize::get_gbifid()` to be clear about which package the function originated from (`taxize`), but this isn't usually necessary. The `<-` operator stores the results in an object that we named `opuntia_ids`. By storing the results in an object we can later return to the object and inspect it, subset it, and pipe it to other functions. The output message is telling us that the `get_gbif()` function found 1 taxon ID for each *Opuntia* species. This is ideal because it means that there aren't any synonyms to deal with! To find out what the taxon ID for the first species (*O. basilaris*), we'll look inside our `opuntia_ids` object for the first element: -->
 
-<!-- ```{r chunk4} -->
-<!-- opuntia_ids[1] -->
-<!-- ``` -->
+# opuntia_ids <-
+#   taxize::get_gbifid(
+#     sci=c("Opuntia basilaris Engelm. & J.M.Bigelow",
+#           "Opuntia fragilis (Nutt.) Haw.",
+#           "Opuntia humifusa Raf.",
+#           "Opuntia polyacantha Haw.",
+#           "Opuntia stricta (Haw.) Haw."),
+#     rank='species',
+#     rows = 1)
 
-<!-- The output tells us that the taxon ID for *O. basilaris* is `"5384070"`. Now, let's use our 'taxon ID object' to download occurrence data directly from GBIF (this can take a minute depending on how many records there are for a taxon): -->
+opuntia_wishlist <-
+  c("Opuntia basilaris Engelm. & J.M.Bigelow",
+    "Opuntia fragilis (Nutt.) Haw.",
+    "Opuntia humifusa Raf.",
+    "Opuntia polyacantha Haw.",
+    "Opuntia stricta (Haw.) Haw.")
+```
 
-<!-- ```{r} -->
 
-<!--   one <- occ(query = 'Accipiter striatus', from = 'gbif', limit = 5) -->
-<!-- ``` -->
+In this first step we're creating a list of all of the plant species that we're hoping to get GBIF data for. The `<-` operator stores the results in an object that we named `opuntia_wishlist`. By storing the results in an object we can later return to the object and inspect it, subset it, and pipe it to other functions. In the following step we'll use the `occ()` function to search GBIF for the species records:
 
-<!-- In this code we've created a new object called `opuntia_metadata`. This object contains occurrence records found by the `occ()` function, where we specified our taxon ID (contained in `opuntia_ids`) and told the function that we wanted our data `from = gbif` (instead of another database) and that we wanted a maximum of `1000` records. Let's inspect the structure of the `opuntia_metadata` object: -->
+```{r}
+opuntia_metadata <- 
+  occ(query = opuntia_wishlist, from = 'gbif', limit = 500)
+```
 
-<!-- ```{r} -->
-<!-- str(opuntia_metadata, max.level=1) -->
-<!-- ``` -->
+In this code we've created a new object called `opuntia_metadata`. This object contains occurrence records found by the `occ()` function, where we specified our taxon ID (contained in `opuntia_ids`) and told the function that we wanted our data `from = gbif` (instead of another database) and that we wanted a maximum of `500` records. Let's inspect the structure of the `opuntia_metadata` object:
 
-<!-- The output tells us that `opuntia_metadata` is a `List` object with 9 named elements. We are specifically interested in the named element `$gbif`, so we can simplify our object by subsetting: -->
+```{r}
+str(opuntia_metadata, max.level=1)
+```
 
-<!-- ```{r chunk7} -->
-<!-- opuntia_simple <- opuntia_metadata$gbif$data -->
-<!-- ``` -->
+The output tells us that `opuntia_metadata` is a `List` object with 9 named elements. We are specifically interested in the named element `$gbif`, so we can simplify our object by subsetting:
 
-<!-- While writing this code, we discovered that the `opuntia_metadata` object is pretty complex and with lots of layers! The code above says to take the large object `opuntia_metadata` and select the element named `$gbif`. Then, within the element `$gbif`, select the sub-element `$data`. Within `$data` there are 5 elements, each one contains the lat-long information for one of our *Opuntia* species.  -->
+```{r chunk7}
+opuntia_simple <- opuntia_metadata$gbif$data
+```
 
-<!-- Let's look at the lat-long data for *O. basilaris*: -->
+While writing this code, we discovered that the `opuntia_metadata` object is pretty complex and with lots of layers! The code above says to take the large object `opuntia_metadata` and select the element named `$gbif`. Then, within the element `$gbif`, select the sub-element `$data`. Within `$data` there are 5 elements, each one contains the lat-long information for one of our *Opuntia* species.
 
-<!-- ```{r} -->
-<!-- opuntia_simple$`5384070` -->
-<!-- ``` -->
+Let's look at the lat-long data for *O. basilaris*:
 
-<!-- The output is pretty big and messy! The output tells us that it's a `tibble` (a type of spreadsheet) with 1000 rows and 75 columns. Each row is a record of where _Opuntia basilaris_ has been found or collected. Each column is some information associated with that record. While some of the columns are useful (e.g. the latitude and longitude), most columns aren't needed (we'll get rid of them later). In the next step, we'll combine the five separate `tibbles` into one: -->
+```{r}
+opuntia_simple$`Opuntia_basilaris_Engelm._&_J.M.Bigelow`
+```
 
-<!-- ```{r, message = FALSE} -->
-<!-- opuntia_combined <- -->
-<!--   full_join(opuntia_simple$`5384070`[, c(1:3, 7, 16, 50, 53)], opuntia_simple$`5384113`[, c(1:3, 7, 16, 53)]) %>%  -->
-<!--   full_join(., opuntia_simple$`5384047`[, c(1:3, 7, 16, 50, 53)]) %>%  -->
-<!--   full_join(., opuntia_simple$`5384095`[, c(1:3, 7, 16, 50, 53)]) %>%  -->
-<!--   full_join(., opuntia_simple$`5384075`[, c(1:3, 7, 16, 50, 53)]) -->
-<!-- ``` -->
+The output is pretty big and messy! The output tells us that it's a `tibble` (a type of spreadsheet) with 500 rows and 73 columns. Each row is a record of where _Opuntia basilaris_ has been found or collected. Each column is some information associated with that record. While some of the columns are useful (e.g. the latitude and longitude), most columns aren't needed (we'll get rid of them later). In the next step, we'll combine the five separate `tibbles` into one:
 
-<!-- Above, we used the `full_join()` function to merge the data. We specified that we only wanted to keep certain columns (columns `1:3, 7, 16, 50, 53`). Everything else was discarded. Whew! This is a lot of organizing.. we're almost there. Before we get to mapping, we should check our data for synonyms. The `unique()` function tells us how many unique entries exist within a column: -->
+```{r, message = FALSE}
 
-<!-- ```{r} -->
-<!-- unique(opuntia_combined$scientificName) -->
-<!-- ``` -->
+latlong <- c(1:3, 7, 16, 50, 53)
 
-<!-- Unfortunately, lots of synonyms were included in the results. We'll make a object containing the names we want to keep, and use the `filter()` function to get rid of everything else: -->
+opuntia_combined <-
+  full_join(
+    opuntia_simple$`Opuntia_basilaris_Engelm._&_J.M.Bigelow`[, latlong], 
+    opuntia_simple$`Opuntia_fragilis_(Nutt.)_Haw.`[, latlong]) %>% 
+  full_join(., opuntia_simple$`Opuntia_humifusa_Raf.`[, latlong]) %>%
+  full_join(., opuntia_simple$`Opuntia_polyacantha_Haw.`[, latlong]) %>%
+  full_join(., opuntia_simple$`Opuntia_stricta_(Haw.)_Haw.`[, latlong])
+```
 
-<!-- ```{r} -->
-<!-- opuntia_accepted <- c( -->
-<!-- "Opuntia basilaris Engelm. & J.M.Bigelow", -->
-<!-- "Opuntia fragilis (Nutt.) Haw.", -->
-<!-- "Opuntia humifusa Raf.", -->
-<!-- "Opuntia polyacantha Haw.", -->
-<!-- "Opuntia stricta (Haw.) Haw.") -->
+Above, we used the `full_join()` function to merge the data. We specified that we only wanted to keep certain columns (columns `1:3, 7, 16, 50, 53`). Everything else was discarded. Whew! This is a lot of organizing.. we're almost there. Before we get to mapping, we should check our data for synonyms. The `unique()` function tells us how many unique entries exist within a column:
 
+```{r}
+unique(opuntia_combined$scientificName)
+```
 
-<!-- # filter out synonyms  -->
-<!-- # filter out entries outside of North America -->
-<!-- opuntia_fil<-   -->
-<!--   opuntia_combined %>%  -->
-<!--   filter(scientificName == opuntia_accepted) %>%  -->
-<!--   filter(longitude < -58 & latitude > 18.1) %>%  -->
-<!--   filter(basisOfRecord == "HUMAN_OBSERVATION") -->
-<!-- ``` -->
+Unfortunately, lots of synonyms were included in the results. We'll make a object containing the names we want to keep, and use the `filter()` function to get rid of everything else:
 
-<!-- We're ready to map! Pick some colours for your species (you can pick your own [from here](http://www.cookbook-r.com/Graphs/Colors_(ggplot2)/)): -->
+```{r}
+# filter out synonyms
+# filter out entries outside of North America
+opuntia_fil<-
+  opuntia_combined %>%
+  filter(scientificName == opuntia_wishlist) %>%
+  filter(longitude < -58 & latitude > 18.1) %>%
+  filter(basisOfRecord == "HUMAN_OBSERVATION")
+```
 
-<!-- ```{r} -->
-<!-- mycolors <- c( "#E69F00", "#56B4E9",  "#F0E442", "#D55E00", "#CC79A7") -->
-<!-- ``` -->
+We're ready to map! Pick some colours for your species (you can pick your own [from here](http://www.cookbook-r.com/Graphs/Colors_(ggplot2)/)):
 
-<!-- And map using the `map_ggplot()` function: -->
+```{r}
+mycolors <- c( "#E69F00", "#56B4E9",  "#F0E442", "#D55E00", "#CC79A7")
+```
 
-<!-- ```{r} -->
-<!-- mapr::map_ggplot(opuntia_fil[,1:3], color = mycolors) +  -->
-<!--       coord_fixed(xlim = c(-135, -55 ),  ylim = c(10, 90))  -->
-<!-- ``` -->
+And map using the `map_ggplot()` function:
 
+```{r}
+mapr::map_ggplot(opuntia_fil[,1:3], color = mycolors) +
+      coord_fixed(xlim = c(-135, -55 ),  ylim = c(10, 90))
+```
 
-<!-- Beauty! After all of that hard work, we'll save the lat-long data object as an .rds file. We'll use this data again in Lab 10. If you downloaded or forked the [BIOL324 folder from the GitHub site](https://github.com/mannfred/BIOL324), you can run this code: -->
 
-<!-- ```{r} -->
-<!-- saveRDS(opuntia_fil, file = here('R_scripts/filtered_gbif_dataset.rds')) -->
-<!-- ``` -->
-<!-- --- -->
+Beauty! After all of that hard work, we'll save the lat-long data object as an .rds file. We'll use this data again in Lab 10. If you downloaded or forked the [BIOL324 folder from the GitHub site](https://github.com/mannfred/BIOL324), you can run this code:
 
-<!-- &nbsp; -->
-<!-- &nbsp; -->
+```{r}
+saveRDS(opuntia_fil, file = here('R_scripts/filtered_gbif_dataset.rds'))
+```
+---
 
-<!-- #### Activity 3: Creating your own species distribution map -->
+&nbsp;
+&nbsp;
 
-<!-- MB: Not sure if we're going this route.. let's discuss! -->
+#### Activity 3: Creating your own species distribution map
 
-<!-- MB: Basically, the existing code can be modified to replace _Opuntia_ with any other plant name. Re-running the code will create a map for any species that GBIF has records for. Of course, some taxa are have more complicated nomenclature, and sometimes weird entries make it onto the map. In these cases, a little troubleshooting is required. Also, if one wanted to search for genera, families, orders, etc. some additional modifications are needed. For the majority of students in BIOL413, generating their own maps didn't require my intervention.  -->
+MB: Not sure if we're going this route.. let's discuss!
 
-<!-- <br> -->
-<!-- <br> -->
+MB: Basically, the existing code can be modified to replace _Opuntia_ with any other plant name. Re-running the code will create a map for any species that GBIF has records for. Of course, some taxa are have more complicated nomenclature, and sometimes weird entries make it onto the map. In these cases, a little troubleshooting is required. Also, if one wanted to search for genera, families, orders, etc. some additional modifications are needed. For the majority of students in BIOL413, generating their own maps didn't require my intervention.
+
+<br>
+<br>
 
 
 
