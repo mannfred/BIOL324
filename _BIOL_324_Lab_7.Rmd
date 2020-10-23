@@ -94,7 +94,81 @@ Here you can see a close-up of the inner fornix with the stamen attached.
 ![](./media/Boraginaceae9.jpeg){width=100%}
 </p>
 
+</br>
+
 ---
+
+Another good characteristic for this family is the inflorescence type. Members of the Boraginaceae have helicoid or scorpioid cymes (see the family diagram for cartoons of what these look like). The development of the flowers spatially and temporally tend to give the inflorescence a coiled look, quite like a fern fiddlehead or a scorpion's tail (hence "scorpioid" cyme). For the purposes of our lab, we won't be asking you to differentiate between scorpioid vs helicoid cymes, but getting an appreciation for what they look like can help you identify this family in the field (or narrow down to Boraginaceae in a family ID quiz). Here are some examples:
+
+<p align="center">
+![](./media/Boraginaceae10.jpeg){width=100%}
+</p>
+
+</br>
+
+<p align="center">
+![](./media/Boraginaceae11.jpeg){width=100%}
+</p>
+
+</br>
+
+<p align="center">
+![](./media/Boraginaceae12.jpeg){width=100%}
+</p>
+
+</br>
+
+---
+
+## Fruit
+
+Similar to the Lamiaceae, members of the Boraginaceae typically form nutlets as their fruit type. They form four nutlets from two carpels, with a gynobasic style attached at the base and emerging from the center of the four nutlets. The nutlets also often have a thickened rim at the base. Here you can see a flower with 3 developed nutlets (the fourth has already fallen out):
+
+<p align="center">
+![](./media/Boraginaceae13.jpeg){width=100%}
+</p>
+
+</br>
+
+And here you can see the depressions that the thickened rims of the nutlets made in the receptacle of the flower.
+
+<p align="center">
+![](./media/Boraginaceae14.jpeg){width=100%}
+</p>
+
+</br>
+
+---
+
+## KNOWLEDGE CHECK 7.1
+
+Draw a *Borago officinalis* flower, and make sure to label the following: sepals, petals, fornices, stamens, pistil, trichomes.
+
+</br>
+
+---
+
+# Solonaceae
+
+**Potato or Nightshade Family**
+
+
+
+---
+
+# Apiaceae - Carrot Family
+
+---
+
+**1.	Mostly herbs.**
+**2.	Leaves usually compound, alternate, without stipules, but usually the petiole has a sheathing base.**
+**3.	Flowers usually perfect or andromonoecious (perfect and male on the same plant), radially symmetrical.  Sepals 5, usually small and sometimes absent.   Petals 5 (0), not fused.  Stamens  5, free.  Pistil compound, ovary inferior, carpels 2, placentation axile.  Inflorescence an umbel.**
+**4.	Fruit a schizocarp.**
+**5.	About 300 genera and 3000 species, mainly in north temperate regions.**
+
+The Apiaceae is the 13th largest family in B.C., with 61 taxa occurring in the province.  The family is easily recognized by its usually compound leaves, umbellate inflorescence, 5-merous flowers with an inferior ovary, and distinctive fruit, but genera and species are often difficult to identify.  Many keys require mature fruits for definite identification.  The plants and especially fruits often contain aromatic oils, which are used as flavorings.  Many species are edible, but some are deadly poisonous, including the poison hemlock with which Socrates was executed.
+
+Cultivated crops, herbs, and spices include *Apium* (celery, celeriac), *Pastinaca* (parsnip), *Daucus* (carrot), *Foeniculum* (fennel), *Anethum* (dill), *Cuminum* (cumin), *Pimpinella* (anise), *Petroselinum* (parsley), *Carum* (caraway), and *Coriandrum* (coriander, Chinese parsley, or cilantro).
 
 
 

@@ -396,7 +396,8 @@ Running the code `class(iris)` showed us that `iris` is a `data.frame`. A `data.
 Now, let's install a couple of useful packages that will help us organize and plot data from `iris`:
 
 ```{r, eval=FALSE}
-install.packages("dplyr", "ggplot2") # you can install multiple packages by separating each with a comma. 
+install.packages("dplyr")
+install.packages("ggplot2")
 ```
 
 You only need to install packages once. Anytime you open a new RStudio session, you'll need to attach the packages that you want to use:
