@@ -152,7 +152,45 @@ Draw a *Borago officinalis* flower, and make sure to label the following: sepals
 
 **Potato or Nightshade Family**
 
+**1.  Herbs, vines, shrubs, or trees.**
+**2.  Leaves simple or occasionally pinnately lobed to compound, alternate, without stipules.**
+**3.  Flowers perfect, actinomorphic or sometimes zygomorphic.  Sepals 5, fused.  Petals 5, fused.  Stamens 2, 4, or usually 5, epipetalous, sometimes with anthers connivent (converging or coming together but not fused).  Pistil compound, ovary superior, carpels 2, placentation axile.**
+**4.  Fruit a berry or capsule.**
+**5.  About 85 genera and more than 2200 species, primarily in tropical America.**
 
+The Solanaceae is not a significant family in the flora of B. C., but it is one of the most important in agriculture, providing foods and drugs.  Important crops include *Solanum* (potato, eggplant, tomato), *Physalis* (tomatillo, ground cherry), *Capsicum* (red, yellow, and green peppers), and *Nicotiana* (tobacco).  Many species produce poisonous alkaloids.  Alkaloids from *Atropa* (deadly nightshade or belladonna), *Hyoscyamus* (henbane), *Datura*, *Mandragor*a (mandrake), and *Brunfelsia* are used as drugs, hallucinogens, and poisons.  *Petunia* is the most important ornamental member of the Solanaceae in temperate regions.
+
+---
+
+## Flowers
+
+Members of the Solanaceae are characterized by 5 fused sepals and petals, and typically actinomorphic flowers. Corollas tend to be either wheel-shaped (rotate), trumpet-shaped (salverform), or funnel-shaped (funnelform). See if you can identify these different corolla shapes in the flowers below.
+
+<br>
+
+*Solanum lycopersicum* (tomato)
+
+<p align="center">
+![](./media/Solanaceae1.jpeg){width=100%}
+</p>
+
+<br>
+
+*Nicotiana* sp. (tobacco)
+
+<p align="center">
+![](./media/Solanaceae2.jpeg){width=100%}
+</p>
+
+<br>
+
+*Datura* sp.
+
+<p align="center">
+![](./media/Solanaceae3.jpg){width=100%}
+</p>
+
+<br>
 
 ---
 
