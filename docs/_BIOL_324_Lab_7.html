@@ -23,9 +23,98 @@
 <link href="site_libs/tocify-1.9.1/jquery.tocify.css" rel="stylesheet" />
 <script src="site_libs/tocify-1.9.1/jquery.tocify.js"></script>
 <script src="site_libs/navigation-1.1/tabsets.js"></script>
-<script src="site_libs/accessible-code-block-0.0.1/empty-anchor.js"></script>
 
 
+<style type="text/css">code{white-space: pre;}</style>
+<style type="text/css" data-origin="pandoc">
+a.sourceLine { display: inline-block; line-height: 1.25; }
+a.sourceLine { pointer-events: none; color: inherit; text-decoration: inherit; }
+a.sourceLine:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode { white-space: pre; position: relative; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+code.sourceCode { white-space: pre-wrap; }
+a.sourceLine { text-indent: -1em; padding-left: 1em; }
+}
+pre.numberSource a.sourceLine
+  { position: relative; left: -4em; }
+pre.numberSource a.sourceLine::before
+  { content: attr(title);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; pointer-events: all; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  { background-color: #f8f8f8; }
+@media screen {
+a.sourceLine::before { text-decoration: underline; }
+}
+code span.al { color: #ef2929; } /* Alert */
+code span.an { color: #8f5902; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #c4a000; } /* Attribute */
+code span.bn { color: #0000cf; } /* BaseN */
+code span.cf { color: #204a87; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4e9a06; } /* Char */
+code span.cn { color: #000000; } /* Constant */
+code span.co { color: #8f5902; font-style: italic; } /* Comment */
+code span.cv { color: #8f5902; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #8f5902; font-weight: bold; font-style: italic; } /* Documentation */
+code span.dt { color: #204a87; } /* DataType */
+code span.dv { color: #0000cf; } /* DecVal */
+code span.er { color: #a40000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #0000cf; } /* Float */
+code span.fu { color: #000000; } /* Function */
+code span.im { } /* Import */
+code span.in { color: #8f5902; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #204a87; font-weight: bold; } /* Keyword */
+code span.op { color: #ce5c00; font-weight: bold; } /* Operator */
+code span.ot { color: #8f5902; } /* Other */
+code span.pp { color: #8f5902; font-style: italic; } /* Preprocessor */
+code span.sc { color: #000000; } /* SpecialChar */
+code span.ss { color: #4e9a06; } /* SpecialString */
+code span.st { color: #4e9a06; } /* String */
+code span.va { color: #000000; } /* Variable */
+code span.vs { color: #4e9a06; } /* VerbatimString */
+code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warning */
+
+</style>
+<script>
+// apply pandoc div.sourceCode style to pre.sourceCode instead
+(function() {
+  var sheets = document.styleSheets;
+  for (var i = 0; i < sheets.length; i++) {
+    if (sheets[i].ownerNode.dataset["origin"] !== "pandoc") continue;
+    try { var rules = sheets[i].cssRules; } catch (e) { continue; }
+    for (var j = 0; j < rules.length; j++) {
+      var rule = rules[j];
+      // check if there is a div.sourceCode rule
+      if (rule.type !== rule.STYLE_RULE || rule.selectorText !== "div.sourceCode") continue;
+      var style = rule.style.cssText;
+      // check if color or background-color is set
+      if (rule.style.color === '' && rule.style.backgroundColor === '') continue;
+      // replace div.sourceCode by a pre.sourceCode rule
+      sheets[i].deleteRule(j);
+      sheets[i].insertRule('pre.sourceCode{' + style + '}', j);
+    }
+  }
+})();
+</script>
+<style type="text/css">
+  pre:not([class]) {
+    background-color: white;
+  }
+</style>
 
 
 <style type="text/css">
@@ -489,145 +578,205 @@ div.tocify {
 <img src="media/Boraginaceae14.jpeg" style="width:100.0%" />
 </p>
 <p></br></p>
-<!-- --- -->
-<!-- # R Assignment 2 -->
-<!-- **Mapping Species Distributions using R and GBIF** -->
-<!-- --- -->
-<!-- ## Motivation -->
-<!-- At its core, plant taxonomy is the science of naming and grouping plants based on their shared traits. Throughout this course we've seen how growth habit, morphology, and geographic distribution can provide valuable information about how to classify and define plants. When we consider geographic information, we are asking questions like "do the plants occupy similar or distinct habitats?" and "are the ranges of these plants disjunct or overlapping?". Depending on the answer to these questions, our decision to group or separate plants (and give them different names) can be changed dramatically. In this R activity, we'll demonstrate how we can use publically available occurence data to create distribution maps for plants and use these maps to make taxonomic decisions.   -->
-<!-- &nbsp; -->
-<!-- &nbsp; -->
-<!-- <!-- ## Pre-lab  -->
-<p>–&gt;</p>
-<!-- <!-- Before starting this week's lab you will have:  -->
-<p>–&gt;</p>
-<!-- <!-- 1. Completed R Assignment 1 (Lab 6) and the pre-readings assigned there. -->
-<p>–&gt;</p>
-<!-- <!-- 2. Insert GBIF video tutorial here? Or have them do it in unit 1 (note: GBIF intro material lives as comments in Lab 6). -->
-<p>–&gt;</p>
-<!-- <!-- 3. Read Chapter 2 up to [section 2.3.1 in Modern Dive](https://moderndive.com/2-viz.html). Make sure you are able to produce Figures 2.2 and 2.3 on your own (using the code provided in the textbook). If your R is giving errors while trying to make these figures, please reach out to the TAs to fix them &mdash; it won't be possible to finish this lab without the `ggplot2` package working correctly. -->
-<p>–&gt;</p>
-<!-- <!-- 3. Selected your favourite plant group for creating a species distribution map (not sure if we're doing this) -->
-<p>–&gt;</p>
-<!-- <!-- &nbsp; -->
-<p>–&gt; <!-- <!-- &nbsp; --> –&gt;</p>
-<!-- <!-- --- -->
-<p>–&gt;</p>
-<!-- <!-- #### Outcomes -->
-<p>–&gt;</p>
-<!-- <!-- By the end of this tutorial you will have: <br> -->
-<p>–&gt;</p>
-<!-- <!-- 1. experience manipulating and mapping species distribution data in R, <br> -->
-<p>–&gt;</p>
-<!-- <!-- 2. familiarity with GBIF and the types of data that can be obtained, <br> -->
-<p>–&gt;</p>
-<!-- <!-- 3. More? -->
-<p>–&gt;</p>
-<!-- <!-- &nbsp; -->
-<p>–&gt; <!-- <!-- &nbsp; --> –&gt;</p>
-<!-- --- -->
-<!-- ## Mapping Species Distributions -->
-<!-- In previous labs we familiarized ourselves with GBIF, R, and RStudio. Today we'll be running a script that collects, filters, and maps distribution data for five species of "prickly pear" cacti (Opuntioideae: Cactaceae): -->
-<!-- _Opuntia basilaris_ (Mojave, Colorado, Utah) -->
-<!-- _Opuntia fragilis_  (Northwestern)  -->
-<!-- _Opuntia humifusa_  (Eastern)  -->
-<!-- _Opuntia polyacantha_ (Great Plains, foothills of Rocky Mtns)  -->
-<!-- _Opuntia stricta_ (Gulf Coast and Caribbean) -->
-<!-- First let's install the required packages: -->
-<!-- ```{r eval = FALSE} -->
-<!-- install.packages("mapr", "rgbif", "spocc", "taxize") -->
-<!-- ``` -->
-<!-- These packages are designed for connecting with the GBIF database (`rgbif`, `spocc`, `taxize`), filtering data (`tidyverse`), and mapping (`mapr`). Once installed, use the `library()` function to attach the packages (we'll also attach `tidyverse` to help with data wrangling and plotting): -->
-<!-- ```{r, results = 'hide', warning = FALSE, message = FALSE } -->
-<!-- library(here) -->
-<!-- library(mapdata) -->
-<!-- library(mapr) -->
-<!-- library(spocc) -->
-<!-- library(taxize) -->
-<!-- library(tidyverse) -->
-<!-- ``` -->
-<!-- Now let's get some occurrence data from GBIF!  -->
-<!-- ```{r} -->
-<!-- opuntia_ids <-  -->
-<!--   taxize::get_gbifid( -->
-<!--     sci=c("Opuntia basilaris Engelm. & J.M.Bigelow", -->
-<!--           "Opuntia fragilis (Nutt.) Haw.", -->
-<!--           "Opuntia humifusa Raf.", -->
-<!--           "Opuntia polyacantha Haw.", -->
-<!--           "Opuntia stricta (Haw.) Haw."),  -->
-<!--     rank='species', -->
-<!--     rows = 1) -->
-<!-- ``` -->
-<!-- The `get_gbifid()` function searches GBIF for taxon IDs associated with your search query. We wrote the code as `taxize::get_gbifid()` to be clear about which package the function originated from (`taxize`), but this isn't usually necessary. The `<-` operator stores the results in an object that we named `opuntia_ids`. By storing the results in an object we can later return to the object and inspect it, subset it, and pipe it to other functions. The output message is telling us that the `get_gbif()` function found 1 taxon ID for each *Opuntia* species. This is ideal because it means that there aren't any synonyms to deal with! To find out what the taxon ID for the first species (*O. basilaris*), we'll look inside our `opuntia_ids` object for the first element: -->
-<!-- ```{r chunk4} -->
-<!-- opuntia_ids[1] -->
-<!-- ``` -->
-<!-- The output tells us that the taxon ID for *O. basilaris* is `"5384070"`. Now, let's use our 'taxon ID object' to download occurrence data directly from GBIF (this can take a minute depending on how many records there are for a taxon): -->
-<!-- ```{r} -->
-<!--   one <- occ(query = 'Accipiter striatus', from = 'gbif', limit = 5) -->
-<!-- ``` -->
-<!-- In this code we've created a new object called `opuntia_metadata`. This object contains occurrence records found by the `occ()` function, where we specified our taxon ID (contained in `opuntia_ids`) and told the function that we wanted our data `from = gbif` (instead of another database) and that we wanted a maximum of `1000` records. Let's inspect the structure of the `opuntia_metadata` object: -->
-<!-- ```{r} -->
-<!-- str(opuntia_metadata, max.level=1) -->
-<!-- ``` -->
-<!-- The output tells us that `opuntia_metadata` is a `List` object with 9 named elements. We are specifically interested in the named element `$gbif`, so we can simplify our object by subsetting: -->
-<!-- ```{r chunk7} -->
-<!-- opuntia_simple <- opuntia_metadata$gbif$data -->
-<!-- ``` -->
-<!-- While writing this code, we discovered that the `opuntia_metadata` object is pretty complex and with lots of layers! The code above says to take the large object `opuntia_metadata` and select the element named `$gbif`. Then, within the element `$gbif`, select the sub-element `$data`. Within `$data` there are 5 elements, each one contains the lat-long information for one of our *Opuntia* species.  -->
-<!-- Let's look at the lat-long data for *O. basilaris*: -->
-<!-- ```{r} -->
-<!-- opuntia_simple$`5384070` -->
-<!-- ``` -->
-<!-- The output is pretty big and messy! The output tells us that it's a `tibble` (a type of spreadsheet) with 1000 rows and 75 columns. Each row is a record of where _Opuntia basilaris_ has been found or collected. Each column is some information associated with that record. While some of the columns are useful (e.g. the latitude and longitude), most columns aren't needed (we'll get rid of them later). In the next step, we'll combine the five separate `tibbles` into one: -->
-<!-- ```{r, message = FALSE} -->
-<!-- opuntia_combined <- -->
-<!--   full_join(opuntia_simple$`5384070`[, c(1:3, 7, 16, 50, 53)], opuntia_simple$`5384113`[, c(1:3, 7, 16, 53)]) %>%  -->
-<!--   full_join(., opuntia_simple$`5384047`[, c(1:3, 7, 16, 50, 53)]) %>%  -->
-<!--   full_join(., opuntia_simple$`5384095`[, c(1:3, 7, 16, 50, 53)]) %>%  -->
-<!--   full_join(., opuntia_simple$`5384075`[, c(1:3, 7, 16, 50, 53)]) -->
-<!-- ``` -->
-<!-- Above, we used the `full_join()` function to merge the data. We specified that we only wanted to keep certain columns (columns `1:3, 7, 16, 50, 53`). Everything else was discarded. Whew! This is a lot of organizing.. we're almost there. Before we get to mapping, we should check our data for synonyms. The `unique()` function tells us how many unique entries exist within a column: -->
-<!-- ```{r} -->
-<!-- unique(opuntia_combined$scientificName) -->
-<!-- ``` -->
-<!-- Unfortunately, lots of synonyms were included in the results. We'll make a object containing the names we want to keep, and use the `filter()` function to get rid of everything else: -->
-<!-- ```{r} -->
-<!-- opuntia_accepted <- c( -->
-<!-- "Opuntia basilaris Engelm. & J.M.Bigelow", -->
-<!-- "Opuntia fragilis (Nutt.) Haw.", -->
-<!-- "Opuntia humifusa Raf.", -->
-<!-- "Opuntia polyacantha Haw.", -->
-<!-- "Opuntia stricta (Haw.) Haw.") -->
-<!-- # filter out synonyms  -->
-<!-- # filter out entries outside of North America -->
-<!-- opuntia_fil<-   -->
-<!--   opuntia_combined %>%  -->
-<!--   filter(scientificName == opuntia_accepted) %>%  -->
-<!--   filter(longitude < -58 & latitude > 18.1) %>%  -->
-<!--   filter(basisOfRecord == "HUMAN_OBSERVATION") -->
-<!-- ``` -->
-<!-- We're ready to map! Pick some colours for your species (you can pick your own [from here](http://www.cookbook-r.com/Graphs/Colors_(ggplot2)/)): -->
-<!-- ```{r} -->
-<!-- mycolors <- c( "#E69F00", "#56B4E9",  "#F0E442", "#D55E00", "#CC79A7") -->
-<!-- ``` -->
-<!-- And map using the `map_ggplot()` function: -->
-<!-- ```{r} -->
-<!-- mapr::map_ggplot(opuntia_fil[,1:3], color = mycolors) +  -->
-<!--       coord_fixed(xlim = c(-135, -55 ),  ylim = c(10, 90))  -->
-<!-- ``` -->
-<!-- Beauty! After all of that hard work, we'll save the lat-long data object as an .rds file. We'll use this data again in Lab 10. If you downloaded or forked the [BIOL324 folder from the GitHub site](https://github.com/mannfred/BIOL324), you can run this code: -->
-<!-- ```{r} -->
-<!-- saveRDS(opuntia_fil, file = here('R_scripts/filtered_gbif_dataset.rds')) -->
-<!-- ``` -->
-<!-- --- -->
-<!-- &nbsp; -->
-<!-- &nbsp; -->
-<!-- #### Activity 3: Creating your own species distribution map -->
-<!-- MB: Not sure if we're going this route.. let's discuss! -->
-<!-- MB: Basically, the existing code can be modified to replace _Opuntia_ with any other plant name. Re-running the code will create a map for any species that GBIF has records for. Of course, some taxa are have more complicated nomenclature, and sometimes weird entries make it onto the map. In these cases, a little troubleshooting is required. Also, if one wanted to search for genera, families, orders, etc. some additional modifications are needed. For the majority of students in BIOL413, generating their own maps didn't require my intervention.  -->
-<!-- <br> -->
-<!-- <br> -->
+<hr />
+</div>
+<div id="knowledge-check-7.1" class="section level2">
+<h2>KNOWLEDGE CHECK 7.1</h2>
+<p>Draw a <em>Borago officinalis</em> flower, and make sure to label the following: sepals, petals, fornices, stamens, pistil, trichomes.</p>
+<p></br></p>
+<hr />
+</div>
+</div>
+<div id="solonaceae" class="section level1">
+<h1>Solonaceae</h1>
+<p><strong>Potato or Nightshade Family</strong></p>
+<hr />
+</div>
+<div id="apiaceae---carrot-family" class="section level1">
+<h1>Apiaceae - Carrot Family</h1>
+<hr />
+<p><strong>1. Mostly herbs.</strong> <strong>2. Leaves usually compound, alternate, without stipules, but usually the petiole has a sheathing base.</strong> <strong>3. Flowers usually perfect or andromonoecious (perfect and male on the same plant), radially symmetrical. Sepals 5, usually small and sometimes absent. Petals 5 (0), not fused. Stamens 5, free. Pistil compound, ovary inferior, carpels 2, placentation axile. Inflorescence an umbel.</strong> <strong>4. Fruit a schizocarp.</strong> <strong>5. About 300 genera and 3000 species, mainly in north temperate regions.</strong></p>
+<p>The Apiaceae is the 13th largest family in B.C., with 61 taxa occurring in the province. The family is easily recognized by its usually compound leaves, umbellate inflorescence, 5-merous flowers with an inferior ovary, and distinctive fruit, but genera and species are often difficult to identify. Many keys require mature fruits for definite identification. The plants and especially fruits often contain aromatic oils, which are used as flavorings. Many species are edible, but some are deadly poisonous, including the poison hemlock with which Socrates was executed.</p>
+<p>Cultivated crops, herbs, and spices include <em>Apium</em> (celery, celeriac), <em>Pastinaca</em> (parsnip), <em>Daucus</em> (carrot), <em>Foeniculum</em> (fennel), <em>Anethum</em> (dill), <em>Cuminum</em> (cumin), <em>Pimpinella</em> (anise), <em>Petroselinum</em> (parsley), <em>Carum</em> (caraway), and <em>Coriandrum</em> (coriander, Chinese parsley, or cilantro).</p>
+<hr />
+</div>
+<div id="r-assignment-2" class="section level1">
+<h1>R Assignment 2</h1>
+<p><strong>Mapping Species Distributions using R and GBIF</strong></p>
+<hr />
+<div id="motivation" class="section level2">
+<h2>Motivation</h2>
+<p>At its core, plant taxonomy is the science of naming and grouping plants based on their shared traits. Throughout this course we’ve seen how growth habit, morphology, and geographic distribution can provide valuable information about how to classify and define plants. When we consider geographic information, we are asking questions like “do the plants occupy similar or distinct habitats?” and “are the ranges of these plants disjunct or overlapping?”. Depending on the answer to these questions, our decision to group or separate plants (and give them different names) can be changed dramatically. In this R activity, we’ll demonstrate how we can use publically available occurence data to create distribution maps for plants and use these maps to make taxonomic decisions.</p>
+<p>   </p>
+</div>
+<div id="pre-lab" class="section level2">
+<h2>Pre-lab</h2>
+<p>Before starting this week’s lab you will have:</p>
+<ol style="list-style-type: decimal">
+<li><p>Completed R Assignment 1 (Lab 6) and the pre-readings assigned there.</p></li>
+<li><p>Insert GBIF video tutorial here? Or have them do it in unit 1 (note: GBIF intro material lives as comments in Lab 6).</p></li>
+<li><p>Read Chapter 2 up to <a href="https://moderndive.com/2-viz.html">section 2.3.1 in Modern Dive</a>. Make sure you are able to produce Figures 2.2 and 2.3 on your own (using the code provided in the textbook). If your R is giving errors while trying to make these figures, please reach out to the TAs to fix them — it won’t be possible to finish this lab without the <code>ggplot2</code> package working correctly.</p></li>
+<li><p>Selected your favourite plant group for creating a species distribution map (not sure if we’re doing this)</p></li>
+</ol>
+<p>   </p>
+<hr />
+<div id="outcomes" class="section level4">
+<h4>Outcomes</h4>
+<p>By the end of this tutorial you will have: <br></p>
+<ol style="list-style-type: decimal">
+<li><p>experience manipulating and mapping species distribution data in R, <br></p></li>
+<li><p>familiarity with GBIF and the types of data that can be obtained, <br></p></li>
+<li><p>More?</p></li>
+</ol>
+<p>   </p>
+<hr />
+</div>
+</div>
+<div id="mapping-species-distributions" class="section level2">
+<h2>Mapping Species Distributions</h2>
+<p>In previous labs we familiarized ourselves with GBIF, R, and RStudio. Today we’ll be running a script that collects, filters, and maps distribution data for five species of “prickly pear” cacti (Opuntioideae: Cactaceae):</p>
+<p><em>Opuntia basilaris</em> (Mojave, Colorado, Utah)</p>
+<p><em>Opuntia fragilis</em> (Northwestern)</p>
+<p><em>Opuntia humifusa</em> (Eastern)</p>
+<p><em>Opuntia polyacantha</em> (Great Plains, foothills of Rocky Mtns)</p>
+<p><em>Opuntia stricta</em> (Gulf Coast and Caribbean)</p>
+<p>First let’s install the required packages:</p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb1-1" title="1"><span class="kw">install.packages</span>(<span class="st">&quot;mapr&quot;</span>, <span class="st">&quot;rgbif&quot;</span>, <span class="st">&quot;spocc&quot;</span>, <span class="st">&quot;taxize&quot;</span>)</a></code></pre></div>
+<p>These packages are designed for connecting with the GBIF database (<code>rgbif</code>, <code>spocc</code>, <code>taxize</code>), filtering data (<code>tidyverse</code>), and mapping (<code>mapr</code>). Once installed, use the <code>library()</code> function to attach the packages (we’ll also attach <code>tidyverse</code> to help with data wrangling and plotting):</p>
+<div class="sourceCode" id="cb2"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb2-1" title="1"><span class="kw">library</span>(here)</a>
+<a class="sourceLine" id="cb2-2" title="2"><span class="kw">library</span>(mapdata)</a>
+<a class="sourceLine" id="cb2-3" title="3"><span class="kw">library</span>(mapr)</a>
+<a class="sourceLine" id="cb2-4" title="4"><span class="kw">library</span>(spocc)</a>
+<a class="sourceLine" id="cb2-5" title="5"><span class="kw">library</span>(taxize)</a>
+<a class="sourceLine" id="cb2-6" title="6"><span class="kw">library</span>(tidyverse)</a></code></pre></div>
+<p>Now let’s get some occurrence data from GBIF!</p>
+<div class="sourceCode" id="cb3"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb3-1" title="1">opuntia_wishlist &lt;-</a>
+<a class="sourceLine" id="cb3-2" title="2"><span class="st">  </span><span class="kw">c</span>(<span class="st">&quot;Opuntia basilaris Engelm. &amp; J.M.Bigelow&quot;</span>,</a>
+<a class="sourceLine" id="cb3-3" title="3">    <span class="st">&quot;Opuntia fragilis (Nutt.) Haw.&quot;</span>,</a>
+<a class="sourceLine" id="cb3-4" title="4">    <span class="st">&quot;Opuntia humifusa Raf.&quot;</span>,</a>
+<a class="sourceLine" id="cb3-5" title="5">    <span class="st">&quot;Opuntia polyacantha Haw.&quot;</span>,</a>
+<a class="sourceLine" id="cb3-6" title="6">    <span class="st">&quot;Opuntia stricta (Haw.) Haw.&quot;</span>)</a></code></pre></div>
+<p>In this first step we’re creating a list of all of the plant species that we’re hoping to get GBIF data for. The <code>&lt;-</code> operator stores the results in an object that we named <code>opuntia_wishlist</code>. By storing the results in an object we can later return to the object and inspect it, subset it, and pipe it to other functions. In the following step we’ll use the <code>occ()</code> function to search GBIF for the species records:</p>
+<div class="sourceCode" id="cb4"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb4-1" title="1">opuntia_metadata &lt;-<span class="st"> </span></a>
+<a class="sourceLine" id="cb4-2" title="2"><span class="st">  </span><span class="kw">occ</span>(<span class="dt">query =</span> opuntia_wishlist, <span class="dt">from =</span> <span class="st">&#39;gbif&#39;</span>, <span class="dt">limit =</span> <span class="dv">500</span>)</a></code></pre></div>
+<p>In this code we’ve created a new object called <code>opuntia_metadata</code>. This object contains occurrence records found by the <code>occ()</code> function, where we specified our taxon ID (contained in <code>opuntia_ids</code>) and told the function that we wanted our data <code>from = gbif</code> (instead of another database) and that we wanted a maximum of <code>500</code> records. Let’s inspect the structure of the <code>opuntia_metadata</code> object:</p>
+<div class="sourceCode" id="cb5"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb5-1" title="1"><span class="kw">str</span>(opuntia_metadata, <span class="dt">max.level=</span><span class="dv">1</span>)</a></code></pre></div>
+<pre><code>## List of 9
+##  $ gbif     :List of 2
+##   ..- attr(*, &quot;class&quot;)= chr &quot;occdatind&quot;
+##  $ bison    :List of 2
+##   ..- attr(*, &quot;class&quot;)= chr &quot;occdatind&quot;
+##  $ inat     :List of 2
+##   ..- attr(*, &quot;class&quot;)= chr &quot;occdatind&quot;
+##  $ ebird    :List of 2
+##   ..- attr(*, &quot;class&quot;)= chr &quot;occdatind&quot;
+##  $ ecoengine:List of 2
+##   ..- attr(*, &quot;class&quot;)= chr &quot;occdatind&quot;
+##  $ vertnet  :List of 2
+##   ..- attr(*, &quot;class&quot;)= chr &quot;occdatind&quot;
+##  $ idigbio  :List of 2
+##   ..- attr(*, &quot;class&quot;)= chr &quot;occdatind&quot;
+##  $ obis     :List of 2
+##   ..- attr(*, &quot;class&quot;)= chr &quot;occdatind&quot;
+##  $ ala      :List of 2
+##   ..- attr(*, &quot;class&quot;)= chr &quot;occdatind&quot;
+##  - attr(*, &quot;class&quot;)= chr &quot;occdat&quot;
+##  - attr(*, &quot;searched&quot;)= chr &quot;gbif&quot;</code></pre>
+<p>The output tells us that <code>opuntia_metadata</code> is a <code>List</code> object with 9 named elements. We are specifically interested in the named element <code>$gbif</code>, so we can simplify our object by subsetting:</p>
+<div class="sourceCode" id="cb7"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb7-1" title="1">opuntia_simple &lt;-<span class="st"> </span>opuntia_metadata<span class="op">$</span>gbif<span class="op">$</span>data</a></code></pre></div>
+<p>While writing this code, we discovered that the <code>opuntia_metadata</code> object is pretty complex and with lots of layers! The code above says to take the large object <code>opuntia_metadata</code> and select the element named <code>$gbif</code>. Then, within the element <code>$gbif</code>, select the sub-element <code>$data</code>. Within <code>$data</code> there are 5 elements, each one contains the lat-long information for one of our <em>Opuntia</em> species.</p>
+<p>Let’s look at the lat-long data for <em>O. basilaris</em>:</p>
+<div class="sourceCode" id="cb8"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb8-1" title="1">opuntia_simple<span class="op">$</span><span class="st">`</span><span class="dt">Opuntia_basilaris_Engelm._&amp;_J.M.Bigelow</span><span class="st">`</span></a></code></pre></div>
+<pre><code>## # A tibble: 500 x 73
+##    name  longitude latitude issues prov  key   scientificName datasetKey
+##    &lt;chr&gt;     &lt;dbl&gt;    &lt;dbl&gt; &lt;chr&gt;  &lt;chr&gt; &lt;chr&gt; &lt;chr&gt;          &lt;chr&gt;     
+##  1 Opun~     -117.     36.9 cdrou~ gbif  2549~ Opuntia basil~ 50c9509d-~
+##  2 Opun~     -116.     34.1 cdrou~ gbif  2550~ Opuntia basil~ 50c9509d-~
+##  3 Opun~     -117.     36.9 cdrou~ gbif  2550~ Opuntia basil~ 50c9509d-~
+##  4 Opun~     -114.     32.2 cdrou~ gbif  2550~ Opuntia basil~ 50c9509d-~
+##  5 Opun~     -117.     36.9 cdrou~ gbif  2550~ Opuntia basil~ 50c9509d-~
+##  6 Opun~     -116.     33.7 cdrou~ gbif  2550~ Opuntia basil~ 50c9509d-~
+##  7 Opun~     -116.     33.7 cdrou~ gbif  2550~ Opuntia basil~ 50c9509d-~
+##  8 Opun~     -117.     36.9 cdrou~ gbif  2550~ Opuntia basil~ 50c9509d-~
+##  9 Opun~     -116.     33.8 cdrou~ gbif  2550~ Opuntia basil~ 50c9509d-~
+## 10 Opun~     -116.     33.8 cdrou~ gbif  2557~ Opuntia basil~ 50c9509d-~
+## # ... with 490 more rows, and 65 more variables: publishingOrgKey &lt;chr&gt;,
+## #   installationKey &lt;chr&gt;, publishingCountry &lt;chr&gt;, protocol &lt;chr&gt;,
+## #   lastCrawled &lt;chr&gt;, lastParsed &lt;chr&gt;, crawlId &lt;int&gt;, basisOfRecord &lt;chr&gt;,
+## #   occurrenceStatus &lt;chr&gt;, taxonKey &lt;int&gt;, kingdomKey &lt;int&gt;, phylumKey &lt;int&gt;,
+## #   classKey &lt;int&gt;, orderKey &lt;int&gt;, familyKey &lt;int&gt;, genusKey &lt;int&gt;,
+## #   speciesKey &lt;int&gt;, acceptedTaxonKey &lt;int&gt;, acceptedScientificName &lt;chr&gt;,
+## #   kingdom &lt;chr&gt;, phylum &lt;chr&gt;, order &lt;chr&gt;, family &lt;chr&gt;, genus &lt;chr&gt;,
+## #   species &lt;chr&gt;, genericName &lt;chr&gt;, specificEpithet &lt;chr&gt;, taxonRank &lt;chr&gt;,
+## #   taxonomicStatus &lt;chr&gt;, dateIdentified &lt;chr&gt;,
+## #   coordinateUncertaintyInMeters &lt;dbl&gt;, stateProvince &lt;chr&gt;, year &lt;int&gt;,
+## #   month &lt;int&gt;, day &lt;int&gt;, eventDate &lt;date&gt;, modified &lt;chr&gt;,
+## #   lastInterpreted &lt;chr&gt;, references &lt;chr&gt;, license &lt;chr&gt;,
+## #   geodeticDatum &lt;chr&gt;, class &lt;chr&gt;, countryCode &lt;chr&gt;, country &lt;chr&gt;,
+## #   rightsHolder &lt;chr&gt;, identifier &lt;chr&gt;, `http://unknown.org/nick` &lt;chr&gt;,
+## #   verbatimEventDate &lt;chr&gt;, datasetName &lt;chr&gt;, collectionCode &lt;chr&gt;,
+## #   gbifID &lt;chr&gt;, verbatimLocality &lt;chr&gt;, occurrenceID &lt;chr&gt;, taxonID &lt;chr&gt;,
+## #   catalogNumber &lt;chr&gt;, recordedBy &lt;chr&gt;,
+## #   `http://unknown.org/occurrenceDetails` &lt;chr&gt;, institutionCode &lt;chr&gt;,
+## #   rights &lt;chr&gt;, eventTime &lt;chr&gt;, identifiedBy &lt;chr&gt;, identificationID &lt;chr&gt;,
+## #   occurrenceRemarks &lt;chr&gt;, infraspecificEpithet &lt;chr&gt;,
+## #   informationWithheld &lt;chr&gt;</code></pre>
+<p>The output is pretty big and messy! The output tells us that it’s a <code>tibble</code> (a type of spreadsheet) with 500 rows and 73 columns. Each row is a record of where <em>Opuntia basilaris</em> has been found or collected. Each column is some information associated with that record. While some of the columns are useful (e.g. the latitude and longitude), most columns aren’t needed (we’ll get rid of them later). In the next step, we’ll combine the five separate <code>tibbles</code> into one:</p>
+<div class="sourceCode" id="cb10"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb10-1" title="1">useful_variables &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="st">&quot;name&quot;</span>, <span class="st">&quot;longitude&quot;</span>, <span class="st">&quot;latitude&quot;</span>, <span class="st">&quot;basisOfRecord&quot;</span>, <span class="st">&quot;scientificName&quot;</span>)</a>
+<a class="sourceLine" id="cb10-2" title="2"></a>
+<a class="sourceLine" id="cb10-3" title="3">opuntia_combined &lt;-</a>
+<a class="sourceLine" id="cb10-4" title="4"><span class="st">  </span><span class="kw">reduce</span>(opuntia_simple, full_join, <span class="dt">by =</span> useful_variables) <span class="op">%&gt;%</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb10-5" title="5"><span class="st">  </span><span class="kw">select</span>(useful_variables)</a></code></pre></div>
+<p>Above, we used the <code>full_join()</code> function to merge the data. We specified that we only wanted to keep certain columns (columns <code>1:3, 7, 16, 50, 53</code>). Everything else was discarded. Whew! This is a lot of organizing.. we’re almost there. Before we get to mapping, we should check our data for synonyms. The <code>unique()</code> function tells us how many unique entries exist within a column:</p>
+<div class="sourceCode" id="cb11"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb11-1" title="1"><span class="kw">unique</span>(opuntia_combined<span class="op">$</span>scientificName)</a></code></pre></div>
+<pre><code>##  [1] &quot;Opuntia basilaris Engelm. &amp; J.M.Bigelow&quot;                                
+##  [2] &quot;Opuntia basilaris var. basilaris&quot;                                       
+##  [3] &quot;Opuntia basilaris var. brachyclada Munz&quot;                                
+##  [4] &quot;Opuntia basilaris var. treleasei (J.M.Coult.) Toumey&quot;                   
+##  [5] &quot;Opuntia fragilis (Nutt.) Haw.&quot;                                          
+##  [6] &quot;Opuntia fragilis var. fragilis&quot;                                         
+##  [7] &quot;Opuntia humifusa Raf.&quot;                                                  
+##  [8] &quot;Opuntia austrina Small&quot;                                                 
+##  [9] &quot;Opuntia mesacantha Raf.&quot;                                                
+## [10] &quot;Opuntia ammophila Small&quot;                                                
+## [11] &quot;Opuntia polyacantha var. erinacea (Engelm. &amp; J.M.Bigelow) B.D.Parfitt&quot;  
+## [12] &quot;Opuntia polyacantha Haw.&quot;                                               
+## [13] &quot;Opuntia arenaria Engelm.&quot;                                               
+## [14] &quot;Opuntia polyacantha var. polyacantha&quot;                                   
+## [15] &quot;Opuntia trichophora (Engelm. &amp; J.M.Bigelow) Britton &amp; Rose&quot;             
+## [16] &quot;Opuntia polyacantha var. juniperina (Britton &amp; Rose) L.D.Benson&quot;        
+## [17] &quot;Opuntia polyacantha var. hystricina (Engelm. &amp; J.M.Bigelow) B.D.Parfitt&quot;
+## [18] &quot;Opuntia dillenii (Ker Gawl.) Haw.&quot;                                      
+## [19] &quot;Opuntia stricta (Haw.) Haw.&quot;                                            
+## [20] &quot;Opuntia stricta subsp. stricta&quot;                                         
+## [21] &quot;Opuntia tunoidea Gibbes&quot;                                                
+## [22] &quot;Opuntia bentonii Griffiths&quot;                                             
+## [23] &quot;Opuntia anahuacensis Griffiths&quot;</code></pre>
+<p>Unfortunately, lots of synonyms were included in the results. We’ll make a object containing the names we want to keep, and use the <code>filter()</code> function to get rid of everything else:</p>
+<div class="sourceCode" id="cb13"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb13-1" title="1"><span class="co"># filter out synonyms</span></a>
+<a class="sourceLine" id="cb13-2" title="2"><span class="co"># filter out entries outside of North America</span></a>
+<a class="sourceLine" id="cb13-3" title="3">opuntia_fil &lt;-</a>
+<a class="sourceLine" id="cb13-4" title="4"><span class="st">  </span>opuntia_combined <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb13-5" title="5"><span class="st">  </span><span class="kw">filter</span>(scientificName <span class="op">==</span><span class="st"> </span>opuntia_wishlist) <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb13-6" title="6"><span class="st">  </span><span class="kw">filter</span>(longitude <span class="op">&lt;</span><span class="st"> </span><span class="dv">-58</span> <span class="op">&amp;</span><span class="st"> </span>latitude <span class="op">&gt;</span><span class="st"> </span><span class="fl">18.1</span>) <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb13-7" title="7"><span class="st">  </span><span class="kw">filter</span>(basisOfRecord <span class="op">==</span><span class="st"> &quot;HUMAN_OBSERVATION&quot;</span>)</a></code></pre></div>
+<p>We’re ready to map! Pick some colours for your species (you can pick your own <a href="http://www.cookbook-r.com/Graphs/Colors_(ggplot2)/">from here</a>):</p>
+<div class="sourceCode" id="cb14"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb14-1" title="1">mycolors &lt;-<span class="st"> </span><span class="kw">c</span>( <span class="st">&quot;#E69F00&quot;</span>, <span class="st">&quot;#56B4E9&quot;</span>,  <span class="st">&quot;#F0E442&quot;</span>, <span class="st">&quot;#D55E00&quot;</span>, <span class="st">&quot;#CC79A7&quot;</span>)</a></code></pre></div>
+<p>And map using the <code>map_ggplot()</code> function:</p>
+<div class="sourceCode" id="cb15"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb15-1" title="1">mapr<span class="op">::</span><span class="kw">map_ggplot</span>(opuntia_fil[,<span class="dv">1</span><span class="op">:</span><span class="dv">3</span>], <span class="dt">color =</span> mycolors) <span class="op">+</span></a>
+<a class="sourceLine" id="cb15-2" title="2"><span class="st">  </span><span class="kw">coord_fixed</span>(<span class="dt">xlim =</span> <span class="kw">c</span>(<span class="op">-</span><span class="dv">135</span>, <span class="dv">-55</span> ),  <span class="dt">ylim =</span> <span class="kw">c</span>(<span class="dv">10</span>, <span class="dv">90</span>)) <span class="op">+</span></a>
+<a class="sourceLine" id="cb15-3" title="3"><span class="st">  </span><span class="kw">ggtitle</span>(<span class="st">&quot;Distribution of 5 species of Prickly Pear cacti (Opuntia)&quot;</span>)</a></code></pre></div>
+<p><img src="_BIOL_324_Lab_7_files/figure-html/unnamed-chunk-11-1.png" width="672" /></p>
+<p>Beauty! After all of that hard work, we’ll save the lat-long data object as an .rds file. We’ll use this data again in Lab 10. If you downloaded or forked the <a href="https://github.com/mannfred/BIOL324">BIOL324 folder from the GitHub site</a>, you can run this code:</p>
+<div class="sourceCode" id="cb16"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb16-1" title="1"><span class="kw">saveRDS</span>(opuntia_fil, <span class="dt">file =</span> <span class="kw">here</span>(<span class="st">&#39;R_scripts/filtered_gbif_dataset.rds&#39;</span>))</a></code></pre></div>
+<hr />
+<p>   </p>
+<div id="activity-3-creating-your-own-species-distribution-map" class="section level4">
+<h4>Activity 3: Creating your own species distribution map</h4>
+<p>MB: Not sure if we’re going this route.. let’s discuss!</p>
+<p>MB: Basically, the existing code can be modified to replace <em>Opuntia</em> with any other plant name. Re-running the code will create a map for any species that GBIF has records for. Of course, some taxa are have more complicated nomenclature, and sometimes weird entries make it onto the map. In these cases, a little troubleshooting is required. Also, if one wanted to search for genera, families, orders, etc. some additional modifications are needed. For the majority of students in BIOL413, generating their own maps didn’t require my intervention.</p>
+<p><br> <br></p>
+</div>
 </div>
 </div>
 

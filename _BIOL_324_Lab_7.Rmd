@@ -235,19 +235,23 @@ _Opuntia polyacantha_ (Great Plains, foothills of Rocky Mtns)
 
 _Opuntia stricta_ (Gulf Coast and Caribbean)
 
-First let's install the required packages:
+First let's install the required packages. If you have an old"er version of R, you may need to install them individually, e.g. by running `install.packages("mapr")` and then the next packagage, and so on. 
 
 ```{r eval = FALSE}
-install.packages("mapr", "rgbif", "spocc", "taxize")
+install.packages("mapr", "spocc", "taxize", "tidyverse")
 
 ```
 
-These packages are designed for connecting with the GBIF database (`rgbif`, `spocc`, `taxize`), filtering data (`tidyverse`), and mapping (`mapr`). Once installed, use the `library()` function to attach the packages (we'll also attach `tidyverse` to help with data wrangling and plotting):
+<!-- We'll also install the development version of the package `rgbif`: -->
+
+<!-- ```{r eval = FALSE} -->
+<!-- install.packages("rgbif", repos="https://dev.ropensci.org") -->
+<!-- ``` -->
+
+These packages are designed for connecting with the GBIF database (`spocc`, `taxize`), organizing data (`tidyverse`), and mapping (`mapr`). Once installed, use the `library()` function to attach the packages:
 
 ```{r, results = 'hide', warning = FALSE, message = FALSE }
 
-library(here)
-library(mapdata)
 library(mapr)
 library(spocc)
 library(taxize)
@@ -307,7 +311,7 @@ opuntia_combined <-
 
 ```
 
-Above, we used the `full_join()` function to merge the data. We specified that we only wanted to keep certain columns (columns `1:3, 7, 16, 50, 53`). Everything else was discarded. Whew! This is a lot of organizing.. we're almost there. Before we get to mapping, we should check our data for synonyms. The `unique()` function tells us how many unique entries exist within a column:
+Above, we created an object `useful_variables` that has the names of the columns we want in our final dataset. In the next step we used `reduce()` to create one simple, combined dataset with only the columns specified in `useful_variables`. Everything else was discarded. Whew! This is a lot of organizing.. we're almost there. Before we get to mapping, we should check our data for synonyms. The `unique()` function tells us how many unique entries exist within a column:
 
 ```{r}
 unique(opuntia_combined$scientificName)
