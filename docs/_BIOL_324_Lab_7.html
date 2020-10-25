@@ -640,15 +640,17 @@ div.tocify {
 <p><em>Opuntia humifusa</em> (Eastern)</p>
 <p><em>Opuntia polyacantha</em> (Great Plains, foothills of Rocky Mtns)</p>
 <p><em>Opuntia stricta</em> (Gulf Coast and Caribbean)</p>
-<p>First let’s install the required packages:</p>
-<div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb1-1" title="1"><span class="kw">install.packages</span>(<span class="st">&quot;mapr&quot;</span>, <span class="st">&quot;rgbif&quot;</span>, <span class="st">&quot;spocc&quot;</span>, <span class="st">&quot;taxize&quot;</span>)</a></code></pre></div>
-<p>These packages are designed for connecting with the GBIF database (<code>rgbif</code>, <code>spocc</code>, <code>taxize</code>), filtering data (<code>tidyverse</code>), and mapping (<code>mapr</code>). Once installed, use the <code>library()</code> function to attach the packages (we’ll also attach <code>tidyverse</code> to help with data wrangling and plotting):</p>
-<div class="sourceCode" id="cb2"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb2-1" title="1"><span class="kw">library</span>(here)</a>
-<a class="sourceLine" id="cb2-2" title="2"><span class="kw">library</span>(mapdata)</a>
-<a class="sourceLine" id="cb2-3" title="3"><span class="kw">library</span>(mapr)</a>
-<a class="sourceLine" id="cb2-4" title="4"><span class="kw">library</span>(spocc)</a>
-<a class="sourceLine" id="cb2-5" title="5"><span class="kw">library</span>(taxize)</a>
-<a class="sourceLine" id="cb2-6" title="6"><span class="kw">library</span>(tidyverse)</a></code></pre></div>
+<p>First let’s install the required packages. If you have an old"er version of R, you may need to install them individually, e.g. by running <code>install.packages("mapr")</code> and then the next packagage, and so on.</p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb1-1" title="1"><span class="kw">install.packages</span>(<span class="st">&quot;mapr&quot;</span>, <span class="st">&quot;spocc&quot;</span>, <span class="st">&quot;taxize&quot;</span>, <span class="st">&quot;tidyverse&quot;</span>)</a></code></pre></div>
+<!-- We'll also install the development version of the package `rgbif`: -->
+<!-- ```{r eval = FALSE} -->
+<!-- install.packages("rgbif", repos="https://dev.ropensci.org") -->
+<!-- ``` -->
+<p>These packages are designed for connecting with the GBIF database (<code>spocc</code>, <code>taxize</code>), organizing data (<code>tidyverse</code>), and mapping (<code>mapr</code>). Once installed, use the <code>library()</code> function to attach the packages:</p>
+<div class="sourceCode" id="cb2"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb2-1" title="1"><span class="kw">library</span>(mapr)</a>
+<a class="sourceLine" id="cb2-2" title="2"><span class="kw">library</span>(spocc)</a>
+<a class="sourceLine" id="cb2-3" title="3"><span class="kw">library</span>(taxize)</a>
+<a class="sourceLine" id="cb2-4" title="4"><span class="kw">library</span>(tidyverse)</a></code></pre></div>
 <p>Now let’s get some occurrence data from GBIF!</p>
 <div class="sourceCode" id="cb3"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb3-1" title="1">opuntia_wishlist &lt;-</a>
 <a class="sourceLine" id="cb3-2" title="2"><span class="st">  </span><span class="kw">c</span>(<span class="st">&quot;Opuntia basilaris Engelm. &amp; J.M.Bigelow&quot;</span>,</a>
@@ -727,7 +729,7 @@ div.tocify {
 <a class="sourceLine" id="cb10-3" title="3">opuntia_combined &lt;-</a>
 <a class="sourceLine" id="cb10-4" title="4"><span class="st">  </span><span class="kw">reduce</span>(opuntia_simple, full_join, <span class="dt">by =</span> useful_variables) <span class="op">%&gt;%</span><span class="st"> </span></a>
 <a class="sourceLine" id="cb10-5" title="5"><span class="st">  </span><span class="kw">select</span>(useful_variables)</a></code></pre></div>
-<p>Above, we used the <code>full_join()</code> function to merge the data. We specified that we only wanted to keep certain columns (columns <code>1:3, 7, 16, 50, 53</code>). Everything else was discarded. Whew! This is a lot of organizing.. we’re almost there. Before we get to mapping, we should check our data for synonyms. The <code>unique()</code> function tells us how many unique entries exist within a column:</p>
+<p>Above, we created an object <code>useful_variables</code> that has the names of the columns we want in our final dataset. In the next step we used <code>reduce()</code> to create one simple, combined dataset with only the columns specified in <code>useful_variables</code>. Everything else was discarded. Whew! This is a lot of organizing.. we’re almost there. Before we get to mapping, we should check our data for synonyms. The <code>unique()</code> function tells us how many unique entries exist within a column:</p>
 <div class="sourceCode" id="cb11"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb11-1" title="1"><span class="kw">unique</span>(opuntia_combined<span class="op">$</span>scientificName)</a></code></pre></div>
 <pre><code>##  [1] &quot;Opuntia basilaris Engelm. &amp; J.M.Bigelow&quot;                                
 ##  [2] &quot;Opuntia basilaris var. basilaris&quot;                                       
@@ -768,7 +770,7 @@ div.tocify {
 <a class="sourceLine" id="cb15-3" title="3"><span class="st">  </span><span class="kw">ggtitle</span>(<span class="st">&quot;Distribution of 5 species of Prickly Pear cacti (Opuntia)&quot;</span>)</a></code></pre></div>
 <p><img src="_BIOL_324_Lab_7_files/figure-html/unnamed-chunk-11-1.png" width="672" /></p>
 <p>Beauty! After all of that hard work, we’ll save the lat-long data object as an .rds file. We’ll use this data again in Lab 10. If you downloaded or forked the <a href="https://github.com/mannfred/BIOL324">BIOL324 folder from the GitHub site</a>, you can run this code:</p>
-<div class="sourceCode" id="cb16"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb16-1" title="1"><span class="kw">saveRDS</span>(opuntia_fil, <span class="dt">file =</span> <span class="kw">here</span>(<span class="st">&#39;R_scripts/filtered_gbif_dataset.rds&#39;</span>))</a></code></pre></div>
+<div class="sourceCode" id="cb16"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb16-1" title="1"><span class="kw">saveRDS</span>(opuntia_fil, <span class="dt">file =</span> <span class="st">&#39;R_scripts/filtered_gbif_dataset.rds&#39;</span>)</a></code></pre></div>
 <hr />
 <p>   </p>
 <div id="activity-3-creating-your-own-species-distribution-map" class="section level4">
