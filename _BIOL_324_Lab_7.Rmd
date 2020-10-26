@@ -465,17 +465,18 @@ install.packages("tidyverse")
 install.packages("rgbif")
 ```
 
-<!-- We'll also install the development version of the package `rgbif`: -->
+We'll also install the development version of the package `rgbif`:
 
-<!-- ```{r eval = FALSE} -->
-<!-- install.packages("rgbif", repos="https://dev.ropensci.org") -->
-<!-- ``` -->
+```{r eval = FALSE}
+install.packages("rgbif", repos = "https://dev.ropensci.org")
+```
 
-These packages are designed for connecting with the GBIF database (`spocc`, `taxize`), organizing data (`tidyverse`), and mapping (`mapr`). Once installed, use the `library()` function to attach the packages:
+These packages are designed for connecting with the GBIF database (`rgbif`, `spocc`, `taxize`), organizing data (`tidyverse`), and mapping (`mapr`). Once installed, use the `library()` function to attach the packages:
 
 ```{r, results = 'hide', warning = FALSE, message = FALSE }
 
 library(mapr)
+library(rgbif)
 library(spocc)
 library(taxize)
 library(tidyverse)
@@ -511,7 +512,7 @@ str(opuntia_metadata, max.level=1)
 
 The output tells us that `opuntia_metadata` is a `List` object with 9 named elements. We are specifically interested in the named element `$gbif`, so we can simplify our object by subsetting:
 
-```{r chunk7}
+```{r}
 opuntia_simple <- opuntia_metadata$gbif$data
 ```
 
@@ -570,7 +571,11 @@ mapr::map_ggplot(opuntia_fil[,1:3], color = mycolors) +
 
 Beauty! After all of that hard work, we'll save the lat-long data object as an .rds file. We'll use this data again in Lab 10. If you downloaded or forked the [BIOL324 folder from the GitHub site](https://github.com/mannfred/BIOL324), you can run this code:
 
+<<<<<<< HEAD
 ```{r}
+=======
+```{r eval = FALSE}
+>>>>>>> 466125ec6d9da471b26ee572bd1b21caf3e05221
 saveRDS(opuntia_fil, file = 'R_scripts/filtered_gbif_dataset.rds')
 ```
 ---
