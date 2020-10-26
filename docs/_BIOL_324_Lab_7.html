@@ -23,13 +23,14 @@
 <link href="site_libs/tocify-1.9.1/jquery.tocify.css" rel="stylesheet" />
 <script src="site_libs/tocify-1.9.1/jquery.tocify.js"></script>
 <script src="site_libs/navigation-1.1/tabsets.js"></script>
+<script src="site_libs/accessible-code-block-0.0.1/empty-anchor.js"></script>
 
 
 <style type="text/css">code{white-space: pre;}</style>
 <style type="text/css" data-origin="pandoc">
-a.sourceLine { display: inline-block; line-height: 1.25; }
-a.sourceLine { pointer-events: none; color: inherit; text-decoration: inherit; }
-a.sourceLine:empty { height: 1.2em; }
+code.sourceCode > span { display: inline-block; line-height: 1.25; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+code.sourceCode > span:empty { height: 1.2em; }
 .sourceCode { overflow: visible; }
 code.sourceCode { white-space: pre; position: relative; }
 div.sourceCode { margin: 1em 0; }
@@ -39,14 +40,16 @@ div.sourceCode { overflow: auto; }
 }
 @media print {
 code.sourceCode { white-space: pre-wrap; }
-a.sourceLine { text-indent: -1em; padding-left: 1em; }
+code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
 }
-pre.numberSource a.sourceLine
-  { position: relative; left: -4em; }
-pre.numberSource a.sourceLine::before
-  { content: attr(title);
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
     position: relative; left: -1em; text-align: right; vertical-align: baseline;
-    border: none; pointer-events: all; display: inline-block;
+    border: none; display: inline-block;
     -webkit-touch-callout: none; -webkit-user-select: none;
     -khtml-user-select: none; -moz-user-select: none;
     -ms-user-select: none; user-select: none;
@@ -55,9 +58,9 @@ pre.numberSource a.sourceLine::before
   }
 pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
 div.sourceCode
-  { background-color: #f8f8f8; }
+  {  background-color: #f8f8f8; }
 @media screen {
-a.sourceLine::before { text-decoration: underline; }
+code.sourceCode > span > a:first-child::before { text-decoration: underline; }
 }
 code span.al { color: #ef2929; } /* Alert */
 code span.an { color: #8f5902; font-weight: bold; font-style: italic; } /* Annotation */
@@ -504,6 +507,8 @@ div.tocify {
 <strong>3. Flowers perfect, usually actinomorphic, usually borne in a scorpioid or helicoid cyme (drepanium). Sepals 5, free or partially fused. Petals 5, fused. Stamens 5, epipetalous. Pistil compound, ovary superior, carpels 2, but deeply lobed, appearing as 4, style gynobasic, placentation basal.</strong><br />
 <strong>4. Fruit 4 nutlets.</strong><br />
 <strong>5. About 100 genera and 2000 species, widely distributed.</strong></p>
+<p>The Boraginaceae is the 17th largest family in B.C., with 51 species and varieties. A few members of the family are cultivated ornamentals.</p>
+<hr />
 <div id="diagrams" class="section level2">
 <h2>Diagrams</h2>
 <hr />
@@ -582,7 +587,15 @@ div.tocify {
 </div>
 <div id="knowledge-check-7.1" class="section level2">
 <h2>KNOWLEDGE CHECK 7.1</h2>
-<p>Draw a <em>Borago officinalis</em> flower, and make sure to label the following: sepals, petals, fornices, stamens, pistil, trichomes.</p>
+<p>Draw a <em>Borago officinalis</em> flower, and make sure to label the following:</p>
+<ul>
+<li>Sepals</li>
+<li>Petals</li>
+<li>Fornices</li>
+<li>Stamens</li>
+<li>Pistil</li>
+<li>Trichomes</li>
+</ul>
 <p></br></p>
 <hr />
 </div>
@@ -590,15 +603,173 @@ div.tocify {
 <div id="solonaceae" class="section level1">
 <h1>Solonaceae</h1>
 <p><strong>Potato or Nightshade Family</strong></p>
+<p><strong>1. Herbs, vines, shrubs, or trees.</strong><br />
+<strong>2. Leaves simple or occasionally pinnately lobed to compound, alternate, without stipules.</strong><br />
+<strong>3. Flowers perfect, actinomorphic or sometimes zygomorphic. Sepals 5, fused. Petals 5, fused. Stamens 2, 4, or usually 5, epipetalous, sometimes with anthers connivent (converging or coming together but not fused). Pistil compound, ovary superior, carpels 2, placentation axile.</strong><br />
+<strong>4. Fruit a berry or capsule.</strong><br />
+<strong>5. About 85 genera and more than 2200 species, primarily in tropical America.</strong></p>
+<p>The Solanaceae is not a significant family in the flora of B. C., but it is one of the most important in agriculture, providing foods and drugs. Important crops include <em>Solanum</em> (potato, eggplant, tomato), <em>Physalis</em> (tomatillo, ground cherry), <em>Capsicum</em> (red, yellow, and green peppers), and <em>Nicotiana</em> (tobacco). Many species produce poisonous alkaloids. Alkaloids from <em>Atropa</em> (deadly nightshade or belladonna), <em>Hyoscyamus</em> (henbane), <em>Datura</em>, <em>Mandragor</em>a (mandrake), and <em>Brunfelsia</em> are used as drugs, hallucinogens, and poisons. <em>Petunia</em> is the most important ornamental member of the Solanaceae in temperate regions.</p>
 <hr />
+<div id="flowers-1" class="section level2">
+<h2>Flowers</h2>
+<p>Members of the Solanaceae are characterized by 5 fused sepals and petals, and typically actinomorphic flowers. Corollas tend to be either wheel-shaped (rotate), trumpet-shaped (salverform), or funnel-shaped (funnelform). See if you can identify these different corolla shapes in the flowers below.</p>
+<p><br></p>
+<p><em>Solanum lycopersicum</em> (tomato)</p>
+<p align="center">
+<img src="media/Solanaceae1.jpeg" style="width:100.0%" />
+</p>
+<p><br></p>
+<p><em>Nicotiana</em> sp. (tobacco)</p>
+<p align="center">
+<img src="media/Solanaceae2.jpeg" style="width:100.0%" />
+</p>
+<p><br></p>
+<p><em>Datura</em> sp.</p>
+<p align="center">
+<img src="media/Solanaceae3.jpg" style="width:100.0%" />
+</p>
+<p><br></p>
+<hr />
+<p>The Solanaceae tend to have 5 epipetalous stamens (but can also have 2 or 4 stamens). Sometimes, the anthers are “connivent” (converging or pressed together but normally not fused) around the style. The anthers also have poricidal dehiscence (do you remember the type of pollination mechanism and previous family we’ve seen this in?).</p>
+<p>You can see connivent anthers and poricidal dehiscence (zoom in to see the pores) quite well in the potato (<em>Solanum</em> sp.) flower below.</p>
+<p align="center">
+<img src="media/Solanaceae4.jpeg" style="width:100.0%" />
+</p>
+<p><br></p>
+<hr />
+</div>
+<div id="fruit-1" class="section level2">
+<h2>Fruit</h2>
+<p>Most members of the Solanacae that you are likely to be familiar with have berries as their fruit type. You’ve examined tomato fruit already. Do you remember the placentation type, number of carpels, and number of locules?</p>
+<p align="center">
+<img src="media/basic_7.jpeg" style="width:100.0%" />
+</p>
+<p><br></p>
+<p>Peppers (in the genus <em>Capsicum</em>) are also berries. Most Solanaceae fruit are formed from 2 carpels, but there can be 3 or 4 in <em>Capsicum</em>.</p>
+<p align="center">
+<img src="media/Solanaceae5.jpg" style="width:60.0%" />
+</p>
+<p><br></p>
+<hr />
+</div>
+<div id="knowledge-check-7.2" class="section level2">
+<h2>KNOWLEDGE CHECK 7.2</h2>
+<p>Draw a potato flower, and make sure to include the following labels:</p>
+<ul>
+<li>Corolla (indicate shape)</li>
+<li>Calyx</li>
+<li>Stamens</li>
+<li>Style</li>
+<li>Stigma</li>
+</ul>
+<p>In addition, draw a cross-section of a bell pepper, and include the following labels:</p>
+<ul>
+<li>Ovary wall</li>
+<li>Carpel walls (how many?)</li>
+<li>Seeds</li>
+<li>Placenta (placentation type?)</li>
+<li>Locules (how many?)</li>
+</ul>
+<p><br></p>
+<hr />
+</div>
 </div>
 <div id="apiaceae---carrot-family" class="section level1">
 <h1>Apiaceae - Carrot Family</h1>
 <hr />
-<p><strong>1. Mostly herbs.</strong> <strong>2. Leaves usually compound, alternate, without stipules, but usually the petiole has a sheathing base.</strong> <strong>3. Flowers usually perfect or andromonoecious (perfect and male on the same plant), radially symmetrical. Sepals 5, usually small and sometimes absent. Petals 5 (0), not fused. Stamens 5, free. Pistil compound, ovary inferior, carpels 2, placentation axile. Inflorescence an umbel.</strong> <strong>4. Fruit a schizocarp.</strong> <strong>5. About 300 genera and 3000 species, mainly in north temperate regions.</strong></p>
+<p><strong>1. Mostly herbs.</strong><br />
+<strong>2. Leaves usually compound, alternate, without stipules, but usually the petiole has a sheathing base.</strong><br />
+<strong>3. Flowers usually perfect or andromonoecious (perfect and male on the same plant), radially symmetrical. Sepals 5, usually small and sometimes absent. Petals 5 (0), not fused. Stamens 5, free. Pistil compound, ovary inferior, carpels 2, placentation axile. Inflorescence an umbel.</strong><br />
+<strong>4. Fruit a schizocarp.</strong><br />
+<strong>5. About 300 genera and 3000 species, mainly in north temperate regions.</strong></p>
 <p>The Apiaceae is the 13th largest family in B.C., with 61 taxa occurring in the province. The family is easily recognized by its usually compound leaves, umbellate inflorescence, 5-merous flowers with an inferior ovary, and distinctive fruit, but genera and species are often difficult to identify. Many keys require mature fruits for definite identification. The plants and especially fruits often contain aromatic oils, which are used as flavorings. Many species are edible, but some are deadly poisonous, including the poison hemlock with which Socrates was executed.</p>
 <p>Cultivated crops, herbs, and spices include <em>Apium</em> (celery, celeriac), <em>Pastinaca</em> (parsnip), <em>Daucus</em> (carrot), <em>Foeniculum</em> (fennel), <em>Anethum</em> (dill), <em>Cuminum</em> (cumin), <em>Pimpinella</em> (anise), <em>Petroselinum</em> (parsley), <em>Carum</em> (caraway), and <em>Coriandrum</em> (coriander, Chinese parsley, or cilantro).</p>
 <hr />
+<div id="leaves-1" class="section level2">
+<h2>Leaves</h2>
+<p>Members of the Apiaceae are characterized by having alternate leaves that are compound and rather dissected (think parsley and cilantro…yum!). Sometimes the leaves are dissected to the point of being thread-like linear filaments. In addition, the leaves quite often have a dilated, sheathing petiole (just like celery!). Here are some examples:</p>
+<p align="center">
+<img src="media/Apiaceae1.jpeg" style="width:100.0%" />
+</p>
+<p><br></p>
+<p align="center">
+<img src="media/Apiaceae2.jpeg" style="width:100.0%" />
+</p>
+<p><br></p>
+<p align="center">
+<img src="media/Apiaceae3.jpeg" style="width:100.0%" />
+</p>
+<p><br></p>
+<p>Can you see the dilated, sheating petiole below?</p>
+<p align="center">
+<img src="media/Apiaceae4.jpeg" style="width:100.0%" />
+</p>
+<p><br></p>
+<hr />
+</div>
+<div id="flowers-2" class="section level2">
+<h2>Flowers</h2>
+<p>Apiaceae flower and inflorescence structure is fairly consistent and unique, which, in combination with the leaf and fruit characteristics, make it easy to identify this family. Within the family, however, it can be quite difficult to identify genera and species because they all look pretty similar. Your typical Apiaceae flower is small, white or yellow, actinomorphic, and with 5 free sepals, petals, and stamens. The ovary is inferior, and the two short styles often have expanded bases forming a disk or cone-shaped structure that the styles sit on (a “stylopodium” - not easy to see in the photos below as the flowers are so small). Here are some photos:</p>
+<p align="center">
+<img src="media/Apiaceae6.jpeg" style="width:100.0%" />
+</p>
+<p><br></p>
+<p align="center">
+<img src="media/Apiaceae5.jpeg" style="width:100.0%" />
+</p>
+<p><br></p>
+<hr />
+<p>A more obvious character than the tiny flowers (which usually require some magnification to make out their features) is the inflorescence structure, which is called an “umbel” (the old name for the Apiaceae was the “Umbelliferae”). An umbel has flowers arranged on pedicils of more or less equal length all arising from a central point, similar to the ribs of an umbrella. Umbels can be simple or more often compound, with “rays” emerging from the end of the peduncle and then pedicels emerging centrally from the end of each ray to form “umbellets”. Quite often the umbel will be subtended by bracts at the base (an “involucre”), and if compound, the umbellets will often be subtended by their own bracts (“involucels”). Look at these photos of umbels, and see if you can identify whether each is simple or compound, and whether involucres and involucels are present.</p>
+<p align="center">
+<img src="media/Apiaceae7.jpeg" style="width:100.0%" />
+</p>
+<p><br></p>
+<p align="center">
+<img src="media/Apiaceae8.jpeg" style="width:100.0%" />
+</p>
+<p><br></p>
+<p align="center">
+<img src="media/Apiaceae9.jpeg" style="width:100.0%" />
+</p>
+<p><br></p>
+<p align="center">
+<img src="media/Apiaceae10.jpeg" style="width:100.0%" />
+</p>
+<p><br></p>
+<hr />
+</div>
+<div id="fruit-2" class="section level2">
+<h2>Fruit</h2>
+<p>Apiaceae have very cool looking fruits, especially when examined using some magnification. The fruit are schizocarps (remember these from Malvaceae?) that split into two mericarps. The mericarps remain attached by a slender Y-shaped stalk called a “carpophore” from which they dangle and eventually fall off. The contiguous faces of the mericarps (where they were originally united) is an “imaginary” line called the “commissure”. Each mericarp can have vertical lines called “nerves” and dark splotches (“oil tubes”) in intervals between the nerves. Some schizocarps are even adorned with spiky barbs. Can you identify these different features in pictures below?</p>
+<p align="center">
+<img src="media/Apiaceae11.jpeg" style="width:49.0%" /> <img src="media/Apiaceae12.jpeg" style="width:49.0%" />
+</p>
+<p><br></p>
+<p align="center">
+<img src="media/Apiaceae13.jpeg" style="width:100.0%" />
+</p>
+<p><br></p>
+<p align="center">
+<img src="media/Apiaceae14.jpeg" style="width:49.0%" /> <img src="media/Apiaceae15.jpeg" style="width:49.0%" />
+</p>
+<p>Similar to Brassicaceae fruits, Apiaceae fruits can be compressed in two different ways: “laterally” which results in a short commissure, and “dorsally” which produces a long commissure. Laterally compressed schizocarps tend to have more wide and chunky mericarps, while dorsally compressed tend to have flat and thin mericarps. Can you tell which is which from the examples below?</p>
+<p align="center">
+<img src="media/Apiaceae16.jpeg" style="width:49.0%" /> <img src="media/Apiaceae11.jpeg" style="width:49.0%" />
+</p>
+<p><br></p>
+<hr />
+</div>
+<div id="knowledge-check-7.3" class="section level2">
+<h2>KNOWLEDGE CHECK 7.3</h2>
+<p>Draw an Apiaceae plant (feel free to use your imagination) and make sure to include the following:</p>
+<ul>
+<li>Leaf (label all features that are typical of the Apiaceae).</li>
+<li>Flowers (draw a zoomed-in flower and label all parts).</li>
+<li>Umbellate inflorescence (indicate whether simple or compound, and label all features).</li>
+<li>Fully developed schizocarp with mericarps that have split apart (label all features, and indicate the type of compression).</li>
+</ul>
+<hr />
+</div>
 </div>
 <div id="r-assignment-2" class="section level1">
 <h1>R Assignment 2</h1>
@@ -608,29 +779,23 @@ div.tocify {
 <h2>Motivation</h2>
 <p>At its core, plant taxonomy is the science of naming and grouping plants based on their shared traits. Throughout this course we’ve seen how growth habit, morphology, and geographic distribution can provide valuable information about how to classify and define plants. When we consider geographic information, we are asking questions like “do the plants occupy similar or distinct habitats?” and “are the ranges of these plants disjunct or overlapping?”. Depending on the answer to these questions, our decision to group or separate plants (and give them different names) can be changed dramatically. In this R activity, we’ll demonstrate how we can use publically available occurence data to create distribution maps for plants and use these maps to make taxonomic decisions.</p>
 <p>   </p>
-</div>
-<div id="pre-lab" class="section level2">
-<h2>Pre-lab</h2>
-<p>Before starting this week’s lab you will have:</p>
-<ol style="list-style-type: decimal">
-<li><p>Completed R Assignment 1 (Lab 6) and the pre-readings assigned there.</p></li>
-<li><p>Insert GBIF video tutorial here? Or have them do it in unit 1 (note: GBIF intro material lives as comments in Lab 6).</p></li>
-<li><p>Read Chapter 2 up to <a href="https://moderndive.com/2-viz.html">section 2.3.1 in Modern Dive</a>. Make sure you are able to produce Figures 2.2 and 2.3 on your own (using the code provided in the textbook). If your R is giving errors while trying to make these figures, please reach out to the TAs to fix them — it won’t be possible to finish this lab without the <code>ggplot2</code> package working correctly.</p></li>
-<li><p>Selected your favourite plant group for creating a species distribution map (not sure if we’re doing this)</p></li>
-</ol>
-<p>   </p>
+<!-- ## Pre-lab -->
+<!-- Before starting this week's lab you will have: -->
+<!-- 1. Completed R Assignment 1 (Lab 6) and the pre-readings assigned there. -->
+<!-- 2. Insert GBIF video tutorial here? Or have them do it in unit 1 (note: GBIF intro material lives as comments in Lab 6). -->
+<!-- 3. Read Chapter 2 up to [section 2.3.1 in Modern Dive](https://moderndive.com/2-viz.html). Make sure you are able to produce Figures 2.2 and 2.3 on your own (using the code provided in the textbook). If your R is giving errors while trying to make these figures, please reach out to the TAs to fix them &mdash; it won't be possible to finish this lab without the `ggplot2` package working correctly. -->
+<!-- 3. Selected your favourite plant group for creating a species distribution map (not sure if we're doing this) -->
+<!-- &nbsp; -->
+<!-- &nbsp; -->
+<!-- --- -->
+<!-- #### Outcomes -->
+<!-- By the end of this tutorial you will have: <br> -->
+<!-- 1. experience manipulating and mapping species distribution data in R, <br> -->
+<!-- 2. familiarity with GBIF and the types of data that can be obtained, <br> -->
+<!-- 3. More? -->
+<!-- &nbsp; -->
+<!-- &nbsp; -->
 <hr />
-<div id="outcomes" class="section level4">
-<h4>Outcomes</h4>
-<p>By the end of this tutorial you will have: <br></p>
-<ol style="list-style-type: decimal">
-<li><p>experience manipulating and mapping species distribution data in R, <br></p></li>
-<li><p>familiarity with GBIF and the types of data that can be obtained, <br></p></li>
-<li><p>More?</p></li>
-</ol>
-<p>   </p>
-<hr />
-</div>
 </div>
 <div id="mapping-species-distributions" class="section level2">
 <h2>Mapping Species Distributions</h2>
@@ -640,27 +805,34 @@ div.tocify {
 <p><em>Opuntia humifusa</em> (Eastern)</p>
 <p><em>Opuntia polyacantha</em> (Great Plains, foothills of Rocky Mtns)</p>
 <p><em>Opuntia stricta</em> (Gulf Coast and Caribbean)</p>
-<p>First let’s install the required packages:</p>
-<div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb1-1" title="1"><span class="kw">install.packages</span>(<span class="st">&quot;mapr&quot;</span>, <span class="st">&quot;rgbif&quot;</span>, <span class="st">&quot;spocc&quot;</span>, <span class="st">&quot;taxize&quot;</span>)</a></code></pre></div>
-<p>These packages are designed for connecting with the GBIF database (<code>rgbif</code>, <code>spocc</code>, <code>taxize</code>), filtering data (<code>tidyverse</code>), and mapping (<code>mapr</code>). Once installed, use the <code>library()</code> function to attach the packages (we’ll also attach <code>tidyverse</code> to help with data wrangling and plotting):</p>
-<div class="sourceCode" id="cb2"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb2-1" title="1"><span class="kw">library</span>(here)</a>
-<a class="sourceLine" id="cb2-2" title="2"><span class="kw">library</span>(mapdata)</a>
-<a class="sourceLine" id="cb2-3" title="3"><span class="kw">library</span>(mapr)</a>
-<a class="sourceLine" id="cb2-4" title="4"><span class="kw">library</span>(spocc)</a>
-<a class="sourceLine" id="cb2-5" title="5"><span class="kw">library</span>(taxize)</a>
-<a class="sourceLine" id="cb2-6" title="6"><span class="kw">library</span>(tidyverse)</a></code></pre></div>
+<p>First let’s install the required packages. If you have an old"er version of R, you may need to install them individually, e.g. by running <code>install.packages("mapr")</code> and then the next packagage, and so on.</p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1"></a><span class="kw">install.packages</span>(<span class="st">&quot;mapr&quot;</span>)</span>
+<span id="cb1-2"><a href="#cb1-2"></a><span class="kw">install.packages</span>(<span class="st">&quot;spocc&quot;</span>)</span>
+<span id="cb1-3"><a href="#cb1-3"></a><span class="kw">install.packages</span>(<span class="st">&quot;taxize&quot;</span>)</span>
+<span id="cb1-4"><a href="#cb1-4"></a><span class="kw">install.packages</span>(<span class="st">&quot;tidyverse&quot;</span>)</span>
+<span id="cb1-5"><a href="#cb1-5"></a><span class="kw">install.packages</span>(<span class="st">&quot;rgbif&quot;</span>)</span></code></pre></div>
+<!-- We'll also install the development version of the package `rgbif`: -->
+<!-- ```{r eval = FALSE} -->
+<!-- install.packages("rgbif", repos="https://dev.ropensci.org") -->
+<!-- ``` -->
+<p>These packages are designed for connecting with the GBIF database (<code>spocc</code>, <code>taxize</code>), organizing data (<code>tidyverse</code>), and mapping (<code>mapr</code>). Once installed, use the <code>library()</code> function to attach the packages:</p>
+<div class="sourceCode" id="cb2"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1"></a><span class="kw">library</span>(mapr)</span>
+<span id="cb2-2"><a href="#cb2-2"></a><span class="kw">library</span>(spocc)</span>
+<span id="cb2-3"><a href="#cb2-3"></a><span class="kw">library</span>(taxize)</span>
+<span id="cb2-4"><a href="#cb2-4"></a><span class="kw">library</span>(tidyverse)</span>
+<span id="cb2-5"><a href="#cb2-5"></a><span class="kw">library</span>(rgbif)</span></code></pre></div>
 <p>Now let’s get some occurrence data from GBIF!</p>
-<div class="sourceCode" id="cb3"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb3-1" title="1">opuntia_wishlist &lt;-</a>
-<a class="sourceLine" id="cb3-2" title="2"><span class="st">  </span><span class="kw">c</span>(<span class="st">&quot;Opuntia basilaris Engelm. &amp; J.M.Bigelow&quot;</span>,</a>
-<a class="sourceLine" id="cb3-3" title="3">    <span class="st">&quot;Opuntia fragilis (Nutt.) Haw.&quot;</span>,</a>
-<a class="sourceLine" id="cb3-4" title="4">    <span class="st">&quot;Opuntia humifusa Raf.&quot;</span>,</a>
-<a class="sourceLine" id="cb3-5" title="5">    <span class="st">&quot;Opuntia polyacantha Haw.&quot;</span>,</a>
-<a class="sourceLine" id="cb3-6" title="6">    <span class="st">&quot;Opuntia stricta (Haw.) Haw.&quot;</span>)</a></code></pre></div>
+<div class="sourceCode" id="cb3"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1"></a>opuntia_wishlist &lt;-</span>
+<span id="cb3-2"><a href="#cb3-2"></a><span class="st">  </span><span class="kw">c</span>(<span class="st">&quot;Opuntia basilaris Engelm. &amp; J.M.Bigelow&quot;</span>,</span>
+<span id="cb3-3"><a href="#cb3-3"></a>    <span class="st">&quot;Opuntia fragilis (Nutt.) Haw.&quot;</span>,</span>
+<span id="cb3-4"><a href="#cb3-4"></a>    <span class="st">&quot;Opuntia humifusa Raf.&quot;</span>,</span>
+<span id="cb3-5"><a href="#cb3-5"></a>    <span class="st">&quot;Opuntia polyacantha Haw.&quot;</span>,</span>
+<span id="cb3-6"><a href="#cb3-6"></a>    <span class="st">&quot;Opuntia stricta (Haw.) Haw.&quot;</span>)</span></code></pre></div>
 <p>In this first step we’re creating a list of all of the plant species that we’re hoping to get GBIF data for. The <code>&lt;-</code> operator stores the results in an object that we named <code>opuntia_wishlist</code>. By storing the results in an object we can later return to the object and inspect it, subset it, and pipe it to other functions. In the following step we’ll use the <code>occ()</code> function to search GBIF for the species records:</p>
-<div class="sourceCode" id="cb4"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb4-1" title="1">opuntia_metadata &lt;-<span class="st"> </span></a>
-<a class="sourceLine" id="cb4-2" title="2"><span class="st">  </span><span class="kw">occ</span>(<span class="dt">query =</span> opuntia_wishlist, <span class="dt">from =</span> <span class="st">&#39;gbif&#39;</span>, <span class="dt">limit =</span> <span class="dv">500</span>)</a></code></pre></div>
+<div class="sourceCode" id="cb4"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1"></a>opuntia_metadata &lt;-<span class="st"> </span></span>
+<span id="cb4-2"><a href="#cb4-2"></a><span class="st">  </span><span class="kw">occ</span>(<span class="dt">query =</span> opuntia_wishlist, <span class="dt">from =</span> <span class="st">&#39;gbif&#39;</span>, <span class="dt">limit =</span> <span class="dv">500</span>)</span></code></pre></div>
 <p>In this code we’ve created a new object called <code>opuntia_metadata</code>. This object contains occurrence records found by the <code>occ()</code> function, where we specified our taxon ID (contained in <code>opuntia_ids</code>) and told the function that we wanted our data <code>from = gbif</code> (instead of another database) and that we wanted a maximum of <code>500</code> records. Let’s inspect the structure of the <code>opuntia_metadata</code> object:</p>
-<div class="sourceCode" id="cb5"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb5-1" title="1"><span class="kw">str</span>(opuntia_metadata, <span class="dt">max.level=</span><span class="dv">1</span>)</a></code></pre></div>
+<div class="sourceCode" id="cb5"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1"></a><span class="kw">str</span>(opuntia_metadata, <span class="dt">max.level=</span><span class="dv">1</span>)</span></code></pre></div>
 <pre><code>## List of 9
 ##  $ gbif     :List of 2
 ##   ..- attr(*, &quot;class&quot;)= chr &quot;occdatind&quot;
@@ -683,24 +855,24 @@ div.tocify {
 ##  - attr(*, &quot;class&quot;)= chr &quot;occdat&quot;
 ##  - attr(*, &quot;searched&quot;)= chr &quot;gbif&quot;</code></pre>
 <p>The output tells us that <code>opuntia_metadata</code> is a <code>List</code> object with 9 named elements. We are specifically interested in the named element <code>$gbif</code>, so we can simplify our object by subsetting:</p>
-<div class="sourceCode" id="cb7"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb7-1" title="1">opuntia_simple &lt;-<span class="st"> </span>opuntia_metadata<span class="op">$</span>gbif<span class="op">$</span>data</a></code></pre></div>
+<div class="sourceCode" id="cb7"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1"></a>opuntia_simple &lt;-<span class="st"> </span>opuntia_metadata<span class="op">$</span>gbif<span class="op">$</span>data</span></code></pre></div>
 <p>While writing this code, we discovered that the <code>opuntia_metadata</code> object is pretty complex and with lots of layers! The code above says to take the large object <code>opuntia_metadata</code> and select the element named <code>$gbif</code>. Then, within the element <code>$gbif</code>, select the sub-element <code>$data</code>. Within <code>$data</code> there are 5 elements, each one contains the lat-long information for one of our <em>Opuntia</em> species.</p>
 <p>Let’s look at the lat-long data for <em>O. basilaris</em>:</p>
-<div class="sourceCode" id="cb8"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb8-1" title="1">opuntia_simple<span class="op">$</span><span class="st">`</span><span class="dt">Opuntia_basilaris_Engelm._&amp;_J.M.Bigelow</span><span class="st">`</span></a></code></pre></div>
+<div class="sourceCode" id="cb8"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1"></a>opuntia_simple<span class="op">$</span><span class="st">`</span><span class="dt">Opuntia_basilaris_Engelm._&amp;_J.M.Bigelow</span><span class="st">`</span></span></code></pre></div>
 <pre><code>## # A tibble: 500 x 73
 ##    name  longitude latitude issues prov  key   scientificName datasetKey
 ##    &lt;chr&gt;     &lt;dbl&gt;    &lt;dbl&gt; &lt;chr&gt;  &lt;chr&gt; &lt;chr&gt; &lt;chr&gt;          &lt;chr&gt;     
-##  1 Opun~     -117.     36.9 cdrou~ gbif  2549~ Opuntia basil~ 50c9509d-~
-##  2 Opun~     -116.     34.1 cdrou~ gbif  2550~ Opuntia basil~ 50c9509d-~
-##  3 Opun~     -117.     36.9 cdrou~ gbif  2550~ Opuntia basil~ 50c9509d-~
-##  4 Opun~     -114.     32.2 cdrou~ gbif  2550~ Opuntia basil~ 50c9509d-~
-##  5 Opun~     -117.     36.9 cdrou~ gbif  2550~ Opuntia basil~ 50c9509d-~
-##  6 Opun~     -116.     33.7 cdrou~ gbif  2550~ Opuntia basil~ 50c9509d-~
-##  7 Opun~     -116.     33.7 cdrou~ gbif  2550~ Opuntia basil~ 50c9509d-~
-##  8 Opun~     -117.     36.9 cdrou~ gbif  2550~ Opuntia basil~ 50c9509d-~
-##  9 Opun~     -116.     33.8 cdrou~ gbif  2550~ Opuntia basil~ 50c9509d-~
-## 10 Opun~     -116.     33.8 cdrou~ gbif  2557~ Opuntia basil~ 50c9509d-~
-## # ... with 490 more rows, and 65 more variables: publishingOrgKey &lt;chr&gt;,
+##  1 Opun…     -117.     36.9 cdrou… gbif  2549… Opuntia basil… 50c9509d-…
+##  2 Opun…     -116.     34.1 cdrou… gbif  2550… Opuntia basil… 50c9509d-…
+##  3 Opun…     -117.     36.9 cdrou… gbif  2550… Opuntia basil… 50c9509d-…
+##  4 Opun…     -114.     32.2 cdrou… gbif  2550… Opuntia basil… 50c9509d-…
+##  5 Opun…     -117.     36.9 cdrou… gbif  2550… Opuntia basil… 50c9509d-…
+##  6 Opun…     -116.     33.7 cdrou… gbif  2550… Opuntia basil… 50c9509d-…
+##  7 Opun…     -116.     33.7 cdrou… gbif  2550… Opuntia basil… 50c9509d-…
+##  8 Opun…     -117.     36.9 cdrou… gbif  2550… Opuntia basil… 50c9509d-…
+##  9 Opun…     -116.     33.8 cdrou… gbif  2550… Opuntia basil… 50c9509d-…
+## 10 Opun…     -116.     33.8 cdrou… gbif  2557… Opuntia basil… 50c9509d-…
+## # … with 490 more rows, and 65 more variables: publishingOrgKey &lt;chr&gt;,
 ## #   installationKey &lt;chr&gt;, publishingCountry &lt;chr&gt;, protocol &lt;chr&gt;,
 ## #   lastCrawled &lt;chr&gt;, lastParsed &lt;chr&gt;, crawlId &lt;int&gt;, basisOfRecord &lt;chr&gt;,
 ## #   occurrenceStatus &lt;chr&gt;, taxonKey &lt;int&gt;, kingdomKey &lt;int&gt;, phylumKey &lt;int&gt;,
@@ -722,13 +894,13 @@ div.tocify {
 ## #   occurrenceRemarks &lt;chr&gt;, infraspecificEpithet &lt;chr&gt;,
 ## #   informationWithheld &lt;chr&gt;</code></pre>
 <p>The output is pretty big and messy! The output tells us that it’s a <code>tibble</code> (a type of spreadsheet) with 500 rows and 73 columns. Each row is a record of where <em>Opuntia basilaris</em> has been found or collected. Each column is some information associated with that record. While some of the columns are useful (e.g. the latitude and longitude), most columns aren’t needed (we’ll get rid of them later). In the next step, we’ll combine the five separate <code>tibbles</code> into one:</p>
-<div class="sourceCode" id="cb10"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb10-1" title="1">useful_variables &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="st">&quot;name&quot;</span>, <span class="st">&quot;longitude&quot;</span>, <span class="st">&quot;latitude&quot;</span>, <span class="st">&quot;basisOfRecord&quot;</span>, <span class="st">&quot;scientificName&quot;</span>)</a>
-<a class="sourceLine" id="cb10-2" title="2"></a>
-<a class="sourceLine" id="cb10-3" title="3">opuntia_combined &lt;-</a>
-<a class="sourceLine" id="cb10-4" title="4"><span class="st">  </span><span class="kw">reduce</span>(opuntia_simple, full_join, <span class="dt">by =</span> useful_variables) <span class="op">%&gt;%</span><span class="st"> </span></a>
-<a class="sourceLine" id="cb10-5" title="5"><span class="st">  </span><span class="kw">select</span>(useful_variables)</a></code></pre></div>
-<p>Above, we used the <code>full_join()</code> function to merge the data. We specified that we only wanted to keep certain columns (columns <code>1:3, 7, 16, 50, 53</code>). Everything else was discarded. Whew! This is a lot of organizing.. we’re almost there. Before we get to mapping, we should check our data for synonyms. The <code>unique()</code> function tells us how many unique entries exist within a column:</p>
-<div class="sourceCode" id="cb11"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb11-1" title="1"><span class="kw">unique</span>(opuntia_combined<span class="op">$</span>scientificName)</a></code></pre></div>
+<div class="sourceCode" id="cb10"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1"></a>useful_variables &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="st">&quot;name&quot;</span>, <span class="st">&quot;longitude&quot;</span>, <span class="st">&quot;latitude&quot;</span>, <span class="st">&quot;basisOfRecord&quot;</span>, <span class="st">&quot;scientificName&quot;</span>)</span>
+<span id="cb10-2"><a href="#cb10-2"></a></span>
+<span id="cb10-3"><a href="#cb10-3"></a>opuntia_combined &lt;-</span>
+<span id="cb10-4"><a href="#cb10-4"></a><span class="st">  </span><span class="kw">reduce</span>(opuntia_simple, full_join, <span class="dt">by =</span> useful_variables) <span class="op">%&gt;%</span><span class="st"> </span></span>
+<span id="cb10-5"><a href="#cb10-5"></a><span class="st">  </span><span class="kw">select</span>(useful_variables)</span></code></pre></div>
+<p>Above, we created an object <code>useful_variables</code> that has the names of the columns we want in our final dataset. In the next step we used <code>reduce()</code> to create one simple, combined dataset with only the columns specified in <code>useful_variables</code>. Everything else was discarded. Whew! This is a lot of organizing.. we’re almost there. Before we get to mapping, we should check our data for synonyms. The <code>unique()</code> function tells us how many unique entries exist within a column:</p>
+<div class="sourceCode" id="cb11"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1"></a><span class="kw">unique</span>(opuntia_combined<span class="op">$</span>scientificName)</span></code></pre></div>
 <pre><code>##  [1] &quot;Opuntia basilaris Engelm. &amp; J.M.Bigelow&quot;                                
 ##  [2] &quot;Opuntia basilaris var. basilaris&quot;                                       
 ##  [3] &quot;Opuntia basilaris var. brachyclada Munz&quot;                                
@@ -753,22 +925,22 @@ div.tocify {
 ## [22] &quot;Opuntia bentonii Griffiths&quot;                                             
 ## [23] &quot;Opuntia anahuacensis Griffiths&quot;</code></pre>
 <p>Unfortunately, lots of synonyms were included in the results. We’ll make a object containing the names we want to keep, and use the <code>filter()</code> function to get rid of everything else:</p>
-<div class="sourceCode" id="cb13"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb13-1" title="1"><span class="co"># filter out synonyms</span></a>
-<a class="sourceLine" id="cb13-2" title="2"><span class="co"># filter out entries outside of North America</span></a>
-<a class="sourceLine" id="cb13-3" title="3">opuntia_fil &lt;-</a>
-<a class="sourceLine" id="cb13-4" title="4"><span class="st">  </span>opuntia_combined <span class="op">%&gt;%</span></a>
-<a class="sourceLine" id="cb13-5" title="5"><span class="st">  </span><span class="kw">filter</span>(scientificName <span class="op">==</span><span class="st"> </span>opuntia_wishlist) <span class="op">%&gt;%</span></a>
-<a class="sourceLine" id="cb13-6" title="6"><span class="st">  </span><span class="kw">filter</span>(longitude <span class="op">&lt;</span><span class="st"> </span><span class="dv">-58</span> <span class="op">&amp;</span><span class="st"> </span>latitude <span class="op">&gt;</span><span class="st"> </span><span class="fl">18.1</span>) <span class="op">%&gt;%</span></a>
-<a class="sourceLine" id="cb13-7" title="7"><span class="st">  </span><span class="kw">filter</span>(basisOfRecord <span class="op">==</span><span class="st"> &quot;HUMAN_OBSERVATION&quot;</span>)</a></code></pre></div>
+<div class="sourceCode" id="cb13"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1"></a><span class="co"># filter out synonyms</span></span>
+<span id="cb13-2"><a href="#cb13-2"></a><span class="co"># filter out entries outside of North America</span></span>
+<span id="cb13-3"><a href="#cb13-3"></a>opuntia_fil &lt;-</span>
+<span id="cb13-4"><a href="#cb13-4"></a><span class="st">  </span>opuntia_combined <span class="op">%&gt;%</span></span>
+<span id="cb13-5"><a href="#cb13-5"></a><span class="st">  </span><span class="kw">filter</span>(scientificName <span class="op">==</span><span class="st"> </span>opuntia_wishlist) <span class="op">%&gt;%</span></span>
+<span id="cb13-6"><a href="#cb13-6"></a><span class="st">  </span><span class="kw">filter</span>(longitude <span class="op">&lt;</span><span class="st"> </span><span class="dv">-58</span> <span class="op">&amp;</span><span class="st"> </span>latitude <span class="op">&gt;</span><span class="st"> </span><span class="fl">18.1</span>) <span class="op">%&gt;%</span></span>
+<span id="cb13-7"><a href="#cb13-7"></a><span class="st">  </span><span class="kw">filter</span>(basisOfRecord <span class="op">==</span><span class="st"> &quot;HUMAN_OBSERVATION&quot;</span>)</span></code></pre></div>
 <p>We’re ready to map! Pick some colours for your species (you can pick your own <a href="http://www.cookbook-r.com/Graphs/Colors_(ggplot2)/">from here</a>):</p>
-<div class="sourceCode" id="cb14"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb14-1" title="1">mycolors &lt;-<span class="st"> </span><span class="kw">c</span>( <span class="st">&quot;#E69F00&quot;</span>, <span class="st">&quot;#56B4E9&quot;</span>,  <span class="st">&quot;#F0E442&quot;</span>, <span class="st">&quot;#D55E00&quot;</span>, <span class="st">&quot;#CC79A7&quot;</span>)</a></code></pre></div>
+<div class="sourceCode" id="cb14"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb14-1"><a href="#cb14-1"></a>mycolors &lt;-<span class="st"> </span><span class="kw">c</span>( <span class="st">&quot;#E69F00&quot;</span>, <span class="st">&quot;#56B4E9&quot;</span>,  <span class="st">&quot;#F0E442&quot;</span>, <span class="st">&quot;#D55E00&quot;</span>, <span class="st">&quot;#CC79A7&quot;</span>)</span></code></pre></div>
 <p>And map using the <code>map_ggplot()</code> function:</p>
-<div class="sourceCode" id="cb15"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb15-1" title="1">mapr<span class="op">::</span><span class="kw">map_ggplot</span>(opuntia_fil[,<span class="dv">1</span><span class="op">:</span><span class="dv">3</span>], <span class="dt">color =</span> mycolors) <span class="op">+</span></a>
-<a class="sourceLine" id="cb15-2" title="2"><span class="st">  </span><span class="kw">coord_fixed</span>(<span class="dt">xlim =</span> <span class="kw">c</span>(<span class="op">-</span><span class="dv">135</span>, <span class="dv">-55</span> ),  <span class="dt">ylim =</span> <span class="kw">c</span>(<span class="dv">10</span>, <span class="dv">90</span>)) <span class="op">+</span></a>
-<a class="sourceLine" id="cb15-3" title="3"><span class="st">  </span><span class="kw">ggtitle</span>(<span class="st">&quot;Distribution of 5 species of Prickly Pear cacti (Opuntia)&quot;</span>)</a></code></pre></div>
+<div class="sourceCode" id="cb15"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb15-1"><a href="#cb15-1"></a>mapr<span class="op">::</span><span class="kw">map_ggplot</span>(opuntia_fil[,<span class="dv">1</span><span class="op">:</span><span class="dv">3</span>], <span class="dt">color =</span> mycolors) <span class="op">+</span></span>
+<span id="cb15-2"><a href="#cb15-2"></a><span class="st">  </span><span class="kw">coord_fixed</span>(<span class="dt">xlim =</span> <span class="kw">c</span>(<span class="op">-</span><span class="dv">135</span>, <span class="dv">-55</span> ),  <span class="dt">ylim =</span> <span class="kw">c</span>(<span class="dv">10</span>, <span class="dv">90</span>)) <span class="op">+</span></span>
+<span id="cb15-3"><a href="#cb15-3"></a><span class="st">  </span><span class="kw">ggtitle</span>(<span class="st">&quot;Distribution of 5 species of Prickly Pear cacti (Opuntia)&quot;</span>)</span></code></pre></div>
 <p><img src="_BIOL_324_Lab_7_files/figure-html/unnamed-chunk-11-1.png" width="672" /></p>
 <p>Beauty! After all of that hard work, we’ll save the lat-long data object as an .rds file. We’ll use this data again in Lab 10. If you downloaded or forked the <a href="https://github.com/mannfred/BIOL324">BIOL324 folder from the GitHub site</a>, you can run this code:</p>
-<div class="sourceCode" id="cb16"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb16-1" title="1"><span class="kw">saveRDS</span>(opuntia_fil, <span class="dt">file =</span> <span class="kw">here</span>(<span class="st">&#39;R_scripts/filtered_gbif_dataset.rds&#39;</span>))</a></code></pre></div>
+<div class="sourceCode" id="cb16"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb16-1"><a href="#cb16-1"></a><span class="kw">saveRDS</span>(opuntia_fil, <span class="dt">file =</span> <span class="st">&#39;R_scripts/filtered_gbif_dataset.rds&#39;</span>)</span></code></pre></div>
 <hr />
 <p>   </p>
 <div id="activity-3-creating-your-own-species-distribution-map" class="section level4">

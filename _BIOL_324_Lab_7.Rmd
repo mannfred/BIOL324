@@ -29,6 +29,9 @@ title: "Boraginaceae, Solonaceae, Apiaceae, and mapping in R"
 **4.  Fruit 4 nutlets.**  
 **5.  About 100 genera and 2000 species, widely distributed.**  
 
+The Boraginaceae is the 17th largest family in B.C., with 51 species and varieties.  A few members of the family are cultivated ornamentals.
+
+---
 
 ## Diagrams
 
@@ -142,7 +145,14 @@ And here you can see the depressions that the thickened rims of the nutlets made
 
 ## KNOWLEDGE CHECK 7.1
 
-Draw a *Borago officinalis* flower, and make sure to label the following: sepals, petals, fornices, stamens, pistil, trichomes.
+Draw a *Borago officinalis* flower, and make sure to label the following: 
+
+- Sepals
+- Petals
+- Fornices
+- Stamens
+- Pistil
+- Trichomes
 
 </br>
 
@@ -152,11 +162,11 @@ Draw a *Borago officinalis* flower, and make sure to label the following: sepals
 
 **Potato or Nightshade Family**
 
-**1.  Herbs, vines, shrubs, or trees.**
-**2.  Leaves simple or occasionally pinnately lobed to compound, alternate, without stipules.**
-**3.  Flowers perfect, actinomorphic or sometimes zygomorphic.  Sepals 5, fused.  Petals 5, fused.  Stamens 2, 4, or usually 5, epipetalous, sometimes with anthers connivent (converging or coming together but not fused).  Pistil compound, ovary superior, carpels 2, placentation axile.**
-**4.  Fruit a berry or capsule.**
-**5.  About 85 genera and more than 2200 species, primarily in tropical America.**
+**1.  Herbs, vines, shrubs, or trees.**  
+**2.  Leaves simple or occasionally pinnately lobed to compound, alternate, without stipules.**  
+**3.  Flowers perfect, actinomorphic or sometimes zygomorphic.  Sepals 5, fused.  Petals 5, fused.  Stamens 2, 4, or usually 5, epipetalous, sometimes with anthers connivent (converging or coming together but not fused).  Pistil compound, ovary superior, carpels 2, placentation axile.**  
+**4.  Fruit a berry or capsule.**  
+**5.  About 85 genera and more than 2200 species, primarily in tropical America.**  
 
 The Solanaceae is not a significant family in the flora of B. C., but it is one of the most important in agriculture, providing foods and drugs.  Important crops include *Solanum* (potato, eggplant, tomato), *Physalis* (tomatillo, ground cherry), *Capsicum* (red, yellow, and green peppers), and *Nicotiana* (tobacco).  Many species produce poisonous alkaloids.  Alkaloids from *Atropa* (deadly nightshade or belladonna), *Hyoscyamus* (henbane), *Datura*, *Mandragor*a (mandrake), and *Brunfelsia* are used as drugs, hallucinogens, and poisons.  *Petunia* is the most important ornamental member of the Solanaceae in temperate regions.
 
@@ -194,21 +204,193 @@ Members of the Solanaceae are characterized by 5 fused sepals and petals, and ty
 
 ---
 
+The Solanaceae tend to have 5 epipetalous stamens (but can also have 2 or 4 stamens). Sometimes, the anthers are "connivent" (converging or pressed together but normally not fused) around the style. The anthers also have poricidal dehiscence (do you remember the type of pollination mechanism and previous family we've seen this in?).
+
+You can see connivent anthers and poricidal dehiscence (zoom in to see the pores) quite well in the potato (*Solanum* sp.) flower below.
+
+<p align="center">
+![](./media/Solanaceae4.jpeg){width=100%}
+</p>
+
+<br>
+
+---
+
+## Fruit
+
+Most members of the Solanacae that you are likely to be familiar with have berries as their fruit type. You've examined tomato fruit already. Do you remember the placentation type, number of carpels, and number of locules?
+
+<p align="center">
+![](./media/basic_7.jpeg){width=100%}
+</p>
+
+<br>
+
+Peppers (in the genus *Capsicum*) are also berries. Most Solanaceae fruit are formed from 2 carpels, but there can be 3 or 4 in *Capsicum*.
+
+<p align="center">
+![](./media/Solanaceae5.jpg){width=60%}
+</p>
+
+<br>
+
+---
+
+## KNOWLEDGE CHECK 7.2
+
+Draw a potato flower, and make sure to include the following labels: 
+
+- Corolla (indicate shape)
+- Calyx
+- Stamens
+- Style
+- Stigma
+
+In addition, draw a cross-section of a bell pepper, and include the following labels:
+
+- Ovary wall
+- Carpel walls (how many?)
+- Seeds
+- Placenta (placentation type?)
+- Locules (how many?)
+
+<br>
+
+---
+
 # Apiaceae - Carrot Family
 
 ---
 
-**1.	Mostly herbs.**
-**2.	Leaves usually compound, alternate, without stipules, but usually the petiole has a sheathing base.**
-**3.	Flowers usually perfect or andromonoecious (perfect and male on the same plant), radially symmetrical.  Sepals 5, usually small and sometimes absent.   Petals 5 (0), not fused.  Stamens  5, free.  Pistil compound, ovary inferior, carpels 2, placentation axile.  Inflorescence an umbel.**
-**4.	Fruit a schizocarp.**
-**5.	About 300 genera and 3000 species, mainly in north temperate regions.**
+**1.	Mostly herbs.**  
+**2.	Leaves usually compound, alternate, without stipules, but usually the petiole has a sheathing base.**  
+**3.	Flowers usually perfect or andromonoecious (perfect and male on the same plant), radially symmetrical.  Sepals 5, usually small and sometimes absent.   Petals 5 (0), not fused.  Stamens  5, free.  Pistil compound, ovary inferior, carpels 2, placentation axile.  Inflorescence an umbel.**  
+**4.	Fruit a schizocarp.**  
+**5.	About 300 genera and 3000 species, mainly in north temperate regions.**  
 
 The Apiaceae is the 13th largest family in B.C., with 61 taxa occurring in the province.  The family is easily recognized by its usually compound leaves, umbellate inflorescence, 5-merous flowers with an inferior ovary, and distinctive fruit, but genera and species are often difficult to identify.  Many keys require mature fruits for definite identification.  The plants and especially fruits often contain aromatic oils, which are used as flavorings.  Many species are edible, but some are deadly poisonous, including the poison hemlock with which Socrates was executed.
 
 Cultivated crops, herbs, and spices include *Apium* (celery, celeriac), *Pastinaca* (parsnip), *Daucus* (carrot), *Foeniculum* (fennel), *Anethum* (dill), *Cuminum* (cumin), *Pimpinella* (anise), *Petroselinum* (parsley), *Carum* (caraway), and *Coriandrum* (coriander, Chinese parsley, or cilantro).
 
+---
 
+## Leaves
+
+Members of the Apiaceae are characterized by having alternate leaves that are compound and rather dissected (think parsley and cilantro...yum!). Sometimes the leaves are dissected to the point of being thread-like linear filaments. In addition, the leaves quite often have a dilated, sheathing petiole (just like celery!). Here are some examples:
+
+<p align="center">
+![](./media/Apiaceae1.jpeg){width=100%}
+</p>
+
+<br>
+
+<p align="center">
+![](./media/Apiaceae2.jpeg){width=100%}
+</p>
+
+<br>
+
+<p align="center">
+![](./media/Apiaceae3.jpeg){width=100%}
+</p>
+
+<br>
+
+Can you see the dilated, sheating petiole below?
+
+<p align="center">
+![](./media/Apiaceae4.jpeg){width=100%}
+</p>
+
+<br>
+
+---
+
+## Flowers
+
+Apiaceae flower and inflorescence structure is fairly consistent and unique, which, in combination with the leaf and fruit characteristics, make it easy to identify this family. Within the family, however, it can be quite difficult to identify genera and species because they all look pretty similar. Your typical Apiaceae flower is small, white or yellow, actinomorphic, and with 5 free sepals, petals, and stamens. The ovary is inferior, and the two short styles often have expanded bases forming a disk or cone-shaped structure that the styles sit on (a "stylopodium" - not easy to see in the photos below as the flowers are so small). Here are some photos:
+
+<p align="center">
+![](./media/Apiaceae6.jpeg){width=100%}
+</p>
+
+<br>
+
+<p align="center">
+![](./media/Apiaceae5.jpeg){width=100%}
+</p>
+
+<br>
+
+---
+
+A more obvious character than the tiny flowers (which usually require some magnification to make out their features) is the inflorescence structure, which is called an "umbel" (the old name for the Apiaceae was the "Umbelliferae"). An umbel has flowers arranged on pedicils of more or less equal length all arising from a central point, similar to the ribs of an umbrella. Umbels can be simple or more often compound, with "rays" emerging from the end of the peduncle and then pedicels emerging centrally from the end of each ray to form "umbellets". Quite often the umbel will be subtended by bracts at the base (an "involucre"), and if compound, the umbellets will often be subtended by their own bracts ("involucels"). Look at these photos of umbels, and see if you can identify whether each is simple or compound, and whether involucres and involucels are present.
+
+<p align="center">
+![](./media/Apiaceae7.jpeg){width=100%}
+</p>
+
+<br>
+
+<p align="center">
+![](./media/Apiaceae8.jpeg){width=100%}
+</p>
+
+<br>
+
+<p align="center">
+![](./media/Apiaceae9.jpeg){width=100%}
+</p>
+
+<br>
+
+<p align="center">
+![](./media/Apiaceae10.jpeg){width=100%}
+</p>
+
+<br>
+
+---
+
+## Fruit
+
+Apiaceae have very cool looking fruits, especially when examined using some magnification. The fruit are schizocarps (remember these from Malvaceae?) that split into two mericarps. The mericarps remain attached by a slender Y-shaped stalk called a "carpophore" from which they dangle and eventually fall off. The contiguous faces of the mericarps (where they were originally united) is an "imaginary" line called the "commissure". Each mericarp can have vertical lines called "nerves" and dark splotches ("oil tubes") in intervals between the nerves. Some schizocarps are even adorned with spiky barbs. Can you identify these different features in pictures below?
+
+<p align="center">
+![](./media/Apiaceae11.jpeg){width=49%} ![](./media/Apiaceae12.jpeg){width=49%}
+</p>
+
+<br>
+
+<p align="center">
+![](./media/Apiaceae13.jpeg){width=100%}
+</p>
+
+<br>
+
+<p align="center">
+![](./media/Apiaceae14.jpeg){width=49%} ![](./media/Apiaceae15.jpeg){width=49%}
+</p>
+
+
+Similar to Brassicaceae fruits, Apiaceae fruits can be compressed in two different ways: "laterally" which results in a short commissure, and "dorsally" which produces a long commissure. Laterally compressed schizocarps tend to have more wide and chunky mericarps, while dorsally compressed tend to have flat and thin mericarps. Can you tell which is which from the examples below?
+
+<p align="center">
+![](./media/Apiaceae16.jpeg){width=49%} ![](./media/Apiaceae11.jpeg){width=49%}
+</p>
+
+<br>
+
+---
+
+## KNOWLEDGE CHECK 7.3
+
+Draw an Apiaceae plant (feel free to use your imagination) and make sure to include the following: 
+
+- Leaf (label all features that are typical of the Apiaceae).
+- Flowers (draw a zoomed-in flower and label all parts).
+- Umbellate inflorescence (indicate whether simple or compound, and label all features).
+- Fully developed schizocarp with mericarps that have split apart (label all features, and indicate the type of compression).
 
 ---
 
@@ -227,35 +409,35 @@ At its core, plant taxonomy is the science of naming and grouping plants based o
 &nbsp;
 &nbsp;
 
-## Pre-lab
+<!-- ## Pre-lab -->
 
-Before starting this week's lab you will have:
+<!-- Before starting this week's lab you will have: -->
 
-1. Completed R Assignment 1 (Lab 6) and the pre-readings assigned there.
+<!-- 1. Completed R Assignment 1 (Lab 6) and the pre-readings assigned there. -->
 
-2. Insert GBIF video tutorial here? Or have them do it in unit 1 (note: GBIF intro material lives as comments in Lab 6).
+<!-- 2. Insert GBIF video tutorial here? Or have them do it in unit 1 (note: GBIF intro material lives as comments in Lab 6). -->
 
-3. Read Chapter 2 up to [section 2.3.1 in Modern Dive](https://moderndive.com/2-viz.html). Make sure you are able to produce Figures 2.2 and 2.3 on your own (using the code provided in the textbook). If your R is giving errors while trying to make these figures, please reach out to the TAs to fix them &mdash; it won't be possible to finish this lab without the `ggplot2` package working correctly.
+<!-- 3. Read Chapter 2 up to [section 2.3.1 in Modern Dive](https://moderndive.com/2-viz.html). Make sure you are able to produce Figures 2.2 and 2.3 on your own (using the code provided in the textbook). If your R is giving errors while trying to make these figures, please reach out to the TAs to fix them &mdash; it won't be possible to finish this lab without the `ggplot2` package working correctly. -->
 
-3. Selected your favourite plant group for creating a species distribution map (not sure if we're doing this)
+<!-- 3. Selected your favourite plant group for creating a species distribution map (not sure if we're doing this) -->
 
-&nbsp;
-&nbsp;
+<!-- &nbsp; -->
+<!-- &nbsp; -->
 
----
+<!-- --- -->
 
-#### Outcomes
+<!-- #### Outcomes -->
 
-By the end of this tutorial you will have: <br>
+<!-- By the end of this tutorial you will have: <br> -->
 
-1. experience manipulating and mapping species distribution data in R, <br>
+<!-- 1. experience manipulating and mapping species distribution data in R, <br> -->
 
-2. familiarity with GBIF and the types of data that can be obtained, <br>
+<!-- 2. familiarity with GBIF and the types of data that can be obtained, <br> -->
 
-3. More?
+<!-- 3. More? -->
 
-&nbsp;
-&nbsp;
+<!-- &nbsp; -->
+<!-- &nbsp; -->
 
 ---
 
@@ -276,8 +458,11 @@ _Opuntia stricta_ (Gulf Coast and Caribbean)
 First let's install the required packages. If you have an old"er version of R, you may need to install them individually, e.g. by running `install.packages("mapr")` and then the next packagage, and so on. 
 
 ```{r eval = FALSE}
-install.packages("mapr", "spocc", "taxize", "tidyverse")
-
+install.packages("mapr")
+install.packages("spocc")
+install.packages("taxize")
+install.packages("tidyverse")
+install.packages("rgbif")
 ```
 
 <!-- We'll also install the development version of the package `rgbif`: -->
@@ -294,6 +479,7 @@ library(mapr)
 library(spocc)
 library(taxize)
 library(tidyverse)
+library(rgbif)
 
 ```
 
@@ -385,7 +571,7 @@ mapr::map_ggplot(opuntia_fil[,1:3], color = mycolors) +
 Beauty! After all of that hard work, we'll save the lat-long data object as an .rds file. We'll use this data again in Lab 10. If you downloaded or forked the [BIOL324 folder from the GitHub site](https://github.com/mannfred/BIOL324), you can run this code:
 
 ```{r}
-saveRDS(opuntia_fil, file = here('R_scripts/filtered_gbif_dataset.rds'))
+saveRDS(opuntia_fil, file = 'R_scripts/filtered_gbif_dataset.rds')
 ```
 ---
 
