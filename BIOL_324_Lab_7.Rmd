@@ -500,7 +500,7 @@ _Opuntia polyacantha_ (Great Plains, foothills of Rocky Mtns)
 
 _Opuntia stricta_ (Gulf Coast and Caribbean)
 
-First let's install the required packages. If you have an old"er version of R, you may need to install them individually, e.g. by running `install.packages("mapr")` and then the next packagage, and so on. 
+First let's install the required packages. If you have an older version of R, you may need to install them individually, e.g. by running `install.packages("mapr")` and then the next packagage, and so on. 
 
 ```{r eval = FALSE}
 install.packages("mapr")
