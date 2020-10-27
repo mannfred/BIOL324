@@ -35,6 +35,14 @@ The Boraginaceae is the 17th largest family in B.C., with 51 species and varieti
 
 ## Diagrams
 
+![](./media/diagram_Boraginaceae1.png){width=100%}
+
+<br>
+
+![](./media/diagram_Boraginaceae2.png){width=100%}
+
+<br>
+
 ---
 
 ## Leaves
@@ -172,6 +180,18 @@ The Solanaceae is not a significant family in the flora of B. C., but it is one 
 
 ---
 
+## Diagrams
+
+![](./media/diagram_Solanaceae1.png){width=100%}
+
+<br>
+
+![](./media/diagram_Solanaceae2.png){width=100%}
+
+<br>
+
+---
+
 ## Flowers
 
 Members of the Solanaceae are characterized by 5 fused sepals and petals, and typically actinomorphic flowers. Corollas tend to be either wheel-shaped (rotate), trumpet-shaped (salverform), or funnel-shaped (funnelform). See if you can identify these different corolla shapes in the flowers below.
@@ -274,6 +294,22 @@ Cultivated crops, herbs, and spices include *Apium* (celery, celeriac), *Pastina
 
 ---
 
+## Diagrams
+
+![](./media/diagram_Apiaceae1.png){width=100%}
+
+<br>
+
+![](./media/diagram_Apiaceae2.png){width=100%}
+
+<br>
+
+![](./media/diagram_Apiaceae3.png){width=100%}
+
+<br>
+
+---
+
 ## Leaves
 
 Members of the Apiaceae are characterized by having alternate leaves that are compound and rather dissected (think parsley and cilantro...yum!). Sometimes the leaves are dissected to the point of being thread-like linear filaments. In addition, the leaves quite often have a dilated, sheathing petiole (just like celery!). Here are some examples:
@@ -369,14 +405,23 @@ Apiaceae have very cool looking fruits, especially when examined using some magn
 <br>
 
 <p align="center">
-![](./media/Apiaceae14.jpeg){width=49%} ![](./media/Apiaceae15.jpeg){width=49%}
+![](./media/Apiaceae15.jpeg){width=49%} ![](./media/Apiaceae14.jpeg){width=49%}
 </p>
 
+<br>
 
-Similar to Brassicaceae fruits, Apiaceae fruits can be compressed in two different ways: "laterally" which results in a short commissure, and "dorsally" which produces a long commissure. Laterally compressed schizocarps tend to have more wide and chunky mericarps, while dorsally compressed tend to have flat and thin mericarps. Can you tell which is which from the examples below?
+Similar to Brassicaceae fruits, Apiaceae fruits can be compressed in two different ways: "laterally" which results in a short commissure, and "dorsally" which produces a long commissure. Laterally compressed schizocarps tend to have more wide and chunky mericarps, while dorsally compressed schizocarps tend to have flat and thin mericarps. Can you tell which is which from the examples below?
+
+<br>
 
 <p align="center">
 ![](./media/Apiaceae16.jpeg){width=49%} ![](./media/Apiaceae11.jpeg){width=49%}
+</p>
+
+<br>
+
+<p align="center">
+![](./media/Apiaceae18.jpeg){width=49%} ![](./media/Apiaceae19.jpeg){width=49%}
 </p>
 
 <br>
@@ -394,7 +439,7 @@ Draw an Apiaceae plant (feel free to use your imagination) and make sure to incl
 
 ---
 
-# R Assignment 2
+# R Activity 2
 
 **Mapping Species Distributions using R and GBIF**
 
@@ -402,7 +447,7 @@ Draw an Apiaceae plant (feel free to use your imagination) and make sure to incl
 
 ## Motivation
 
-At its core, plant taxonomy is the science of naming and grouping plants based on their shared traits. Throughout this course we've seen how growth habit, morphology, and geographic distribution can provide valuable information about how to classify and define plants. When we consider geographic information, we are asking questions like "do the plants occupy similar or distinct habitats?" and "are the ranges of these plants disjunct or overlapping?". Depending on the answer to these questions, our decision to group or separate plants (and give them different names) can be changed dramatically. In this R activity, we'll demonstrate how we can use publically available occurence data to create distribution maps for plants and use these maps to make taxonomic decisions.
+At its core, plant taxonomy is the science of naming and grouping plants based on their shared traits. Throughout this course we've seen how growth habit, morphology, and geographic distribution can provide valuable information about how to classify and define plants. When we consider geographic information, we are asking questions like "do the plants occupy similar or distinct habitats?" and "are the ranges of these plants disjunct or overlapping?". Depending on the answer to these questions, our decision to group or separate plants (and give them different names) can be changed dramatically. In this R activity, we'll demonstrate how we can use publicly available occurrence data to create our very own distribution maps for plants and use these maps to compare the geographic ranges of species you've found in the field.
 
 
 
@@ -462,7 +507,6 @@ install.packages("mapr")
 install.packages("spocc")
 install.packages("taxize")
 install.packages("tidyverse")
-install.packages("rgbif")
 ```
 
 We'll also install the development version of the package `rgbif`:
@@ -571,11 +615,8 @@ mapr::map_ggplot(opuntia_fil[,1:3], color = mycolors) +
 
 Beauty! After all of that hard work, we'll save the lat-long data object as an .rds file. We'll use this data again in Lab 10. If you downloaded or forked the [BIOL324 folder from the GitHub site](https://github.com/mannfred/BIOL324), you can run this code:
 
-<<<<<<< HEAD
-```{r}
-=======
+
 ```{r eval = FALSE}
->>>>>>> 466125ec6d9da471b26ee572bd1b21caf3e05221
 saveRDS(opuntia_fil, file = 'R_scripts/filtered_gbif_dataset.rds')
 ```
 ---
@@ -583,11 +624,18 @@ saveRDS(opuntia_fil, file = 'R_scripts/filtered_gbif_dataset.rds')
 &nbsp;
 &nbsp;
 
-#### Activity 3: Creating your own species distribution map
 
-MB: Not sure if we're going this route.. let's discuss!
+## KNOWLEDGE CHECK 7.4
 
-MB: Basically, the existing code can be modified to replace _Opuntia_ with any other plant name. Re-running the code will create a map for any species that GBIF has records for. Of course, some taxa are have more complicated nomenclature, and sometimes weird entries make it onto the map. In these cases, a little troubleshooting is required. Also, if one wanted to search for genera, families, orders, etc. some additional modifications are needed. For the majority of students in BIOL413, generating their own maps didn't require my intervention.
+Using the above code as a template, choose 5 species from your iNaturalist observations and create your own geographic map! Here are some tips:
+
+- Copy and paste the above code into your script to make the *Opuntia* map and make sure everything is working. 
+- Modify the code to plot 5 of your iNaturalist species instead. 
+  - To find the correct names for the GBIF database, go to the GBIF website and search your species. Find the main entry for your species and copy the entire name verbatim, including the genus, species, and authority.
+  - Replace the *Opuntia* species names with your own species.
+  - Replace any objects with `Opuntia` in the name with your own object names (e.g. `opuntia_simple`). Try to make it meaningful/descriptive to help yourself remember as you code (`opuntia_simple` doesn't make much sense if you've got 5 different species, none of which are in the genus *Opuntia*!!!).
+- If you want to get a little spicy, you can pick your own colors [from here](http://www.cookbook-r.com/Graphs/Colors_(ggplot2)/) ;-).
+- Make your own plot title, and include your name in the title. 
 
 <br>
 <br>
