@@ -1,5 +1,5 @@
 ---
-title: "Boraginaceae, Solonaceae, Apiaceae, and mapping in R"
+title: "Boraginaceae, Solanaceae, Apiaceae, and mapping in R"
 # title: "<span style='font-size: 30px'> R Assignment 2: Mapping Species Distributions using R and GBIF </style>"
 # author: Mannfred Boehm
 # date: "`r format(Sys.time(), '%d %B, %Y')`"
@@ -166,7 +166,7 @@ Draw a *Borago officinalis* flower, and make sure to label the following:
 
 ---
 
-# Solonaceae
+# Solanaceae
 
 **Potato or Nightshade Family**
 
@@ -415,7 +415,7 @@ Similar to Brassicaceae fruits, Apiaceae fruits can be compressed in two differe
 <br>
 
 <p align="center">
-![](./media/Apiaceae16.jpeg){width=49%} ![](./media/Apiaceae11.jpeg){width=49%}
+![](./media/Apiaceae12.jpeg){width=49%} ![](./media/Apiaceae11.jpeg){width=49%}
 </p>
 
 <br>
@@ -520,7 +520,6 @@ These packages are designed for connecting with the GBIF database (`rgbif`, `spo
 ```{r, results = 'hide', warning = FALSE, message = FALSE }
 
 library(mapr)
-library(rgbif)
 library(spocc)
 library(taxize)
 library(tidyverse)
