@@ -639,5 +639,17 @@ Using the above code as a template, choose 5 species from your iNaturalist obser
 <br>
 <br>
 
+---
 
+# For next week, and getting ready for Project 2
+
+---
+
+- Lab 8
+  - Last chance to measure your *Antennaria* species from Lab 4 (participation marks).
+  - You will have another Family ID quiz!
+
+- Project 2
+  - Project 2 will involve making a phylogeographic map of 5 of your iNaturalist species, and writing a report comparing the geographic ranges and ecological niches of *your least and most widespread species*. 
+  - More details coming soon.
 
