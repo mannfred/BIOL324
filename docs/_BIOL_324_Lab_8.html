@@ -1,0 +1,870 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+
+<meta charset="utf-8" />
+<meta name="generator" content="pandoc" />
+<meta http-equiv="X-UA-Compatible" content="IE=EDGE" />
+
+
+
+
+<title>Asteraceae and Morphometrics / Machine Learning in R</title>
+
+<script src="site_libs/jquery-1.11.3/jquery.min.js"></script>
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<link href="site_libs/bootstrap-3.3.5/css/readable.min.css" rel="stylesheet" />
+<script src="site_libs/bootstrap-3.3.5/js/bootstrap.min.js"></script>
+<script src="site_libs/bootstrap-3.3.5/shim/html5shiv.min.js"></script>
+<script src="site_libs/bootstrap-3.3.5/shim/respond.min.js"></script>
+<script src="site_libs/jqueryui-1.11.4/jquery-ui.min.js"></script>
+<link href="site_libs/tocify-1.9.1/jquery.tocify.css" rel="stylesheet" />
+<script src="site_libs/tocify-1.9.1/jquery.tocify.js"></script>
+<script src="site_libs/navigation-1.1/tabsets.js"></script>
+<script src="site_libs/accessible-code-block-0.0.1/empty-anchor.js"></script>
+
+
+<style type="text/css">code{white-space: pre;}</style>
+<style type="text/css" data-origin="pandoc">
+code.sourceCode > span { display: inline-block; line-height: 1.25; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode { white-space: pre; position: relative; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+code.sourceCode { white-space: pre-wrap; }
+code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {  background-color: #f8f8f8; }
+@media screen {
+code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ef2929; } /* Alert */
+code span.an { color: #8f5902; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #c4a000; } /* Attribute */
+code span.bn { color: #0000cf; } /* BaseN */
+code span.cf { color: #204a87; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4e9a06; } /* Char */
+code span.cn { color: #000000; } /* Constant */
+code span.co { color: #8f5902; font-style: italic; } /* Comment */
+code span.cv { color: #8f5902; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #8f5902; font-weight: bold; font-style: italic; } /* Documentation */
+code span.dt { color: #204a87; } /* DataType */
+code span.dv { color: #0000cf; } /* DecVal */
+code span.er { color: #a40000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #0000cf; } /* Float */
+code span.fu { color: #000000; } /* Function */
+code span.im { } /* Import */
+code span.in { color: #8f5902; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #204a87; font-weight: bold; } /* Keyword */
+code span.op { color: #ce5c00; font-weight: bold; } /* Operator */
+code span.ot { color: #8f5902; } /* Other */
+code span.pp { color: #8f5902; font-style: italic; } /* Preprocessor */
+code span.sc { color: #000000; } /* SpecialChar */
+code span.ss { color: #4e9a06; } /* SpecialString */
+code span.st { color: #4e9a06; } /* String */
+code span.va { color: #000000; } /* Variable */
+code span.vs { color: #4e9a06; } /* VerbatimString */
+code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warning */
+
+</style>
+<script>
+// apply pandoc div.sourceCode style to pre.sourceCode instead
+(function() {
+  var sheets = document.styleSheets;
+  for (var i = 0; i < sheets.length; i++) {
+    if (sheets[i].ownerNode.dataset["origin"] !== "pandoc") continue;
+    try { var rules = sheets[i].cssRules; } catch (e) { continue; }
+    for (var j = 0; j < rules.length; j++) {
+      var rule = rules[j];
+      // check if there is a div.sourceCode rule
+      if (rule.type !== rule.STYLE_RULE || rule.selectorText !== "div.sourceCode") continue;
+      var style = rule.style.cssText;
+      // check if color or background-color is set
+      if (rule.style.color === '' && rule.style.backgroundColor === '') continue;
+      // replace div.sourceCode by a pre.sourceCode rule
+      sheets[i].deleteRule(j);
+      sheets[i].insertRule('pre.sourceCode{' + style + '}', j);
+    }
+  }
+})();
+</script>
+<style type="text/css">
+  pre:not([class]) {
+    background-color: white;
+  }
+</style>
+
+
+<style type="text/css">
+h1 {
+  font-size: 34px;
+}
+h1.title {
+  font-size: 38px;
+}
+h2 {
+  font-size: 30px;
+}
+h3 {
+  font-size: 24px;
+}
+h4 {
+  font-size: 18px;
+}
+h5 {
+  font-size: 16px;
+}
+h6 {
+  font-size: 12px;
+}
+.table th:not([align]) {
+  text-align: left;
+}
+</style>
+
+
+
+
+<style type = "text/css">
+.main-container {
+  max-width: 940px;
+  margin-left: auto;
+  margin-right: auto;
+}
+code {
+  color: inherit;
+  background-color: rgba(0, 0, 0, 0.04);
+}
+img {
+  max-width:100%;
+}
+.tabbed-pane {
+  padding-top: 12px;
+}
+.html-widget {
+  margin-bottom: 20px;
+}
+button.code-folding-btn:focus {
+  outline: none;
+}
+summary {
+  display: list-item;
+}
+</style>
+
+
+<style type="text/css">
+/* padding for bootstrap navbar */
+body {
+  padding-top: 66px;
+  padding-bottom: 40px;
+}
+/* offset scroll position for anchor links (for fixed navbar)  */
+.section h1 {
+  padding-top: 71px;
+  margin-top: -71px;
+}
+.section h2 {
+  padding-top: 71px;
+  margin-top: -71px;
+}
+.section h3 {
+  padding-top: 71px;
+  margin-top: -71px;
+}
+.section h4 {
+  padding-top: 71px;
+  margin-top: -71px;
+}
+.section h5 {
+  padding-top: 71px;
+  margin-top: -71px;
+}
+.section h6 {
+  padding-top: 71px;
+  margin-top: -71px;
+}
+.dropdown-submenu {
+  position: relative;
+}
+.dropdown-submenu>.dropdown-menu {
+  top: 0;
+  left: 100%;
+  margin-top: -6px;
+  margin-left: -1px;
+  border-radius: 0 6px 6px 6px;
+}
+.dropdown-submenu:hover>.dropdown-menu {
+  display: block;
+}
+.dropdown-submenu>a:after {
+  display: block;
+  content: " ";
+  float: right;
+  width: 0;
+  height: 0;
+  border-color: transparent;
+  border-style: solid;
+  border-width: 5px 0 5px 5px;
+  border-left-color: #cccccc;
+  margin-top: 5px;
+  margin-right: -10px;
+}
+.dropdown-submenu:hover>a:after {
+  border-left-color: #ffffff;
+}
+.dropdown-submenu.pull-left {
+  float: none;
+}
+.dropdown-submenu.pull-left>.dropdown-menu {
+  left: -100%;
+  margin-left: 10px;
+  border-radius: 6px 0 6px 6px;
+}
+</style>
+
+<script>
+// manage active state of menu based on current page
+$(document).ready(function () {
+  // active menu anchor
+  href = window.location.pathname
+  href = href.substr(href.lastIndexOf('/') + 1)
+  if (href === "")
+    href = "index.html";
+  var menuAnchor = $('a[href="' + href + '"]');
+
+  // mark it active
+  menuAnchor.parent().addClass('active');
+
+  // if it's got a parent navbar menu mark it active as well
+  menuAnchor.closest('li.dropdown').addClass('active');
+});
+</script>
+
+<!-- tabsets -->
+
+<style type="text/css">
+.tabset-dropdown > .nav-tabs {
+  display: inline-table;
+  max-height: 500px;
+  min-height: 44px;
+  overflow-y: auto;
+  background: white;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+}
+
+.tabset-dropdown > .nav-tabs > li.active:before {
+  content: "";
+  font-family: 'Glyphicons Halflings';
+  display: inline-block;
+  padding: 10px;
+  border-right: 1px solid #ddd;
+}
+
+.tabset-dropdown > .nav-tabs.nav-tabs-open > li.active:before {
+  content: "&#xe258;";
+  border: none;
+}
+
+.tabset-dropdown > .nav-tabs.nav-tabs-open:before {
+  content: "";
+  font-family: 'Glyphicons Halflings';
+  display: inline-block;
+  padding: 10px;
+  border-right: 1px solid #ddd;
+}
+
+.tabset-dropdown > .nav-tabs > li.active {
+  display: block;
+}
+
+.tabset-dropdown > .nav-tabs > li > a,
+.tabset-dropdown > .nav-tabs > li > a:focus,
+.tabset-dropdown > .nav-tabs > li > a:hover {
+  border: none;
+  display: inline-block;
+  border-radius: 4px;
+  background-color: transparent;
+}
+
+.tabset-dropdown > .nav-tabs.nav-tabs-open > li {
+  display: block;
+  float: none;
+}
+
+.tabset-dropdown > .nav-tabs > li {
+  display: none;
+}
+</style>
+
+<!-- code folding -->
+
+
+
+<style type="text/css">
+
+#TOC {
+  margin: 25px 0px 20px 0px;
+}
+@media (max-width: 768px) {
+#TOC {
+  position: relative;
+  width: 100%;
+}
+}
+
+@media print {
+.toc-content {
+  /* see https://github.com/w3c/csswg-drafts/issues/4434 */
+  float: right;
+}
+}
+
+.toc-content {
+  padding-left: 30px;
+  padding-right: 40px;
+}
+
+div.main-container {
+  max-width: 1200px;
+}
+
+div.tocify {
+  width: 20%;
+  max-width: 260px;
+  max-height: 85%;
+}
+
+@media (min-width: 768px) and (max-width: 991px) {
+  div.tocify {
+    width: 25%;
+  }
+}
+
+@media (max-width: 767px) {
+  div.tocify {
+    width: 100%;
+    max-width: none;
+  }
+}
+
+.tocify ul, .tocify li {
+  line-height: 20px;
+}
+
+.tocify-subheader .tocify-item {
+  font-size: 0.90em;
+}
+
+.tocify .list-group-item {
+  border-radius: 0px;
+}
+
+
+</style>
+
+
+
+</head>
+
+<body>
+
+
+<div class="container-fluid main-container">
+
+
+<!-- setup 3col/9col grid for toc_float and main content  -->
+<div class="row-fluid">
+<div class="col-xs-12 col-sm-4 col-md-3">
+<div id="TOC" class="tocify">
+</div>
+</div>
+
+<div class="toc-content col-xs-12 col-sm-8 col-md-9">
+
+
+
+
+<div class="navbar navbar-default  navbar-fixed-top" role="navigation">
+  <div class="container">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar">
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="index.html">BIOL 324 Labs</a>
+    </div>
+    <div id="navbar" class="navbar-collapse collapse">
+      <ul class="nav navbar-nav">
+        <li>
+  <a href="index.html">Home</a>
+</li>
+<li>
+  <a href="Syllabus.html">Syllabus</a>
+</li>
+<li class="dropdown">
+  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
+    Resources
+     
+    <span class="caret"></span>
+  </a>
+  <ul class="dropdown-menu" role="menu">
+    <li>
+      <a href="Morphological_Terminology.html">Morphological Terminology</a>
+    </li>
+  </ul>
+</li>
+<li class="dropdown">
+  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
+    Projects
+     
+    <span class="caret"></span>
+  </a>
+  <ul class="dropdown-menu" role="menu">
+    <li>
+      <a href="BIOL_324_Project_1.html">Project 1 (iNaturalist)</a>
+    </li>
+  </ul>
+</li>
+<li class="dropdown">
+  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
+    Labs
+     
+    <span class="caret"></span>
+  </a>
+  <ul class="dropdown-menu" role="menu">
+    <li>
+      <a href="BIOL_324_Lab_1.html">Lab 1</a>
+    </li>
+    <li>
+      <a href="BIOL_324_Lab_2.html">Lab 2</a>
+    </li>
+    <li>
+      <a href="BIOL_324_Lab_3.html">Lab 3</a>
+    </li>
+    <li>
+      <a href="BIOL_324_Lab_4.html">Lab 4</a>
+    </li>
+    <li>
+      <a href="BIOL_324_Lab_5.html">Lab 5</a>
+    </li>
+    <li>
+      <a href="BIOL_324_Lab_6.html">Lab 6</a>
+    </li>
+    <li>
+      <a href="BIOL_324_Lab_7.html">Lab 7</a>
+    </li>
+  </ul>
+</li>
+      </ul>
+      <ul class="nav navbar-nav navbar-right">
+        
+      </ul>
+    </div><!--/.nav-collapse -->
+  </div><!--/.container -->
+</div><!--/.navbar -->
+
+<div class="fluid-row" id="header">
+
+
+
+<h1 class="title toc-ignore">Asteraceae and Morphometrics / Machine Learning in R</h1>
+
+</div>
+
+
+<hr />
+<div id="asteraceae" class="section level1">
+<h1>Asteraceae</h1>
+<p><strong>Aster or Composite Family</strong></p>
+<hr />
+<p><strong>1. Usually herbs, some shrubs.</strong><br />
+<strong>2. Leaves simple or compound, opposite or alternate, without stipules.</strong><br />
+<strong>3. Inflorescence is a head: a group of sessile flowers surrounded by involucral bracts (also called phyllaries). Heads may be variously arranged (eg. raceme of heads). </strong><br />
+<strong>Flowers perfect or imperfect, radially symmetrical or zygomorphic. Heads with tubular disk florets or flattened ray florets or both. Sepals highly modified, absent or 2-many, the calyx reduced to hairs or scales called the pappus. Petals 5, fused. Stamens 5, epipetalous, the anthers fused into a tube (syngenesious stamens). Pistil compound, ovary inferior, unilocular, with one ovule, carpels 2, placentation basal.</strong><br />
+<strong>4. Fruit an achene (sometimes called a cypsela by purists).</strong><br />
+<strong>5. Probably the largest family of plants, with nearly 1000 genera and more than 20,000 species, worldwide.</strong></p>
+<p>The Asteraceae is the largest family in B.C., with 396 species and varieties. In Hitchcock and Cronquist the family is divided into 2 subfamiles and into 12 tribes. In lecture you will learn about the current views on composite phylogeny.</p>
+<ul>
+<li><strong>Asteroideae</strong> disk or disk and ray flowers, sap not usually milky. Some of the tribes common in North America include:
+<ul>
+<li>Cynareae (Cardueae): Heads discoid or with bilabiate flowers, plants often spiny (thistles), receptacle usually bristly, style with a ring of hairs, anthers tailed.</li>
+<li>Eupatorieae: Heads discoid, never yellow, not common in B. C.</li>
+<li>Inuleae: Anthers tailed, white-woolly herbs.</li>
+<li>Senecioneae: Involucral bracts in one main series and all the same length, except for a few very small ones at the base, often black tipped, pappus of capillary bristles.</li>
+<li>Anthemideae: Involucral bracts with papery and dry edges, leaves alternate.</li>
+<li>Heliantheae: Involucral bracts usually green, pappus of chaffy awns or none, chaffy receptacular bracts usually present.</li>
+<li>Astereae: Involucral bracts usually green, receptacle naked, leaves alternate.</li>
+</ul></li>
+<li><strong>Lactucoideae</strong> (or Cichorioideae): ligulate flowers only, sap usually milky.
+<ul>
+<li>Cichorieae (only tribe in this subfamily)</li>
+</ul></li>
+</ul>
+<p>Many genera are grown as ornamentals, such as <em>Dahlia</em>, <em>Tagetes</em> (marigold), <em>Cosmos</em>, <em>Aster</em>, <em>Zinnia</em>, <em>Chrysanthemum</em>, <em>Callistephus</em> (China aster), and others. Crop plants are rather few for the size of the family but include <em>Lactuca</em> (lettuce), <em>Helianthus</em> (sunflower), <em>Carthamnus</em> (safflower), <em>Cynara</em> (artichoke), <em>Tragopogon</em> (salsify, oyster plant), <em>Cichorium</em> (chicory), and <em>Artemisia</em> (tarragon). Many Asteraceae are pernicious weeds.</p>
+<hr />
+<div id="diagrams" class="section level2">
+<h2>Diagrams</h2>
+<p align="center">
+<img src="media/diagram_Asteraceae1.png" style="width:100.0%" />
+</p>
+<p><br></p>
+<p align="center">
+<img src="media/diagram_Asteraceae2.png" style="width:100.0%" />
+</p>
+<p><br></p>
+<p align="center">
+<img src="media/diagram_Asteraceae3.png" style="width:100.0%" />
+</p>
+<p><br></p>
+<hr />
+</div>
+<div id="inflorescences" class="section level2">
+<h2>Inflorescences</h2>
+<p>The mind-blowing thing about members of the Asteraceae is that what we would intuitively think of as a flower is actually an inflorescence (aka head or capitulum) made up of many tiny flowers (florets). This inflorescence structure is rather unique and is a reliable indicator for this family. There are several important structures associated with the flower heads that vary considerably between genera/species, and are extremely important for correct identification (in particular the involucral bracts or “phyllaries”).</p>
+<p>The capitulum of <em>Helianthus</em> (sunflower) is a good example to start with because it displays most of the important inflorescence structures. See if you can identify all of the following features (refer to the diagram in the lab manual): receptacle, ray floret, disk floret, receptacular bracts, ovary, pappus, corolla, style, stigma (stamens are hidden within the corolla and not really visible).</p>
+<p><br></p>
+<p align="center">
+<img src="media/Asteraceae1.jpeg" style="width:100.0%" />
+</p>
+<p><br></p>
+<p><em>Helianthus</em> has “radiate” heads (with both disk and ray florets), which is the most typical flower head structure. Other common inflorescence types include “discoid” heads (which only have disk florets) and “ligulate” heads (which only have ray or ligulate florets).</p>
+<p>Here are a few more examples of <strong>radiate</strong> heads. Note the difference in floret structure between those in the center and those on the perimeter.</p>
+<p align="center">
+<img src="media/Asteraceae13.jpeg" style="width:100.0%" />
+</p>
+<p><br></p>
+<p align="center">
+<img src="media/Asteraceae14.jpeg" style="width:100.0%" />
+</p>
+<p><br></p>
+<p align="center">
+<img src="media/Asteraceae15.jpeg" style="width:100.0%" />
+</p>
+<p><br></p>
+<hr />
+<p>Here is an example of a <strong>discoid</strong> flower head. Notice how ray florets are absent.</p>
+<p align="center">
+<img src="media/Asteraceae2.jpeg" style="width:100.0%" />
+</p>
+<p><br></p>
+<p>A variation on discoid heads is where all the florets are the same type, but may have longer bilabiate corollas (these are often included in the “discoid” category). This is quite typical in the tribe Cynareae, which includes thistles and artichokes.</p>
+<p><br></p>
+<p><em>Cirsium arvense</em></p>
+<p align="center">
+<img src="media/Asteraceae3.jpeg" style="width:49.0%" /> <img src="media/Asteraceae4.jpeg" style="width:49.0%" />
+</p>
+<p><br></p>
+<p><em>Cynara scolymus</em> (artichoke)</p>
+<p align="center">
+<img src="media/Asteraceae5.jpeg" style="width:100.0%" />
+</p>
+<p><br></p>
+<hr />
+<p><strong>Ligulate</strong> heads are typical of the Cichorieae tribe, and include many familiar plants like dandelions (<em>Taraxacum</em> sp.) and lettuce (<em>Lactuca</em> sp.). These plants have no central set of disk florets, and are made up entirely of ligulate florets with long petals.</p>
+<p><br></p>
+<p><em>Agoseris glauca</em></p>
+<p align="center">
+<img src="media/Asteraceae6.jpeg" style="width:100.0%" />
+</p>
+<p><br></p>
+<p><em>Hieracium triste</em></p>
+<p align="center">
+<img src="media/Asteraceae7.jpeg" style="width:100.0%" />
+</p>
+<p><br></p>
+<p><em>Tragopogon dubius</em></p>
+<p align="center">
+<img src="media/Asteraceae8.jpeg" style="width:100.0%" />
+</p>
+<p><br></p>
+<hr />
+</div>
+<div id="phyllaries" class="section level2">
+<h2>Phyllaries</h2>
+<p>One of the most important characters for distinguishing between species/genera in the Asteraceae are their involucral bracts (aka phyllaries). You might mistake the phyllaries for sepals if you didn’t know that the flower head is an inflorescence instead of an individual flower.</p>
+<p>Many phyllaries are green and leafy. The arrangement of the bracts can help point you to different tribes. For example, members of the Senecioneae tribe typically have bracts in a single series (they don’t overlap and are neatly lined-up in a single row) like in this plant you’ve already seen:</p>
+<p align="center">
+<img src="media/Asteraceae2.jpeg" style="width:100.0%" />
+</p>
+<p><br></p>
+<p>Members of the Astereae tribe tend to have green involucral bracts that overlap in multiple series.</p>
+<p align="center">
+<img src="media/Asteraceae16.jpeg" style="width:100.0%" />
+</p>
+<p><br></p>
+<p>Members of the Anthemideae have phyllaries with dry, papery margins.</p>
+<p align="center">
+<img src="media/Asteraceae17.jpeg" style="width:100.0%" />
+</p>
+<p><br></p>
+<p>And members of the Cynareae of course have spikey (often quite painful) phyllaries (e.g., thistles, artichokes).</p>
+<p align="center">
+<img src="media/Asteraceae18.jpeg" style="width:49.0%" /> <img src="media/Asteraceae19.jpeg" style="width:49.0%" />
+</p>
+<p><br></p>
+<hr />
+</div>
+<div id="florets" class="section level2">
+<h2>Florets</h2>
+<p>Flowers are reduced to florets in Asteraceae, and have been modified quite significantly from your typical flower structure. The 5 petals are fused into a tube, and within the corolla tube the 5 epipetalous stamens have their anthers fused into a tube as well (syngenesious stamens). The sepals on the other hand have been reduced to hairs or scales (called “pappus” in this family). The pappus often remains after fertilization, and acts as a wind dispersal mechanism for the resulting fruit.</p>
+<p>Can you make out the ovary, pappus, corolla, and style in the disk floret pictured below?</p>
+<p align="center">
+<img src="media/Asteraceae9.jpeg" style="width:100.0%" />
+</p>
+<p><br></p>
+<p>It is quite difficult to see the anther tube because the florets are so small, but you can just barely make it out here:</p>
+<p align="center">
+<img src="media/Asteraceae10.jpeg" style="width:100.0%" />
+</p>
+<p><br></p>
+<p>Here are two ray florets from the same flower head as the photo above. Can you see the comparatively longer, strap-shaped petals? Ray/ligulate florets are often missing stamens or are entirely sterile, thus acting solely to attract pollinators and serve no other reproductive function.</p>
+<p align="center">
+<img src="media/Asteraceae11.jpeg" style="width:100.0%" />
+</p>
+<p><br></p>
+<p>The ovary is inferior, and is made up of two carpels but only one ovule is formed. The style pushes upwards through the middle of the stamen tube, but the two stigma lobes remain pressed together (preventing self-pollination) and only split apart (revealing the receptive surface to incoming pollinators) once the style has emerged from and cleared the floral tubes. You can see the anther tube as well if you look closely.</p>
+<p align="center">
+<img src="media/Asteraceae12.jpeg" style="width:100.0%" />
+</p>
+<p><br></p>
+<hr />
+</div>
+<div id="fruit" class="section level2">
+<h2>Fruit</h2>
+<p>The inferior ovary of each floret in an Asteraceae flower head develops into a small, indehiscent fruit with a single seed inside; these are typically referred to as achenes. However, the ovaries are technically compound (they are made up of two carpels, though only one forms a seed), and the strict definition of an achene is a fruit that develops from a simple ovary. Therefore, it is more accurate to refer to Asteraceae fruit using their family-specific term: <strong>cypsela</strong> (cypselae plural).</p>
+<p>Most cypsela have persistent pappus (which floral part is the pappus derived from?) that aid in dispersal via wind. Just like other traits in this family, the pappus and achene morphology can differ considerably between groups. Here is an example of a typical cypsela. If you zoom in, you can see that the pappus is made up of “plumose” bristles (slightly branched in a way that resembles a feather).</p>
+<p align="center">
+<img src="media/Asteraceae20.jpeg" style="width:100.0%" />
+</p>
+<p><br></p>
+<p>In some species, a long stalk (called a “beak”) forms between the pappus and the cypsela as the fruit develops. You might be familiar with this morphology if you’ve ever blown on a dandelion (<em>Taraxacum</em> sp.) and made a wish…</p>
+<p align="center">
+<img src="media/Asteraceae21.jpeg" style="width:49.0%" /> <img src="media/Asteraceae22.jpeg" style="width:49.0%" />
+</p>
+<p><br></p>
+<hr />
+</div>
+</div>
+<div id="r-exercise-3" class="section level1">
+<h1>R Exercise 3</h1>
+<p><strong>Morphometrics and Machine Learning in R</strong></p>
+<div id="motivation" class="section level2">
+<h2>Motivation</h2>
+<p>Throughout this course we’ve seen how morphology plays a central role in plant taxonomy. The shapes of stems, leaves, and flowers are often the first traits listed in a dichotomous key. When a trait (like corolla width) is measured and quantified, we are able to use statistical tests to decide how to group or split individuals. The science of measuring and analysing shape is called <em>morphometrics</em>. In this lab, we’ll be using a dataset of <em>Aquilegia</em> flower morphology (see: Lab 1, Ranunculaceae) to determine whether two species, <em>A. formosa</em> and <em>A. flavescens</em>, show evidence of forming hybrids when co-occurring in a contact zone.</p>
+<hr />
+<p><br> <br></p>
+</div>
+<div id="pre-lab" class="section level2">
+<h2>Pre-lab</h2>
+<p>Before starting this week’s lab you will have:</p>
+<ol style="list-style-type: decimal">
+<li><p>downloaded the program <a href="https://imagej.nih.gov/ij/download.htm">Image_J</a> for making morphometric measurements, <br></p></li>
+<li><p>downloaded the class google sheet in the file format .csv. Note: if you can’t use imageJ for any reason, don’t panic. Display the digital image of the herbarium sheet on any device and use a ruler held up to the screen to make measurements, <br></p></li>
+<li><p><strong>MB</strong>: probably need to get students to do some pre-assignment reading on machine learning (decision trees, random forests). Also, some reading on MDS and interpreting MDS plots.</p></li>
+</ol>
+<p>   </p>
+<hr />
+</div>
+<div id="outcomes" class="section level2">
+<h2>Outcomes</h2>
+<p>By the end of this tutorial you will:</p>
+<ol style="list-style-type: decimal">
+<li><p>have experience taking morphometric measurements from herbarium specimens,</p></li>
+<li><p>understand some core concepts in machine learning and how it can be used in species delimitation,</p></li>
+<li><p>the tools and knowledge needed to implement machine learning in R as part of a taxonomic research programme,</p></li>
+<li><p>More?</p></li>
+</ol>
+<p>   </p>
+<hr />
+<p><br> <br></p>
+</div>
+<div id="activity-2-delimiting-species-using-morphometrics-and-machine-learning" class="section level2">
+<h2>Activity 2: Delimiting Species using Morphometrics and Machine Learning</h2>
+<p>Let’s get started by attaching the required packages:</p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1"></a><span class="kw">library</span>(caret)</span>
+<span id="cb1-2"><a href="#cb1-2"></a><span class="kw">library</span>(here)</span>
+<span id="cb1-3"><a href="#cb1-3"></a><span class="kw">library</span>(randomForest)</span>
+<span id="cb1-4"><a href="#cb1-4"></a><span class="kw">library</span>(RCurl)</span>
+<span id="cb1-5"><a href="#cb1-5"></a><span class="kw">library</span>(tidyverse)</span></code></pre></div>
+<p><code>randomForest</code> and <code>caret</code> are packages with machine learning tools for classification, regression, and clustering. There are a few ways to implement machine learning. In this lab we will cover using ML in unsupervised mode. This means that the program will have to find the structure of the data itself, without us training it first.</p>
+<p>Now we’ll import, subset, and preview the <em>Aquilegia</em> morphometric data from Groh et al (2020):</p>
+<div class="sourceCode" id="cb2"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1"></a>columbine_url &lt;-</span>
+<span id="cb2-2"><a href="#cb2-2"></a><span class="st">  </span>RCurl<span class="op">::</span><span class="kw">getURL</span>(<span class="st">&#39;https://raw.githubusercontent.com/jgroh/mosaic/master/data/hrbm-pheno-mosaic.csv&#39;</span>)</span>
+<span id="cb2-3"><a href="#cb2-3"></a></span>
+<span id="cb2-4"><a href="#cb2-4"></a>columbine_data_full &lt;-<span class="st"> </span><span class="kw">read.csv</span>(<span class="dt">text =</span> columbine_url)</span>
+<span id="cb2-5"><a href="#cb2-5"></a></span>
+<span id="cb2-6"><a href="#cb2-6"></a>columbine_data &lt;-</span>
+<span id="cb2-7"><a href="#cb2-7"></a><span class="st">  </span>columbine_data_full <span class="op">%&gt;%</span></span>
+<span id="cb2-8"><a href="#cb2-8"></a><span class="st">  </span><span class="kw">select</span>(<span class="dv">1</span>, <span class="dv">3</span>, <span class="dv">12</span><span class="op">:</span><span class="dv">19</span>)</span>
+<span id="cb2-9"><a href="#cb2-9"></a></span>
+<span id="cb2-10"><a href="#cb2-10"></a><span class="kw">head</span>(columbine_data)</span></code></pre></div>
+<pre><code>##   Accession.Number species.label corolla.width spur.length blade.length
+## 1          V176410    flavescens          1.50         1.1         0.50
+## 2           V64139    flavescens          1.50         1.7         0.50
+## 3           V33047    flavescens          1.55         1.0         0.60
+## 4           V64133    flavescens          1.95         1.4         0.70
+## 5           V33046    flavescens          1.30         1.0         0.48
+## 6           V34060    flavescens          1.80         1.6         0.80
+##   blade.width blade.cleft sepal.length sepal.width anther.exsertion
+## 1        0.60           0          1.7        0.55              0.9
+## 2        0.40           0          1.3        0.40              0.6
+## 3        0.70           0          2.0        0.70              0.8
+## 4        0.70           0          2.2        0.70              0.4
+## 5        0.56           0          1.6        0.50              0.8
+## 6        0.90           0          1.9        0.70              0.5</code></pre>
+<p>Now, we’ll use the <code>randomForest()</code> function to analyse and sort our specimens:</p>
+<div class="sourceCode" id="cb4"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1"></a><span class="co"># run the function randomForest() on our morphometric data.</span></span>
+<span id="cb4-2"><a href="#cb4-2"></a><span class="co"># ntree tells us how many decision trees to build</span></span>
+<span id="cb4-3"><a href="#cb4-3"></a><span class="co"># mtry is the amount of variables that will be tested at each node of the tree</span></span>
+<span id="cb4-4"><a href="#cb4-4"></a><span class="co"># proximity=TRUE so that the data saves a proximity matrix</span></span>
+<span id="cb4-5"><a href="#cb4-5"></a></span>
+<span id="cb4-6"><a href="#cb4-6"></a>rf &lt;-</span>
+<span id="cb4-7"><a href="#cb4-7"></a><span class="st">  </span><span class="kw">randomForest</span>(</span>
+<span id="cb4-8"><a href="#cb4-8"></a>    columbine_data[,<span class="op">-</span><span class="dv">1</span>],</span>
+<span id="cb4-9"><a href="#cb4-9"></a>    <span class="dt">ntree=</span><span class="dv">30000</span>,</span>
+<span id="cb4-10"><a href="#cb4-10"></a>    <span class="dt">mtry=</span><span class="dv">3</span>,</span>
+<span id="cb4-11"><a href="#cb4-11"></a>    <span class="dt">proximity=</span><span class="ot">TRUE</span>,</span>
+<span id="cb4-12"><a href="#cb4-12"></a>    <span class="dt">keep.forest=</span><span class="ot">TRUE</span>)</span></code></pre></div>
+<p>The <code>randomForest()</code> function generates 30,000 decision trees (<code>ntree</code>) that attempt to classify the specimens based on binary questions posed to the morphometrics data (<code>columbine_data</code>). Each question (‘node’) in the decision tree consideres three morphometric variables (<code>mtry</code>). Setting <code>proximity = TRUE</code> tells the function to calculate a similarity metric between specimens. This will help us to calculate a distance matrix describing how similar or dissimilar each sample is from one another:</p>
+<div class="sourceCode" id="cb5"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1"></a>distance.matrix &lt;-<span class="st"> </span><span class="kw">dist</span>(<span class="dv">1</span> <span class="op">-</span><span class="st"> </span>rf<span class="op">$</span>proximity)</span></code></pre></div>
+<p>Now we’ll perform MDS analysis on the distance matrix:</p>
+<div class="sourceCode" id="cb6"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1"></a>mds.analysis &lt;-<span class="st"> </span><span class="kw">cmdscale</span>(distance.matrix, <span class="dt">eig=</span><span class="ot">TRUE</span>, <span class="dt">x.ret=</span><span class="ot">TRUE</span>)</span>
+<span id="cb6-2"><a href="#cb6-2"></a></span>
+<span id="cb6-3"><a href="#cb6-3"></a>mds.var.per &lt;-<span class="st"> </span><span class="kw">round</span>(mds.analysis<span class="op">$</span>eig<span class="op">/</span><span class="kw">sum</span>(mds.analysis<span class="op">$</span>eig)<span class="op">*</span><span class="dv">100</span>, <span class="dv">1</span>)</span>
+<span id="cb6-4"><a href="#cb6-4"></a></span>
+<span id="cb6-5"><a href="#cb6-5"></a>mds.var.per[<span class="dv">1</span><span class="op">:</span><span class="dv">2</span>]</span></code></pre></div>
+<pre><code>## [1] 42.3 13.6</code></pre>
+<p>The <code>cmdscale()</code> function finds the axes of greatest variation in our morphometrics dataset. For example, if corolla width was the trait that varied the most between all specimens, <code>cmdscale()</code> would assign this variable as <em>MDS axis 1</em>. In reality, it’s unlikely that a single trait will explain the greatest variation in morphology, instead, MDS axes tend to be combinations of traits. In the second step we calculated how much of the total variation of the datset belongs to each of the MDS axes. The third step prints MDS axes 1 and 2, telling us that MDS axis 1 accounts for 42.3% of the morphological variation in the dataset. Each <em>Aquilegia</em> specimen exists somewhere in the ‘shape space’ created by MDS axes 1 and 2. For example, if MDS axes 1 and 2 described variation in corolla and sepal width, respectively, <em>Aquilegia</em> specimens with wide corollas and sepals would exist in the upper right corner of this ‘shape space’. We’ll see what this looks like in the plotting step. We’ll store the shape space location of each <em>Aquilegia</em> sample in an object called <code>mds.data</code>:</p>
+<div class="sourceCode" id="cb8"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1"></a>mds.values &lt;-<span class="st"> </span>mds.analysis<span class="op">$</span>points</span>
+<span id="cb8-2"><a href="#cb8-2"></a>mds.data &lt;-<span class="st"> </span><span class="kw">data.frame</span>(<span class="dt">Sample =</span> <span class="kw">rownames</span>(mds.values),</span>
+<span id="cb8-3"><a href="#cb8-3"></a>                       <span class="dt">X =</span> mds.values[,<span class="dv">1</span>],</span>
+<span id="cb8-4"><a href="#cb8-4"></a>                       <span class="dt">Y =</span> mds.values[,<span class="dv">2</span>],</span>
+<span id="cb8-5"><a href="#cb8-5"></a>                       <span class="dt">Status =</span> columbine_data<span class="op">$</span>species.label)</span></code></pre></div>
+<p>Now we can plot each <em>Aquilegia</em> specimen in morphometric shape space:</p>
+<div class="sourceCode" id="cb9"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1"></a>mds_plot &lt;-</span>
+<span id="cb9-2"><a href="#cb9-2"></a><span class="st">  </span><span class="kw">ggplot</span>(</span>
+<span id="cb9-3"><a href="#cb9-3"></a>    <span class="dt">data =</span> mds.data,</span>
+<span id="cb9-4"><a href="#cb9-4"></a>    <span class="kw">aes</span>(<span class="dt">x =</span> X, <span class="dt">y =</span> Y, <span class="dt">label =</span> Sample)) <span class="op">+</span></span>
+<span id="cb9-5"><a href="#cb9-5"></a><span class="st">  </span><span class="kw">geom_text</span>(<span class="kw">aes</span>(<span class="dt">color =</span> Status)) <span class="op">+</span></span>
+<span id="cb9-6"><a href="#cb9-6"></a><span class="st">  </span><span class="kw">theme_bw</span>() <span class="op">+</span></span>
+<span id="cb9-7"><a href="#cb9-7"></a><span class="st">  </span><span class="kw">xlab</span>(<span class="kw">paste</span>(<span class="st">&quot;MDS1 - &quot;</span>, mds.var.per[<span class="dv">1</span>], <span class="st">&quot;%&quot;</span>,<span class="dt">sep=</span><span class="st">&quot;&quot;</span>)) <span class="op">+</span></span>
+<span id="cb9-8"><a href="#cb9-8"></a><span class="st">  </span><span class="kw">ylab</span>(<span class="kw">paste</span>(<span class="st">&quot;MDS2 - &quot;</span>, mds.var.per[<span class="dv">2</span>], <span class="st">&quot;%&quot;</span>,<span class="dt">sep=</span><span class="st">&quot;&quot;</span>)) <span class="op">+</span></span>
+<span id="cb9-9"><a href="#cb9-9"></a><span class="st">  </span><span class="kw">ggtitle</span>(<span class="st">&quot; Unsupervised MDS plot using (1 - Random Forest Proximities)&quot;</span>) <span class="op">+</span></span>
+<span id="cb9-10"><a href="#cb9-10"></a><span class="st">  </span><span class="kw">scale_colour_manual</span>(<span class="dt">name =</span> <span class="st">&quot;Species&quot;</span>,</span>
+<span id="cb9-11"><a href="#cb9-11"></a>                      <span class="dt">breaks =</span> <span class="kw">c</span>(<span class="st">&quot;flavescens&quot;</span>, <span class="st">&quot;formosa&quot;</span>),</span>
+<span id="cb9-12"><a href="#cb9-12"></a>                      <span class="dt">labels =</span> <span class="kw">c</span>(<span class="kw">expression</span>(<span class="kw">italic</span>(<span class="st">&quot;A. flavescens&quot;</span>)),</span>
+<span id="cb9-13"><a href="#cb9-13"></a>                                 <span class="kw">expression</span>(<span class="kw">italic</span>(<span class="st">&quot;A. formosa&quot;</span>))),</span>
+<span id="cb9-14"><a href="#cb9-14"></a>                      <span class="dt">values =</span> <span class="kw">c</span>(<span class="st">&quot;#009E73&quot;</span>, <span class="st">&quot;#CC79A7&quot;</span>))</span>
+<span id="cb9-15"><a href="#cb9-15"></a></span>
+<span id="cb9-16"><a href="#cb9-16"></a>mds_plot</span></code></pre></div>
+<p><img src="_BIOL_324_Lab_8_files/figure-html/unnamed-chunk-7-1.png" width="672" /></p>
+<p>The <code>ggplot()</code> function takes our <code>mds.data</code> object and plots it. <em>MDS1</em> is the axis explaining the most morphometric variation in our herbarium dataset. Notice that this axis separates <em>A. flavescens</em> and <em>A. formosa</em>.</p>
+<p><strong>-KNOWLEDGE CHECK-</strong></p>
+<p>When an individual specimen has a low <em>MDS2</em> value, would it be easier or harder to distinguish the species (and why)? If your specimen had a high <em>MDS2</em> and <em>MDS1</em> value, which <em>Aquilegia</em> species is it likely to be?</p>
+<p>   </p>
+</div>
+</div>
+
+
+
+</div>
+</div>
+
+</div>
+
+<script>
+
+// add bootstrap table styles to pandoc tables
+function bootstrapStylePandocTables() {
+  $('tr.header').parent('thead').parent('table').addClass('table table-condensed');
+}
+$(document).ready(function () {
+  bootstrapStylePandocTables();
+});
+
+
+</script>
+
+<!-- tabsets -->
+
+<script>
+$(document).ready(function () {
+  window.buildTabsets("TOC");
+});
+
+$(document).ready(function () {
+  $('.tabset-dropdown > .nav-tabs > li').click(function () {
+    $(this).parent().toggleClass('nav-tabs-open')
+  });
+});
+</script>
+
+<!-- code folding -->
+
+<script>
+$(document).ready(function ()  {
+
+    // move toc-ignore selectors from section div to header
+    $('div.section.toc-ignore')
+        .removeClass('toc-ignore')
+        .children('h1,h2,h3,h4,h5').addClass('toc-ignore');
+
+    // establish options
+    var options = {
+      selectors: "h1,h2,h3",
+      theme: "bootstrap3",
+      context: '.toc-content',
+      hashGenerator: function (text) {
+        return text.replace(/[.\\/?&!#<>]/g, '').replace(/\s/g, '_');
+      },
+      ignoreSelector: ".toc-ignore",
+      scrollTo: 0
+    };
+    options.showAndHide = true;
+    options.smoothScroll = true;
+
+    // tocify
+    var toc = $("#TOC").tocify(options).data("toc-tocify");
+});
+</script>
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    script.src  = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML";
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+
+</body>
+</html>
