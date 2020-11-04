@@ -12,7 +12,7 @@ title: "Exercise on typification and nomenclature"
 
 ---
 
-**Task:** to report on the description, typification and current use of a Linnaean species name.
+**Task:** To report on the description, typification and current use of a Linnaean species name.
 
 **Goal:** Understand Linnaean descriptions in the *Species Plantarum*. 
 
@@ -20,7 +20,7 @@ title: "Exercise on typification and nomenclature"
 
 **Platforms/programs**: The Internet. 
 
-**Key skills:** accessing public taxonomic data, literature of taxonomy, typification.
+**Key skills:** Accessing public taxonomic data, literature of taxonomy, typification.
 
 **Learning objectives:** 
 
@@ -72,10 +72,13 @@ title: "Exercise on typification and nomenclature"
 
 ---
 
-# Due date
+# Marking and due date
 
 ---
 
-**This assignment is due at the beginning of Lab 9 (2:00pm Nov. 18th/19th), and will be turned in on Canvas.**
+- **Marks**
+  - This assignment is worth 3% of your overall mark (associated with the lecture component).
+- **Due date**
+  - The project will be due at the beginning of Lab 9 (2:00pm November 18th/19th), and you will turn it in on Canvas.
 
 
