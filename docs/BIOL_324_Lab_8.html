@@ -11,7 +11,7 @@
 
 
 
-<title>Asteraceae and Morphometrics / Machine Learning in R</title>
+<title>Asteraceae and Morphometrics in R</title>
 
 <script src="site_libs/jquery-1.11.3/jquery.min.js"></script>
 <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -481,6 +481,9 @@ div.tocify {
     <li>
       <a href="BIOL_324_Lab_7.html">Lab 7</a>
     </li>
+    <li>
+      <a href="BIOL_324_Lab_8.html">Lab 8</a>
+    </li>
   </ul>
 </li>
       </ul>
@@ -495,7 +498,7 @@ div.tocify {
 
 
 
-<h1 class="title toc-ignore">Asteraceae and Morphometrics / Machine Learning in R</h1>
+<h1 class="title toc-ignore">Asteraceae and Morphometrics in R</h1>
 
 </div>
 
@@ -575,7 +578,7 @@ div.tocify {
 <img src="media/Asteraceae2.jpeg" style="width:100.0%" />
 </p>
 <p><br></p>
-<p>A variation on discoid heads is where all the florets are the same type, but may have longer bilabiate corollas (these are often included in the “discoid” category). This is quite typical in the tribe Cynareae, which includes thistles and artichokes.</p>
+<p>A variation on discoid heads is where all the florets are the same type, but may have longer bilabiate corollas (these are often included in the “discoid” category). This is quite typical in the tribe Cynareae (also called Cardueae), which includes thistles and artichokes.</p>
 <p><br></p>
 <p><em>Cirsium arvense</em></p>
 <p align="center">
@@ -634,7 +637,7 @@ div.tocify {
 </div>
 <div id="florets" class="section level2">
 <h2>Florets</h2>
-<p>Flowers are reduced to florets in Asteraceae, and have been modified quite significantly from your typical flower structure. The 5 petals are fused into a tube, and within the corolla tube the 5 epipetalous stamens have their anthers fused into a tube as well (syngenesious stamens). The sepals on the other hand have been reduced to hairs or scales (called “pappus” in this family). The pappus often remains after fertilization, and acts as a wind dispersal mechanism for the resulting fruit.</p>
+<p>Flowers are reduced to florets in Asteraceae, and have been modified quite significantly from your typical flower structure. The 5 petals are fused into a tube in disk florets, with one side of the tube extended into a long strap-shaped petal in ray/ligulate florets. Within the corolla tube the 5 epipetalous stamens have their anthers fused into a tube as well (syngenesious stamens). The sepals on the other hand have been reduced to hairs or scales (called “pappus” in this family). The pappus often remains after fertilization, and acts as a wind dispersal mechanism for the resulting fruit.</p>
 <p>Can you make out the ovary, pappus, corolla, and style in the disk floret pictured below?</p>
 <p align="center">
 <img src="media/Asteraceae9.jpeg" style="width:100.0%" />
@@ -645,12 +648,12 @@ div.tocify {
 <img src="media/Asteraceae10.jpeg" style="width:100.0%" />
 </p>
 <p><br></p>
-<p>Here are two ray florets from the same flower head as the photo above. Can you see the comparatively longer, strap-shaped petals? Ray/ligulate florets are often missing stamens or are entirely sterile, thus acting solely to attract pollinators and serve no other reproductive function.</p>
+<p>Here are two ray florets from the same flower head as the photo above. Can you see the comparatively longer, strap-shaped petals? Ray florets (especially in radiate heads) are often missing stamens or are entirely sterile, thus acting solely to attract pollinators and serving no other reproductive function.</p>
 <p align="center">
 <img src="media/Asteraceae11.jpeg" style="width:100.0%" />
 </p>
 <p><br></p>
-<p>The ovary is inferior, and is made up of two carpels but only one ovule is formed. The style pushes upwards through the middle of the stamen tube, but the two stigma lobes remain pressed together (preventing self-pollination) and only split apart (revealing the receptive surface to incoming pollinators) once the style has emerged from and cleared the floral tubes. You can see the anther tube as well if you look closely.</p>
+<p>The ovary is inferior, and is made up of two carpels but only one ovule is formed. The style pushes upwards through the middle of the stamen tube, but the two stigma lobes remain pressed together (preventing self-pollination) and only split apart (revealing the receptive surface to incoming pollinators) once the style has emerged from and cleared the floral tubes. You can see the anther tube here as well if you look closely.</p>
 <p align="center">
 <img src="media/Asteraceae12.jpeg" style="width:100.0%" />
 </p>
@@ -659,8 +662,8 @@ div.tocify {
 </div>
 <div id="fruit" class="section level2">
 <h2>Fruit</h2>
-<p>The inferior ovary of each floret in an Asteraceae flower head develops into a small, indehiscent fruit with a single seed inside; these are typically referred to as achenes. However, the ovaries are technically compound (they are made up of two carpels, though only one forms a seed), and the strict definition of an achene is a fruit that develops from a simple ovary. Therefore, it is more accurate to refer to Asteraceae fruit using their family-specific term: <strong>cypsela</strong> (cypselae plural).</p>
-<p>Most cypsela have persistent pappus (which floral part is the pappus derived from?) that aid in dispersal via wind. Just like other traits in this family, the pappus and achene morphology can differ considerably between groups. Here is an example of a typical cypsela. If you zoom in, you can see that the pappus is made up of “plumose” bristles (slightly branched in a way that resembles a feather).</p>
+<p>The inferior ovary of each floret in an Asteraceae flower head develops into a small, indehiscent fruit with a single seed inside; these are often referred to as achenes. However, the ovaries are technically compound (they are made up of two carpels, though only one forms a seed) and inferior, and the strict definition of an achene is an indehiscent fruit that develops from a simple, superior ovary. Therefore, it is more accurate to refer to Asteraceae fruit using their family-specific term: <strong>cypsela</strong> (cypselae plural).</p>
+<p>Most cypselae have persistent pappus (which floral part is the pappus derived from?) that aid in dispersal via wind. Just like other traits in this family, the pappus and achene morphology can differ considerably between groups. Here is an example of a typical cypsela. If you zoom in, you can see that the pappus is made up of “plumose” bristles (slightly branched in a way that resembles a feather).</p>
 <p align="center">
 <img src="media/Asteraceae20.jpeg" style="width:100.0%" />
 </p>
@@ -672,60 +675,64 @@ div.tocify {
 <p><br></p>
 <hr />
 </div>
+<div id="knowledge-check-8.1" class="section level2">
+<h2>KNOWLEDGE CHECK 8.1</h2>
+<p>Make a drawing of the <em>Helianthus</em> capitulum longitudinal section (first photo in “Inflorescences” section) and label all visible parts.</p>
+<hr />
+</div>
 </div>
 <div id="r-exercise-3" class="section level1">
 <h1>R Exercise 3</h1>
 <p><strong>Morphometrics and Machine Learning in R</strong></p>
 <div id="motivation" class="section level2">
 <h2>Motivation</h2>
-<p>Throughout this course we’ve seen how morphology plays a central role in plant taxonomy. The shapes of stems, leaves, and flowers are often the first traits listed in a dichotomous key. When a trait (like corolla width) is measured and quantified, we are able to use statistical tests to decide how to group or split individuals. The science of measuring and analysing shape is called <em>morphometrics</em>. In this lab, we’ll be using a dataset of <em>Aquilegia</em> flower morphology (see: Lab 1, Ranunculaceae) to determine whether two species, <em>A. formosa</em> and <em>A. flavescens</em>, show evidence of forming hybrids when co-occurring in a contact zone.</p>
+<p>Throughout this course we’ve seen how morphology plays a central role in plant taxonomy. The shapes of stems, leaves, and flowers are often the first traits listed in a dichotomous key. When a trait (like corolla width) is measured and quantified, we are able to use statistical tests to decide how to group or split individuals. The science of measuring and analyzing morphological data is called <em>morphometrics</em>. In this lab, we’ll be using a dataset of <em>Aquilegia</em> (columbines) flower morphology (see: Lab 1, Ranunculaceae) to determine whether two species, <em>A. formosa</em> and <em>A. flavescens</em>, show evidence of forming hybrids when co-occurring in a contact zone.</p>
 <hr />
-<p><br> <br></p>
+<!-- <br> -->
+<!-- <br> -->
+<!-- ## Pre-lab -->
+<!-- Before starting this week's lab you will have: -->
+<!-- 1. downloaded the program [Image_J](https://imagej.nih.gov/ij/download.htm) for making morphometric measurements,  <br> -->
+<!-- 2. downloaded the class google sheet in the file format .csv. Note: if you can’t use imageJ for any reason, don’t panic. Display the digital image of the herbarium sheet on any device and use a ruler held up to the screen to make measurements, <br> -->
+<!-- 3. **MB**: probably need to get students to do some pre-assignment reading on machine learning (decision trees, random forests). Also, some reading on MDS and interpreting MDS plots. -->
+<!-- &nbsp; -->
+<!-- &nbsp; -->
+<!-- --- -->
+<!-- ## Outcomes -->
+<!-- By the end of this tutorial you will: -->
+<!-- 1.  have experience taking morphometric measurements from herbarium specimens, -->
+<!-- 2. understand some core concepts in machine learning and how it can be used in species delimitation, -->
+<!-- 3. the tools and knowledge needed to implement machine learning in R as part of a taxonomic research programme, -->
+<!-- 4. More? -->
+<!-- &nbsp; -->
+<!-- &nbsp; -->
+<!-- --- -->
+<!-- <br> -->
+<!-- <br> -->
 </div>
-<div id="pre-lab" class="section level2">
-<h2>Pre-lab</h2>
-<p>Before starting this week’s lab you will have:</p>
-<ol style="list-style-type: decimal">
-<li><p>downloaded the program <a href="https://imagej.nih.gov/ij/download.htm">Image_J</a> for making morphometric measurements, <br></p></li>
-<li><p>downloaded the class google sheet in the file format .csv. Note: if you can’t use imageJ for any reason, don’t panic. Display the digital image of the herbarium sheet on any device and use a ruler held up to the screen to make measurements, <br></p></li>
-<li><p><strong>MB</strong>: probably need to get students to do some pre-assignment reading on machine learning (decision trees, random forests). Also, some reading on MDS and interpreting MDS plots.</p></li>
-</ol>
-<p>   </p>
-<hr />
-</div>
-<div id="outcomes" class="section level2">
-<h2>Outcomes</h2>
-<p>By the end of this tutorial you will:</p>
-<ol style="list-style-type: decimal">
-<li><p>have experience taking morphometric measurements from herbarium specimens,</p></li>
-<li><p>understand some core concepts in machine learning and how it can be used in species delimitation,</p></li>
-<li><p>the tools and knowledge needed to implement machine learning in R as part of a taxonomic research programme,</p></li>
-<li><p>More?</p></li>
-</ol>
-<p>   </p>
-<hr />
-<p><br> <br></p>
-</div>
-<div id="activity-2-delimiting-species-using-morphometrics-and-machine-learning" class="section level2">
-<h2>Activity 2: Delimiting Species using Morphometrics and Machine Learning</h2>
+<div id="delimiting-species-using-morphometrics-and-machine-learning" class="section level2">
+<h2>Delimiting Species using Morphometrics and Machine Learning</h2>
 <p>Let’s get started by attaching the required packages:</p>
-<div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1"></a><span class="kw">library</span>(caret)</span>
-<span id="cb1-2"><a href="#cb1-2"></a><span class="kw">library</span>(here)</span>
-<span id="cb1-3"><a href="#cb1-3"></a><span class="kw">library</span>(randomForest)</span>
-<span id="cb1-4"><a href="#cb1-4"></a><span class="kw">library</span>(RCurl)</span>
-<span id="cb1-5"><a href="#cb1-5"></a><span class="kw">library</span>(tidyverse)</span></code></pre></div>
+<div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1"></a><span class="kw">install.packages</span>(<span class="st">&quot;caret&quot;</span>)</span>
+<span id="cb1-2"><a href="#cb1-2"></a><span class="kw">install.packages</span>(<span class="st">&quot;randomForest&quot;</span>)</span>
+<span id="cb1-3"><a href="#cb1-3"></a><span class="kw">install.packages</span>(<span class="st">&quot;RCurl&quot;</span>)</span>
+<span id="cb1-4"><a href="#cb1-4"></a><span class="kw">install.packages</span>(<span class="st">&quot;tidyverse&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb2"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1"></a><span class="kw">library</span>(caret)</span>
+<span id="cb2-2"><a href="#cb2-2"></a><span class="kw">library</span>(randomForest)</span>
+<span id="cb2-3"><a href="#cb2-3"></a><span class="kw">library</span>(RCurl)</span>
+<span id="cb2-4"><a href="#cb2-4"></a><span class="kw">library</span>(tidyverse)</span></code></pre></div>
 <p><code>randomForest</code> and <code>caret</code> are packages with machine learning tools for classification, regression, and clustering. There are a few ways to implement machine learning. In this lab we will cover using ML in unsupervised mode. This means that the program will have to find the structure of the data itself, without us training it first.</p>
 <p>Now we’ll import, subset, and preview the <em>Aquilegia</em> morphometric data from Groh et al (2020):</p>
-<div class="sourceCode" id="cb2"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1"></a>columbine_url &lt;-</span>
-<span id="cb2-2"><a href="#cb2-2"></a><span class="st">  </span>RCurl<span class="op">::</span><span class="kw">getURL</span>(<span class="st">&#39;https://raw.githubusercontent.com/jgroh/mosaic/master/data/hrbm-pheno-mosaic.csv&#39;</span>)</span>
-<span id="cb2-3"><a href="#cb2-3"></a></span>
-<span id="cb2-4"><a href="#cb2-4"></a>columbine_data_full &lt;-<span class="st"> </span><span class="kw">read.csv</span>(<span class="dt">text =</span> columbine_url)</span>
-<span id="cb2-5"><a href="#cb2-5"></a></span>
-<span id="cb2-6"><a href="#cb2-6"></a>columbine_data &lt;-</span>
-<span id="cb2-7"><a href="#cb2-7"></a><span class="st">  </span>columbine_data_full <span class="op">%&gt;%</span></span>
-<span id="cb2-8"><a href="#cb2-8"></a><span class="st">  </span><span class="kw">select</span>(<span class="dv">1</span>, <span class="dv">3</span>, <span class="dv">12</span><span class="op">:</span><span class="dv">19</span>)</span>
-<span id="cb2-9"><a href="#cb2-9"></a></span>
-<span id="cb2-10"><a href="#cb2-10"></a><span class="kw">head</span>(columbine_data)</span></code></pre></div>
+<div class="sourceCode" id="cb3"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1"></a>columbine_url &lt;-</span>
+<span id="cb3-2"><a href="#cb3-2"></a><span class="st">  </span>RCurl<span class="op">::</span><span class="kw">getURL</span>(<span class="st">&#39;https://raw.githubusercontent.com/jgroh/mosaic/master/data/hrbm-pheno-mosaic.csv&#39;</span>)</span>
+<span id="cb3-3"><a href="#cb3-3"></a></span>
+<span id="cb3-4"><a href="#cb3-4"></a>columbine_data_full &lt;-<span class="st"> </span><span class="kw">read.csv</span>(<span class="dt">text =</span> columbine_url)</span>
+<span id="cb3-5"><a href="#cb3-5"></a></span>
+<span id="cb3-6"><a href="#cb3-6"></a>columbine_data &lt;-</span>
+<span id="cb3-7"><a href="#cb3-7"></a><span class="st">  </span>columbine_data_full <span class="op">%&gt;%</span></span>
+<span id="cb3-8"><a href="#cb3-8"></a><span class="st">  </span><span class="kw">select</span>(<span class="dv">1</span>, <span class="dv">3</span>, <span class="dv">12</span><span class="op">:</span><span class="dv">19</span>)</span>
+<span id="cb3-9"><a href="#cb3-9"></a></span>
+<span id="cb3-10"><a href="#cb3-10"></a><span class="kw">head</span>(columbine_data)</span></code></pre></div>
 <pre><code>##   Accession.Number species.label corolla.width spur.length blade.length
 ## 1          V176410    flavescens          1.50         1.1         0.50
 ## 2           V64139    flavescens          1.50         1.7         0.50
@@ -741,55 +748,72 @@ div.tocify {
 ## 5        0.56           0          1.6        0.50              0.8
 ## 6        0.90           0          1.9        0.70              0.5</code></pre>
 <p>Now, we’ll use the <code>randomForest()</code> function to analyse and sort our specimens:</p>
-<div class="sourceCode" id="cb4"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1"></a><span class="co"># run the function randomForest() on our morphometric data.</span></span>
-<span id="cb4-2"><a href="#cb4-2"></a><span class="co"># ntree tells us how many decision trees to build</span></span>
-<span id="cb4-3"><a href="#cb4-3"></a><span class="co"># mtry is the amount of variables that will be tested at each node of the tree</span></span>
-<span id="cb4-4"><a href="#cb4-4"></a><span class="co"># proximity=TRUE so that the data saves a proximity matrix</span></span>
-<span id="cb4-5"><a href="#cb4-5"></a></span>
-<span id="cb4-6"><a href="#cb4-6"></a>rf &lt;-</span>
-<span id="cb4-7"><a href="#cb4-7"></a><span class="st">  </span><span class="kw">randomForest</span>(</span>
-<span id="cb4-8"><a href="#cb4-8"></a>    columbine_data[,<span class="op">-</span><span class="dv">1</span>],</span>
-<span id="cb4-9"><a href="#cb4-9"></a>    <span class="dt">ntree=</span><span class="dv">30000</span>,</span>
-<span id="cb4-10"><a href="#cb4-10"></a>    <span class="dt">mtry=</span><span class="dv">3</span>,</span>
-<span id="cb4-11"><a href="#cb4-11"></a>    <span class="dt">proximity=</span><span class="ot">TRUE</span>,</span>
-<span id="cb4-12"><a href="#cb4-12"></a>    <span class="dt">keep.forest=</span><span class="ot">TRUE</span>)</span></code></pre></div>
-<p>The <code>randomForest()</code> function generates 30,000 decision trees (<code>ntree</code>) that attempt to classify the specimens based on binary questions posed to the morphometrics data (<code>columbine_data</code>). Each question (‘node’) in the decision tree consideres three morphometric variables (<code>mtry</code>). Setting <code>proximity = TRUE</code> tells the function to calculate a similarity metric between specimens. This will help us to calculate a distance matrix describing how similar or dissimilar each sample is from one another:</p>
-<div class="sourceCode" id="cb5"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1"></a>distance.matrix &lt;-<span class="st"> </span><span class="kw">dist</span>(<span class="dv">1</span> <span class="op">-</span><span class="st"> </span>rf<span class="op">$</span>proximity)</span></code></pre></div>
+<div class="sourceCode" id="cb5"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1"></a><span class="co"># run the function randomForest() on our morphometric data.</span></span>
+<span id="cb5-2"><a href="#cb5-2"></a><span class="co"># ntree tells us how many decision trees to build</span></span>
+<span id="cb5-3"><a href="#cb5-3"></a><span class="co"># mtry is the amount of variables that will be tested at each node of the tree</span></span>
+<span id="cb5-4"><a href="#cb5-4"></a><span class="co"># proximity=TRUE so that the data saves a proximity matrix</span></span>
+<span id="cb5-5"><a href="#cb5-5"></a></span>
+<span id="cb5-6"><a href="#cb5-6"></a>rf &lt;-</span>
+<span id="cb5-7"><a href="#cb5-7"></a><span class="st">  </span><span class="kw">randomForest</span>(</span>
+<span id="cb5-8"><a href="#cb5-8"></a>    columbine_data[,<span class="op">-</span><span class="dv">1</span>],</span>
+<span id="cb5-9"><a href="#cb5-9"></a>    <span class="dt">ntree=</span><span class="dv">30000</span>,</span>
+<span id="cb5-10"><a href="#cb5-10"></a>    <span class="dt">mtry=</span><span class="dv">3</span>,</span>
+<span id="cb5-11"><a href="#cb5-11"></a>    <span class="dt">proximity=</span><span class="ot">TRUE</span>,</span>
+<span id="cb5-12"><a href="#cb5-12"></a>    <span class="dt">keep.forest=</span><span class="ot">TRUE</span>)</span></code></pre></div>
+<p><strong>Pause here to let <code>randomForest()</code> run to completion before moving on to the next lines of code.</strong> The <code>randomForest()</code> function generates 30,000 decision trees (<code>ntree</code>) that attempt to classify the specimens based on binary questions posed to the morphometrics data (<code>columbine_data</code>). Each question (‘node’) in the decision tree considers three morphometric variables (<code>mtry</code>). Setting <code>proximity = TRUE</code> tells the function to calculate a similarity metric between specimens. This will help us to calculate a distance matrix describing how similar or dissimilar each sample is from one another:</p>
+<div class="sourceCode" id="cb6"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1"></a>distance.matrix &lt;-<span class="st"> </span><span class="kw">dist</span>(<span class="dv">1</span> <span class="op">-</span><span class="st"> </span>rf<span class="op">$</span>proximity)</span></code></pre></div>
 <p>Now we’ll perform MDS analysis on the distance matrix:</p>
-<div class="sourceCode" id="cb6"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1"></a>mds.analysis &lt;-<span class="st"> </span><span class="kw">cmdscale</span>(distance.matrix, <span class="dt">eig=</span><span class="ot">TRUE</span>, <span class="dt">x.ret=</span><span class="ot">TRUE</span>)</span>
-<span id="cb6-2"><a href="#cb6-2"></a></span>
-<span id="cb6-3"><a href="#cb6-3"></a>mds.var.per &lt;-<span class="st"> </span><span class="kw">round</span>(mds.analysis<span class="op">$</span>eig<span class="op">/</span><span class="kw">sum</span>(mds.analysis<span class="op">$</span>eig)<span class="op">*</span><span class="dv">100</span>, <span class="dv">1</span>)</span>
-<span id="cb6-4"><a href="#cb6-4"></a></span>
-<span id="cb6-5"><a href="#cb6-5"></a>mds.var.per[<span class="dv">1</span><span class="op">:</span><span class="dv">2</span>]</span></code></pre></div>
-<pre><code>## [1] 42.3 13.6</code></pre>
-<p>The <code>cmdscale()</code> function finds the axes of greatest variation in our morphometrics dataset. For example, if corolla width was the trait that varied the most between all specimens, <code>cmdscale()</code> would assign this variable as <em>MDS axis 1</em>. In reality, it’s unlikely that a single trait will explain the greatest variation in morphology, instead, MDS axes tend to be combinations of traits. In the second step we calculated how much of the total variation of the datset belongs to each of the MDS axes. The third step prints MDS axes 1 and 2, telling us that MDS axis 1 accounts for 42.3% of the morphological variation in the dataset. Each <em>Aquilegia</em> specimen exists somewhere in the ‘shape space’ created by MDS axes 1 and 2. For example, if MDS axes 1 and 2 described variation in corolla and sepal width, respectively, <em>Aquilegia</em> specimens with wide corollas and sepals would exist in the upper right corner of this ‘shape space’. We’ll see what this looks like in the plotting step. We’ll store the shape space location of each <em>Aquilegia</em> sample in an object called <code>mds.data</code>:</p>
-<div class="sourceCode" id="cb8"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1"></a>mds.values &lt;-<span class="st"> </span>mds.analysis<span class="op">$</span>points</span>
-<span id="cb8-2"><a href="#cb8-2"></a>mds.data &lt;-<span class="st"> </span><span class="kw">data.frame</span>(<span class="dt">Sample =</span> <span class="kw">rownames</span>(mds.values),</span>
-<span id="cb8-3"><a href="#cb8-3"></a>                       <span class="dt">X =</span> mds.values[,<span class="dv">1</span>],</span>
-<span id="cb8-4"><a href="#cb8-4"></a>                       <span class="dt">Y =</span> mds.values[,<span class="dv">2</span>],</span>
-<span id="cb8-5"><a href="#cb8-5"></a>                       <span class="dt">Status =</span> columbine_data<span class="op">$</span>species.label)</span></code></pre></div>
+<div class="sourceCode" id="cb7"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1"></a>mds.analysis &lt;-<span class="st"> </span><span class="kw">cmdscale</span>(distance.matrix, <span class="dt">eig=</span><span class="ot">TRUE</span>, <span class="dt">x.ret=</span><span class="ot">TRUE</span>)</span>
+<span id="cb7-2"><a href="#cb7-2"></a></span>
+<span id="cb7-3"><a href="#cb7-3"></a>mds.var.per &lt;-<span class="st"> </span><span class="kw">round</span>(mds.analysis<span class="op">$</span>eig<span class="op">/</span><span class="kw">sum</span>(mds.analysis<span class="op">$</span>eig)<span class="op">*</span><span class="dv">100</span>, <span class="dv">1</span>)</span>
+<span id="cb7-4"><a href="#cb7-4"></a></span>
+<span id="cb7-5"><a href="#cb7-5"></a>mds.var.per[<span class="dv">1</span><span class="op">:</span><span class="dv">2</span>]</span></code></pre></div>
+<pre><code>## [1] 41.9 13.5</code></pre>
+<p>The <code>cmdscale()</code> function finds the axes of greatest variation in our morphometrics dataset. For example, if corolla width was the trait that varied the most between all specimens, <code>cmdscale()</code> would assign this variable as <em>MDS axis 1</em>. In reality, it’s unlikely that a single trait will explain the greatest variation in morphology, instead, MDS axes tend to be combinations of traits. In the second step we calculated how much of the total variation of the dataset belongs to each of the MDS axes. The third step prints MDS axes 1 and 2, telling us that MDS axis 1 accounts for 42.3% of the morphological variation in the dataset. Each <em>Aquilegia</em> specimen exists somewhere in the ‘shape space’ created by MDS axes 1 and 2. For example, if MDS axes 1 and 2 described variation in corolla and sepal width, respectively, <em>Aquilegia</em> specimens with wide corollas and sepals would exist in the upper right corner of this ‘shape space’. We’ll see what this looks like in the plotting step. We’ll store the shape space location of each <em>Aquilegia</em> sample in an object called <code>mds.data</code>:</p>
+<div class="sourceCode" id="cb9"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1"></a>mds.values &lt;-<span class="st"> </span>mds.analysis<span class="op">$</span>points</span>
+<span id="cb9-2"><a href="#cb9-2"></a>mds.data &lt;-<span class="st"> </span><span class="kw">data.frame</span>(<span class="dt">Sample =</span> <span class="kw">rownames</span>(mds.values),</span>
+<span id="cb9-3"><a href="#cb9-3"></a>                       <span class="dt">X =</span> mds.values[,<span class="dv">1</span>],</span>
+<span id="cb9-4"><a href="#cb9-4"></a>                       <span class="dt">Y =</span> mds.values[,<span class="dv">2</span>],</span>
+<span id="cb9-5"><a href="#cb9-5"></a>                       <span class="dt">Status =</span> columbine_data<span class="op">$</span>species.label)</span></code></pre></div>
 <p>Now we can plot each <em>Aquilegia</em> specimen in morphometric shape space:</p>
-<div class="sourceCode" id="cb9"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1"></a>mds_plot &lt;-</span>
-<span id="cb9-2"><a href="#cb9-2"></a><span class="st">  </span><span class="kw">ggplot</span>(</span>
-<span id="cb9-3"><a href="#cb9-3"></a>    <span class="dt">data =</span> mds.data,</span>
-<span id="cb9-4"><a href="#cb9-4"></a>    <span class="kw">aes</span>(<span class="dt">x =</span> X, <span class="dt">y =</span> Y, <span class="dt">label =</span> Sample)) <span class="op">+</span></span>
-<span id="cb9-5"><a href="#cb9-5"></a><span class="st">  </span><span class="kw">geom_text</span>(<span class="kw">aes</span>(<span class="dt">color =</span> Status)) <span class="op">+</span></span>
-<span id="cb9-6"><a href="#cb9-6"></a><span class="st">  </span><span class="kw">theme_bw</span>() <span class="op">+</span></span>
-<span id="cb9-7"><a href="#cb9-7"></a><span class="st">  </span><span class="kw">xlab</span>(<span class="kw">paste</span>(<span class="st">&quot;MDS1 - &quot;</span>, mds.var.per[<span class="dv">1</span>], <span class="st">&quot;%&quot;</span>,<span class="dt">sep=</span><span class="st">&quot;&quot;</span>)) <span class="op">+</span></span>
-<span id="cb9-8"><a href="#cb9-8"></a><span class="st">  </span><span class="kw">ylab</span>(<span class="kw">paste</span>(<span class="st">&quot;MDS2 - &quot;</span>, mds.var.per[<span class="dv">2</span>], <span class="st">&quot;%&quot;</span>,<span class="dt">sep=</span><span class="st">&quot;&quot;</span>)) <span class="op">+</span></span>
-<span id="cb9-9"><a href="#cb9-9"></a><span class="st">  </span><span class="kw">ggtitle</span>(<span class="st">&quot; Unsupervised MDS plot using (1 - Random Forest Proximities)&quot;</span>) <span class="op">+</span></span>
-<span id="cb9-10"><a href="#cb9-10"></a><span class="st">  </span><span class="kw">scale_colour_manual</span>(<span class="dt">name =</span> <span class="st">&quot;Species&quot;</span>,</span>
-<span id="cb9-11"><a href="#cb9-11"></a>                      <span class="dt">breaks =</span> <span class="kw">c</span>(<span class="st">&quot;flavescens&quot;</span>, <span class="st">&quot;formosa&quot;</span>),</span>
-<span id="cb9-12"><a href="#cb9-12"></a>                      <span class="dt">labels =</span> <span class="kw">c</span>(<span class="kw">expression</span>(<span class="kw">italic</span>(<span class="st">&quot;A. flavescens&quot;</span>)),</span>
-<span id="cb9-13"><a href="#cb9-13"></a>                                 <span class="kw">expression</span>(<span class="kw">italic</span>(<span class="st">&quot;A. formosa&quot;</span>))),</span>
-<span id="cb9-14"><a href="#cb9-14"></a>                      <span class="dt">values =</span> <span class="kw">c</span>(<span class="st">&quot;#009E73&quot;</span>, <span class="st">&quot;#CC79A7&quot;</span>))</span>
-<span id="cb9-15"><a href="#cb9-15"></a></span>
-<span id="cb9-16"><a href="#cb9-16"></a>mds_plot</span></code></pre></div>
-<p><img src="_BIOL_324_Lab_8_files/figure-html/unnamed-chunk-7-1.png" width="672" /></p>
+<div class="sourceCode" id="cb10"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1"></a>mds_plot &lt;-</span>
+<span id="cb10-2"><a href="#cb10-2"></a><span class="st">  </span><span class="kw">ggplot</span>(</span>
+<span id="cb10-3"><a href="#cb10-3"></a>    <span class="dt">data =</span> mds.data,</span>
+<span id="cb10-4"><a href="#cb10-4"></a>    <span class="kw">aes</span>(<span class="dt">x =</span> X, <span class="dt">y =</span> Y, <span class="dt">label =</span> Sample)) <span class="op">+</span></span>
+<span id="cb10-5"><a href="#cb10-5"></a><span class="st">  </span><span class="kw">geom_point</span>(<span class="kw">aes</span>(<span class="dt">color =</span> Status)) <span class="op">+</span></span>
+<span id="cb10-6"><a href="#cb10-6"></a><span class="st">  </span><span class="kw">theme_bw</span>() <span class="op">+</span></span>
+<span id="cb10-7"><a href="#cb10-7"></a><span class="st">  </span><span class="kw">xlab</span>(<span class="kw">paste</span>(<span class="st">&quot;MDS1 - &quot;</span>, mds.var.per[<span class="dv">1</span>], <span class="st">&quot;%&quot;</span>,<span class="dt">sep=</span><span class="st">&quot;&quot;</span>)) <span class="op">+</span></span>
+<span id="cb10-8"><a href="#cb10-8"></a><span class="st">  </span><span class="kw">ylab</span>(<span class="kw">paste</span>(<span class="st">&quot;MDS2 - &quot;</span>, mds.var.per[<span class="dv">2</span>], <span class="st">&quot;%&quot;</span>,<span class="dt">sep=</span><span class="st">&quot;&quot;</span>)) <span class="op">+</span></span>
+<span id="cb10-9"><a href="#cb10-9"></a><span class="st">  </span><span class="kw">ggtitle</span>(<span class="st">&quot;Morphometric shape space of two columbine species&quot;</span>)</span>
+<span id="cb10-10"><a href="#cb10-10"></a></span>
+<span id="cb10-11"><a href="#cb10-11"></a>mds_plot</span></code></pre></div>
+<p><img src="BIOL_324_Lab_8_files/figure-html/unnamed-chunk-8-1.png" width="672" /></p>
 <p>The <code>ggplot()</code> function takes our <code>mds.data</code> object and plots it. <em>MDS1</em> is the axis explaining the most morphometric variation in our herbarium dataset. Notice that this axis separates <em>A. flavescens</em> and <em>A. formosa</em>.</p>
-<p><strong>-KNOWLEDGE CHECK-</strong></p>
-<p>When an individual specimen has a low <em>MDS2</em> value, would it be easier or harder to distinguish the species (and why)? If your specimen had a high <em>MDS2</em> and <em>MDS1</em> value, which <em>Aquilegia</em> species is it likely to be?</p>
-<p>   </p>
+<hr />
+</div>
+<div id="knowledge-check-8.2" class="section level2">
+<h2>KNOWLEDGE CHECK 8.2</h2>
+<p>Modify the above code to make an MDS plot for the class <em>Antennaria</em> morphometric data we collected in Lab 4.</p>
+<ul>
+<li>First, visit the <a href="https://docs.google.com/spreadsheets/d/1lUajuGPwVc29feAesxS9DYLhfNqYxRrawvofaE6bYjA/edit#gid=1592533061">class spreadsheet</a>, and make sure you are on the “Lab 8 Data” tab. Then, download the data onto your computer in .csv format (File -&gt; Download -&gt; Comma-separated values).</li>
+<li>Modify the third code chunk, removing <code>columbine_url &lt;- RCurl::getURL('https://raw.githubusercontent.com/jgroh/mosaic/master/data/hrbm-pheno-mosaic.csv')</code>. and replacing it with <code>new_object_name &lt;- read.csv(file.choose())</code>. Choose the .csv file you downloaded in the previous step. Change <code>new_object_name</code> to whatever you want.</li>
+<li>You can remove the following code chunks as well, as we have already loaded a .csv and do not need to filter our dataset:</li>
+</ul>
+<div class="sourceCode" id="cb11"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1"></a>columbine_data_full &lt;-<span class="st"> </span><span class="kw">read.csv</span>(<span class="dt">text =</span> columbine_url)</span>
+<span id="cb11-2"><a href="#cb11-2"></a></span>
+<span id="cb11-3"><a href="#cb11-3"></a>columbine_data &lt;-</span>
+<span id="cb11-4"><a href="#cb11-4"></a><span class="st">  </span>columbine_data_full <span class="op">%&gt;%</span></span>
+<span id="cb11-5"><a href="#cb11-5"></a><span class="st">  </span><span class="kw">select</span>(<span class="dv">1</span>, <span class="dv">3</span>, <span class="dv">12</span><span class="op">:</span><span class="dv">19</span>)</span></code></pre></div>
+<ul>
+<li>Now that you have the data loaded, modify the remaining bits of code to make an MDS plot of the <em>Antennaria</em> data. You will need to replace any objects with <code>columbine</code> in the name with your <em>Antennaria</em> dataframe. Make sure to make a new title that reflects what you are plotting.</li>
+</ul>
+<p><strong>You will be asked to interpret the <em>Antennaria</em> MDS plot in your Lab 9 Quiz</strong>.</p>
+<p>Things to think about:</p>
+<ul>
+<li>Are the two species well-separated in morphological space?</li>
+<li>What may be some of the causes of the variation (both within and between species) displayed in your MDS plot?</li>
+<li>What could be done to “improve” the plot? Think about the underlying data (what was measured and how)…</li>
+</ul>
 </div>
 </div>
 

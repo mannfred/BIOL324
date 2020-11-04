@@ -481,6 +481,9 @@ div.tocify {
     <li>
       <a href="BIOL_324_Lab_7.html">Lab 7</a>
     </li>
+    <li>
+      <a href="BIOL_324_Lab_8.html">Lab 8</a>
+    </li>
   </ul>
 </li>
       </ul>
@@ -941,29 +944,28 @@ div.tocify {
 <p><br></p>
 <p>Above, we created an object <code>useful_variables</code> that has the names of the columns we want in our final dataset. In the next step we used <code>reduce()</code> to create one simple, combined dataset with only the columns specified in <code>useful_variables</code>. Everything else was discarded. Whew! This is a lot of organizing.. we’re almost there. Before we get to mapping, we should check our data for synonyms. The <code>unique()</code> function tells us how many unique entries exist within a column:</p>
 <div class="sourceCode" id="cb12"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1"></a><span class="kw">unique</span>(opuntia_combined<span class="op">$</span>scientificName)</span></code></pre></div>
-<pre><code>##  [1] &quot;Opuntia basilaris Engelm. &amp; J.M.Bigelow&quot;                                
-##  [2] &quot;Opuntia basilaris var. basilaris&quot;                                       
-##  [3] &quot;Opuntia basilaris var. brachyclada Munz&quot;                                
-##  [4] &quot;Opuntia basilaris var. treleasei (J.M.Coult.) Toumey&quot;                   
-##  [5] &quot;Opuntia fragilis (Nutt.) Haw.&quot;                                          
-##  [6] &quot;Opuntia fragilis var. fragilis&quot;                                         
-##  [7] &quot;Opuntia humifusa Raf.&quot;                                                  
-##  [8] &quot;Opuntia austrina Small&quot;                                                 
-##  [9] &quot;Opuntia mesacantha Raf.&quot;                                                
-## [10] &quot;Opuntia ammophila Small&quot;                                                
-## [11] &quot;Opuntia polyacantha var. erinacea (Engelm. &amp; J.M.Bigelow) B.D.Parfitt&quot;  
-## [12] &quot;Opuntia polyacantha Haw.&quot;                                               
-## [13] &quot;Opuntia arenaria Engelm.&quot;                                               
-## [14] &quot;Opuntia polyacantha var. polyacantha&quot;                                   
-## [15] &quot;Opuntia trichophora (Engelm. &amp; J.M.Bigelow) Britton &amp; Rose&quot;             
-## [16] &quot;Opuntia polyacantha var. juniperina (Britton &amp; Rose) L.D.Benson&quot;        
-## [17] &quot;Opuntia polyacantha var. hystricina (Engelm. &amp; J.M.Bigelow) B.D.Parfitt&quot;
-## [18] &quot;Opuntia dillenii (Ker Gawl.) Haw.&quot;                                      
-## [19] &quot;Opuntia stricta (Haw.) Haw.&quot;                                            
-## [20] &quot;Opuntia stricta subsp. stricta&quot;                                         
-## [21] &quot;Opuntia tunoidea Gibbes&quot;                                                
-## [22] &quot;Opuntia bentonii Griffiths&quot;                                             
-## [23] &quot;Opuntia anahuacensis Griffiths&quot;</code></pre>
+<pre><code>##  [1] &quot;Opuntia basilaris Engelm. &amp; J.M.Bigelow&quot;                              
+##  [2] &quot;Opuntia basilaris var. basilaris&quot;                                     
+##  [3] &quot;Opuntia basilaris var. brachyclada Munz&quot;                              
+##  [4] &quot;Opuntia basilaris var. treleasei (J.M.Coult.) Toumey&quot;                 
+##  [5] &quot;Opuntia fragilis (Nutt.) Haw.&quot;                                        
+##  [6] &quot;Opuntia fragilis var. fragilis&quot;                                       
+##  [7] &quot;Opuntia humifusa Raf.&quot;                                                
+##  [8] &quot;Opuntia austrina Small&quot;                                               
+##  [9] &quot;Opuntia mesacantha Raf.&quot;                                              
+## [10] &quot;Opuntia ammophila Small&quot;                                              
+## [11] &quot;Opuntia polyacantha var. erinacea (Engelm. &amp; J.M.Bigelow) B.D.Parfitt&quot;
+## [12] &quot;Opuntia polyacantha Haw.&quot;                                             
+## [13] &quot;Opuntia arenaria Engelm.&quot;                                             
+## [14] &quot;Opuntia polyacantha var. polyacantha&quot;                                 
+## [15] &quot;Opuntia trichophora (Engelm. &amp; J.M.Bigelow) Britton &amp; Rose&quot;           
+## [16] &quot;Opuntia polyacantha var. juniperina (Britton &amp; Rose) L.D.Benson&quot;      
+## [17] &quot;Opuntia dillenii (Ker Gawl.) Haw.&quot;                                    
+## [18] &quot;Opuntia stricta (Haw.) Haw.&quot;                                          
+## [19] &quot;Opuntia stricta subsp. stricta&quot;                                       
+## [20] &quot;Opuntia tunoidea Gibbes&quot;                                              
+## [21] &quot;Opuntia bentonii Griffiths&quot;                                           
+## [22] &quot;Opuntia anahuacensis Griffiths&quot;</code></pre>
 <p><br></p>
 <p>Unfortunately, lots of synonyms were included in the results. We’ll make a object containing the names we want to keep, and use the <code>filter()</code> function to get rid of everything else:</p>
 <div class="sourceCode" id="cb14"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb14-1"><a href="#cb14-1"></a><span class="co"># filter out synonyms</span></span>

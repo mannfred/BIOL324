@@ -1,5 +1,5 @@
 ---
-title: "Asteraceae and Morphometrics / Machine Learning in R"
+title: "Asteraceae and Morphometrics in R"
 # title: "<span style='font-size: 30px'> R Assignment 3: Species Delimitation using Morphometrics and Machine Learning </style>"
 # author: Gracy Buckholtz, Quentin Cronk, Mannfred Boehm
 # date: "`r format(Sys.time(), '%d %B, %Y')`"
@@ -118,7 +118,7 @@ Here is an example of a **discoid** flower head. Notice how ray florets are abse
 
 <br>
 
-A variation on discoid heads is where all the florets are the same type, but may have longer bilabiate corollas (these are often included in the "discoid" category). This is quite typical in the tribe Cynareae, which includes thistles and artichokes. 
+A variation on discoid heads is where all the florets are the same type, but may have longer bilabiate corollas (these are often included in the "discoid" category). This is quite typical in the tribe Cynareae (also called Cardueae), which includes thistles and artichokes. 
 
 <br>
 
@@ -212,7 +212,7 @@ And members of the Cynareae of course have spikey (often quite painful) phyllari
 
 ## Florets
 
-Flowers are reduced to florets in Asteraceae, and have been modified quite significantly from your typical flower structure. The 5 petals are fused into a tube, and within the corolla tube the 5 epipetalous stamens have their anthers fused into a tube as well (syngenesious stamens). The sepals on the other hand have been reduced to hairs or scales (called "pappus" in this family). The pappus often remains after fertilization, and acts as a wind dispersal mechanism for the resulting fruit. 
+Flowers are reduced to florets in Asteraceae, and have been modified quite significantly from your typical flower structure. The 5 petals are fused into a tube in disk florets, with one side of the tube extended into a long strap-shaped petal in ray/ligulate florets. Within the corolla tube the 5 epipetalous stamens have their anthers fused into a tube as well (syngenesious stamens). The sepals on the other hand have been reduced to hairs or scales (called "pappus" in this family). The pappus often remains after fertilization, and acts as a wind dispersal mechanism for the resulting fruit. 
 
 Can you make out the ovary, pappus, corolla, and style in the disk floret pictured below?
 
@@ -230,7 +230,7 @@ It is quite difficult to see the anther tube because the florets are so small, b
 
 <br>
 
-Here are two ray florets from the same flower head as the photo above. Can you see the comparatively longer, strap-shaped petals? Ray/ligulate florets are often missing stamens or are entirely sterile, thus acting solely to attract pollinators and serve no other reproductive function.
+Here are two ray florets from the same flower head as the photo above. Can you see the comparatively longer, strap-shaped petals? Ray florets (especially in radiate heads) are often missing stamens or are entirely sterile, thus acting solely to attract pollinators and serving no other reproductive function.
 
 <p align="center">
 ![](./media/Asteraceae11.jpeg){width=100%}
@@ -238,7 +238,7 @@ Here are two ray florets from the same flower head as the photo above. Can you s
 
 <br>
 
-The ovary is inferior, and is made up of two carpels but only one ovule is formed. The style pushes upwards through the middle of the stamen tube, but the two stigma lobes remain pressed together (preventing self-pollination) and only split apart (revealing the receptive surface to incoming pollinators) once the style has emerged from and cleared the floral tubes. You can see the anther tube as well if you look closely.
+The ovary is inferior, and is made up of two carpels but only one ovule is formed. The style pushes upwards through the middle of the stamen tube, but the two stigma lobes remain pressed together (preventing self-pollination) and only split apart (revealing the receptive surface to incoming pollinators) once the style has emerged from and cleared the floral tubes. You can see the anther tube here as well if you look closely.
 
 <p align="center">
 ![](./media/Asteraceae12.jpeg){width=100%}
@@ -250,9 +250,9 @@ The ovary is inferior, and is made up of two carpels but only one ovule is forme
 
 ## Fruit
 
-The inferior ovary of each floret in an Asteraceae flower head develops into a small, indehiscent fruit with a single seed inside; these are typically referred to as achenes. However, the ovaries are technically compound (they are made up of two carpels, though only one forms a seed), and the strict definition of an achene is a fruit that develops from a simple ovary. Therefore, it is more accurate to refer to Asteraceae fruit using their family-specific term: **cypsela** (cypselae plural).
+The inferior ovary of each floret in an Asteraceae flower head develops into a small, indehiscent fruit with a single seed inside; these are often referred to as achenes. However, the ovaries are technically compound (they are made up of two carpels, though only one forms a seed) and inferior, and the strict definition of an achene is an indehiscent fruit that develops from a simple, superior ovary. Therefore, it is more accurate to refer to Asteraceae fruit using their family-specific term: **cypsela** (cypselae plural).
 
-Most cypsela have persistent pappus (which floral part is the pappus derived from?) that aid in dispersal via wind. Just like other traits in this family, the pappus and achene morphology can differ considerably between groups. Here is an example of a typical cypsela. If you zoom in, you can see that the pappus is made up of "plumose" bristles (slightly branched in a way that resembles a feather).
+Most cypselae have persistent pappus (which floral part is the pappus derived from?) that aid in dispersal via wind. Just like other traits in this family, the pappus and achene morphology can differ considerably between groups. Here is an example of a typical cypsela. If you zoom in, you can see that the pappus is made up of "plumose" bristles (slightly branched in a way that resembles a feather).
 
 <p align="center">
 ![](./media/Asteraceae20.jpeg){width=100%}
@@ -270,61 +270,73 @@ In some species, a long stalk (called a "beak") forms between the pappus and the
 
 ---
 
+## KNOWLEDGE CHECK 8.1
+
+Make a drawing of the *Helianthus* capitulum longitudinal section (first photo in "Inflorescences" section) and label all visible parts. 
+
+---
+
 # R Exercise 3
 
 **Morphometrics and Machine Learning in R**
 
 ## Motivation
 
-Throughout this course we've seen how morphology plays a central role in plant taxonomy. The shapes of stems, leaves, and flowers are often the first traits listed in a dichotomous key. When a trait (like corolla width) is measured and quantified, we are able to use statistical tests to decide how to group or split individuals. The science of measuring and analysing shape is called _morphometrics_. In this lab, we'll be using a dataset of _Aquilegia_ flower morphology (see: Lab 1, Ranunculaceae) to determine whether two species, *A. formosa* and *A. flavescens*, show evidence of forming hybrids when co-occurring in a contact zone.
+Throughout this course we've seen how morphology plays a central role in plant taxonomy. The shapes of stems, leaves, and flowers are often the first traits listed in a dichotomous key. When a trait (like corolla width) is measured and quantified, we are able to use statistical tests to decide how to group or split individuals. The science of measuring and analyzing morphological data is called _morphometrics_. In this lab, we'll be using a dataset of _Aquilegia_ (columbines) flower morphology (see: Lab 1, Ranunculaceae) to determine whether two species, *A. formosa* and *A. flavescens*, show evidence of forming hybrids when co-occurring in a contact zone.
 
 ---
 
-<br>
-<br>
+<!-- <br> -->
+<!-- <br> -->
 
-## Pre-lab
+<!-- ## Pre-lab -->
 
-Before starting this week's lab you will have:
+<!-- Before starting this week's lab you will have: -->
 
-1. downloaded the program [Image_J](https://imagej.nih.gov/ij/download.htm) for making morphometric measurements,  <br>
+<!-- 1. downloaded the program [Image_J](https://imagej.nih.gov/ij/download.htm) for making morphometric measurements,  <br> -->
 
-2. downloaded the class google sheet in the file format .csv. Note: if you can’t use imageJ for any reason, don’t panic. Display the digital image of the herbarium sheet on any device and use a ruler held up to the screen to make measurements, <br>
+<!-- 2. downloaded the class google sheet in the file format .csv. Note: if you can’t use imageJ for any reason, don’t panic. Display the digital image of the herbarium sheet on any device and use a ruler held up to the screen to make measurements, <br> -->
 
-3. **MB**: probably need to get students to do some pre-assignment reading on machine learning (decision trees, random forests). Also, some reading on MDS and interpreting MDS plots.
+<!-- 3. **MB**: probably need to get students to do some pre-assignment reading on machine learning (decision trees, random forests). Also, some reading on MDS and interpreting MDS plots. -->
 
-&nbsp;
-&nbsp;
+<!-- &nbsp; -->
+<!-- &nbsp; -->
 
----
+<!-- --- -->
 
-## Outcomes
+<!-- ## Outcomes -->
 
-By the end of this tutorial you will:
+<!-- By the end of this tutorial you will: -->
 
-1.  have experience taking morphometric measurements from herbarium specimens,
+<!-- 1.  have experience taking morphometric measurements from herbarium specimens, -->
 
-2. understand some core concepts in machine learning and how it can be used in species delimitation,
+<!-- 2. understand some core concepts in machine learning and how it can be used in species delimitation, -->
 
-3. the tools and knowledge needed to implement machine learning in R as part of a taxonomic research programme,
+<!-- 3. the tools and knowledge needed to implement machine learning in R as part of a taxonomic research programme, -->
 
-4. More?
+<!-- 4. More? -->
 
-&nbsp;
-&nbsp;
+<!-- &nbsp; -->
+<!-- &nbsp; -->
 
----
+<!-- --- -->
 
-<br>
-<br>
+<!-- <br> -->
+<!-- <br> -->
 
-## Activity 2: Delimiting Species using Morphometrics and Machine Learning
+## Delimiting Species using Morphometrics and Machine Learning
 
 Let's get started by attaching the required packages:
 
+```{r, message = FALSE, eval=FALSE}
+install.packages("caret")
+install.packages("randomForest")
+install.packages("RCurl")
+install.packages("tidyverse")
+```
+
 ```{r, message = FALSE}
 library(caret)
-library(here)
 library(randomForest)
 library(RCurl)
 library(tidyverse)
@@ -364,7 +376,7 @@ rf <-
     keep.forest=TRUE)
 ```
 
-The `randomForest()` function generates 30,000 decision trees (`ntree`) that attempt to classify the specimens based on binary questions posed to the morphometrics data (`columbine_data`). Each question ('node') in the decision tree consideres three morphometric variables (`mtry`). Setting `proximity = TRUE` tells the function to calculate a similarity metric between specimens. This will help us to calculate a distance matrix describing how similar or dissimilar each sample is from one another:
+**Pause here to let `randomForest()` run to completion before moving on to the next lines of code.** The `randomForest()` function generates 30,000 decision trees (`ntree`) that attempt to classify the specimens based on binary questions posed to the morphometrics data (`columbine_data`). Each question ('node') in the decision tree considers three morphometric variables (`mtry`). Setting `proximity = TRUE` tells the function to calculate a similarity metric between specimens. This will help us to calculate a distance matrix describing how similar or dissimilar each sample is from one another:
 
 ```{r}
 distance.matrix <- dist(1 - rf$proximity)
@@ -379,7 +391,7 @@ mds.var.per <- round(mds.analysis$eig/sum(mds.analysis$eig)*100, 1)
 mds.var.per[1:2]
 ```
 
-The `cmdscale()` function finds the axes of greatest variation in our morphometrics dataset. For example, if corolla width was the trait that varied the most between all specimens, `cmdscale()` would assign this variable as _MDS axis 1_. In reality, it's unlikely that a single trait will explain the greatest variation in morphology, instead, MDS axes tend to be combinations of traits. In the second step we calculated how much of the total variation of the datset belongs to each of the MDS axes. The third step prints MDS axes 1 and 2, telling us that MDS axis 1 accounts for 42.3% of the morphological variation in the dataset. Each *Aquilegia* specimen exists somewhere in the 'shape space' created by MDS axes 1 and 2. For example, if MDS axes 1 and 2 described variation in corolla and sepal width, respectively, *Aquilegia* specimens with wide corollas and sepals would exist in the upper right corner of this 'shape space'. We'll see what this looks like in the plotting step. We'll store the shape space location of each *Aquilegia* sample in an object called `mds.data`:
+The `cmdscale()` function finds the axes of greatest variation in our morphometrics dataset. For example, if corolla width was the trait that varied the most between all specimens, `cmdscale()` would assign this variable as _MDS axis 1_. In reality, it's unlikely that a single trait will explain the greatest variation in morphology, instead, MDS axes tend to be combinations of traits. In the second step we calculated how much of the total variation of the dataset belongs to each of the MDS axes. The third step prints MDS axes 1 and 2, telling us that MDS axis 1 accounts for 42.3% of the morphological variation in the dataset. Each *Aquilegia* specimen exists somewhere in the 'shape space' created by MDS axes 1 and 2. For example, if MDS axes 1 and 2 described variation in corolla and sepal width, respectively, *Aquilegia* specimens with wide corollas and sepals would exist in the upper right corner of this 'shape space'. We'll see what this looks like in the plotting step. We'll store the shape space location of each *Aquilegia* sample in an object called `mds.data`:
 
 ```{r}
 mds.values <- mds.analysis$points
@@ -389,7 +401,6 @@ mds.data <- data.frame(Sample = rownames(mds.values),
                        Status = columbine_data$species.label)
 ```
 
-
 Now we can plot each *Aquilegia* specimen in morphometric shape space:
 
 ```{r}
@@ -398,31 +409,46 @@ mds_plot <-
   ggplot(
     data = mds.data,
     aes(x = X, y = Y, label = Sample)) +
-  geom_text(aes(color = Status)) +
+  geom_point(aes(color = Status)) +
   theme_bw() +
   xlab(paste("MDS1 - ", mds.var.per[1], "%",sep="")) +
   ylab(paste("MDS2 - ", mds.var.per[2], "%",sep="")) +
-  ggtitle(" Unsupervised MDS plot using (1 - Random Forest Proximities)") +
-  scale_colour_manual(name = "Species",
-                      breaks = c("flavescens", "formosa"),
-                      labels = c(expression(italic("A. flavescens")),
-                                 expression(italic("A. formosa"))),
-                      values = c("#009E73", "#CC79A7"))
+  ggtitle("Morphometric shape space of two columbine species")
 
 mds_plot
 ```
 
 The `ggplot()` function takes our `mds.data` object and plots it. _MDS1_ is the axis explaining the most morphometric variation in our herbarium dataset. Notice that this axis separates _A. flavescens_ and _A. formosa_.
 
+---
 
-**-KNOWLEDGE CHECK-**
+## KNOWLEDGE CHECK 8.2
 
-When an individual specimen has a low *MDS2* value, would it be easier or harder to distinguish the species (and why)? If your specimen had a high *MDS2* and *MDS1* value, which *Aquilegia* species is it likely to be?
+Modify the above code to make an MDS plot for the class *Antennaria* morphometric data we collected in Lab 4. 
 
-&nbsp;
-&nbsp;
+- First, visit the [class spreadsheet](https://docs.google.com/spreadsheets/d/1lUajuGPwVc29feAesxS9DYLhfNqYxRrawvofaE6bYjA/edit#gid=1592533061), and make sure you are on the "Lab 8 Data" tab. Then, download the data onto your computer in .csv format (File -> Download -> Comma-separated values).
+- Modify the third code chunk, removing `columbine_url <- RCurl::getURL('https://raw.githubusercontent.com/jgroh/mosaic/master/data/hrbm-pheno-mosaic.csv')`. and replacing it with `new_object_name <- read.csv(file.choose())`. Choose the .csv file you downloaded in the previous step. Change `new_object_name` to whatever you want.
+- You can remove the following code chunks as well, as we have already loaded a .csv and do not need to filter our dataset:
 
+```{r, message=FALSE, eval=FALSE}
 
+columbine_data_full <- read.csv(text = columbine_url)
+
+columbine_data <-
+  columbine_data_full %>%
+  select(1, 3, 12:19)
+
+```
+
+- Now that you have the data loaded, modify the remaining bits of code to make an MDS plot of the *Antennaria* data. You will need to replace any objects with `columbine` in the name with your *Antennaria* dataframe. Make sure to make a new title that reflects what you are plotting. 
+
+**You will be asked to interpret the *Antennaria* MDS plot in your Lab 9 Quiz**. 
+
+Things to think about:
+
+- Are the two species well-separated in morphological space?
+- What may be some of the causes of the variation (both within and between species) displayed in your MDS plot?
+- What could be done to "improve" the plot? Think about the underlying data (what was measured and how)...
 
 
 
