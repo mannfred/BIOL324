@@ -79,6 +79,6 @@ title: "Exercise on typification and nomenclature"
 - **Marks**
   - This assignment is worth 3% of your overall mark (associated with the lecture component).
 - **Due date**
-  - The project will be due at the beginning of Lab 9 (2:00pm November 18th/19th), and you will turn it in on Canvas.
+  - The project will be due on Thursday November 19th at 2:00 pm.  You will turn it in on Canvas (Assignments).
 
 
