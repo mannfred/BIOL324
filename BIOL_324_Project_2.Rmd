@@ -1,0 +1,76 @@
+---
+title: 'Project 2: Phylogeography'
+---
+
+---
+
+---
+
+# Motivation
+
+The informatics exercises you've been accomplishing have helped you learn how to investigate species distributions and their evolutionary relationships. The R activities have been building towards you combining species ranges with phylogenetic trees to make phylogeographic maps in Lab 10. These maps hold a wealth of information, but in order to properly interpret them they should be paired with the biological context of the species in question. Why do some species have larger geographic ranges than others? Why do some plants only thrive in temperate rain forests, and others can take hold just as well in the forest as in cracks in the sidewalk? These are some of the questions we want you to explore with this project.
+
+---
+
+---
+
+# Project Overview
+
+## Overview
+
+You will write a report (around 750-1000 words or 3-4 pages double-spaced) focused on the phylogeography of some of the species you found in Project 1 (iNaturalist). Your report will include: (1) a figure displaying a phylogeographic map of 5 of your iNaturalist species (made in Lab 10), (2) a discussion of the geographic ranges of these 5 species and how this relates to their phylogenetic relationships (basically interpret your phylogeographic map), and (3) a more in-depth comparison of the geographic ranges of **your most widespread and least widespread species (pick two species to compare)**. The idea is for you to investigate the habitat, ecology, life-history, etc. of these two species to help explain why they have different geographic ranges. You should support your discussion with scientific references and use evidence found in online biodiversity databases such as GBIF, iNaturalist, eFlora's, and Google Maps.
+
+**The project will be due by the end of the day (11:59 pm) on Monday, December 7th. You will submit your report on Canvas.**
+
+---
+
+## Report requirements
+
+**Phylogeographic Map**
+
+- Include your very own R-made phylogeographic map!
+  - You have already made range maps of 5 of your iNaturalist species in [Lab 7](BIOL_324_Lab_7.html). We will likely be asking you to touch them up a bit to make sure that your maps accurately represent their North American distributions.
+  - In [Lab 9](BIOL_324_Lab_9.Rmd) You will be making phylogenetic trees in R of your five species that incorporate two DNA barcodes.
+  - In [Lab 10](BIOL_324_Lab_10.Rmd) you will be combining these elements into a phylogeographic map. **This is the figure you will include in your report**. You will get a tutorial and more details for your maps in Lab 10. 
+  
+**Content**
+
+- Interpret your phylogeographic map, and discuss the ranges of your 5 species and how/if their distributions relate to their evolutionary relationships.
+- Of the 5 species included in your map, identify the one with the largest geographic range and the one with the smallest geographic range. Do some research on these species' ecologies, habitats, life-histories, and reproductive strategies and discuss how these may influence their disparate ranges. 
+  - 
+- You must include a References section at the end of the report.
+
+**Style**
+
+- Your Figure and references must be cited in the text. You should include at least two scientific references (one for each species you are comparing, of course more are welcome), and follow [APA formatting](https://owl.purdue.edu/owl/research_and_citation/apa_style/apa_formatting_and_style_guide/reference_list_basic_rules.html) for your in-text citations and reference section.
+  - No need for a title page, but you should include your full name at the top of the page on the right-hand side.
+  - You do not need to include page numbers in your in-text citations (author and year is fine).
+- Your report should be written in "essay format", with your ideas structured into paragraphs (no point-form or bullets). To follow the tenets of scientific writing, your writing should be concise and well-organized, avoiding extraneous information that does not connect with the rest of your report's content.
+- Your writing should be clear, grammatically correct, and spell-checked. 
+
+---
+
+## Report Marking
+
+The report is worth 25 marks overall.
+
+- Phylogenetic tree (10 marks)
+- Content (10 marks)
+- Style (5 marks)
+
+---
+
+# Resources
+
+* iNaturalist
+    + [Photographing plants for iNaturalist](http://www.sdplantatlas.org/inat/iNatPhotoguide.html) - San Diego Plant Atlas Project
+    + [Getting great plant photos for identification in iNaturalist](https://www.inaturalist.org/projects/abisko-plants-and-phenology/journal/17621-getting-great-plant-photos-for-identification-in-inaturalist) - Abisko Natural Park, Sweden
+    + [Getting started with iNaturalist](https://www.inaturalist.org/pages/getting+started)
+
+* **Help with identifications**
+    + [Flora of North America](http://www.efloras.org/flora_page.aspx?flora_id=1)
+    + [E-Flora BC](https://ibis.geog.ubc.ca/biodiversity/eflora/)
+    + Google image search
+    + You can always check with your Lab instructors if you need help with ID's.
+
+  
