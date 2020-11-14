@@ -60,6 +60,8 @@ By the end of this tutorial you will have:
 
 #### Activity 1: Downloading, Aligning, and Graphing DNA Sequences from Genbank
 
+##### NOTE: You will need R version 4.0 or later. Check your R version by typing in `R.Version()` into the console.
+
 In previous Assignments we familiarized ourselves with GBIF, R, and the R packages that allow us to connect to databases. Today, we'll learn how to use our newfound R skills to download and align nucleotide sequences from [GenBank](https://www.ncbi.nlm.nih.gov/nuccore), a repository of DNA sequences hosted by the U.S. National Center for Biotechnology Information (NCBI). We'll then use the aligned sequences to create a phylogenetic tree that will organize species based on their relatedness.
 
 In this lab, we'll explore further the genus _Opuntia_: 
@@ -70,16 +72,24 @@ _Opuntia humifusa_  (Eastern)
 _Opuntia polyacantha_ (Great Plains, foothills of Rocky Mountains) 
 _Opuntia stricta_ (Gulf Coast and Caribbean)
 
-**MB** Could add in some natural history background to better motivate this activity. <br>
 
-
-As usual, we'll start by installing the necessary packages using `install.packages()`:
-
+As usual, we'll start by installing the necessary packages:
 ```{r, eval = FALSE}
-install.packages(c('ape', 'msa', 'seqinr'))
+install.packages(c('ape', 'seqinr'))
 ```
 
-Then we'll attach some packages designed specifically for connecting with the Genbank database (`ape`), filtering and organizing our data (`tidyverse`), aligning sequences (`msa`), concatenating sequences (`seqinr`), and constructing phylogenetic trees (`ape`):
+We'll install the multiple sequence aligner `msa` separately:
+```{r, eval = FALSE}
+if (!requireNamespace("BiocManager", quietly = TRUE))
+    install.packages("BiocManager")
+
+BiocManager::install("msa")
+```
+
+At some point it will ask `Update all/some/none? [a/s/n]:`. Type the letter `n` into the console to respond.
+
+Once the packages are installed, we'll attach them: `ape` is used to connect with the Genbank database (`ape`),  `tidyverse` helps us filter and organize our sequence data, `msa` will align our sequences, `seqinr` will allow us to concatenate sequences, and we'll construct phylogenetic trees using `ape`:
+
 ```{r, results = 'hide', warning = FALSE, message = FALSE }
 # attach packages once they are installed 
 library(ape)      
@@ -89,7 +99,7 @@ library(seqinr)
 library(tidyverse)
 ```
 
-First, we're going to build a spreadsheet that will help us keep track of our _Opuntia_ species and the GenBank accession codes for both the matK and rbcL genes for each species. The accession numbers were found by searching the GenBank website like so:
+First, we're going to build a `data.frame` (i.e. a spreadsheet) that will help us keep track of our _Opuntia_ species and the GenBank accession codes for both the _matK_ and _rbcL_ genes for each species. The accession numbers were found by searching the GenBank website like so:
 
 ![](./media/genbank.jpg)
 
@@ -155,9 +165,9 @@ matK_alignment <-
 print(matK_alignment) 
 ```
 
-By using the `print()` function, we see that our sequences are aligned pretty well! You can also notice some differences in nucleotide position between the species. Those are 'single nucleotide polymorphisms' (SNPs) that, when considered across the entire genome, distinguish one species from another.
+By using the `print()` function, we see that our sequences are aligned pretty well! You can also notice some differences in nucleotide position between the species. Those are 'single nucleotide polymorphisms' (SNPs) that distinguish one species from another.
 
-We'll now align our rbcL sequences:
+We'll now align our _rbcL_ sequences:
 
 ```{r, message = FALSE}
 rbcL_alignment <- 
@@ -173,7 +183,7 @@ print(rbcL_alignment)
 ```
 
 
-We're ready to create some phylogenetic trees! First, we'll convert our alignment objects to `seqinr` objects. Then, we'll use the `dist.alignment()` function to calculate how similar or different each species' sequence is from one another. We'll do this for the matK, rbcL, and concatenated sequences, so that we can compare the trees:
+We're almost ready to create some phylogenetic trees! First, we'll convert our alignment objects to `seqinr` objects. Then, we'll use the `dist.alignment()` function to calculate how similar or different each species' sequence is from one another. We'll do this forboth _matK_ and _rbcL_ so that we can compare the trees:
 
 ```{r,  message=FALSE} 
 # convert alignment object into seqinr object 
@@ -231,13 +241,13 @@ saveRDS(rbcL_rooted, file = here('R_scripts/rbcL_rooted.rds'))
 <!-- # re-align -->
 <!-- con_alignment <- -->
 <!--   msa(unlist(conseq), -->
-<!--       type ='dna',  -->
+<!--       type ='dna', -->
 <!--       method ='ClustalW', -->
 <!--       verbose = TRUE) -->
 <!-- ``` -->
 
 <!-- ```{r} -->
-<!-- # inspect  -->
+<!-- # inspect -->
 <!-- print(con_alignment) -->
 
 <!-- # convert alignment object into seqinr object -->
