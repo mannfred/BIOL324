@@ -86,9 +86,9 @@ if (!requireNamespace("BiocManager", quietly = TRUE))
 BiocManager::install("msa")
 ```
 
-At some point it will ask `Update all/some/none? [a/s/n]:`. Type the letter `n` into the console to respond.
+At some point the console will ask `Update all/some/none? [a/s/n]:`. Type the letter `n` into the console to respond.
 
-Once the packages are installed, we'll attach them: `ape` is used to connect with the Genbank database (`ape`),  `tidyverse` helps us filter and organize our sequence data, `msa` will align our sequences, `seqinr` will allow us to concatenate sequences, and we'll construct phylogenetic trees using `ape`:
+Once the packages are installed, we'll attach them: `ape` is used to connect with the Genbank database,  `tidyverse` helps us filter and organize our sequence data, `msa` will align our sequences, `seqinr` will allow us to concatenate sequences, and we'll use `ape` again to construct phylogenetic trees:
 
 ```{r, results = 'hide', warning = FALSE, message = FALSE }
 # attach packages once they are installed 
@@ -99,42 +99,44 @@ library(seqinr)
 library(tidyverse)
 ```
 
-First, we're going to build a `data.frame` (i.e. a spreadsheet) that will help us keep track of our _Opuntia_ species and the GenBank accession codes for both the _matK_ and _rbcL_ genes for each species. The accession numbers were found by searching the GenBank website like so:
+First, we're going to build a `data.frame` (i.e. a spreadsheet) that will help us keep track of our _Opuntia_ species and the GenBank accession numbers for the _rbcL_ gene for each species. The accession numbers were found on the GenBank website, using the same protocol from Lab 5. 
 
-![](./media/genbank.jpg)
+![](media/lab5_genbank1.png) 
+Ahh.. simpler days.
+
+
 
 Once the accession numbers are found, they can be saved in a data frame:
 ```{r}
 # build data frame
 # accession numbers found by searching GenBank
 species <- c('O. basilaris', 'O. fragilis', 'O. humifusa', 'O. polyacantha', 'O. stricta') 
-matK_acc <- c('JF786750.1', 'JF786786.1', 'JF786791.1', 'JF786823.1', 'JF786853.1') 
 rbcL_acc <- c('JF787189.1', 'JF787223.1', 'JF787227.1', 'JF787259.1', 'JF787288.1' ) 
 
-df <- data.frame(species, matK_acc, rbcL_acc)
+df <- data.frame(species, rbcL_acc)
 ```
 
-Now we're ready to search and download the matK sequence for each _Opuntia_ species, using the `read.Genbank()` function:
-```{r}
-# call GenBank
-matK <- 
-  read.GenBank(
-    df$matK_acc,
-    species.names = FALSE,
-    as.character = TRUE) %>% 
-  lapply(., paste0,collapse="") %>%  # remove spaces
-  lapply(., str_to_upper) # capitalize 
+<!-- Now we're ready to search and download the matK sequence for each _Opuntia_ species, using the `read.Genbank()` function: -->
+<!-- ```{r} -->
+<!-- # call GenBank -->
+<!-- matK <-  -->
+<!--   read.GenBank( -->
+<!--     df$matK_acc, -->
+<!--     species.names = FALSE, -->
+<!--     as.character = TRUE) %>%  -->
+<!--   lapply(., paste0,collapse="") %>%  # remove spaces -->
+<!--   lapply(., str_to_upper) # capitalize  -->
 
-# replace Accession IDs with English names
-names(matK) <- df$species
-```
+<!-- # replace Accession IDs with English names -->
+<!-- names(matK) <- df$species -->
+<!-- ``` -->
 
-We can inspect the DNA sequence for _O. basilaris_ by running:
-```{r}
-head(matK$`O. basilaris`)
-```
+<!-- We can inspect the DNA sequence for _O. basilaris_ by running: -->
+<!-- ```{r} -->
+<!-- head(matK$`O. basilaris`) -->
+<!-- ``` -->
 
-Cool, [it's like we're on CSI](https://pubmed.ncbi.nlm.nih.gov/16100764/). The code for searching and downloading the rbcL sequences is similar:
+Now we're ready to search and download the _rbcL_ sequence for each _Opuntia_ species, using the `read.Genbank()` function: 
 ```{r}
 # call GenBank
 rbcL <- 
@@ -149,26 +151,9 @@ rbcL <-
 names(rbcL) <- df$species
 ```
 
-We now have two DNA sequence objects, `matK` and `rbcL`, that contain sequences from each of our five _Opuntia_ species. In the next step, we'll use the `msa()` function to align our five matK sequences so that their ends are lined up. You could also do this by eye, but it's a bit tedious and not as reproducible:
+Cool, [it's like we're on CSI](https://pubmed.ncbi.nlm.nih.gov/16100764/).
 
-```{r, results = 'hide', message = FALSE}
-# matK alignment
-matK_alignment <- 
-  msa(unlist(matK),
-      type ='dna', 
-      method ='ClustalW',
-      verbose = TRUE)
-```
-
-```{r}
-# inspect alignment
-print(matK_alignment) 
-```
-
-By using the `print()` function, we see that our sequences are aligned pretty well! You can also notice some differences in nucleotide position between the species. Those are 'single nucleotide polymorphisms' (SNPs) that distinguish one species from another.
-
-We'll now align our _rbcL_ sequences:
-
+We now have a 'DNA sequence object' named `rbcL`. It contains the _rbcL_ sequences from each of our five _Opuntia_ species. In the next step, we'll use the `msa()` function to align our five _rbcL_ sequences so that their ends are lined up. You could also do this by eye, but it's a bit tedious and not as reproducible:
 ```{r, message = FALSE}
 rbcL_alignment <- 
   msa(unlist(rbcL),
@@ -181,17 +166,29 @@ rbcL_alignment <-
 # inspect alignment
 print(rbcL_alignment)
 ```
+<!-- ```{r, results = 'hide', message = FALSE} -->
+<!-- # matK alignment -->
+<!-- matK_alignment <-  -->
+<!--   msa(unlist(matK), -->
+<!--       type ='dna',  -->
+<!--       method ='ClustalW', -->
+<!--       verbose = TRUE) -->
+<!-- ``` -->
 
+<!-- # ```{r} -->
+<!-- # # inspect alignment -->
+<!-- # print(matK_alignment)  -->
+<!-- # ``` -->
 
-We're almost ready to create some phylogenetic trees! First, we'll convert our alignment objects to `seqinr` objects. Then, we'll use the `dist.alignment()` function to calculate how similar or different each species' sequence is from one another. We'll do this forboth _matK_ and _rbcL_ so that we can compare the trees:
+By using the `print()` function, we see that our sequences are aligned pretty well! You can also notice some differences in nucleotide position between the species. Those are 'single nucleotide polymorphisms' (SNPs) that distinguish one species from another.
+
+We're almost ready to create some phylogenetic trees! First, we'll convert our alignment objects to `seqinr` objects. Then, we'll use the `dist.alignment()` function to calculate how similar or different each species' sequence is from one another. 
 
 ```{r,  message=FALSE} 
 # convert alignment object into seqinr object 
-matK_r <- msaConvert(matK_alignment, type="seqinr::alignment") 
 rbcL_r <- msaConvert(rbcL_alignment, type="seqinr::alignment") 
   
-# create distance matrices
-matK_dist <- dist.alignment(matK_r)
+# create distance matrix
 rbcL_dist <- dist.alignment(rbcL_r)
 ```
 
@@ -199,24 +196,20 @@ Now, we'll use the `nj()` function to construct trees. In the next step, we'll '
 
 ```{r}
 # neighbour joining trees
-matK_tree <- nj(matK_dist)
 rbcL_tree <- nj(rbcL_dist)
 
 rbcL_rooted <- root(rbcL_tree, outgroup = 'O. basilaris', resolve.root = T)
-matK_rooted <- root(matK_tree, outgroup = 'O. basilaris', resolve.root = T)
 ```
 
-Plot your new trees:
+Plot your new tree:
 ```{r}
-# plot trees
-plot(matK_rooted, main ='matK tree')
+# plot tree
 plot(rbcL_rooted, main = 'rbcL tree')
 ```
 
-Finally, we'll save our trees so that we can use them again in Lab 10:
+Finally, we'll save our tree so that we can use it again in Lab 10:
 
 ```{r}
-saveRDS(matK_rooted, file = here('R_scripts/matK_rooted.rds'))
 saveRDS(rbcL_rooted, file = here('R_scripts/rbcL_rooted.rds'))
 ```
 
