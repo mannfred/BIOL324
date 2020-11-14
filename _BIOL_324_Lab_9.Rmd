@@ -60,7 +60,8 @@ By the end of this tutorial you will have:
 
 #### Activity 1: Downloading, Aligning, and Graphing DNA Sequences from Genbank
 
-##### NOTE: You will need R version 4.0 or later.
+##### NOTE: You will need R version 4.0 or later. Check your R version by typing in `R.Version()` into the console.
+
 In previous Assignments we familiarized ourselves with GBIF, R, and the R packages that allow us to connect to databases. Today, we'll learn how to use our newfound R skills to download and align nucleotide sequences from [GenBank](https://www.ncbi.nlm.nih.gov/nuccore), a repository of DNA sequences hosted by the U.S. National Center for Biotechnology Information (NCBI). We'll then use the aligned sequences to create a phylogenetic tree that will organize species based on their relatedness.
 
 In this lab, we'll explore further the genus _Opuntia_: 
