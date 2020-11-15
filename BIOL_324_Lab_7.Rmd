@@ -550,11 +550,16 @@ opuntia_wishlist <-
 
 <br>
 
-In this first step we're creating a list of all of the plant species that we're hoping to get GBIF data for. The `<-` operator stores the results in an object that we named `opuntia_wishlist`. By storing the results in an object we can later return to the object and inspect it, subset it, and pipe it to other functions. In the following step we'll use the `occ()` function to search GBIF for the species records:
+In this first step we're creating a list of all of the plant species that we're hoping to get GBIF data for. The `<-` operator stores the results in an object that we named `opuntia_wishlist`. By storing the results in an object we can later return to the object and inspect it, subset it, and pipe it to other functions. In the following step we'll use the `occ()` function to search GBIF for the species records. The `geometry =` option allows us to tell GBIF that we only want data from within a certain region. In this case, we've drawn a polygon encompassing North America:
 
 ```{r}
+
 opuntia_metadata <- 
-  spocc::occ(query = opuntia_wishlist, from = 'gbif', limit = 500)
+  occ(
+    query = opuntia_wishlist, 
+    from = 'gbif', 
+    limit = 500, 
+    geometry = 'POLYGON((-48.4 11.0, -172.9 13.6, -170.8 72.6, -46.4 71.8, -48.4 11.0))')
 ```
 
 **PAUSE AFTER RUNNING THIS CHUNK OF CODE. This `occ()` function takes some time, as it is downloading 500 occurrences for each of the 5 species in the list, and running more code while it is working may interrupt the download and cause the later steps to fail! You will know it has completed once `opuntia_metadata` shows up in your environment pane.**

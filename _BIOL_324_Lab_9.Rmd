@@ -207,7 +207,7 @@ Plot your new tree:
 plot(rbcL_rooted, main = 'rbcL tree')
 ```
 
-Finally, we'll save our tree so that we can use it again in Lab 10:
+**IMPORTANT** Save your iNaturalist tree as an .rds file so that we can use it in Lab 10:
 
 ```{r}
 saveRDS(rbcL_rooted, file = here('R_scripts/rbcL_rooted.rds'))
