@@ -92,7 +92,9 @@ library(tidyverse)
 library(viridis)
 ```
 
-Let's import our species distribution data (from GBIF, Assignment 2) and phylogenetic tree (Assignment 4). When you import your own _rbcL_ and GBIF data for your iNaturalist species, we recommend using `file.choose()` (see Lab 8). 
+Let's import our species distribution data (from GBIF, Lab 7) and phylogenetic tree (Assignment 4). If you haven't already, we recommend re-creating your GBIF dataset using the option `geometry =` within `occ()` (see revised Lab 7). Don't forget to save your GBIF data as an .rds file using `saveRDS()`! 
+
+When you're ready to import your own _rbcL_ and GBIF data for your iNaturalist species, we recommend using `file.choose()` inside of `readRDS()` (see Lab 8). 
 
 ```{r}
 # import Opuntia rbcL tree from last tutorial
