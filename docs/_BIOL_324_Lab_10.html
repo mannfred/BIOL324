@@ -552,7 +552,8 @@ div.tocify {
 <a class="sourceLine" id="cb2-4" title="4"><span class="kw">library</span>(phytools)</a>
 <a class="sourceLine" id="cb2-5" title="5"><span class="kw">library</span>(tidyverse)</a>
 <a class="sourceLine" id="cb2-6" title="6"><span class="kw">library</span>(viridis)</a></code></pre></div>
-<p>Let’s import our species distribution data (from GBIF, Assignment 2) and phylogenetic tree (Assignment 4). When you import your own <em>rbcL</em> and GBIF data for your iNaturalist species, we recommend using <code>file.choose()</code> (see Lab 8).</p>
+<p>Let’s import our species distribution data (from GBIF, Lab 7) and phylogenetic tree (Assignment 4). If you haven’t already, we recommend re-creating your GBIF dataset using the option <code>geometry =</code> within <code>occ()</code> (see revised Lab 7). Don’t forget to save your GBIF data as an .rds file using <code>saveRDS()</code>!</p>
+<p>When you’re ready to import your own <em>rbcL</em> and GBIF data for your iNaturalist species, we recommend using <code>file.choose()</code> inside of <code>readRDS()</code> (see Lab 8).</p>
 <div class="sourceCode" id="cb3"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb3-1" title="1"><span class="co"># import Opuntia rbcL tree from last tutorial</span></a>
 <a class="sourceLine" id="cb3-2" title="2">rbcL_rooted &lt;-<span class="st"> </span><span class="kw">readRDS</span>(<span class="dt">file =</span> <span class="kw">here</span>(<span class="st">&#39;R_scripts/rbcL_rooted.rds&#39;</span>))</a>
 <a class="sourceLine" id="cb3-3" title="3"></a>
