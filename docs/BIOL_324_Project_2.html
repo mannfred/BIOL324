@@ -1,0 +1,563 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+
+<meta charset="utf-8" />
+<meta name="generator" content="pandoc" />
+<meta http-equiv="X-UA-Compatible" content="IE=EDGE" />
+
+
+
+
+<title>Project 2 (Phylogeography)</title>
+
+<script src="site_libs/jquery-1.11.3/jquery.min.js"></script>
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<link href="site_libs/bootstrap-3.3.5/css/readable.min.css" rel="stylesheet" />
+<script src="site_libs/bootstrap-3.3.5/js/bootstrap.min.js"></script>
+<script src="site_libs/bootstrap-3.3.5/shim/html5shiv.min.js"></script>
+<script src="site_libs/bootstrap-3.3.5/shim/respond.min.js"></script>
+<script src="site_libs/jqueryui-1.11.4/jquery-ui.min.js"></script>
+<link href="site_libs/tocify-1.9.1/jquery.tocify.css" rel="stylesheet" />
+<script src="site_libs/tocify-1.9.1/jquery.tocify.js"></script>
+<script src="site_libs/navigation-1.1/tabsets.js"></script>
+<script src="site_libs/accessible-code-block-0.0.1/empty-anchor.js"></script>
+<link href="site_libs/anchor-sections-1.0/anchor-sections.css" rel="stylesheet" />
+<script src="site_libs/anchor-sections-1.0/anchor-sections.js"></script>
+
+<style type="text/css">
+  code{white-space: pre-wrap;}
+  span.smallcaps{font-variant: small-caps;}
+  span.underline{text-decoration: underline;}
+  div.column{display: inline-block; vertical-align: top; width: 50%;}
+  div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+  ul.task-list{list-style: none;}
+    </style>
+
+
+
+
+<style type="text/css">
+h1 {
+  font-size: 34px;
+}
+h1.title {
+  font-size: 38px;
+}
+h2 {
+  font-size: 30px;
+}
+h3 {
+  font-size: 24px;
+}
+h4 {
+  font-size: 18px;
+}
+h5 {
+  font-size: 16px;
+}
+h6 {
+  font-size: 12px;
+}
+.table th:not([align]) {
+  text-align: left;
+}
+</style>
+
+
+
+
+<style type = "text/css">
+.main-container {
+  max-width: 940px;
+  margin-left: auto;
+  margin-right: auto;
+}
+code {
+  color: inherit;
+  background-color: rgba(0, 0, 0, 0.04);
+}
+img {
+  max-width:100%;
+}
+.tabbed-pane {
+  padding-top: 12px;
+}
+.html-widget {
+  margin-bottom: 20px;
+}
+button.code-folding-btn:focus {
+  outline: none;
+}
+summary {
+  display: list-item;
+}
+</style>
+
+
+<style type="text/css">
+/* padding for bootstrap navbar */
+body {
+  padding-top: 66px;
+  padding-bottom: 40px;
+}
+/* offset scroll position for anchor links (for fixed navbar)  */
+.section h1 {
+  padding-top: 71px;
+  margin-top: -71px;
+}
+.section h2 {
+  padding-top: 71px;
+  margin-top: -71px;
+}
+.section h3 {
+  padding-top: 71px;
+  margin-top: -71px;
+}
+.section h4 {
+  padding-top: 71px;
+  margin-top: -71px;
+}
+.section h5 {
+  padding-top: 71px;
+  margin-top: -71px;
+}
+.section h6 {
+  padding-top: 71px;
+  margin-top: -71px;
+}
+.dropdown-submenu {
+  position: relative;
+}
+.dropdown-submenu>.dropdown-menu {
+  top: 0;
+  left: 100%;
+  margin-top: -6px;
+  margin-left: -1px;
+  border-radius: 0 6px 6px 6px;
+}
+.dropdown-submenu:hover>.dropdown-menu {
+  display: block;
+}
+.dropdown-submenu>a:after {
+  display: block;
+  content: " ";
+  float: right;
+  width: 0;
+  height: 0;
+  border-color: transparent;
+  border-style: solid;
+  border-width: 5px 0 5px 5px;
+  border-left-color: #cccccc;
+  margin-top: 5px;
+  margin-right: -10px;
+}
+.dropdown-submenu:hover>a:after {
+  border-left-color: #ffffff;
+}
+.dropdown-submenu.pull-left {
+  float: none;
+}
+.dropdown-submenu.pull-left>.dropdown-menu {
+  left: -100%;
+  margin-left: 10px;
+  border-radius: 6px 0 6px 6px;
+}
+</style>
+
+<script>
+// manage active state of menu based on current page
+$(document).ready(function () {
+  // active menu anchor
+  href = window.location.pathname
+  href = href.substr(href.lastIndexOf('/') + 1)
+  if (href === "")
+    href = "index.html";
+  var menuAnchor = $('a[href="' + href + '"]');
+
+  // mark it active
+  menuAnchor.parent().addClass('active');
+
+  // if it's got a parent navbar menu mark it active as well
+  menuAnchor.closest('li.dropdown').addClass('active');
+});
+</script>
+
+<!-- tabsets -->
+
+<style type="text/css">
+.tabset-dropdown > .nav-tabs {
+  display: inline-table;
+  max-height: 500px;
+  min-height: 44px;
+  overflow-y: auto;
+  background: white;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+}
+
+.tabset-dropdown > .nav-tabs > li.active:before {
+  content: "";
+  font-family: 'Glyphicons Halflings';
+  display: inline-block;
+  padding: 10px;
+  border-right: 1px solid #ddd;
+}
+
+.tabset-dropdown > .nav-tabs.nav-tabs-open > li.active:before {
+  content: "&#xe258;";
+  border: none;
+}
+
+.tabset-dropdown > .nav-tabs.nav-tabs-open:before {
+  content: "";
+  font-family: 'Glyphicons Halflings';
+  display: inline-block;
+  padding: 10px;
+  border-right: 1px solid #ddd;
+}
+
+.tabset-dropdown > .nav-tabs > li.active {
+  display: block;
+}
+
+.tabset-dropdown > .nav-tabs > li > a,
+.tabset-dropdown > .nav-tabs > li > a:focus,
+.tabset-dropdown > .nav-tabs > li > a:hover {
+  border: none;
+  display: inline-block;
+  border-radius: 4px;
+  background-color: transparent;
+}
+
+.tabset-dropdown > .nav-tabs.nav-tabs-open > li {
+  display: block;
+  float: none;
+}
+
+.tabset-dropdown > .nav-tabs > li {
+  display: none;
+}
+</style>
+
+<!-- code folding -->
+
+
+
+<style type="text/css">
+
+#TOC {
+  margin: 25px 0px 20px 0px;
+}
+@media (max-width: 768px) {
+#TOC {
+  position: relative;
+  width: 100%;
+}
+}
+
+@media print {
+.toc-content {
+  /* see https://github.com/w3c/csswg-drafts/issues/4434 */
+  float: right;
+}
+}
+
+.toc-content {
+  padding-left: 30px;
+  padding-right: 40px;
+}
+
+div.main-container {
+  max-width: 1200px;
+}
+
+div.tocify {
+  width: 20%;
+  max-width: 260px;
+  max-height: 85%;
+}
+
+@media (min-width: 768px) and (max-width: 991px) {
+  div.tocify {
+    width: 25%;
+  }
+}
+
+@media (max-width: 767px) {
+  div.tocify {
+    width: 100%;
+    max-width: none;
+  }
+}
+
+.tocify ul, .tocify li {
+  line-height: 20px;
+}
+
+.tocify-subheader .tocify-item {
+  font-size: 0.90em;
+}
+
+.tocify .list-group-item {
+  border-radius: 0px;
+}
+
+
+</style>
+
+
+
+</head>
+
+<body>
+
+
+<div class="container-fluid main-container">
+
+
+<!-- setup 3col/9col grid for toc_float and main content  -->
+<div class="row-fluid">
+<div class="col-xs-12 col-sm-4 col-md-3">
+<div id="TOC" class="tocify">
+</div>
+</div>
+
+<div class="toc-content col-xs-12 col-sm-8 col-md-9">
+
+
+
+
+<div class="navbar navbar-default  navbar-fixed-top" role="navigation">
+  <div class="container">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar">
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="index.html">BIOL 324 Labs</a>
+    </div>
+    <div id="navbar" class="navbar-collapse collapse">
+      <ul class="nav navbar-nav">
+        <li>
+  <a href="index.html">Home</a>
+</li>
+<li>
+  <a href="Syllabus.html">Syllabus</a>
+</li>
+<li class="dropdown">
+  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
+    Resources
+     
+    <span class="caret"></span>
+  </a>
+  <ul class="dropdown-menu" role="menu">
+    <li>
+      <a href="Morphological_Terminology.html">Morphological Terminology</a>
+    </li>
+  </ul>
+</li>
+<li class="dropdown">
+  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
+    Projects
+     
+    <span class="caret"></span>
+  </a>
+  <ul class="dropdown-menu" role="menu">
+    <li>
+      <a href="BIOL_324_Project_1.html">Project 1 (iNaturalist)</a>
+    </li>
+    <li>
+      <a href="LinneanTypification.html">Linnean Typification</a>
+    </li>
+    <li>
+      <a href="BIOL_324_Project_2.html">Project 2 (Phylogeography)</a>
+    </li>
+  </ul>
+</li>
+<li class="dropdown">
+  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
+    Labs
+     
+    <span class="caret"></span>
+  </a>
+  <ul class="dropdown-menu" role="menu">
+    <li>
+      <a href="BIOL_324_Lab_1.html">Lab 1</a>
+    </li>
+    <li>
+      <a href="BIOL_324_Lab_2.html">Lab 2</a>
+    </li>
+    <li>
+      <a href="BIOL_324_Lab_3.html">Lab 3</a>
+    </li>
+    <li>
+      <a href="BIOL_324_Lab_4.html">Lab 4</a>
+    </li>
+    <li>
+      <a href="BIOL_324_Lab_5.html">Lab 5</a>
+    </li>
+    <li>
+      <a href="BIOL_324_Lab_6.html">Lab 6</a>
+    </li>
+    <li>
+      <a href="BIOL_324_Lab_7.html">Lab 7</a>
+    </li>
+    <li>
+      <a href="BIOL_324_Lab_8.html">Lab 8</a>
+    </li>
+  </ul>
+</li>
+      </ul>
+      <ul class="nav navbar-nav navbar-right">
+        
+      </ul>
+    </div><!--/.nav-collapse -->
+  </div><!--/.container -->
+</div><!--/.navbar -->
+
+<div class="fluid-row" id="header">
+
+
+
+<h1 class="title toc-ignore">Project 2 (Phylogeography)</h1>
+
+</div>
+
+
+<hr />
+<hr />
+<div id="motivation" class="section level1">
+<h1>Motivation</h1>
+<p>The informatics exercises you’ve been accomplishing have helped you learn how to investigate species distributions and their evolutionary relationships. The R activities have been building towards you combining species ranges with phylogenetic trees to make phylogeographic maps in Lab 10. These maps hold a wealth of information, but in order to properly interpret them they should be paired with the biological context of the species in question. Why do some species have larger geographic ranges than others? Why do some plants only thrive in temperate rain forests, and others can take hold just as well in the forest as in cracks in the sidewalk? These are some of the questions we want you to explore with this project.</p>
+<hr />
+<hr />
+</div>
+<div id="overview" class="section level1">
+<h1>Overview</h1>
+<p>You will write a report (around 750-1000 words or 3-4 pages double-spaced) focused on the phylogeography of some of the species you found in Project 1 (iNaturalist). Your report will include: (1) a figure displaying a phylogeographic map of 5 of your iNaturalist species (made in Lab 10), (2) a discussion of the geographic ranges of these 5 species and how this relates to their phylogenetic relationships (basically interpret your phylogeographic map), and (3) a more in-depth comparison of the geographic ranges of <strong>your most widespread and least widespread species (pick two species to compare)</strong>. The idea is for you to investigate the habitat, ecology, life-history, etc. of these two species to help explain why they have different geographic ranges. You should support your discussion with scientific references and use evidence found in online biodiversity databases such as GBIF, iNaturalist, eFlora’s, and Google Maps.</p>
+<p><strong>The project will be due by the end of the day (11:59 pm) on Monday, December 7th. You will submit your report on Canvas.</strong></p>
+<hr />
+</div>
+<div id="report-requirements" class="section level1">
+<h1>Report requirements</h1>
+<p><strong>Phylogeographic Map</strong></p>
+<ul>
+<li>Include your very own R-made phylogeographic map!
+<ul>
+<li>You have already made range maps of 5 of your iNaturalist species in <a href="BIOL_324_Lab_7.html">Lab 7</a>. We will encouraging you to touch them up a bit to make sure that your maps accurately represent their North American distributions. We’ve made a small modification to your <a href="BIOL_324_Lab_7.html">Lab 7</a> code (check the <code>spocc:occ()</code> code chunk) - as long as you have your scripts saved, it should be a quick fix and a big improvement to your maps!</li>
+<li>In <a href="BIOL_324_Lab_9.Rmd">Lab 9</a> You will be making phylogenetic trees in R of your five chosen species.</li>
+<li>In <a href="BIOL_324_Lab_10.Rmd">Lab 10</a> you will be combining these elements into a phylogeographic map. <strong>This is the figure you will include in your report</strong>. You will get a tutorial and more details for your map requirements in Lab 10.</li>
+</ul></li>
+</ul>
+<p><strong>Content</strong></p>
+<ul>
+<li>Interpret your phylogeographic map, and discuss the ranges of your 5 species and how/if their distributions relate to their evolutionary relationships.</li>
+<li>Of the 5 species included in your map, <strong>identify the one with the largest geographic range and the one with the smallest geographic range</strong>. Do some research on these two species’ ecologies, habitats, life-histories, and reproductive strategies and discuss how these may influence their disparate ranges.
+<ul>
+<li>Once you’ve re-made your maps from Lab 7, you should have a much better idea of your species’ North American distributions. This should enable you to be more confident in choosing the species with the smallest vs widest ranges. Make sure to double-check your map with their distributions on GBIF!</li>
+<li>This discussion should be supported by scientific references (at least two per species).</li>
+<li>Your habitat characterizations should be supplemented by information gathered from biodiversity databases such as GBIF, iNaturalist, and eFloras. Ecological/habitat information can often be vague or difficult to find, so you can look up observations on iNaturalist and examine photos to get an idea of the habitats in which these two species are typically found. Another option is to look up some occurrences on GBIF and plug their geographic coordinates into Google Maps or Google Earth (street view on Google Maps could be quite useful here!) to explore their natural environments. Make sure to cite these resources if you use them!</li>
+</ul></li>
+<li>You must include a References section at the end of the report.</li>
+</ul>
+<p><strong>Style</strong></p>
+<ul>
+<li>Your Figure and references must be cited in the text. You should include at least four scientific references (two for each species you are comparing, of course more are welcome), and follow <a href="https://owl.purdue.edu/owl/research_and_citation/apa_style/apa_formatting_and_style_guide/reference_list_basic_rules.html">APA formatting</a> for your in-text citations and reference section.
+<ul>
+<li>No need for a title page, but you should include your full name at the top of the page on the right-hand side.</li>
+<li>You do not need to include page numbers in your in-text citations (author and year is fine).</li>
+</ul></li>
+<li>Your report should be written in “essay format”, with your ideas structured into paragraphs (no point-form or bullets). To follow the tenets of scientific writing, your writing should be concise and well-organized, avoiding extraneous information that does not connect with the rest of your report’s content.</li>
+<li>Your writing should be clear, grammatically correct, and spell-checked.</li>
+</ul>
+<hr />
+</div>
+<div id="marking" class="section level1">
+<h1>Marking</h1>
+<p>The report is worth 100 marks overall.</p>
+<ul>
+<li>Phylogeographic map (30 marks)</li>
+<li>Content (50 marks)</li>
+<li>Style (20 marks)</li>
+</ul>
+</div>
+
+
+
+</div>
+</div>
+
+</div>
+
+<script>
+
+// add bootstrap table styles to pandoc tables
+function bootstrapStylePandocTables() {
+  $('tr.odd').parent('tbody').parent('table').addClass('table table-condensed');
+}
+$(document).ready(function () {
+  bootstrapStylePandocTables();
+});
+
+
+</script>
+
+<!-- tabsets -->
+
+<script>
+$(document).ready(function () {
+  window.buildTabsets("TOC");
+});
+
+$(document).ready(function () {
+  $('.tabset-dropdown > .nav-tabs > li').click(function () {
+    $(this).parent().toggleClass('nav-tabs-open')
+  });
+});
+</script>
+
+<!-- code folding -->
+
+<script>
+$(document).ready(function ()  {
+
+    // move toc-ignore selectors from section div to header
+    $('div.section.toc-ignore')
+        .removeClass('toc-ignore')
+        .children('h1,h2,h3,h4,h5').addClass('toc-ignore');
+
+    // establish options
+    var options = {
+      selectors: "h1,h2,h3",
+      theme: "bootstrap3",
+      context: '.toc-content',
+      hashGenerator: function (text) {
+        return text.replace(/[.\\/?&!#<>]/g, '').replace(/\s/g, '_');
+      },
+      ignoreSelector: ".toc-ignore",
+      scrollTo: 0
+    };
+    options.showAndHide = true;
+    options.smoothScroll = true;
+
+    // tocify
+    var toc = $("#TOC").tocify(options).data("toc-tocify");
+});
+</script>
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    script.src  = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML";
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+
+</body>
+</html>
