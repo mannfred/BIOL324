@@ -23,25 +23,13 @@
 <link href="site_libs/tocify-1.9.1/jquery.tocify.css" rel="stylesheet" />
 <script src="site_libs/tocify-1.9.1/jquery.tocify.js"></script>
 <script src="site_libs/navigation-1.1/tabsets.js"></script>
-<script src="site_libs/accessible-code-block-0.0.1/empty-anchor.js"></script>
-<link href="site_libs/anchor-sections-1.0/anchor-sections.css" rel="stylesheet" />
-<script src="site_libs/anchor-sections-1.0/anchor-sections.js"></script>
-
-<style type="text/css">
-  code{white-space: pre-wrap;}
-  span.smallcaps{font-variant: small-caps;}
-  span.underline{text-decoration: underline;}
-  div.column{display: inline-block; vertical-align: top; width: 50%;}
-  div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
-  ul.task-list{list-style: none;}
-    </style>
 
 
 <style type="text/css">code{white-space: pre;}</style>
 <style type="text/css" data-origin="pandoc">
-code.sourceCode > span { display: inline-block; line-height: 1.25; }
-code.sourceCode > span { color: inherit; text-decoration: inherit; }
-code.sourceCode > span:empty { height: 1.2em; }
+a.sourceLine { display: inline-block; line-height: 1.25; }
+a.sourceLine { pointer-events: none; color: inherit; text-decoration: inherit; }
+a.sourceLine:empty { height: 1.2em; }
 .sourceCode { overflow: visible; }
 code.sourceCode { white-space: pre; position: relative; }
 div.sourceCode { margin: 1em 0; }
@@ -51,16 +39,14 @@ div.sourceCode { overflow: auto; }
 }
 @media print {
 code.sourceCode { white-space: pre-wrap; }
-code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+a.sourceLine { text-indent: -1em; padding-left: 1em; }
 }
-pre.numberSource code
-  { counter-reset: source-line 0; }
-pre.numberSource code > span
-  { position: relative; left: -4em; counter-increment: source-line; }
-pre.numberSource code > span > a:first-child::before
-  { content: counter(source-line);
+pre.numberSource a.sourceLine
+  { position: relative; left: -4em; }
+pre.numberSource a.sourceLine::before
+  { content: attr(title);
     position: relative; left: -1em; text-align: right; vertical-align: baseline;
-    border: none; display: inline-block;
+    border: none; pointer-events: all; display: inline-block;
     -webkit-touch-callout: none; -webkit-user-select: none;
     -khtml-user-select: none; -moz-user-select: none;
     -ms-user-select: none; user-select: none;
@@ -69,9 +55,9 @@ pre.numberSource code > span > a:first-child::before
   }
 pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
 div.sourceCode
-  {  background-color: #f8f8f8; }
+  { background-color: #f8f8f8; }
 @media screen {
-code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+a.sourceLine::before { text-decoration: underline; }
 }
 code span.al { color: #ef2929; } /* Alert */
 code span.an { color: #8f5902; font-weight: bold; font-style: italic; } /* Annotation */
@@ -733,26 +719,26 @@ div.tocify {
 <div id="delimiting-species-using-morphometrics-and-machine-learning" class="section level2">
 <h2>Delimiting Species using Morphometrics and Machine Learning</h2>
 <p>Let’s get started by attaching the required packages:</p>
-<div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1"></a><span class="kw">install.packages</span>(<span class="st">&quot;caret&quot;</span>)</span>
-<span id="cb1-2"><a href="#cb1-2"></a><span class="kw">install.packages</span>(<span class="st">&quot;randomForest&quot;</span>)</span>
-<span id="cb1-3"><a href="#cb1-3"></a><span class="kw">install.packages</span>(<span class="st">&quot;RCurl&quot;</span>)</span>
-<span id="cb1-4"><a href="#cb1-4"></a><span class="kw">install.packages</span>(<span class="st">&quot;tidyverse&quot;</span>)</span></code></pre></div>
-<div class="sourceCode" id="cb2"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1"></a><span class="kw">library</span>(caret)</span>
-<span id="cb2-2"><a href="#cb2-2"></a><span class="kw">library</span>(randomForest)</span>
-<span id="cb2-3"><a href="#cb2-3"></a><span class="kw">library</span>(RCurl)</span>
-<span id="cb2-4"><a href="#cb2-4"></a><span class="kw">library</span>(tidyverse)</span></code></pre></div>
+<div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb1-1" title="1"><span class="kw">install.packages</span>(<span class="st">&quot;caret&quot;</span>)</a>
+<a class="sourceLine" id="cb1-2" title="2"><span class="kw">install.packages</span>(<span class="st">&quot;randomForest&quot;</span>)</a>
+<a class="sourceLine" id="cb1-3" title="3"><span class="kw">install.packages</span>(<span class="st">&quot;RCurl&quot;</span>)</a>
+<a class="sourceLine" id="cb1-4" title="4"><span class="kw">install.packages</span>(<span class="st">&quot;tidyverse&quot;</span>)</a></code></pre></div>
+<div class="sourceCode" id="cb2"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb2-1" title="1"><span class="kw">library</span>(caret)</a>
+<a class="sourceLine" id="cb2-2" title="2"><span class="kw">library</span>(randomForest)</a>
+<a class="sourceLine" id="cb2-3" title="3"><span class="kw">library</span>(RCurl)</a>
+<a class="sourceLine" id="cb2-4" title="4"><span class="kw">library</span>(tidyverse)</a></code></pre></div>
 <p><code>randomForest</code> and <code>caret</code> are packages with machine learning tools for classification, regression, and clustering. There are a few ways to implement machine learning. In this lab we will cover using ML in unsupervised mode. This means that the program will have to find the structure of the data itself, without us training it first.</p>
 <p>Now we’ll import, subset, and preview the <em>Aquilegia</em> morphometric data from Groh et al (2020):</p>
-<div class="sourceCode" id="cb3"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1"></a>columbine_url &lt;-</span>
-<span id="cb3-2"><a href="#cb3-2"></a><span class="st">  </span>RCurl<span class="op">::</span><span class="kw">getURL</span>(<span class="st">&#39;https://raw.githubusercontent.com/jgroh/mosaic/master/data/hrbm-pheno-mosaic.csv&#39;</span>)</span>
-<span id="cb3-3"><a href="#cb3-3"></a></span>
-<span id="cb3-4"><a href="#cb3-4"></a>columbine_data_full &lt;-<span class="st"> </span><span class="kw">read.csv</span>(<span class="dt">text =</span> columbine_url)</span>
-<span id="cb3-5"><a href="#cb3-5"></a></span>
-<span id="cb3-6"><a href="#cb3-6"></a>columbine_data &lt;-</span>
-<span id="cb3-7"><a href="#cb3-7"></a><span class="st">  </span>columbine_data_full <span class="op">%&gt;%</span></span>
-<span id="cb3-8"><a href="#cb3-8"></a><span class="st">  </span><span class="kw">select</span>(<span class="dv">1</span>, <span class="dv">3</span>, <span class="dv">12</span><span class="op">:</span><span class="dv">19</span>)</span>
-<span id="cb3-9"><a href="#cb3-9"></a></span>
-<span id="cb3-10"><a href="#cb3-10"></a><span class="kw">head</span>(columbine_data)</span></code></pre></div>
+<div class="sourceCode" id="cb3"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb3-1" title="1">columbine_url &lt;-</a>
+<a class="sourceLine" id="cb3-2" title="2"><span class="st">  </span>RCurl<span class="op">::</span><span class="kw">getURL</span>(<span class="st">&#39;https://raw.githubusercontent.com/jgroh/mosaic/master/data/hrbm-pheno-mosaic.csv&#39;</span>)</a>
+<a class="sourceLine" id="cb3-3" title="3"></a>
+<a class="sourceLine" id="cb3-4" title="4">columbine_data_full &lt;-<span class="st"> </span><span class="kw">read.csv</span>(<span class="dt">text =</span> columbine_url)</a>
+<a class="sourceLine" id="cb3-5" title="5"></a>
+<a class="sourceLine" id="cb3-6" title="6">columbine_data &lt;-</a>
+<a class="sourceLine" id="cb3-7" title="7"><span class="st">  </span>columbine_data_full <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb3-8" title="8"><span class="st">  </span><span class="kw">select</span>(<span class="dv">1</span>, <span class="dv">3</span>, <span class="dv">12</span><span class="op">:</span><span class="dv">19</span>)</a>
+<a class="sourceLine" id="cb3-9" title="9"></a>
+<a class="sourceLine" id="cb3-10" title="10"><span class="kw">head</span>(columbine_data)</a></code></pre></div>
 <pre><code>##   Accession.Number species.label corolla.width spur.length blade.length
 ## 1          V176410    flavescens          1.50         1.1         0.50
 ## 2           V64139    flavescens          1.50         1.7         0.50
@@ -768,45 +754,45 @@ div.tocify {
 ## 5        0.56           0          1.6        0.50              0.8
 ## 6        0.90           0          1.9        0.70              0.5</code></pre>
 <p>Now, we’ll use the <code>randomForest()</code> function to analyse and sort our specimens:</p>
-<div class="sourceCode" id="cb5"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1"></a><span class="co"># run the function randomForest() on our morphometric data.</span></span>
-<span id="cb5-2"><a href="#cb5-2"></a><span class="co"># ntree tells us how many decision trees to build</span></span>
-<span id="cb5-3"><a href="#cb5-3"></a><span class="co"># mtry is the amount of variables that will be tested at each node of the tree</span></span>
-<span id="cb5-4"><a href="#cb5-4"></a><span class="co"># proximity=TRUE so that the data saves a proximity matrix</span></span>
-<span id="cb5-5"><a href="#cb5-5"></a></span>
-<span id="cb5-6"><a href="#cb5-6"></a>rf &lt;-</span>
-<span id="cb5-7"><a href="#cb5-7"></a><span class="st">  </span><span class="kw">randomForest</span>(</span>
-<span id="cb5-8"><a href="#cb5-8"></a>    columbine_data[,<span class="op">-</span><span class="dv">1</span>],</span>
-<span id="cb5-9"><a href="#cb5-9"></a>    <span class="dt">ntree=</span><span class="dv">30000</span>,</span>
-<span id="cb5-10"><a href="#cb5-10"></a>    <span class="dt">mtry=</span><span class="dv">3</span>,</span>
-<span id="cb5-11"><a href="#cb5-11"></a>    <span class="dt">proximity=</span><span class="ot">TRUE</span>,</span>
-<span id="cb5-12"><a href="#cb5-12"></a>    <span class="dt">keep.forest=</span><span class="ot">TRUE</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb5"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb5-1" title="1"><span class="co"># run the function randomForest() on our morphometric data.</span></a>
+<a class="sourceLine" id="cb5-2" title="2"><span class="co"># ntree tells us how many decision trees to build</span></a>
+<a class="sourceLine" id="cb5-3" title="3"><span class="co"># mtry is the amount of variables that will be tested at each node of the tree</span></a>
+<a class="sourceLine" id="cb5-4" title="4"><span class="co"># proximity=TRUE so that the data saves a proximity matrix</span></a>
+<a class="sourceLine" id="cb5-5" title="5"></a>
+<a class="sourceLine" id="cb5-6" title="6">rf &lt;-</a>
+<a class="sourceLine" id="cb5-7" title="7"><span class="st">  </span><span class="kw">randomForest</span>(</a>
+<a class="sourceLine" id="cb5-8" title="8">    columbine_data[,<span class="op">-</span><span class="dv">1</span>],</a>
+<a class="sourceLine" id="cb5-9" title="9">    <span class="dt">ntree=</span><span class="dv">30000</span>,</a>
+<a class="sourceLine" id="cb5-10" title="10">    <span class="dt">mtry=</span><span class="dv">3</span>,</a>
+<a class="sourceLine" id="cb5-11" title="11">    <span class="dt">proximity=</span><span class="ot">TRUE</span>,</a>
+<a class="sourceLine" id="cb5-12" title="12">    <span class="dt">keep.forest=</span><span class="ot">TRUE</span>)</a></code></pre></div>
 <p><strong>Pause here to let <code>randomForest()</code> run to completion before moving on to the next lines of code.</strong> The <code>randomForest()</code> function generates 30,000 decision trees (<code>ntree</code>) that attempt to classify the specimens based on binary questions posed to the morphometrics data (<code>columbine_data</code>). Each question (‘node’) in the decision tree considers three morphometric variables (<code>mtry</code>). Setting <code>proximity = TRUE</code> tells the function to calculate a similarity metric between specimens. This will help us to calculate a distance matrix describing how similar or dissimilar each sample is from one another:</p>
-<div class="sourceCode" id="cb6"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1"></a>distance.matrix &lt;-<span class="st"> </span><span class="kw">dist</span>(<span class="dv">1</span> <span class="op">-</span><span class="st"> </span>rf<span class="op">$</span>proximity)</span></code></pre></div>
+<div class="sourceCode" id="cb6"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb6-1" title="1">distance.matrix &lt;-<span class="st"> </span><span class="kw">dist</span>(<span class="dv">1</span> <span class="op">-</span><span class="st"> </span>rf<span class="op">$</span>proximity)</a></code></pre></div>
 <p>Now we’ll perform MDS analysis on the distance matrix:</p>
-<div class="sourceCode" id="cb7"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1"></a>mds.analysis &lt;-<span class="st"> </span><span class="kw">cmdscale</span>(distance.matrix, <span class="dt">eig=</span><span class="ot">TRUE</span>, <span class="dt">x.ret=</span><span class="ot">TRUE</span>)</span>
-<span id="cb7-2"><a href="#cb7-2"></a></span>
-<span id="cb7-3"><a href="#cb7-3"></a>mds.var.per &lt;-<span class="st"> </span><span class="kw">round</span>(mds.analysis<span class="op">$</span>eig<span class="op">/</span><span class="kw">sum</span>(mds.analysis<span class="op">$</span>eig)<span class="op">*</span><span class="dv">100</span>, <span class="dv">1</span>)</span>
-<span id="cb7-4"><a href="#cb7-4"></a></span>
-<span id="cb7-5"><a href="#cb7-5"></a>mds.var.per[<span class="dv">1</span><span class="op">:</span><span class="dv">2</span>]</span></code></pre></div>
-<pre><code>## [1] 42.2 13.5</code></pre>
+<div class="sourceCode" id="cb7"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb7-1" title="1">mds.analysis &lt;-<span class="st"> </span><span class="kw">cmdscale</span>(distance.matrix, <span class="dt">eig=</span><span class="ot">TRUE</span>, <span class="dt">x.ret=</span><span class="ot">TRUE</span>)</a>
+<a class="sourceLine" id="cb7-2" title="2"></a>
+<a class="sourceLine" id="cb7-3" title="3">mds.var.per &lt;-<span class="st"> </span><span class="kw">round</span>(mds.analysis<span class="op">$</span>eig<span class="op">/</span><span class="kw">sum</span>(mds.analysis<span class="op">$</span>eig)<span class="op">*</span><span class="dv">100</span>, <span class="dv">1</span>)</a>
+<a class="sourceLine" id="cb7-4" title="4"></a>
+<a class="sourceLine" id="cb7-5" title="5">mds.var.per[<span class="dv">1</span><span class="op">:</span><span class="dv">2</span>]</a></code></pre></div>
+<pre><code>## [1] 41.9 13.5</code></pre>
 <p>The <code>cmdscale()</code> function finds the axes of greatest variation in our morphometrics dataset. For example, if corolla width was the trait that varied the most between all specimens, <code>cmdscale()</code> would assign this variable as <em>MDS axis 1</em>. In reality, it’s unlikely that a single trait will explain the greatest variation in morphology, instead, MDS axes tend to be combinations of traits. In the second step we calculated how much of the total variation of the dataset belongs to each of the MDS axes. The third step prints MDS axes 1 and 2, telling us that MDS axis 1 accounts for 42.3% of the morphological variation in the dataset. Each <em>Aquilegia</em> specimen exists somewhere in the ‘shape space’ created by MDS axes 1 and 2. For example, if MDS axes 1 and 2 described variation in corolla and sepal width, respectively, <em>Aquilegia</em> specimens with wide corollas and sepals would exist in the upper right corner of this ‘shape space’. We’ll see what this looks like in the plotting step. We’ll store the shape space location of each <em>Aquilegia</em> sample in an object called <code>mds.data</code>:</p>
-<div class="sourceCode" id="cb9"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1"></a>mds.values &lt;-<span class="st"> </span>mds.analysis<span class="op">$</span>points</span>
-<span id="cb9-2"><a href="#cb9-2"></a>mds.data &lt;-<span class="st"> </span><span class="kw">data.frame</span>(<span class="dt">Sample =</span> <span class="kw">rownames</span>(mds.values),</span>
-<span id="cb9-3"><a href="#cb9-3"></a>                       <span class="dt">X =</span> mds.values[,<span class="dv">1</span>],</span>
-<span id="cb9-4"><a href="#cb9-4"></a>                       <span class="dt">Y =</span> mds.values[,<span class="dv">2</span>],</span>
-<span id="cb9-5"><a href="#cb9-5"></a>                       <span class="dt">Status =</span> columbine_data<span class="op">$</span>species.label)</span></code></pre></div>
+<div class="sourceCode" id="cb9"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb9-1" title="1">mds.values &lt;-<span class="st"> </span>mds.analysis<span class="op">$</span>points</a>
+<a class="sourceLine" id="cb9-2" title="2">mds.data &lt;-<span class="st"> </span><span class="kw">data.frame</span>(<span class="dt">Sample =</span> <span class="kw">rownames</span>(mds.values),</a>
+<a class="sourceLine" id="cb9-3" title="3">                       <span class="dt">X =</span> mds.values[,<span class="dv">1</span>],</a>
+<a class="sourceLine" id="cb9-4" title="4">                       <span class="dt">Y =</span> mds.values[,<span class="dv">2</span>],</a>
+<a class="sourceLine" id="cb9-5" title="5">                       <span class="dt">Status =</span> columbine_data<span class="op">$</span>species.label)</a></code></pre></div>
 <p>Now we can plot each <em>Aquilegia</em> specimen in morphometric shape space:</p>
-<div class="sourceCode" id="cb10"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1"></a>mds_plot &lt;-</span>
-<span id="cb10-2"><a href="#cb10-2"></a><span class="st">  </span><span class="kw">ggplot</span>(</span>
-<span id="cb10-3"><a href="#cb10-3"></a>    <span class="dt">data =</span> mds.data,</span>
-<span id="cb10-4"><a href="#cb10-4"></a>    <span class="kw">aes</span>(<span class="dt">x =</span> X, <span class="dt">y =</span> Y, <span class="dt">label =</span> Sample)) <span class="op">+</span></span>
-<span id="cb10-5"><a href="#cb10-5"></a><span class="st">  </span><span class="kw">geom_point</span>(<span class="kw">aes</span>(<span class="dt">color =</span> Status)) <span class="op">+</span></span>
-<span id="cb10-6"><a href="#cb10-6"></a><span class="st">  </span><span class="kw">theme_bw</span>() <span class="op">+</span></span>
-<span id="cb10-7"><a href="#cb10-7"></a><span class="st">  </span><span class="kw">xlab</span>(<span class="kw">paste</span>(<span class="st">&quot;MDS1 - &quot;</span>, mds.var.per[<span class="dv">1</span>], <span class="st">&quot;%&quot;</span>,<span class="dt">sep=</span><span class="st">&quot;&quot;</span>)) <span class="op">+</span></span>
-<span id="cb10-8"><a href="#cb10-8"></a><span class="st">  </span><span class="kw">ylab</span>(<span class="kw">paste</span>(<span class="st">&quot;MDS2 - &quot;</span>, mds.var.per[<span class="dv">2</span>], <span class="st">&quot;%&quot;</span>,<span class="dt">sep=</span><span class="st">&quot;&quot;</span>)) <span class="op">+</span></span>
-<span id="cb10-9"><a href="#cb10-9"></a><span class="st">  </span><span class="kw">ggtitle</span>(<span class="st">&quot;Morphometric shape space of two columbine species&quot;</span>)</span>
-<span id="cb10-10"><a href="#cb10-10"></a></span>
-<span id="cb10-11"><a href="#cb10-11"></a>mds_plot</span></code></pre></div>
+<div class="sourceCode" id="cb10"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb10-1" title="1">mds_plot &lt;-</a>
+<a class="sourceLine" id="cb10-2" title="2"><span class="st">  </span><span class="kw">ggplot</span>(</a>
+<a class="sourceLine" id="cb10-3" title="3">    <span class="dt">data =</span> mds.data,</a>
+<a class="sourceLine" id="cb10-4" title="4">    <span class="kw">aes</span>(<span class="dt">x =</span> X, <span class="dt">y =</span> Y, <span class="dt">label =</span> Sample)) <span class="op">+</span></a>
+<a class="sourceLine" id="cb10-5" title="5"><span class="st">  </span><span class="kw">geom_point</span>(<span class="kw">aes</span>(<span class="dt">color =</span> Status)) <span class="op">+</span></a>
+<a class="sourceLine" id="cb10-6" title="6"><span class="st">  </span><span class="kw">theme_bw</span>() <span class="op">+</span></a>
+<a class="sourceLine" id="cb10-7" title="7"><span class="st">  </span><span class="kw">xlab</span>(<span class="kw">paste</span>(<span class="st">&quot;MDS1 - &quot;</span>, mds.var.per[<span class="dv">1</span>], <span class="st">&quot;%&quot;</span>,<span class="dt">sep=</span><span class="st">&quot;&quot;</span>)) <span class="op">+</span></a>
+<a class="sourceLine" id="cb10-8" title="8"><span class="st">  </span><span class="kw">ylab</span>(<span class="kw">paste</span>(<span class="st">&quot;MDS2 - &quot;</span>, mds.var.per[<span class="dv">2</span>], <span class="st">&quot;%&quot;</span>,<span class="dt">sep=</span><span class="st">&quot;&quot;</span>)) <span class="op">+</span></a>
+<a class="sourceLine" id="cb10-9" title="9"><span class="st">  </span><span class="kw">ggtitle</span>(<span class="st">&quot;Morphometric shape space of two columbine species&quot;</span>)</a>
+<a class="sourceLine" id="cb10-10" title="10"></a>
+<a class="sourceLine" id="cb10-11" title="11">mds_plot</a></code></pre></div>
 <p><img src="BIOL_324_Lab_8_files/figure-html/unnamed-chunk-8-1.png" width="672" /></p>
 <p>The <code>ggplot()</code> function takes our <code>mds.data</code> object and plots it. <em>MDS1</em> is the axis explaining the most morphometric variation in our herbarium dataset. Notice that this axis separates <em>A. flavescens</em> and <em>A. formosa</em>.</p>
 <hr />
@@ -819,11 +805,11 @@ div.tocify {
 <li>Modify the third code chunk, removing <code>columbine_url &lt;- RCurl::getURL('https://raw.githubusercontent.com/jgroh/mosaic/master/data/hrbm-pheno-mosaic.csv')</code>. and replacing it with <code>new_object_name &lt;- read.csv(file.choose())</code>. Choose the .csv file you downloaded in the previous step. Change <code>new_object_name</code> to whatever you want.</li>
 <li>You can remove the following code chunks as well, as we have already loaded a .csv and do not need to filter our dataset:</li>
 </ul>
-<div class="sourceCode" id="cb11"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1"></a>columbine_data_full &lt;-<span class="st"> </span><span class="kw">read.csv</span>(<span class="dt">text =</span> columbine_url)</span>
-<span id="cb11-2"><a href="#cb11-2"></a></span>
-<span id="cb11-3"><a href="#cb11-3"></a>columbine_data &lt;-</span>
-<span id="cb11-4"><a href="#cb11-4"></a><span class="st">  </span>columbine_data_full <span class="op">%&gt;%</span></span>
-<span id="cb11-5"><a href="#cb11-5"></a><span class="st">  </span><span class="kw">select</span>(<span class="dv">1</span>, <span class="dv">3</span>, <span class="dv">12</span><span class="op">:</span><span class="dv">19</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb11"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb11-1" title="1">columbine_data_full &lt;-<span class="st"> </span><span class="kw">read.csv</span>(<span class="dt">text =</span> columbine_url)</a>
+<a class="sourceLine" id="cb11-2" title="2"></a>
+<a class="sourceLine" id="cb11-3" title="3">columbine_data &lt;-</a>
+<a class="sourceLine" id="cb11-4" title="4"><span class="st">  </span>columbine_data_full <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb11-5" title="5"><span class="st">  </span><span class="kw">select</span>(<span class="dv">1</span>, <span class="dv">3</span>, <span class="dv">12</span><span class="op">:</span><span class="dv">19</span>)</a></code></pre></div>
 <ul>
 <li>Now that you have the data loaded, modify the remaining bits of code to make an MDS plot of the <em>Antennaria</em> data. You will need to replace any objects with <code>columbine</code> in the name with your <em>Antennaria</em> dataframe. Make sure to make a new title that reflects what you are plotting.</li>
 </ul>
@@ -848,7 +834,7 @@ div.tocify {
 
 // add bootstrap table styles to pandoc tables
 function bootstrapStylePandocTables() {
-  $('tr.odd').parent('tbody').parent('table').addClass('table table-condensed');
+  $('tr.header').parent('thead').parent('table').addClass('table table-condensed');
 }
 $(document).ready(function () {
   bootstrapStylePandocTables();
