@@ -167,7 +167,7 @@ Once the packages are installed, we'll attach them: `ape` is used to connect wit
 ```{r, results = 'hide', warning = FALSE, message = FALSE }
 # attach packages once they are installed 
 library(ape)      
-library(here)   
+library(here) # this package is only needed for the website to run the tutorial -- you don't need it!
 library(msa)    
 library(seqinr) 
 library(tidyverse)
