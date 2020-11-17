@@ -555,7 +555,7 @@ In this first step we're creating a list of all of the plant species that we're 
 ```{r}
 
 opuntia_metadata <- 
-  occ(
+  spocc::occ(
     query = opuntia_wishlist, 
     from = 'gbif', 
     limit = 500, 
