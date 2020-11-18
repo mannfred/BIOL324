@@ -606,7 +606,8 @@ _Opuntia stricta_ (Gulf Coast and Caribbean)
 
 As usual, we'll start by installing the necessary packages:
 ```{r, eval = FALSE}
-install.packages(c('ape', 'seqinr'))
+install.packages('ape')
+install.packages('seqinr')
 ```
 
 We'll install the multiple sequence aligner `msa` separately:
@@ -624,7 +625,6 @@ Once the packages are installed, we'll attach them: `ape` is used to connect wit
 ```{r, results = 'hide', warning = FALSE, message = FALSE }
 # attach packages once they are installed 
 library(ape)      
-library(here) # this package is only needed for the website to run the tutorial -- you don't need it!
 library(msa)    
 library(seqinr) 
 library(tidyverse)
@@ -686,7 +686,7 @@ names(rbcL) <- df$species
 
 Cool, [it's like we're on CSI](https://pubmed.ncbi.nlm.nih.gov/16100764/).
 
-We now have a 'DNA sequence object' named `rbcL`. It contains the _rbcL_ sequences from each of our five _Opuntia_ species. In the next step, we'll use the `msa()` function to align our five _rbcL_ sequences so that their ends are lined up. You could also do this by eye, but it's a bit tedious and not as reproducible:
+We now have a 'DNA sequence object' named `rbcL`. It contains the _rbcL_ sequences from each of our five _Opuntia_ species. In the next step, we'll use the `msa()` function to align our five _rbcL_ sequences so that their ends are lined up. You could also do this by eye, but it's a bit tedious and not as reproducible. This is analogous to when we used MUSCLE to align our sequences in Lab 5...
 
 ```{r, message = FALSE}
 rbcL_alignment <- 
@@ -743,7 +743,7 @@ add.scale.bar()
 
 **IMPORTANT** Save your iNaturalist tree as an .rds file so that we can use it in Lab 10. Modify the `file =` argument if you'd like to save it outside of your RStudio working directory.
 
-```{r}
+```{r, eval=FALSE}
 saveRDS(rbcL_tree, file = 'rbcL_tree.rds')
 ```
 
