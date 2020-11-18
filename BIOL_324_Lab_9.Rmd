@@ -100,7 +100,7 @@ Bulbs can also be found in the Asparagaceae family, as seen in the "pregnant oni
 
 ## Flowers
 
-Species in the genus *Lillium* (which can be bought as ornamentals from most florists) are nice and big, and do a great job of displaying the typical flower structure of lily-like monocots. Note the undifferentiated sepal and petal whorls (thus we call them tepals) and unfused parts in 3's. How many carpels do you think make up the ovary of this flower? Ovaries can either be superior or inferior depending on the family.
+Species in the genus *Lilium* (which can be bought as ornamentals from most florists) are nice and big, and do a great job of displaying the typical flower structure of lily-like monocots. Note the undifferentiated sepal and petal whorls (thus we call them tepals) and unfused parts in 3's. How many carpels do you think make up the ovary of this flower? Ovaries can either be superior or inferior depending on the family.
 
 <p align="center">
 ![](./media/Lily7.jpeg){width=100%}
@@ -208,7 +208,7 @@ In Amaryllidaceae and Alliaceae (the onion family), however, we often find umbel
 
 ## Fruit
 
-Fruit in these families are typically capsules or berries. Here, you can see a dehisced *Lillium* capsule (notice the cool teeth in between the ovary segments) and winged seeds. 
+Fruit in these families are typically capsules or berries. Here, you can see a dehisced *Lilium* capsule (notice the cool teeth in between the ovary segments) and winged seeds. 
 
 <p align="center">
 ![](./media/Lily25.jpeg){width=49%}![](./media/Lily26.jpeg){width=49%}
@@ -227,6 +227,8 @@ Here you can see the beautiful berries of False Solomon's seal (*Maianthemum rac
 ---
 
 ## Knowledge Check 9.1
+
+Draw any of the lily-like monocots pictured above (or your favourite species if you have one ;-)) and label all visible flower parts. Take note of the number of parts in each whorl, the inflorescence type, and whether or not a spathe bract is present.
 
 ---
 
@@ -298,8 +300,9 @@ Here you can see the parts in 3's and inferior ovary of *Iris domestica*.
 
 <br>
 
-Many species of *Iris* (including the ones whose data you analyzed for your first R exercise in [Lab 6](BIOL_324_Lab_6.Rmd)) have a rather unique and modified flower structure. The sepals and petals are differentiated (so no longer tepals), and the styles are petalloid as well. The stamens are actually hidden between the petalloid styles and the sepals. 
+Many species of *Iris* (including the ones whose data you analyzed for your first R exercise in [Lab 6](BIOL_324_Lab_6.Rmd)) have a rather unique and modified flower structure. The sepals and petals are differentiated (so no longer tepals), and the styles are petaloid as well. The stamens are actually hidden between the petaloid styles and the sepals. 
 
+*Iris sibirica*
 <p align="center">
 ![](./media/Iridaceae10.jpeg){width=100%}
 </p>
@@ -314,6 +317,7 @@ Many species of *Iris* (including the ones whose data you analyzed for your firs
 
 You can see the sneaky stamen quite well in this photo:
 
+*Iris tectorum*
 <p align="center">
 ![](./media/Iridaceae13.jpeg){width=100%}
 </p>
@@ -346,7 +350,18 @@ Here you can see *Sisyrinchium idahoense* (Idaho blue-eyed grass), which can be 
 
 ## KNOWLEDGE CHECK 9.2
 
+Make a drawing of a typical *Iris* flower, and make sure to label the following:
+
+- petals
+- sepals
+- petaloid style branches
+- stamens
+- ovary
+- spathe bract
+
 ---
+
+
 
 ---
 
@@ -519,6 +534,18 @@ Orchids produce capsules as their fruit type. These tend to be rather unremarkab
 
 ---
 
+## KNOWLEDGE CHECK 9.3
+
+Choose one of the beautiful orchids pictured above (or pick one of your favourite species ;-)), and make a labeled drawing indicating all visible flower parts. Where possible, make sure to label:
+
+- sepals
+- petals
+- labellum
+- column
+  - label the anther cap, which should be visible.
+
+---
+
 # Phylogenetics in R
 
 ## Motivation
@@ -606,11 +633,12 @@ library(tidyverse)
 First, we're going to build a `data.frame` (i.e. a spreadsheet) that will help us keep track of our _Opuntia_ species and the GenBank accession numbers for the _rbcL_ gene for each species. The accession numbers were found on the GenBank website, using the same protocol from Lab 5. 
 
 ![](media/lab5_genbank1.png) 
+
 Ahh.. simpler days.
 
 
+Once the accession numbers are found, they can be saved in a data frame. Make sure to keep your species and accession numbers in the same order!
 
-Once the accession numbers are found, they can be saved in a data frame:
 ```{r}
 # build data frame
 # accession numbers found by searching GenBank
@@ -641,6 +669,7 @@ df <- data.frame(species, rbcL_acc)
 <!-- ``` -->
 
 Now we're ready to search and download the _rbcL_ sequence for each _Opuntia_ species, using the `read.Genbank()` function: 
+
 ```{r}
 # call GenBank
 rbcL <- 
@@ -658,6 +687,7 @@ names(rbcL) <- df$species
 Cool, [it's like we're on CSI](https://pubmed.ncbi.nlm.nih.gov/16100764/).
 
 We now have a 'DNA sequence object' named `rbcL`. It contains the _rbcL_ sequences from each of our five _Opuntia_ species. In the next step, we'll use the `msa()` function to align our five _rbcL_ sequences so that their ends are lined up. You could also do this by eye, but it's a bit tedious and not as reproducible:
+
 ```{r, message = FALSE}
 rbcL_alignment <- 
   msa(unlist(rbcL),
@@ -696,30 +726,36 @@ rbcL_r <- msaConvert(rbcL_alignment, type="seqinr::alignment")
 rbcL_dist <- dist.alignment(rbcL_r)
 ```
 
-Now, we'll use the `nj()` function to construct trees. In the next step, we'll 'root' our trees by deciding which species is the outgroup:
+Now, we'll use the `nj()` function to construct trees.
 
 ```{r}
 # neighbour joining trees
 rbcL_tree <- nj(rbcL_dist)
-
-rbcL_rooted <- root(rbcL_tree, outgroup = 'O. basilaris', resolve.root = T)
 ```
 
-Plot your new tree:
+Plot your new tree. You can change the layout of the tree by changing the `type=` argument to any of the following: "phylogram", "cladogram", "fan", or "radial".
+
 ```{r}
 # plot tree
-plot(rbcL_rooted, main = 'rbcL tree')
+plot(rbcL_tree, main = 'rbcL tree', type="unrooted")
+add.scale.bar()
 ```
 
-**IMPORTANT** Save your iNaturalist tree as an .rds file so that we can use it in Lab 10:
+**IMPORTANT** Save your iNaturalist tree as an .rds file so that we can use it in Lab 10. Modify the `file =` argument if you'd like to save it outside of your RStudio working directory.
 
 ```{r}
-saveRDS(rbcL_rooted, file = here('R_scripts/rbcL_rooted.rds'))
+saveRDS(rbcL_tree, file = 'rbcL_tree.rds')
 ```
 
-**-KNOWLEDGE CHECK-** How do the matK and rbcL trees differ? Which tree best aligns with the [Majure tree (Figure 3)](https://bsapubs.onlinelibrary.wiley.com/doi/full/10.3732/ajb.1100375)? According to Majure et al (2012), why might our trees differ? 
+---
 
+## KNOWLEDGE CHECK 9.4
 
+Modify the above code to make a phylogenetic tree of your 5 iNaturalist species instead of *Opuntia*. Make sure to pick the same 5 species that you chose to map in Lab 7 and save your tree file somewhere on your computer where you can find it again! You'll be using both your map data from Lab 7 and your tree data from this lab to build your phylogeographic maps in Lab 10 next week - these will be incorporated into Project 2.
+
+Speaking of [Lab 7](BIOL_324_Lab_7.Rmd), we've modified the code (see the `geometry =` argument in the `spocc::occ` function) to help make your maps more representative of their North American distributions. We encourage you to make this small modification and re-run your Lab 7 scripts so that you can make better maps for Project 2! 
+
+---
 
 
 <!-- For consensus trees: -->

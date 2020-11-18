@@ -580,7 +580,7 @@ Agapanthaceae (Alliaceae <em>s.l.</em>), Agavaceae (agave family), Alliaceae (on
 </div>
 <div id="flowers" class="section level2">
 <h2>Flowers</h2>
-<p>Species in the genus <em>Lillium</em> (which can be bought as ornamentals from most florists) are nice and big, and do a great job of displaying the typical flower structure of lily-like monocots. Note the undifferentiated sepal and petal whorls (thus we call them tepals) and unfused parts in 3’s. How many carpels do you think make up the ovary of this flower? Ovaries can either be superior or inferior depending on the family.</p>
+<p>Species in the genus <em>Lilium</em> (which can be bought as ornamentals from most florists) are nice and big, and do a great job of displaying the typical flower structure of lily-like monocots. Note the undifferentiated sepal and petal whorls (thus we call them tepals) and unfused parts in 3’s. How many carpels do you think make up the ovary of this flower? Ovaries can either be superior or inferior depending on the family.</p>
 <p align="center">
 <img src="media/Lily7.jpeg" style="width:100.0%" />
 </p>
@@ -655,7 +655,7 @@ Agapanthaceae (Alliaceae <em>s.l.</em>), Agavaceae (agave family), Alliaceae (on
 </div>
 <div id="fruit" class="section level2">
 <h2>Fruit</h2>
-<p>Fruit in these families are typically capsules or berries. Here, you can see a dehisced <em>Lillium</em> capsule (notice the cool teeth in between the ovary segments) and winged seeds.</p>
+<p>Fruit in these families are typically capsules or berries. Here, you can see a dehisced <em>Lilium</em> capsule (notice the cool teeth in between the ovary segments) and winged seeds.</p>
 <p align="center">
 <img src="media/Lily25.jpeg" style="width:49.0%" /><img src="media/Lily26.jpeg" style="width:49.0%" />
 </p>
@@ -669,6 +669,7 @@ Agapanthaceae (Alliaceae <em>s.l.</em>), Agavaceae (agave family), Alliaceae (on
 </div>
 <div id="knowledge-check-9.1" class="section level2">
 <h2>Knowledge Check 9.1</h2>
+<p>Draw any of the lily-like monocots pictured above (or your favourite species if you have one ;-)) and label all visible flower parts. Take note of the number of parts in each whorl, the inflorescence type, and whether or not a spathe bract is present.</p>
 <hr />
 </div>
 </div>
@@ -719,7 +720,8 @@ Agapanthaceae (Alliaceae <em>s.l.</em>), Agavaceae (agave family), Alliaceae (on
 <img src="media/Iridaceae5.jpeg" style="width:49.0%" /><img src="media/Iridaceae6.jpeg" style="width:49.0%" />
 </p>
 <p><br></p>
-<p>Many species of <em>Iris</em> (including the ones whose data you analyzed for your first R exercise in <a href="BIOL_324_Lab_6.Rmd">Lab 6</a>) have a rather unique and modified flower structure. The sepals and petals are differentiated (so no longer tepals), and the styles are petalloid as well. The stamens are actually hidden between the petalloid styles and the sepals.</p>
+<p>Many species of <em>Iris</em> (including the ones whose data you analyzed for your first R exercise in <a href="BIOL_324_Lab_6.Rmd">Lab 6</a>) have a rather unique and modified flower structure. The sepals and petals are differentiated (so no longer tepals), and the styles are petaloid as well. The stamens are actually hidden between the petaloid styles and the sepals.</p>
+<em>Iris sibirica</em>
 <p align="center">
 <img src="media/Iridaceae10.jpeg" style="width:100.0%" />
 </p>
@@ -729,6 +731,7 @@ Agapanthaceae (Alliaceae <em>s.l.</em>), Agavaceae (agave family), Alliaceae (on
 </p>
 <p><br></p>
 <p>You can see the sneaky stamen quite well in this photo:</p>
+<em>Iris tectorum</em>
 <p align="center">
 <img src="media/Iridaceae13.jpeg" style="width:100.0%" />
 </p>
@@ -751,6 +754,15 @@ Agapanthaceae (Alliaceae <em>s.l.</em>), Agavaceae (agave family), Alliaceae (on
 </div>
 <div id="knowledge-check-9.2" class="section level2">
 <h2>KNOWLEDGE CHECK 9.2</h2>
+<p>Make a drawing of a typical <em>Iris</em> flower, and make sure to label the following:</p>
+<ul>
+<li>petals</li>
+<li>sepals</li>
+<li>petaloid style branches</li>
+<li>stamens</li>
+<li>ovary</li>
+<li>spathe bract</li>
+</ul>
 <hr />
 <hr />
 </div>
@@ -870,6 +882,20 @@ Agapanthaceae (Alliaceae <em>s.l.</em>), Agavaceae (agave family), Alliaceae (on
 <p><br></p>
 <hr />
 </div>
+<div id="knowledge-check-9.3" class="section level2">
+<h2>KNOWLEDGE CHECK 9.3</h2>
+<p>Choose one of the beautiful orchids pictured above (or pick one of your favourite species ;-)), and make a labeled drawing indicating all visible flower parts. Where possible, make sure to label:</p>
+<ul>
+<li>sepals</li>
+<li>petals</li>
+<li>labellum</li>
+<li>column
+<ul>
+<li>label the anther cap, which should be visible.</li>
+</ul></li>
+</ul>
+<hr />
+</div>
 </div>
 <div id="phylogenetics-in-r" class="section level1">
 <h1>Phylogenetics in R</h1>
@@ -912,13 +938,14 @@ Agapanthaceae (Alliaceae <em>s.l.</em>), Agavaceae (agave family), Alliaceae (on
 <p>Once the packages are installed, we’ll attach them: <code>ape</code> is used to connect with the Genbank database, <code>tidyverse</code> helps us filter and organize our sequence data, <code>msa</code> will align our sequences, <code>seqinr</code> will allow us to concatenate sequences, and we’ll use <code>ape</code> again to construct phylogenetic trees:</p>
 <div class="sourceCode" id="cb3"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1"></a><span class="co"># attach packages once they are installed </span></span>
 <span id="cb3-2"><a href="#cb3-2"></a><span class="kw">library</span>(ape)      </span>
-<span id="cb3-3"><a href="#cb3-3"></a><span class="kw">library</span>(here)   </span>
+<span id="cb3-3"><a href="#cb3-3"></a><span class="kw">library</span>(here) <span class="co"># this package is only needed for the website to run the tutorial -- you don&#39;t need it!</span></span>
 <span id="cb3-4"><a href="#cb3-4"></a><span class="kw">library</span>(msa)    </span>
 <span id="cb3-5"><a href="#cb3-5"></a><span class="kw">library</span>(seqinr) </span>
 <span id="cb3-6"><a href="#cb3-6"></a><span class="kw">library</span>(tidyverse)</span></code></pre></div>
 <p>First, we’re going to build a <code>data.frame</code> (i.e. a spreadsheet) that will help us keep track of our <em>Opuntia</em> species and the GenBank accession numbers for the <em>rbcL</em> gene for each species. The accession numbers were found on the GenBank website, using the same protocol from Lab 5.</p>
-<p><img src="media/lab5_genbank1.png" /> Ahh.. simpler days.</p>
-<p>Once the accession numbers are found, they can be saved in a data frame:</p>
+<p><img src="media/lab5_genbank1.png" /></p>
+<p>Ahh.. simpler days.</p>
+<p>Once the accession numbers are found, they can be saved in a data frame. Make sure to keep your species and accession numbers in the same order!</p>
 <div class="sourceCode" id="cb4"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1"></a><span class="co"># build data frame</span></span>
 <span id="cb4-2"><a href="#cb4-2"></a><span class="co"># accession numbers found by searching GenBank</span></span>
 <span id="cb4-3"><a href="#cb4-3"></a>species &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="st">&#39;O. basilaris&#39;</span>, <span class="st">&#39;O. fragilis&#39;</span>, <span class="st">&#39;O. humifusa&#39;</span>, <span class="st">&#39;O. polyacantha&#39;</span>, <span class="st">&#39;O. stricta&#39;</span>) </span>
@@ -996,18 +1023,23 @@ Agapanthaceae (Alliaceae <em>s.l.</em>), Agavaceae (agave family), Alliaceae (on
 <span id="cb10-3"><a href="#cb10-3"></a>  </span>
 <span id="cb10-4"><a href="#cb10-4"></a><span class="co"># create distance matrix</span></span>
 <span id="cb10-5"><a href="#cb10-5"></a>rbcL_dist &lt;-<span class="st"> </span><span class="kw">dist.alignment</span>(rbcL_r)</span></code></pre></div>
-<p>Now, we’ll use the <code>nj()</code> function to construct trees. In the next step, we’ll ‘root’ our trees by deciding which species is the outgroup:</p>
+<p>Now, we’ll use the <code>nj()</code> function to construct trees.</p>
 <div class="sourceCode" id="cb11"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1"></a><span class="co"># neighbour joining trees</span></span>
-<span id="cb11-2"><a href="#cb11-2"></a>rbcL_tree &lt;-<span class="st"> </span><span class="kw">nj</span>(rbcL_dist)</span>
-<span id="cb11-3"><a href="#cb11-3"></a></span>
-<span id="cb11-4"><a href="#cb11-4"></a>rbcL_rooted &lt;-<span class="st"> </span><span class="kw">root</span>(rbcL_tree, <span class="dt">outgroup =</span> <span class="st">&#39;O. basilaris&#39;</span>, <span class="dt">resolve.root =</span> T)</span></code></pre></div>
-<p>Plot your new tree:</p>
+<span id="cb11-2"><a href="#cb11-2"></a>rbcL_tree &lt;-<span class="st"> </span><span class="kw">nj</span>(rbcL_dist)</span></code></pre></div>
+<p>Plot your new tree. You can change the layout of the tree by changing the <code>type=</code> argument to any of the following: “phylogram”, “cladogram”, “fan”, or “radial”.</p>
 <div class="sourceCode" id="cb12"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1"></a><span class="co"># plot tree</span></span>
-<span id="cb12-2"><a href="#cb12-2"></a><span class="kw">plot</span>(rbcL_rooted, <span class="dt">main =</span> <span class="st">&#39;rbcL tree&#39;</span>)</span></code></pre></div>
+<span id="cb12-2"><a href="#cb12-2"></a><span class="kw">plot</span>(rbcL_tree, <span class="dt">main =</span> <span class="st">&#39;rbcL tree&#39;</span>, <span class="dt">type=</span><span class="st">&quot;unrooted&quot;</span>)</span>
+<span id="cb12-3"><a href="#cb12-3"></a><span class="kw">add.scale.bar</span>()</span></code></pre></div>
 <p><img src="BIOL_324_Lab_9_files/figure-html/unnamed-chunk-10-1.png" width="672" /></p>
-<p><strong>IMPORTANT</strong> Save your iNaturalist tree as an .rds file so that we can use it in Lab 10:</p>
-<div class="sourceCode" id="cb13"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1"></a><span class="kw">saveRDS</span>(rbcL_rooted, <span class="dt">file =</span> <span class="kw">here</span>(<span class="st">&#39;R_scripts/rbcL_rooted.rds&#39;</span>))</span></code></pre></div>
-<p><strong>-KNOWLEDGE CHECK-</strong> How do the matK and rbcL trees differ? Which tree best aligns with the <a href="https://bsapubs.onlinelibrary.wiley.com/doi/full/10.3732/ajb.1100375">Majure tree (Figure 3)</a>? According to Majure et al (2012), why might our trees differ?</p>
+<p><strong>IMPORTANT</strong> Save your iNaturalist tree as an .rds file so that we can use it in Lab 10. Modify the <code>file =</code> argument if you’d like to save it outside of your RStudio working directory.</p>
+<div class="sourceCode" id="cb13"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1"></a><span class="kw">saveRDS</span>(rbcL_tree, <span class="dt">file =</span> <span class="st">&#39;rbcL_tree.rds&#39;</span>)</span></code></pre></div>
+<hr />
+</div>
+<div id="knowledge-check-9.4" class="section level2">
+<h2>KNOWLEDGE CHECK 9.4</h2>
+<p>Modify the above code to make a phylogenetic tree of your 5 iNaturalist species instead of <em>Opuntia</em>. Make sure to pick the same 5 species that you chose to map in Lab 7 and save your tree file somewhere on your computer where you can find it again! You’ll be using both your map data from Lab 7 and your tree data from this lab to build your phylogeographic maps in Lab 10 next week - these will be incorporated into Project 2.</p>
+<p>Speaking of <a href="BIOL_324_Lab_7.Rmd">Lab 7</a>, we’ve modified the code (see the <code>geometry =</code> argument in the <code>spocc::occ</code> function) to help make your maps more representative of their North American distributions. We encourage you to make this small modification and re-run your Lab 7 scripts so that you can make better maps for Project 2!</p>
+<hr />
 <!-- For consensus trees: -->
 <!-- Recall that matK and rbcL are two separate segments of the chloroplast genome. By sticking them together, we'll create a super-sequence that contains more information than either of the sequences alone. The more sequence information, the better, because it gives us a bigger sample of the entire genome. Concatenation is done by the `seqinr` package, so we'll need to convert our alignment objects into `seqinr` objects: -->
 <!-- ```{r, results = 'hide'} -->
