@@ -9,10 +9,9 @@
 <meta http-equiv="X-UA-Compatible" content="IE=EDGE" />
 
 
-<meta name="author" content="Mannfred Boehm" />
 
 
-<title>R Assignment 5: Combining Phylogenetics with Biogeography</title>
+<title>Juncaceae, Cyperaceae, Poaceae, and Phylogeography in R</title>
 
 <script src="site_libs/jquery-1.11.3/jquery.min.js"></script>
 <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -20,14 +19,29 @@
 <script src="site_libs/bootstrap-3.3.5/js/bootstrap.min.js"></script>
 <script src="site_libs/bootstrap-3.3.5/shim/html5shiv.min.js"></script>
 <script src="site_libs/bootstrap-3.3.5/shim/respond.min.js"></script>
+<script src="site_libs/jqueryui-1.11.4/jquery-ui.min.js"></script>
+<link href="site_libs/tocify-1.9.1/jquery.tocify.css" rel="stylesheet" />
+<script src="site_libs/tocify-1.9.1/jquery.tocify.js"></script>
 <script src="site_libs/navigation-1.1/tabsets.js"></script>
+<script src="site_libs/accessible-code-block-0.0.1/empty-anchor.js"></script>
+<link href="site_libs/anchor-sections-1.0/anchor-sections.css" rel="stylesheet" />
+<script src="site_libs/anchor-sections-1.0/anchor-sections.js"></script>
+
+<style type="text/css">
+  code{white-space: pre-wrap;}
+  span.smallcaps{font-variant: small-caps;}
+  span.underline{text-decoration: underline;}
+  div.column{display: inline-block; vertical-align: top; width: 50%;}
+  div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+  ul.task-list{list-style: none;}
+    </style>
 
 
 <style type="text/css">code{white-space: pre;}</style>
 <style type="text/css" data-origin="pandoc">
-a.sourceLine { display: inline-block; line-height: 1.25; }
-a.sourceLine { pointer-events: none; color: inherit; text-decoration: inherit; }
-a.sourceLine:empty { height: 1.2em; }
+code.sourceCode > span { display: inline-block; line-height: 1.25; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+code.sourceCode > span:empty { height: 1.2em; }
 .sourceCode { overflow: visible; }
 code.sourceCode { white-space: pre; position: relative; }
 div.sourceCode { margin: 1em 0; }
@@ -37,14 +51,16 @@ div.sourceCode { overflow: auto; }
 }
 @media print {
 code.sourceCode { white-space: pre-wrap; }
-a.sourceLine { text-indent: -1em; padding-left: 1em; }
+code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
 }
-pre.numberSource a.sourceLine
-  { position: relative; left: -4em; }
-pre.numberSource a.sourceLine::before
-  { content: attr(title);
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
     position: relative; left: -1em; text-align: right; vertical-align: baseline;
-    border: none; pointer-events: all; display: inline-block;
+    border: none; display: inline-block;
     -webkit-touch-callout: none; -webkit-user-select: none;
     -khtml-user-select: none; -moz-user-select: none;
     -ms-user-select: none; user-select: none;
@@ -53,9 +69,9 @@ pre.numberSource a.sourceLine::before
   }
 pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
 div.sourceCode
-  { background-color: #f8f8f8; }
+  {  background-color: #f8f8f8; }
 @media screen {
-a.sourceLine::before { text-decoration: underline; }
+code.sourceCode > span > a:first-child::before { text-decoration: underline; }
 }
 code span.al { color: #ef2929; } /* Alert */
 code span.an { color: #8f5902; font-weight: bold; font-style: italic; } /* Annotation */
@@ -322,6 +338,69 @@ $(document).ready(function () {
 
 
 
+<style type="text/css">
+
+#TOC {
+  margin: 25px 0px 20px 0px;
+}
+@media (max-width: 768px) {
+#TOC {
+  position: relative;
+  width: 100%;
+}
+}
+
+@media print {
+.toc-content {
+  /* see https://github.com/w3c/csswg-drafts/issues/4434 */
+  float: right;
+}
+}
+
+.toc-content {
+  padding-left: 30px;
+  padding-right: 40px;
+}
+
+div.main-container {
+  max-width: 1200px;
+}
+
+div.tocify {
+  width: 20%;
+  max-width: 260px;
+  max-height: 85%;
+}
+
+@media (min-width: 768px) and (max-width: 991px) {
+  div.tocify {
+    width: 25%;
+  }
+}
+
+@media (max-width: 767px) {
+  div.tocify {
+    width: 100%;
+    max-width: none;
+  }
+}
+
+.tocify ul, .tocify li {
+  line-height: 20px;
+}
+
+.tocify-subheader .tocify-item {
+  font-size: 0.90em;
+}
+
+.tocify .list-group-item {
+  border-radius: 0px;
+}
+
+
+</style>
+
+
 
 </head>
 
@@ -329,6 +408,16 @@ $(document).ready(function () {
 
 
 <div class="container-fluid main-container">
+
+
+<!-- setup 3col/9col grid for toc_float and main content  -->
+<div class="row-fluid">
+<div class="col-xs-12 col-sm-4 col-md-3">
+<div id="TOC" class="tocify">
+</div>
+</div>
+
+<div class="toc-content col-xs-12 col-sm-8 col-md-9">
 
 
 
@@ -349,34 +438,76 @@ $(document).ready(function () {
   <a href="index.html">Home</a>
 </li>
 <li>
-  <a href="BIOL_324_Lab_2.html">Lab 2</a>
+  <a href="Syllabus.html">Syllabus</a>
 </li>
-<li>
-  <a href="BIOL_324_Lab_3.html">Lab 3</a>
+<li class="dropdown">
+  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
+    Resources
+     
+    <span class="caret"></span>
+  </a>
+  <ul class="dropdown-menu" role="menu">
+    <li>
+      <a href="Morphological_Terminology.html">Morphological Terminology</a>
+    </li>
+  </ul>
 </li>
-<li>
-  <a href="BIOL_324_Lab_4.html">Lab 4</a>
+<li class="dropdown">
+  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
+    Projects
+     
+    <span class="caret"></span>
+  </a>
+  <ul class="dropdown-menu" role="menu">
+    <li>
+      <a href="BIOL_324_Project_1.html">Project 1 (iNaturalist)</a>
+    </li>
+    <li>
+      <a href="LinneanTypification.html">Linnean Typification</a>
+    </li>
+    <li>
+      <a href="BIOL_324_Project_2.html">Project 2 (Phylogeography)</a>
+    </li>
+  </ul>
 </li>
-<li>
-  <a href="BIOL_324_Lab_5.html">Lab 5</a>
-</li>
-<li>
-  <a href="BIOL_324_Lab_6.html">Lab 6</a>
-</li>
-<li>
-  <a href="BIOL_324_Lab_7.html">Lab 7</a>
-</li>
-<li>
-  <a href="BIOL_324_Lab_8.html">Lab 8</a>
-</li>
-<li>
-  <a href="BIOL_324_Lab_9.html">Lab 9</a>
-</li>
-<li>
-  <a href="BIOL_324_Lab_10.html">Lab 10</a>
-</li>
-<li>
-  <a href="LinneanTypification.html">Linnean Typification</a>
+<li class="dropdown">
+  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
+    Labs
+     
+    <span class="caret"></span>
+  </a>
+  <ul class="dropdown-menu" role="menu">
+    <li>
+      <a href="BIOL_324_Lab_1.html">Lab 1</a>
+    </li>
+    <li>
+      <a href="BIOL_324_Lab_2.html">Lab 2</a>
+    </li>
+    <li>
+      <a href="BIOL_324_Lab_3.html">Lab 3</a>
+    </li>
+    <li>
+      <a href="BIOL_324_Lab_4.html">Lab 4</a>
+    </li>
+    <li>
+      <a href="BIOL_324_Lab_5.html">Lab 5</a>
+    </li>
+    <li>
+      <a href="BIOL_324_Lab_6.html">Lab 6</a>
+    </li>
+    <li>
+      <a href="BIOL_324_Lab_7.html">Lab 7</a>
+    </li>
+    <li>
+      <a href="BIOL_324_Lab_8.html">Lab 8</a>
+    </li>
+    <li>
+      <a href="BIOL_324_Lab_9.html">Lab 9</a>
+    </li>
+    <li>
+      <a href="BIOL_324_Lab_10.html">Lab 10</a>
+    </li>
+  </ul>
 </li>
       </ul>
       <ul class="nav navbar-nav navbar-right">
@@ -390,130 +521,500 @@ $(document).ready(function () {
 
 
 
-<h1 class="title toc-ignore">R Assignment 5: Combining Phylogenetics with Biogeography</h1>
-<h4 class="author">Mannfred Boehm</h4>
-<h4 class="date">06 September, 2020</h4>
+<h1 class="title toc-ignore">Juncaceae, Cyperaceae, Poaceae, and Phylogeography in R</h1>
 
 </div>
 
 
-<p><br> <br></p>
-<div id="motivation" class="section level4">
-<h4>Motivation</h4>
-<p>In Labs 7 and 9 we learned how to map species distributions using GBIF data, and how to create phylogenies from DNA sequence data from GenBank. In this final R assignment, we’ll combine these methods to create a phylogeographic map of five <em>Opuntia</em> species. By overlaying a phylogeny onto a species distribution map, we can not only better test taxonomic and evolutionary relationships, but also infer migration and colonization histories.</p>
-<p>   </p>
+<div id="juncaceae" class="section level1">
+<h1>Juncaceae</h1>
+<p><strong>Rush Family</strong></p>
+<hr />
+<p><strong>1. Herbs.</strong><br />
+<strong>2. Stems usually round and solid (or pithy). Leaves alternate or basal, 3 ranked with closed or open sheath.</strong><br />
+<strong>3. Flowers perfect, actinomorphic, small. Tepals in 2 series of 3 each, free. Stamens 3 or 6, anthers basifixed. Pistil compound, ovary superior, carpels 3, placentation parietal or axile.</strong><br />
+<strong>4. Fruit a capsule.</strong><br />
+<strong>5. About 9 genera and 400 species, mostly in temperate regions.</strong></p>
+<p>The Juncaceae is the 15th largest family in B.C., with 59 taxa. They are most often found in wet places.</p>
+<hr />
+<div id="diagrams" class="section level2">
+<h2>Diagrams</h2>
+<p><img src="media/diagram_Juncaceae1.png" /></p>
+<p><br></p>
+<p><img src="media/diagram_Juncaceae2.png" /></p>
 <hr />
 </div>
-<div id="prerequisites" class="section level4">
-<h4>Prerequisites</h4>
-<p>Before starting this week’s tutorial you will have:</p>
-<ol style="list-style-type: decimal">
-<li><p>completed R Assignment 2 (Mapping) and Assignment 4 (Phylogenetics),</p></li>
-<li><p>completed some pre-assignment reading on the use of phylogeography in plant taxonomy,</p></li>
-<li><p>more…</p></li>
-</ol>
-<p>   </p>
+<div id="vegetative-characteristics" class="section level2">
+<h2>Vegetative characteristics</h2>
+<p>There is a rhyme that kind of (but not really) works for differentiating the three “grass-like” families you’ll be learning this week: “Sedges have edges, rushes are round, grasses have nodes from the top to the ground.” While this rhyme doesn’t always work (and for this reason most hardcore taxonomists don’t really like it…), it can be a good starting place to tell apart these groups that look quite similar to each other at first glance.</p>
+<p>Rushes have round stems <em>without obvious nodes</em> (compare to Poaceae family below). In many cases, the leaves are inconspicuous in comparison to the stems, but can be either basal or alternate. The genus <em>Juncus</em> is the most common rush species, and has tall, round, green stems. Most members of <em>Juncus</em> have inflorescences that appear to emerge laterally from the stem, but are actually terminal - the part of the stem (tapering to a point above the infloresence) is actually an involucral bract. Here are some examples of this typical <em>Juncus</em> growth form:</p>
+<p align="center">
+<img src="media/Juncaceae3.jpeg" style="width:49.0%" /> <img src="media/Juncaceae2.jpeg" style="width:49.0%" />
+</p>
+<p><br></p>
+<p>Zooming in a bit, you can see the thin parallel grooves and round stems typical of <em>Juncus</em> species.</p>
+<p align="center">
+<img src="media/Juncaceae4.jpeg" style="width:49.0%" /> <img src="media/Juncaceae5.jpeg" style="width:49.0%" />
+</p>
+<p><br></p>
+<p>Those of you that took BIOL 210 may remember the cross-sections you did of <em>Juncus</em> stems, showing the “aerenchyma” in the center. This is a spongy tissue that forms air channels which provide a low-resistance internal pathway for the exchange of gases (e.g., oxygen and ethylene) between the above- and below-ground parts of plants in wet environments. Here is what aerenchyma looks like after staining the tissue with toluidine blue (a common stain used in plant anatomy to highlight lignified tissues). Pretty cool, eh!?</p>
+<p align="center">
+<img src="media/Juncaceae6.jpeg" style="width:80.0%" />
+</p>
+<p><br></p>
+<p>Not all rushes look like the genus <em>Juncus</em>, however. See the below picture of <em>Luzula parviflora</em> which has large, conspicuous leaves and can easily be mistaken for a member of the Poaceae family.</p>
+<p align="center">
+<img src="media/Juncaceae1.jpeg" style="width:80.0%" />
+</p>
+<p><br></p>
 <hr />
 </div>
-<div id="outcomes" class="section level4">
-<h4>Outcomes</h4>
-<p>By the end of this tutorial you will have: <br></p>
-<ol style="list-style-type: decimal">
-<li><p>the ability to combine distribution data from GBIF with sequence data from Genbank to create phylogeographic maps of species distributions,</p></li>
-<li><p>more…</p></li>
-</ol>
-<p>   </p>
+<div id="flowers" class="section level2">
+<h2>Flowers</h2>
+<p>As mentioned above, a good character for the genus <em>Juncus</em> is deceptively terminal inflorescences with an involucral bract extending above.</p>
+<p align="center">
+<img src="media/Juncaceae7.jpeg" style="width:49.0%" /> <img src="media/Juncaceae8.jpeg" style="width:49.0%" />
+</p>
+<p><br></p>
+<p>The flowers themselves are rather small, drab, and typical monocot-style flower. They have two sets of 3 tepals that are usually greenish or brownish, 3 or 6 stamens, and a superior ovary with 3 carpels. The flowers are quite difficult to see, even with a dissecting microscope.</p>
+<p align="center">
+<img src="media/Juncaceae9.jpeg" style="width:49.0%" /> <img src="media/Juncaceae10.jpeg" style="width:49.0%" />
+</p>
+<p><br></p>
+<p>Here is a much better photo from Wikipedia of <em>J. squarrosus</em> which clearly shows all of the flower parts. Take note of the 3-branched feathery styles.</p>
+<p align="center">
+<img src="media/Juncaceae11.jpg" style="width:100.0%" />
+</p>
+<p><br></p>
 <hr />
 </div>
-<div id="activity-1-creating-a-phylogeographic-map-from-gbif-and-genbank-data" class="section level4">
-<h4>Activity 1: Creating a Phylogeographic Map from GBIF and Genbank Data</h4>
+<div id="fruit" class="section level2">
+<h2>Fruit</h2>
+<p>Similar to the flowers, Juncaceae fruit are small and brownish. They produce capsules, which dehisce when mature and release tiny brown seeds.</p>
+<p align="center">
+<img src="media/Juncaceae12.jpeg" style="width:49.0%" /> <img src="media/Juncaceae13.jpeg" style="width:49.0%" />
+</p>
+<p><br></p>
+<hr />
+</div>
+<div id="knowledge-check-10.1" class="section level2">
+<h2>KNOWLEDGE CHECK 10.1</h2>
+<p>Draw a typical member of the genus <em>Juncus</em>, and make sure to draw/label characters that differentiate Juncaceae from Poaceae and Cyperaceae.</p>
+<hr />
+<hr />
+</div>
+</div>
+<div id="cyperaceae" class="section level1">
+<h1>Cyperaceae</h1>
+<p><strong>Sedge Family</strong></p>
+<hr />
+<p><strong>1. Herbs, often grasslike.</strong><br />
+<strong>2. Stems often triangular, sometimes round, and either hollow or solid. Leaves 3 ranked, leaf sheaths closed, ligule usually absent except in Carex.</strong><br />
+<strong>3. Flowers perfect or imperfect, covered by subtending bract. perianth absent, or represented by scales or bristles. Stamens usually 3, sometimes 1 or 2, anthers basifixed. Pistil compound, superior, carpels 2 3, ovary 1 celled, placentation basal.</strong><br />
+<strong>4. Fruit an achene.</strong><br />
+<strong>5. About 90 genera and 4000 species, widely distributed but primarily in subarctic and temperate regions.</strong></p>
+<p>The Cyperaceae is the 3rd largest family in B.C. with 208 taxa. <em>Carex</em> is by far the largest genus in B.C. with 136 species. The family is a significant source of food for range livestock, a few are cultivated as ornamentals, and Chinese water chestnuts are the tubers of <em>Cyperus</em>. <em>Cyperus papyrus</em> stems were the source of Egyptian papyrus.</p>
+<hr />
+<div id="diagrams-1" class="section level2">
+<h2>Diagrams</h2>
+<p><img src="media/diagram_Cyperaceae1.png" /></p>
+<p><img src="media/diagram_Cyperaceae2.png" /></p>
+<hr />
+</div>
+<div id="vegetative-characteristics-1" class="section level2">
+<h2>Vegetative Characteristics</h2>
+<p>Following the rhyme, one of the best characters to differentiate sedges from grasses and rushes is that their stems are triangular, giving them “edges” when you roll the stem between your fingers. You can see that they are triangular in cross-section.</p>
+<p align="center">
+<img src="media/Cyperaceae1.jpeg" style="width:49.0%" /> <img src="media/Cyperaceae2.jpeg" style="width:49.0%" />
+</p>
+<p><br></p>
+<p>Sedges also often have leaves that are “3-ranked”, meaning that they come out in three different directions when viewing the plants from above. Compare this to Poaceae, which has leaves that are 2-ranked.</p>
+<p align="center">
+<img src="media/Cyperaceae6.png" style="width:100.0%" />
+</p>
+<p>Photo credit: Jamie Fenneman from E-Flora BC - <em>Dulichium arundinaceum</em> (three-way sedge)</p>
+<p><br></p>
+<p>Otherwise, sedges look quite “grass-like” and are difficult to identify at first sight without the proper knowledge.</p>
+<p align="center">
+<img src="media/Cyperaceae3.jpeg" style="width:80.0%" />
+</p>
+<p><br></p>
+<p align="center">
+<img src="media/Cyperaceae4.jpeg" style="width:80.0%" />
+</p>
+<p><br></p>
+<p align="center">
+<img src="media/Cyperaceae5.jpeg" style="width:80.0%" />
+</p>
+<p><br></p>
+<hr />
+</div>
+<div id="flowers-and-fruits" class="section level2">
+<h2>Flowers and Fruits</h2>
+<p><em>Carex</em> is by far the largest genus in Cyperaceae, so we will focus on learning its flower/fruit structure. <em>Carex</em> flowers are highly modified, reduced down to a bract and ovary or stamens without any petals or sepals to speak of. <em>Carex</em> species are quite often monoecious (with separate male and female flowers on the same plant) or dioecious (male and female flowers on separate plants). The pistillate flowers have a small bract and an ovary surrounded by a hardened “perigynium”, which is modified leaf tissue that encapsulates the achene that will form. The staminate flowers consist of simply a bract and three stamens.</p>
+<p>Here you can see part of a pistillate spike. The photo on the right shows a removed perigynium and its associated bract.</p>
+<p align="center">
+<img src="media/Cyperaceae18.jpeg" style="width:49.0%" /> <img src="media/Cyperaceae19.jpeg" style="width:49.0%" />
+</p>
+<p><br></p>
+<p>Sometimes the perigynia are brown, and have an extended “beak” with two teeth at the tip (photo on the right).</p>
+<p align="center">
+<img src="media/Cyperaceae14.jpeg" style="width:49.0%" /> <img src="media/Cyperaceae15.jpeg" style="width:49.0%" />
+</p>
+<p><br></p>
+<p>Chopping through the perigynia reveals the achenes housed inside.</p>
+<p align="center">
+<img src="media/Cyperaceae16.jpeg" style="width:49.0%" /> <img src="media/Cyperaceae17.jpeg" style="width:49.0%" />
+</p>
+<p><br></p>
+<p>Staminate flowers on the other hand are just bracts and some stamens (which often fall apart rapidly and are difficult to image).</p>
+<p align="center">
+<img src="media/Cyperaceae20.jpeg" style="width:49.0%" /> <img src="media/Cyperaceae21.jpeg" style="width:49.0%" />
+</p>
+<p><br></p>
+<p><em>Carex</em> inflorescences often consist of multiple “spikes” (dense clusters of flowers) that can be made up of all staminate flowers, all pistillate flowers, or both (though typically arranged with all staminate flowers clustered on one end of the spike and all pistillate flowers on the other). Quite often there is a subtending bract that reaches above the inflorescences. The arrangement of the spikes within an inflorescence is an important character to differentiate between <em>Carex</em> species in the key (which is infamously nightmarish). Here are some examples…take note of the diversity of those beautiful spikes and inflorescences! Can you tell which spikes are pistillate and which spikes are staminate (or both)?</p>
+<p align="center">
+<img src="media/Cyperaceae7.jpeg" style="width:100.0%" />
+</p>
+<p><br></p>
+<p align="center">
+<img src="media/Cyperaceae8.jpeg" style="width:100.0%" />
+</p>
+<p><br></p>
+<p align="center">
+<img src="media/Cyperaceae9.jpeg" style="width:100.0%" />
+</p>
+<p><br></p>
+<p align="center">
+<img src="media/Cyperaceae10.jpeg" style="width:49.0%" /> <img src="media/Cyperaceae11.jpeg" style="width:49.0%" />
+</p>
+<p><br></p>
+<p align="center">
+<img src="media/Cyperaceae12.jpeg" style="width:100.0%" />
+</p>
+<p><br></p>
+<p align="center">
+<img src="media/Cyperaceae13.jpeg" style="width:100.0%" />
+</p>
+<p><br></p>
+<p>We won’t be going into their floral morphology, but here are some examples of other genera in the Cyperaceae.</p>
+<em>Scirpus</em>
+<p align="center">
+<img src="media/Cyperaceae22.jpeg" style="width:100.0%" />
+</p>
+<p><br></p>
+<em>Trichophorum</em>
+<p align="center">
+<img src="media/Cyperaceae23.jpeg" style="width:100.0%" />
+</p>
+<p><br></p>
+<em>Eriophorum</em>
+<p align="center">
+<img src="media/Cyperaceae24.jpeg" style="width:100.0%" />
+</p>
+<p><br></p>
+<hr />
+</div>
+<div id="knowledge-check-10.2" class="section level2">
+<h2>KNOWLEDGE CHECK 10.2</h2>
+<p>Draw a typical member of the genus <em>Carex</em>, and make sure to draw/label characters that differentiate Cyperaceae from Poaceae and Juncaceae.</p>
+<hr />
+<hr />
+</div>
+</div>
+<div id="poaceae" class="section level1">
+<h1>Poaceae</h1>
+<p><strong>Grass Family</strong></p>
+<p>The grass family is the 2nd largest in B.C., with 334 taxa. The grass family is probably the most important of all economically, providing hay and forage for domestic animals, bamboo, <em>Saccharum</em> (sugar), and grains: <em>Zea</em> (maize or corn), <em>Triticum</em> (wheat), <em>Hordeum</em> (barley), <em>Avena</em> (oats), <em>Secale</em> (rye), etc. In addition, millions of hectares of grass are cultivated for lawns and golf courses…and some of the worst weeds are grasses.</p>
+<hr />
+<p><strong>1. Herbs (except bamboos, which can be woody shrubs or trees).</strong><br />
+<strong>2. Stems typically round and hollow. Leaves 2 ranked, leaf sheaths open or closed, ligule usually present.</strong><br />
+<strong>3. Flowers (florets) perfect or imperfect, consisting of two bracts (the lemma and palea), usually 3 stamens, a single pistil, and lodicules. Pistil compound, ovary superior, carpels 2 or 3, ovary with 1 locule, placentation basal.</strong><br />
+<strong>4. Fruit a caryopsis (grain).</strong><br />
+<strong>5. About 500 genera and 9,000 species, worldwide.</strong></p>
+<hr />
+<div id="diagrams-2" class="section level2">
+<h2>Diagrams</h2>
+<p><img src="media/diagram_Poaceae1.png" /></p>
+<p><br></p>
+<p><img src="media/diagram_Poaceae2.png" /></p>
+<hr />
+</div>
+<div id="vegetative-characteristics-2" class="section level2">
+<h2>Vegetative Characteristics</h2>
+<p>Grass leaves are 2-ranked and alternate on the stem. Each leaf has three distinct regions: A sheath encircling the stem, an expanded blade (what you typically think of as the leaf), and a small membranous structure at the junction of the sheath and blade called a “ligule”. Can you identify each in the photos below?</p>
+<p align="center">
+<img src="media/Poaceae1.jpeg" style="width:100.0%" />
+</p>
+<p><br></p>
+<p align="center">
+<img src="media/Poaceae2.jpeg" style="width:100.0%" />
+</p>
+<p><br></p>
+<p align="center">
+<img src="media/Poaceae3.jpeg" style="width:100.0%" />
+</p>
+<p><br></p>
+<p align="center">
+<img src="media/Poaceae7.jpeg" style="width:100.0%" />
+</p>
+<p><br></p>
+<p>The stems in grasses (called “culms”) are typically hollow, except at their nodes which are typically swollen (remember the rhyme?).</p>
+<p align="center">
+<img src="media/Poaceae4.jpeg" style="width:100.0%" />
+</p>
+<p><br></p>
+<p align="center">
+<img src="media/Poaceae6.jpeg" style="width:100.0%" />
+</p>
+<p><br></p>
+<p align="center">
+<img src="media/Poaceae5.jpeg" style="width:100.0%" />
+</p>
+<p><br></p>
+<hr />
+</div>
+<div id="flowers-1" class="section level2">
+<h2>Flowers</h2>
+<p>The flower and inflorescence structure in Poaceae is unique among angiosperms. Individual flowers are quite small (and typically referred to as florets), consisting of 2 bracts (the lemma and palea), 3 stamens, and a single pistil. One or more florets are arranged into mini-inflorescences called “spikelets”, and each spikelet has two bracts at the base called “glumes”.</p>
+<p>Here you can see a spikelet of <em>Dactylis glomerata</em>. Can you identify the glumes and florets?</p>
+<p align="center">
+<img src="media/Poaceae8.jpeg" style="width:49.0%" /> <img src="media/Poaceae9.jpeg" style="width:49.0%" />
+</p>
+<p><br></p>
+<p>Here you can see a spikelet of <em>Poa</em> sp. Can you identify the glumes, florets, lemma and palea? The lemma is the outer bract of the floret, and is often larger than the palea.</p>
+<p align="center">
+<img src="media/Poaceae10.jpeg" style="width:100.0%" />
+</p>
+<p><br></p>
+<p>Most of the time, the stamens and the stigmas are either buried inside of the florets or have already fallen off. If you catch them at the right time however, you can see both hanging out of the florets (remember that grasses are wind-dispersed!). Check out the bright yellow anthers and vibrant pink stigmas of <em>Sorghastrum nutans</em> found at the UBC Botanical Garden!</p>
+<p align="center">
+<img src="media/Poaceae11.jpeg" style="width:49.0%" /> <img src="media/Poaceae12.jpeg" style="width:49.0%" />
+</p>
+<p><br></p>
+<p align="center">
+<img src="media/Poaceae13.jpeg" style="width:49.0%" /> <img src="media/Poaceae14.jpeg" style="width:49.0%" />
+</p>
+<p><br></p>
+<p>Here you can see corn (<em>Zea mays</em>) with dangling anthers.</p>
+<p align="center">
+<img src="media/Poaceae21.jpeg" style="width:100.0%" />
+</p>
+<p><br></p>
+<p align="center">
+<img src="media/Poaceae22.jpeg" style="width:100.0%" />
+</p>
+<p><br></p>
+<p>Another important feature associated with the florets are awns, which are long bristles (most of you should be familiar with these) that typically extend from the tips of the lemmas. Here are some examples:</p>
+<p align="center">
+<img src="media/Poaceae15.jpeg" style="width:100.0%" />
+</p>
+<p><br></p>
+<p align="center">
+<img src="media/Poaceae16.jpeg" style="width:100.0%" />
+</p>
+<p><br></p>
+<hr />
+<p>Grass inflorescences vary widely, and getting familiar with the arrangement of spikelets (in combination with vegetative characters) is probably the best way to identify grass species and genera without having to resort to a microscope (though a microscope is often required for tough species).</p>
+<p>Some species form a spike, with densely clustered spikelets that are sessile on the flower stalk, like these two species of <em>Phluem</em> (Timothy).</p>
+<p align="center">
+<img src="media/Poaceae17.jpeg" style="width:100.0%" />
+</p>
+<p><br></p>
+<p align="center">
+<img src="media/Poaceae18.jpeg" style="width:100.0%" />
+</p>
+<p><br></p>
+<p>Others are unbranched and sessile, with florets alternately arranged.</p>
+<em>Lolium perenne</em> (perennial ryegrass)
+<p align="center">
+<img src="media/Poaceae19.jpeg" style="width:100.0%" />
+</p>
+<p><br></p>
+<em>Agopyron cristatum</em> (crested wheatgrass)
+<p align="center">
+<img src="media/Poaceae20.jpeg" style="width:100.0%" />
+</p>
+<p><br></p>
+<p>Most are panicles, a branched inflorescence with a main axis bearing pedicellate spikelets on the branches.</p>
+<p align="center">
+<img src="media/Poaceae23.jpeg" style="width:100.0%" />
+</p>
+<p><br></p>
+<p align="center">
+<img src="media/Poaceae24.jpeg" style="width:100.0%" />
+</p>
+<p><br></p>
+<p align="center">
+<img src="media/Poaceae25.jpeg" style="width:100.0%" />
+</p>
+<p><br></p>
+<hr />
+</div>
+<div id="fruit-1" class="section level2">
+<h2>Fruit</h2>
+<p>Members of the Poaceae family form a caryopsis as their fruit type. A caryopsis is a dry, indehiscent fruit formed from a simple pistil that resembles an achene, except the seed coat is fused to the ovary wall. The caryopsis is often referred to as a grain, which as you likely know makes up a huge proportion of the food eaten by humans. Keep in mind that not all seeds/fruit referred to as “grains” (aka “cereal grains”) belong to the Poaceae family.</p>
+<p>Here, you can see a swollen caryopsis forming between the lemma and pelea of wheat (<em>Triticum</em> sp.).</p>
+<p align="center">
+<img src="media/Poaceae26.jpeg" style="width:49.0%" /> <img src="media/Poaceae27.jpeg" style="width:49.0%" />
+</p>
+<p><br></p>
+<hr />
+</div>
+<div id="knowledge-check-10.3" class="section level2">
+<h2>KNOWLEDGE CHECK 10.3</h2>
+<p>Draw a typical member of the Poaceae, and make sure to draw/label characters that differentiate this family from Juncaceae and Cyperaceae.</p>
+<hr />
+<hr />
+</div>
+</div>
+<div id="ultimate-r-exercise-making-phylogeographic-maps" class="section level1">
+<h1>Ultimate R exercise: Making phylogeographic maps</h1>
+<hr />
+<div id="motivation" class="section level2">
+<h2>Motivation</h2>
+<p>In Labs 7 and 9 we learned how to map species distributions using GBIF data, and how to create phylogenies from DNA sequence data from GenBank. In this final R assignment, we’ll combine these methods to create a phylogeographic map of five <em>Opuntia</em> species. By overlaying a phylogeny onto a species distribution map, we can not only better test taxonomic and evolutionary relationships, but also infer migration and colonization histories. You’ll be modifying this code to create phylogeographic maps of the 5 iNaturalist species you’ve been working in the second half of term.</p>
+<p>   </p>
+<!-- --- -->
+<!-- #### Prerequisites  -->
+<!-- Before starting this week's tutorial you will have:  -->
+<!-- 1. completed R Assignment 2 (Mapping) and Assignment 4 (Phylogenetics),  -->
+<!-- 2. completed some pre-assignment reading on the use of phylogeography in plant taxonomy,  -->
+<!-- 3. more... -->
+<!-- &nbsp; -->
+<!-- &nbsp; -->
+<!-- --- -->
+<!-- #### Outcomes -->
+<!-- By the end of this tutorial you will have: <br> -->
+<!-- 1. the ability to combine distribution data from GBIF with sequence data from Genbank to create phylogeographic maps of species distributions, -->
+<!-- 2. more... -->
+<!-- &nbsp; -->
+<!-- &nbsp; -->
+<!-- --- -->
+</div>
+<div id="creating-a-phylogeographic-map-from-gbif-and-genbank-data" class="section level2">
+<h2>Creating a Phylogeographic Map from GBIF and Genbank Data</h2>
 <p>In previous Assignments we mapped species distributions and constructed phylogenetic trees. In this Assignment, we’ll combine both lines of research to simultaneously visualize the phylogenetic and geographic relationships of five <em>Opuntia</em> species.</p>
-<p>In this lab, we’ll explore further the genus <em>Opuntia</em>:</p>
+<p>In this lab, we’ll further explore the genus <em>Opuntia</em>:</p>
 <p><em>Opuntia basilaris</em> (Mojave, Colorado, Utah)</p>
 <p><em>Opuntia fragilis</em> (Northwestern)</p>
 <p><em>Opuntia humifusa</em> (Eastern)</p>
 <p><em>Opuntia polyacantha</em> (Great Plains, foothills of Rocky Mtns)</p>
 <p><em>Opuntia stricta</em> (Gulf Coast and Caribbean)</p>
 <p>Let’s start by installing the necessary packages. <code>mapdata</code> is an slightly more sophisticated package than <code>mapr</code> (which we used in Lab 7) — this will allow us to overlay a phylogeny onto a biogeographic plot. <code>phytools</code> is a similar phylogenetics package to <code>ape</code> (Lab 9), but contains functions for overlaying phylogenies onto maps. <code>viridis</code> is a package for creating custom colour schemes — our maps gotta look fresh!</p>
-<div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb1-1" title="1"><span class="kw">install.packages</span>(<span class="kw">c</span>(<span class="st">&#39;mapdata&#39;</span>, <span class="st">&#39;phytools&#39;</span>, <span class="st">&#39;viridis&#39;</span>))</a></code></pre></div>
+<div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1"></a><span class="kw">install.packages</span>(<span class="st">&#39;mapdata&#39;</span>)</span>
+<span id="cb1-2"><a href="#cb1-2"></a><span class="kw">install.packages</span>(<span class="st">&#39;phytools&#39;</span>)</span>
+<span id="cb1-3"><a href="#cb1-3"></a><span class="kw">install.packages</span>(<span class="st">&#39;viridis&#39;</span>)</span></code></pre></div>
 <p>Attach the packages:</p>
-<div class="sourceCode" id="cb2"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb2-1" title="1"><span class="co"># attach packages once they are installed </span></a>
-<a class="sourceLine" id="cb2-2" title="2"><span class="kw">library</span>(here)</a>
-<a class="sourceLine" id="cb2-3" title="3"><span class="kw">library</span>(mapdata)</a>
-<a class="sourceLine" id="cb2-4" title="4"><span class="kw">library</span>(phytools)</a>
-<a class="sourceLine" id="cb2-5" title="5"><span class="kw">library</span>(tidyverse)</a>
-<a class="sourceLine" id="cb2-6" title="6"><span class="kw">library</span>(viridis)</a></code></pre></div>
-<p>Let’s import our species distribution data (from GBIF, Assignment 2) and phylogenetic tree (Assignment 4):</p>
-<div class="sourceCode" id="cb3"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb3-1" title="1"><span class="co"># import Opuntia rbcL tree from last tutorial</span></a>
-<a class="sourceLine" id="cb3-2" title="2">rbcL_rooted &lt;-<span class="st"> </span><span class="kw">readRDS</span>(<span class="dt">file =</span> <span class="kw">here</span>(<span class="st">&#39;R_scripts/rbcL_rooted.rds&#39;</span>))</a>
-<a class="sourceLine" id="cb3-3" title="3"></a>
-<a class="sourceLine" id="cb3-4" title="4"><span class="co"># import filtered GBIF data from last tutorial</span></a>
-<a class="sourceLine" id="cb3-5" title="5">opuntia_fil &lt;-<span class="st"> </span><span class="kw">readRDS</span>(<span class="dt">file =</span> <span class="kw">here</span>(<span class="st">&#39;R_scripts/filtered_gbif_dataset.rds&#39;</span>)) </a></code></pre></div>
+<div class="sourceCode" id="cb2"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1"></a><span class="co"># attach packages once they are installed </span></span>
+<span id="cb2-2"><a href="#cb2-2"></a><span class="kw">library</span>(here)</span>
+<span id="cb2-3"><a href="#cb2-3"></a><span class="kw">library</span>(mapdata)</span>
+<span id="cb2-4"><a href="#cb2-4"></a><span class="kw">library</span>(phytools)</span>
+<span id="cb2-5"><a href="#cb2-5"></a><span class="kw">library</span>(tidyverse)</span>
+<span id="cb2-6"><a href="#cb2-6"></a><span class="kw">library</span>(viridis)</span></code></pre></div>
+<p>Let’s import our species distribution data (from GBIF, Lab 7) and phylogenetic tree (Assignment 4). If you haven’t already, we recommend re-creating your GBIF dataset using the option <code>geometry =</code> within <code>occ()</code> (see revised Lab 7). Don’t forget to save your GBIF data as an .rds file using <code>saveRDS()</code>!</p>
+<p>When you’re ready to import your own <em>rbcL</em> and GBIF data for your iNaturalist species, we recommend using <code>file.choose()</code> inside of <code>readRDS()</code> (see Lab 8).</p>
+<div class="sourceCode" id="cb3"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1"></a><span class="co"># import Opuntia rbcL tree from last tutorial</span></span>
+<span id="cb3-2"><a href="#cb3-2"></a>rbcL_tree &lt;-<span class="st"> </span><span class="kw">readRDS</span>(<span class="dt">file =</span> <span class="st">&#39;rbcL_tree.rds&#39;</span>)</span>
+<span id="cb3-3"><a href="#cb3-3"></a></span>
+<span id="cb3-4"><a href="#cb3-4"></a><span class="co"># import filtered GBIF data from last tutorial</span></span>
+<span id="cb3-5"><a href="#cb3-5"></a>opuntia_fil &lt;-<span class="st"> </span><span class="kw">readRDS</span>(<span class="dt">file =</span> <span class="st">&#39;filtered_gbif_dataset.rds&#39;</span>) </span></code></pre></div>
 <p>Then, we’ll simplify the species names in the GBIF dataset (this is required to use <code>phytools</code>). We can change the names of variables using the <code>mutate()</code> function:</p>
-<div class="sourceCode" id="cb4"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb4-1" title="1">opuntia_fil &lt;-</a>
-<a class="sourceLine" id="cb4-2" title="2"><span class="st"> </span>opuntia_fil <span class="op">%&gt;%</span><span class="st"> </span></a>
-<a class="sourceLine" id="cb4-3" title="3"><span class="st"> </span><span class="kw">mutate</span>(<span class="dt">short_names =</span> <span class="kw">case_when</span>(</a>
-<a class="sourceLine" id="cb4-4" title="4">   name <span class="op">==</span><span class="st"> &quot;Opuntia basilaris Engelm. &amp; J.M.Bigelow&quot;</span> <span class="op">~</span><span class="st"> &quot;O_basilaris&quot;</span>,</a>
-<a class="sourceLine" id="cb4-5" title="5">   name <span class="op">==</span><span class="st"> &quot;Opuntia fragilis (Nutt.) Haw.&quot;</span> <span class="op">~</span><span class="st"> &quot;O_fragilis&quot;</span>,</a>
-<a class="sourceLine" id="cb4-6" title="6">   name <span class="op">==</span><span class="st"> &quot;Opuntia humifusa Raf.&quot;</span> <span class="op">~</span><span class="st"> &quot;O_humifusa&quot;</span>,</a>
-<a class="sourceLine" id="cb4-7" title="7">   name <span class="op">==</span><span class="st"> &quot;Opuntia stricta (Haw.) Haw.&quot;</span> <span class="op">~</span><span class="st"> &quot;O_stricta&quot;</span>,</a>
-<a class="sourceLine" id="cb4-8" title="8">   name <span class="op">==</span><span class="st"> &quot;Opuntia polyacantha Haw.&quot;</span> <span class="op">~</span><span class="st"> &quot;O_polyacantha&quot;</span></a>
-<a class="sourceLine" id="cb4-9" title="9"> ))</a></code></pre></div>
+<div class="sourceCode" id="cb4"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1"></a>opuntia_fil &lt;-</span>
+<span id="cb4-2"><a href="#cb4-2"></a><span class="st"> </span>opuntia_fil <span class="op">%&gt;%</span><span class="st"> </span></span>
+<span id="cb4-3"><a href="#cb4-3"></a><span class="st"> </span><span class="kw">mutate</span>(<span class="dt">short_names =</span> <span class="kw">case_when</span>(</span>
+<span id="cb4-4"><a href="#cb4-4"></a>   name <span class="op">==</span><span class="st"> &quot;Opuntia basilaris Engelm. &amp; J.M.Bigelow&quot;</span> <span class="op">~</span><span class="st"> &quot;O._basilaris&quot;</span>,</span>
+<span id="cb4-5"><a href="#cb4-5"></a>   name <span class="op">==</span><span class="st"> &quot;Opuntia fragilis (Nutt.) Haw.&quot;</span> <span class="op">~</span><span class="st"> &quot;O._fragilis&quot;</span>,</span>
+<span id="cb4-6"><a href="#cb4-6"></a>   name <span class="op">==</span><span class="st"> &quot;Opuntia humifusa Raf.&quot;</span> <span class="op">~</span><span class="st"> &quot;O._humifusa&quot;</span>,</span>
+<span id="cb4-7"><a href="#cb4-7"></a>   name <span class="op">==</span><span class="st"> &quot;Opuntia stricta (Haw.) Haw.&quot;</span> <span class="op">~</span><span class="st"> &quot;O._stricta&quot;</span>,</span>
+<span id="cb4-8"><a href="#cb4-8"></a>   name <span class="op">==</span><span class="st"> &quot;Opuntia polyacantha Haw.&quot;</span> <span class="op">~</span><span class="st"> &quot;O._polyacantha&quot;</span></span>
+<span id="cb4-9"><a href="#cb4-9"></a> ))</span></code></pre></div>
 <p>Some more data organizing is needed.. we’ll reverse the order of the latitude and longitude columns in our GBIF dataset, and convert the <code>tibble</code> into a <code>matrix</code> (for <code>phytools</code>):</p>
-<div class="sourceCode" id="cb5"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb5-1" title="1">latlong &lt;-<span class="st"> </span></a>
-<a class="sourceLine" id="cb5-2" title="2"><span class="st">  </span>opuntia_fil <span class="op">%&gt;%</span><span class="st"> </span></a>
-<a class="sourceLine" id="cb5-3" title="3"><span class="st">  </span><span class="kw">select</span>(<span class="kw">c</span>(<span class="dv">3</span>,<span class="dv">2</span>)) <span class="op">%&gt;%</span><span class="st"> </span><span class="co"># reverse long-lat to lat-long</span></a>
-<a class="sourceLine" id="cb5-4" title="4"><span class="st">  </span><span class="kw">as.matrix</span>()</a></code></pre></div>
+<div class="sourceCode" id="cb5"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1"></a>latlong &lt;-<span class="st"> </span></span>
+<span id="cb5-2"><a href="#cb5-2"></a><span class="st">  </span>opuntia_fil <span class="op">%&gt;%</span><span class="st"> </span></span>
+<span id="cb5-3"><a href="#cb5-3"></a><span class="st">  </span><span class="kw">select</span>(<span class="kw">c</span>(<span class="dv">3</span>,<span class="dv">2</span>)) <span class="op">%&gt;%</span><span class="st"> </span><span class="co"># reverse long-lat to lat-long</span></span>
+<span id="cb5-4"><a href="#cb5-4"></a><span class="st">  </span><span class="kw">as.matrix</span>()</span></code></pre></div>
 <p>We’ll need to give each row (i.e. GBIF observation) a species name in order to overlay a phylogeny. Entries with missing information (<code>NA</code>s) also need to be removed:</p>
-<div class="sourceCode" id="cb6"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb6-1" title="1"><span class="co"># assign species names to rows</span></a>
-<a class="sourceLine" id="cb6-2" title="2"><span class="kw">rownames</span>(latlong) &lt;-<span class="st"> </span>opuntia_fil<span class="op">$</span>short_names</a>
-<a class="sourceLine" id="cb6-3" title="3"></a>
-<a class="sourceLine" id="cb6-4" title="4"><span class="co"># removes rows with NAs</span></a>
-<a class="sourceLine" id="cb6-5" title="5">latlong &lt;-<span class="st"> </span><span class="kw">na.omit</span>(latlong)</a></code></pre></div>
+<div class="sourceCode" id="cb6"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1"></a><span class="co"># assign species names to rows</span></span>
+<span id="cb6-2"><a href="#cb6-2"></a><span class="kw">rownames</span>(latlong) &lt;-<span class="st"> </span>opuntia_fil<span class="op">$</span>short_names</span>
+<span id="cb6-3"><a href="#cb6-3"></a></span>
+<span id="cb6-4"><a href="#cb6-4"></a><span class="co"># removes rows with NAs</span></span>
+<span id="cb6-5"><a href="#cb6-5"></a>latlong &lt;-<span class="st"> </span><span class="kw">na.omit</span>(latlong)</span></code></pre></div>
 <p>The species names need to match the exact spelling and format as in the phylogeny:</p>
-<div class="sourceCode" id="cb7"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb7-1" title="1">rbcL_rooted<span class="op">$</span>tip.label &lt;-<span class="st"> </span></a>
-<a class="sourceLine" id="cb7-2" title="2"><span class="st">  </span><span class="kw">c</span>(<span class="st">&quot;O_basilaris&quot;</span>, <span class="st">&quot;O_stricta&quot;</span>, <span class="st">&quot;O_humifusa&quot;</span>, <span class="st">&quot;O_fragilis&quot;</span>, <span class="st">&quot;O_polyacantha&quot;</span>)</a></code></pre></div>
+<div class="sourceCode" id="cb7"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1"></a>rbcL_tree<span class="op">$</span>tip.label &lt;-<span class="st"> </span></span>
+<span id="cb7-2"><a href="#cb7-2"></a><span class="st">  </span><span class="kw">c</span>(<span class="st">&quot;O._basilaris&quot;</span>, <span class="st">&quot;O._stricta&quot;</span>, <span class="st">&quot;O._humifusa&quot;</span>, <span class="st">&quot;O._fragilis&quot;</span>, <span class="st">&quot;O._polyacantha&quot;</span>)</span></code></pre></div>
 <p>And each species needs a unique colour:</p>
-<div class="sourceCode" id="cb8"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb8-1" title="1">colours &lt;-<span class="st"> </span></a>
-<a class="sourceLine" id="cb8-2" title="2"><span class="st">  </span><span class="kw">setNames</span>(<span class="kw">c</span>(<span class="st">&#39;#999999&#39;</span>, <span class="st">&#39;#E69F00&#39;</span>, <span class="st">&#39;#56B4E9&#39;</span>, <span class="st">&#39;#009E73&#39;</span>, <span class="st">&#39;#F0E442&#39;</span>),</a>
-<a class="sourceLine" id="cb8-3" title="3">           rbcL_rooted<span class="op">$</span>tip.label)</a></code></pre></div>
-<div class="sourceCode" id="cb9"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb9-1" title="1">obj &lt;-<span class="st"> </span></a>
-<a class="sourceLine" id="cb9-2" title="2"><span class="st">  </span><span class="kw">phylo.to.map</span>(</a>
-<a class="sourceLine" id="cb9-3" title="3">    rbcL_rooted, </a>
-<a class="sourceLine" id="cb9-4" title="4">    latlong, </a>
-<a class="sourceLine" id="cb9-5" title="5">    <span class="dt">rotate =</span> <span class="ot">FALSE</span>,</a>
-<a class="sourceLine" id="cb9-6" title="6">    <span class="dt">regions =</span> <span class="kw">c</span>(<span class="st">&quot;Canada&quot;</span>, <span class="st">&quot;USA&quot;</span>, <span class="st">&quot;Mexico&quot;</span>),</a>
-<a class="sourceLine" id="cb9-7" title="7">    <span class="dt">database =</span> <span class="st">&quot;worldHires&quot;</span>,</a>
-<a class="sourceLine" id="cb9-8" title="8">    <span class="dt">xlim =</span> <span class="kw">c</span>(<span class="op">-</span><span class="dv">135</span>, <span class="dv">-55</span> ),  </a>
-<a class="sourceLine" id="cb9-9" title="9">    <span class="dt">ylim =</span> <span class="kw">c</span>(<span class="dv">10</span>, <span class="dv">45</span>),</a>
-<a class="sourceLine" id="cb9-10" title="10">    <span class="dt">asp =</span> <span class="dv">4</span>,</a>
-<a class="sourceLine" id="cb9-11" title="11">    <span class="dt">lwd =</span> <span class="dv">1</span>,</a>
-<a class="sourceLine" id="cb9-12" title="12">    <span class="dt">plot =</span> <span class="ot">FALSE</span>)</a>
-<a class="sourceLine" id="cb9-13" title="13"></a>
-<a class="sourceLine" id="cb9-14" title="14"><span class="kw">plot</span>(</a>
-<a class="sourceLine" id="cb9-15" title="15">  obj, </a>
-<a class="sourceLine" id="cb9-16" title="16">  <span class="dt">direction =</span> <span class="st">&quot;rightwards&quot;</span>, </a>
-<a class="sourceLine" id="cb9-17" title="17">  <span class="dt">colors =</span> <span class="kw">sapply</span>(colours, make.transparent, <span class="fl">0.4</span>),</a>
-<a class="sourceLine" id="cb9-18" title="18">  <span class="dt">pts =</span> <span class="ot">TRUE</span>,</a>
-<a class="sourceLine" id="cb9-19" title="19">  <span class="dt">cex.points =</span> <span class="kw">c</span>(<span class="dv">0</span>,<span class="dv">1</span>),</a>
-<a class="sourceLine" id="cb9-20" title="20">  <span class="dt">lwd =</span> <span class="kw">c</span>(<span class="dv">3</span>,<span class="dv">1</span>),</a>
-<a class="sourceLine" id="cb9-21" title="21">  <span class="dt">asp =</span> <span class="fl">1.3</span>,</a>
-<a class="sourceLine" id="cb9-22" title="22">  <span class="dt">ftype =</span><span class="st">&quot;i&quot;</span>)</a></code></pre></div>
+<div class="sourceCode" id="cb8"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1"></a>colours &lt;-<span class="st"> </span></span>
+<span id="cb8-2"><a href="#cb8-2"></a><span class="st">  </span><span class="kw">setNames</span>(<span class="kw">c</span>(<span class="st">&#39;#999999&#39;</span>, <span class="st">&#39;#E69F00&#39;</span>, <span class="st">&#39;#56B4E9&#39;</span>, <span class="st">&#39;#009E73&#39;</span>, <span class="st">&#39;#F0E442&#39;</span>),</span>
+<span id="cb8-3"><a href="#cb8-3"></a>           rbcL_tree<span class="op">$</span>tip.label)</span></code></pre></div>
+<div class="sourceCode" id="cb9"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1"></a>obj &lt;-<span class="st"> </span></span>
+<span id="cb9-2"><a href="#cb9-2"></a><span class="st">  </span><span class="kw">phylo.to.map</span>(</span>
+<span id="cb9-3"><a href="#cb9-3"></a>    rbcL_tree, </span>
+<span id="cb9-4"><a href="#cb9-4"></a>    latlong, </span>
+<span id="cb9-5"><a href="#cb9-5"></a>    <span class="dt">rotate =</span> <span class="ot">FALSE</span>,</span>
+<span id="cb9-6"><a href="#cb9-6"></a>    <span class="dt">regions =</span> <span class="kw">c</span>(<span class="st">&quot;Canada&quot;</span>, <span class="st">&quot;USA&quot;</span>, <span class="st">&quot;Mexico&quot;</span>),</span>
+<span id="cb9-7"><a href="#cb9-7"></a>    <span class="dt">database =</span> <span class="st">&quot;worldHires&quot;</span>,</span>
+<span id="cb9-8"><a href="#cb9-8"></a>    <span class="dt">xlim =</span> <span class="kw">c</span>(<span class="op">-</span><span class="dv">135</span>, <span class="dv">-55</span> ),  </span>
+<span id="cb9-9"><a href="#cb9-9"></a>    <span class="dt">ylim =</span> <span class="kw">c</span>(<span class="dv">10</span>, <span class="dv">45</span>),</span>
+<span id="cb9-10"><a href="#cb9-10"></a>    <span class="dt">asp =</span> <span class="dv">4</span>,</span>
+<span id="cb9-11"><a href="#cb9-11"></a>    <span class="dt">lwd =</span> <span class="dv">1</span>,</span>
+<span id="cb9-12"><a href="#cb9-12"></a>    <span class="dt">plot =</span> <span class="ot">FALSE</span>)</span>
+<span id="cb9-13"><a href="#cb9-13"></a></span>
+<span id="cb9-14"><a href="#cb9-14"></a><span class="kw">plot</span>(</span>
+<span id="cb9-15"><a href="#cb9-15"></a>  obj, </span>
+<span id="cb9-16"><a href="#cb9-16"></a>  <span class="dt">direction =</span> <span class="st">&quot;rightwards&quot;</span>, </span>
+<span id="cb9-17"><a href="#cb9-17"></a>  <span class="dt">colors =</span> <span class="kw">sapply</span>(colours, make.transparent, <span class="fl">0.4</span>),</span>
+<span id="cb9-18"><a href="#cb9-18"></a>  <span class="dt">pts =</span> <span class="ot">TRUE</span>,</span>
+<span id="cb9-19"><a href="#cb9-19"></a>  <span class="dt">cex.points =</span> <span class="kw">c</span>(<span class="dv">0</span>,<span class="dv">1</span>),</span>
+<span id="cb9-20"><a href="#cb9-20"></a>  <span class="dt">lwd =</span> <span class="kw">c</span>(<span class="dv">3</span>,<span class="dv">1</span>),</span>
+<span id="cb9-21"><a href="#cb9-21"></a>  <span class="dt">asp =</span> <span class="fl">1.3</span>,</span>
+<span id="cb9-22"><a href="#cb9-22"></a>  <span class="dt">ftype =</span><span class="st">&quot;i&quot;</span>)</span></code></pre></div>
 <p><img src="BIOL_324_Lab_10_files/figure-html/unnamed-chunk-9-1.png" width="672" /></p>
-<!-- To plot polygons, set pts = FALSE and cex.point = c(0,0) in plot() and run: -->
-<!-- for(i in 1:Ntip(rbcL_rooted)){ -->
-<!--   spr<-latlong[which(rownames(latlong)==rbcL_rooted$tip.label[i]),] -->
-<!--   mcp<-if(i==1) spr[chull(spr),] else rbind(mcp,spr[chull(spr),]) -->
-<!-- } -->
-<!-- for(i in 1:Ntip(rbcL_rooted)){ -->
-<!--   ii<-which(rownames(mcp)==rbcL_rooted$tip.label[i]) -->
-<!--   polygon(mcp[ii,2:1],col=make.transparent(colours[rbcL_rooted$tip.label[i]],0.8), -->
-<!--           border="darkgrey") -->
-<!-- } -->
+<p>Optional: If you’d like to replace occurrence points with a polygon that summarizes a species’ distribution, you can try:</p>
+<div class="sourceCode" id="cb10"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1"></a><span class="co"># To plot polygons, re-run plot() with pts = FALSE and cex.point = c(0,0) along with </span></span>
+<span id="cb10-2"><a href="#cb10-2"></a>{<span class="kw">plot</span>(</span>
+<span id="cb10-3"><a href="#cb10-3"></a>  obj, </span>
+<span id="cb10-4"><a href="#cb10-4"></a>  <span class="dt">direction =</span> <span class="st">&quot;rightwards&quot;</span>, </span>
+<span id="cb10-5"><a href="#cb10-5"></a>  <span class="dt">colors =</span> <span class="kw">sapply</span>(colours, make.transparent, <span class="fl">0.4</span>),</span>
+<span id="cb10-6"><a href="#cb10-6"></a>  <span class="dt">pts =</span> <span class="ot">FALSE</span>,</span>
+<span id="cb10-7"><a href="#cb10-7"></a>  <span class="dt">cex.points =</span> <span class="kw">c</span>(<span class="dv">0</span>,<span class="dv">0</span>),</span>
+<span id="cb10-8"><a href="#cb10-8"></a>  <span class="dt">lwd =</span> <span class="kw">c</span>(<span class="dv">3</span>,<span class="dv">1</span>),</span>
+<span id="cb10-9"><a href="#cb10-9"></a>  <span class="dt">asp =</span> <span class="fl">1.3</span>,</span>
+<span id="cb10-10"><a href="#cb10-10"></a>  <span class="dt">ftype =</span><span class="st">&quot;i&quot;</span>)</span>
+<span id="cb10-11"><a href="#cb10-11"></a></span>
+<span id="cb10-12"><a href="#cb10-12"></a><span class="co"># compute polygon boundaries from lat-long data</span></span>
+<span id="cb10-13"><a href="#cb10-13"></a><span class="cf">for</span>(i <span class="cf">in</span> <span class="dv">1</span><span class="op">:</span><span class="kw">Ntip</span>(rbcL_tree)){</span>
+<span id="cb10-14"><a href="#cb10-14"></a>  spr&lt;-latlong[<span class="kw">which</span>(<span class="kw">rownames</span>(latlong)<span class="op">==</span>rbcL_tree<span class="op">$</span>tip.label[i]),]</span>
+<span id="cb10-15"><a href="#cb10-15"></a>  mcp&lt;-<span class="cf">if</span>(i<span class="op">==</span><span class="dv">1</span>) spr[<span class="kw">chull</span>(spr),] <span class="cf">else</span> <span class="kw">rbind</span>(mcp,spr[<span class="kw">chull</span>(spr),])</span>
+<span id="cb10-16"><a href="#cb10-16"></a>}</span>
+<span id="cb10-17"><a href="#cb10-17"></a></span>
+<span id="cb10-18"><a href="#cb10-18"></a><span class="co"># plot polygons </span></span>
+<span id="cb10-19"><a href="#cb10-19"></a><span class="cf">for</span>(i <span class="cf">in</span> <span class="dv">1</span><span class="op">:</span><span class="kw">Ntip</span>(rbcL_tree)){</span>
+<span id="cb10-20"><a href="#cb10-20"></a>  ii&lt;-<span class="kw">which</span>(<span class="kw">rownames</span>(mcp)<span class="op">==</span>rbcL_tree<span class="op">$</span>tip.label[i])</span>
+<span id="cb10-21"><a href="#cb10-21"></a>  <span class="kw">polygon</span>(mcp[ii,<span class="dv">2</span><span class="op">:</span><span class="dv">1</span>],<span class="dt">col=</span><span class="kw">make.transparent</span>(colours[rbcL_tree<span class="op">$</span>tip.label[i]],<span class="fl">0.8</span>),</span>
+<span id="cb10-22"><a href="#cb10-22"></a>          <span class="dt">border=</span><span class="st">&quot;darkgrey&quot;</span>)</span>
+<span id="cb10-23"><a href="#cb10-23"></a>}}</span></code></pre></div>
+<p><img src="BIOL_324_Lab_10_files/figure-html/unnamed-chunk-10-1.png" width="672" /></p>
+<hr />
+</div>
+<div id="knowledge-check-10.4" class="section level2">
+<h2>KNOWLEDGE CHECK 10.4</h2>
+<p>After making sure that the above code runs on your computer, modify it to make a phylogeographic map of your 5 iNaturalist species! <strong>This is the map you will include as a figure for <a href="BIOL_324_Project_2.html">Project 2</a></strong>.</p>
+<ul>
+<li>Tips for your maps
+<ul>
+<li>Make sure that each species is abbreviated and spelled correctly in your phylogeny, and that each species shows up on your map and is represented by a different colour.</li>
+<li>You can include either the “dot” version or the “polygon” version (or both)! Choose the one that you feel makes it more intuitive to interpret the ranges of your 5 species.</li>
+<li>Focus your interpretations on the degree of range overlap between species, and whether this correlates with growth form, life history, or habitat requirements.</li>
+</ul></li>
+</ul>
+</div>
 </div>
 
 
 
+</div>
+</div>
 
 </div>
 
@@ -521,7 +1022,7 @@ $(document).ready(function () {
 
 // add bootstrap table styles to pandoc tables
 function bootstrapStylePandocTables() {
-  $('tr.header').parent('thead').parent('table').addClass('table table-condensed');
+  $('tr.odd').parent('tbody').parent('table').addClass('table table-condensed');
 }
 $(document).ready(function () {
   bootstrapStylePandocTables();
@@ -546,6 +1047,32 @@ $(document).ready(function () {
 
 <!-- code folding -->
 
+<script>
+$(document).ready(function ()  {
+
+    // move toc-ignore selectors from section div to header
+    $('div.section.toc-ignore')
+        .removeClass('toc-ignore')
+        .children('h1,h2,h3,h4,h5').addClass('toc-ignore');
+
+    // establish options
+    var options = {
+      selectors: "h1,h2,h3",
+      theme: "bootstrap3",
+      context: '.toc-content',
+      hashGenerator: function (text) {
+        return text.replace(/[.\\/?&!#<>]/g, '').replace(/\s/g, '_');
+      },
+      ignoreSelector: ".toc-ignore",
+      scrollTo: 0
+    };
+    options.showAndHide = true;
+    options.smoothScroll = true;
+
+    // tocify
+    var toc = $("#TOC").tocify(options).data("toc-tocify");
+});
+</script>
 
 <!-- dynamically load mathjax for compatibility with self-contained -->
 <script>
