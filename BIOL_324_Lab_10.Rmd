@@ -661,6 +661,11 @@ rbcL_tree$tip.label <-
   c("O._basilaris", "O._stricta", "O._humifusa", "O._fragilis", "O._polyacantha")
 ```
 
+Double check that this worked by opening the `tip.label` element within your `rbcL_tree` object
+```{r}
+rbcL_tree$tip.label
+```
+
 And each species needs a unique colour:
 
 ```{r}

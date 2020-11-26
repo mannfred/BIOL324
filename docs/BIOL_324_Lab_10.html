@@ -964,58 +964,62 @@ div.tocify {
 <p>The species names need to match the exact spelling and format as in the phylogeny:</p>
 <div class="sourceCode" id="cb11"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1"></a>rbcL_tree<span class="op">$</span>tip.label &lt;-<span class="st"> </span></span>
 <span id="cb11-2"><a href="#cb11-2"></a><span class="st">  </span><span class="kw">c</span>(<span class="st">&quot;O._basilaris&quot;</span>, <span class="st">&quot;O._stricta&quot;</span>, <span class="st">&quot;O._humifusa&quot;</span>, <span class="st">&quot;O._fragilis&quot;</span>, <span class="st">&quot;O._polyacantha&quot;</span>)</span></code></pre></div>
+<p>Double check that this worked by opening the <code>tip.label</code> element within your <code>rbcL_tree</code> object</p>
+<div class="sourceCode" id="cb12"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1"></a>rbcL_tree<span class="op">$</span>tip.label</span></code></pre></div>
+<pre><code>## [1] &quot;O._basilaris&quot;   &quot;O._stricta&quot;     &quot;O._humifusa&quot;    &quot;O._fragilis&quot;   
+## [5] &quot;O._polyacantha&quot;</code></pre>
 <p>And each species needs a unique colour:</p>
-<div class="sourceCode" id="cb12"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1"></a>colours &lt;-<span class="st"> </span></span>
-<span id="cb12-2"><a href="#cb12-2"></a><span class="st">  </span><span class="kw">setNames</span>(<span class="kw">c</span>(<span class="st">&#39;#999999&#39;</span>, <span class="st">&#39;#E69F00&#39;</span>, <span class="st">&#39;#56B4E9&#39;</span>, <span class="st">&#39;#009E73&#39;</span>, <span class="st">&#39;#F0E442&#39;</span>),</span>
-<span id="cb12-3"><a href="#cb12-3"></a>           rbcL_tree<span class="op">$</span>tip.label)</span></code></pre></div>
-<div class="sourceCode" id="cb13"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1"></a>obj &lt;-<span class="st"> </span></span>
-<span id="cb13-2"><a href="#cb13-2"></a><span class="st">  </span><span class="kw">phylo.to.map</span>(</span>
-<span id="cb13-3"><a href="#cb13-3"></a>    rbcL_tree, </span>
-<span id="cb13-4"><a href="#cb13-4"></a>    latlong, </span>
-<span id="cb13-5"><a href="#cb13-5"></a>    <span class="dt">rotate =</span> <span class="ot">FALSE</span>,</span>
-<span id="cb13-6"><a href="#cb13-6"></a>    <span class="dt">regions =</span> <span class="kw">c</span>(<span class="st">&quot;Canada&quot;</span>, <span class="st">&quot;USA&quot;</span>, <span class="st">&quot;Mexico&quot;</span>),</span>
-<span id="cb13-7"><a href="#cb13-7"></a>    <span class="dt">database =</span> <span class="st">&quot;worldHires&quot;</span>,</span>
-<span id="cb13-8"><a href="#cb13-8"></a>    <span class="dt">xlim =</span> <span class="kw">c</span>(<span class="op">-</span><span class="dv">135</span>, <span class="dv">-55</span> ),  </span>
-<span id="cb13-9"><a href="#cb13-9"></a>    <span class="dt">ylim =</span> <span class="kw">c</span>(<span class="dv">10</span>, <span class="dv">45</span>),</span>
-<span id="cb13-10"><a href="#cb13-10"></a>    <span class="dt">asp =</span> <span class="dv">4</span>,</span>
-<span id="cb13-11"><a href="#cb13-11"></a>    <span class="dt">lwd =</span> <span class="dv">1</span>,</span>
-<span id="cb13-12"><a href="#cb13-12"></a>    <span class="dt">plot =</span> <span class="ot">FALSE</span>)</span>
-<span id="cb13-13"><a href="#cb13-13"></a></span>
-<span id="cb13-14"><a href="#cb13-14"></a><span class="kw">plot</span>(</span>
-<span id="cb13-15"><a href="#cb13-15"></a>  obj, </span>
-<span id="cb13-16"><a href="#cb13-16"></a>  <span class="dt">direction =</span> <span class="st">&quot;rightwards&quot;</span>, </span>
-<span id="cb13-17"><a href="#cb13-17"></a>  <span class="dt">colors =</span> <span class="kw">sapply</span>(colours, make.transparent, <span class="fl">0.4</span>),</span>
-<span id="cb13-18"><a href="#cb13-18"></a>  <span class="dt">pts =</span> <span class="ot">TRUE</span>,</span>
-<span id="cb13-19"><a href="#cb13-19"></a>  <span class="dt">cex.points =</span> <span class="kw">c</span>(<span class="dv">0</span>,<span class="dv">1</span>),</span>
-<span id="cb13-20"><a href="#cb13-20"></a>  <span class="dt">lwd =</span> <span class="kw">c</span>(<span class="dv">3</span>,<span class="dv">1</span>),</span>
-<span id="cb13-21"><a href="#cb13-21"></a>  <span class="dt">asp =</span> <span class="fl">1.3</span>,</span>
-<span id="cb13-22"><a href="#cb13-22"></a>  <span class="dt">ftype =</span><span class="st">&quot;i&quot;</span>)</span></code></pre></div>
-<p><img src="BIOL_324_Lab_10_files/figure-html/unnamed-chunk-10-1.png" width="672" /></p>
-<p>Optional: If you’d like to replace occurrence points with a polygon that summarizes a species’ distribution, you can try:</p>
-<div class="sourceCode" id="cb14"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb14-1"><a href="#cb14-1"></a><span class="co"># To plot polygons, re-run plot() with pts = FALSE and cex.point = c(0,0) along with </span></span>
-<span id="cb14-2"><a href="#cb14-2"></a>{<span class="kw">plot</span>(</span>
-<span id="cb14-3"><a href="#cb14-3"></a>  obj, </span>
-<span id="cb14-4"><a href="#cb14-4"></a>  <span class="dt">direction =</span> <span class="st">&quot;rightwards&quot;</span>, </span>
-<span id="cb14-5"><a href="#cb14-5"></a>  <span class="dt">colors =</span> <span class="kw">sapply</span>(colours, make.transparent, <span class="fl">0.4</span>),</span>
-<span id="cb14-6"><a href="#cb14-6"></a>  <span class="dt">pts =</span> <span class="ot">FALSE</span>,</span>
-<span id="cb14-7"><a href="#cb14-7"></a>  <span class="dt">cex.points =</span> <span class="kw">c</span>(<span class="dv">0</span>,<span class="dv">0</span>),</span>
-<span id="cb14-8"><a href="#cb14-8"></a>  <span class="dt">lwd =</span> <span class="kw">c</span>(<span class="dv">3</span>,<span class="dv">1</span>),</span>
-<span id="cb14-9"><a href="#cb14-9"></a>  <span class="dt">asp =</span> <span class="fl">1.3</span>,</span>
-<span id="cb14-10"><a href="#cb14-10"></a>  <span class="dt">ftype =</span><span class="st">&quot;i&quot;</span>)</span>
-<span id="cb14-11"><a href="#cb14-11"></a></span>
-<span id="cb14-12"><a href="#cb14-12"></a><span class="co"># compute polygon boundaries from lat-long data</span></span>
-<span id="cb14-13"><a href="#cb14-13"></a><span class="cf">for</span>(i <span class="cf">in</span> <span class="dv">1</span><span class="op">:</span><span class="kw">Ntip</span>(rbcL_tree)){</span>
-<span id="cb14-14"><a href="#cb14-14"></a>  spr&lt;-latlong[<span class="kw">which</span>(<span class="kw">rownames</span>(latlong)<span class="op">==</span>rbcL_tree<span class="op">$</span>tip.label[i]),]</span>
-<span id="cb14-15"><a href="#cb14-15"></a>  mcp&lt;-<span class="cf">if</span>(i<span class="op">==</span><span class="dv">1</span>) spr[<span class="kw">chull</span>(spr),] <span class="cf">else</span> <span class="kw">rbind</span>(mcp,spr[<span class="kw">chull</span>(spr),])</span>
-<span id="cb14-16"><a href="#cb14-16"></a>}</span>
-<span id="cb14-17"><a href="#cb14-17"></a></span>
-<span id="cb14-18"><a href="#cb14-18"></a><span class="co"># plot polygons </span></span>
-<span id="cb14-19"><a href="#cb14-19"></a><span class="cf">for</span>(i <span class="cf">in</span> <span class="dv">1</span><span class="op">:</span><span class="kw">Ntip</span>(rbcL_tree)){</span>
-<span id="cb14-20"><a href="#cb14-20"></a>  ii&lt;-<span class="kw">which</span>(<span class="kw">rownames</span>(mcp)<span class="op">==</span>rbcL_tree<span class="op">$</span>tip.label[i])</span>
-<span id="cb14-21"><a href="#cb14-21"></a>  <span class="kw">polygon</span>(mcp[ii,<span class="dv">2</span><span class="op">:</span><span class="dv">1</span>],<span class="dt">col=</span><span class="kw">make.transparent</span>(colours[rbcL_tree<span class="op">$</span>tip.label[i]],<span class="fl">0.8</span>),</span>
-<span id="cb14-22"><a href="#cb14-22"></a>          <span class="dt">border=</span><span class="st">&quot;darkgrey&quot;</span>)</span>
-<span id="cb14-23"><a href="#cb14-23"></a>}}</span></code></pre></div>
+<div class="sourceCode" id="cb14"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb14-1"><a href="#cb14-1"></a>colours &lt;-<span class="st"> </span></span>
+<span id="cb14-2"><a href="#cb14-2"></a><span class="st">  </span><span class="kw">setNames</span>(<span class="kw">c</span>(<span class="st">&#39;#999999&#39;</span>, <span class="st">&#39;#E69F00&#39;</span>, <span class="st">&#39;#56B4E9&#39;</span>, <span class="st">&#39;#009E73&#39;</span>, <span class="st">&#39;#F0E442&#39;</span>),</span>
+<span id="cb14-3"><a href="#cb14-3"></a>           rbcL_tree<span class="op">$</span>tip.label)</span></code></pre></div>
+<div class="sourceCode" id="cb15"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb15-1"><a href="#cb15-1"></a>obj &lt;-<span class="st"> </span></span>
+<span id="cb15-2"><a href="#cb15-2"></a><span class="st">  </span><span class="kw">phylo.to.map</span>(</span>
+<span id="cb15-3"><a href="#cb15-3"></a>    rbcL_tree, </span>
+<span id="cb15-4"><a href="#cb15-4"></a>    latlong, </span>
+<span id="cb15-5"><a href="#cb15-5"></a>    <span class="dt">rotate =</span> <span class="ot">FALSE</span>,</span>
+<span id="cb15-6"><a href="#cb15-6"></a>    <span class="dt">regions =</span> <span class="kw">c</span>(<span class="st">&quot;Canada&quot;</span>, <span class="st">&quot;USA&quot;</span>, <span class="st">&quot;Mexico&quot;</span>),</span>
+<span id="cb15-7"><a href="#cb15-7"></a>    <span class="dt">database =</span> <span class="st">&quot;worldHires&quot;</span>,</span>
+<span id="cb15-8"><a href="#cb15-8"></a>    <span class="dt">xlim =</span> <span class="kw">c</span>(<span class="op">-</span><span class="dv">135</span>, <span class="dv">-55</span> ),  </span>
+<span id="cb15-9"><a href="#cb15-9"></a>    <span class="dt">ylim =</span> <span class="kw">c</span>(<span class="dv">10</span>, <span class="dv">45</span>),</span>
+<span id="cb15-10"><a href="#cb15-10"></a>    <span class="dt">asp =</span> <span class="dv">4</span>,</span>
+<span id="cb15-11"><a href="#cb15-11"></a>    <span class="dt">lwd =</span> <span class="dv">1</span>,</span>
+<span id="cb15-12"><a href="#cb15-12"></a>    <span class="dt">plot =</span> <span class="ot">FALSE</span>)</span>
+<span id="cb15-13"><a href="#cb15-13"></a></span>
+<span id="cb15-14"><a href="#cb15-14"></a><span class="kw">plot</span>(</span>
+<span id="cb15-15"><a href="#cb15-15"></a>  obj, </span>
+<span id="cb15-16"><a href="#cb15-16"></a>  <span class="dt">direction =</span> <span class="st">&quot;rightwards&quot;</span>, </span>
+<span id="cb15-17"><a href="#cb15-17"></a>  <span class="dt">colors =</span> <span class="kw">sapply</span>(colours, make.transparent, <span class="fl">0.4</span>),</span>
+<span id="cb15-18"><a href="#cb15-18"></a>  <span class="dt">pts =</span> <span class="ot">TRUE</span>,</span>
+<span id="cb15-19"><a href="#cb15-19"></a>  <span class="dt">cex.points =</span> <span class="kw">c</span>(<span class="dv">0</span>,<span class="dv">1</span>),</span>
+<span id="cb15-20"><a href="#cb15-20"></a>  <span class="dt">lwd =</span> <span class="kw">c</span>(<span class="dv">3</span>,<span class="dv">1</span>),</span>
+<span id="cb15-21"><a href="#cb15-21"></a>  <span class="dt">asp =</span> <span class="fl">1.3</span>,</span>
+<span id="cb15-22"><a href="#cb15-22"></a>  <span class="dt">ftype =</span><span class="st">&quot;i&quot;</span>)</span></code></pre></div>
 <p><img src="BIOL_324_Lab_10_files/figure-html/unnamed-chunk-11-1.png" width="672" /></p>
+<p>Optional: If you’d like to replace occurrence points with a polygon that summarizes a species’ distribution, you can try:</p>
+<div class="sourceCode" id="cb16"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb16-1"><a href="#cb16-1"></a><span class="co"># To plot polygons, re-run plot() with pts = FALSE and cex.point = c(0,0) along with </span></span>
+<span id="cb16-2"><a href="#cb16-2"></a>{<span class="kw">plot</span>(</span>
+<span id="cb16-3"><a href="#cb16-3"></a>  obj, </span>
+<span id="cb16-4"><a href="#cb16-4"></a>  <span class="dt">direction =</span> <span class="st">&quot;rightwards&quot;</span>, </span>
+<span id="cb16-5"><a href="#cb16-5"></a>  <span class="dt">colors =</span> <span class="kw">sapply</span>(colours, make.transparent, <span class="fl">0.4</span>),</span>
+<span id="cb16-6"><a href="#cb16-6"></a>  <span class="dt">pts =</span> <span class="ot">FALSE</span>,</span>
+<span id="cb16-7"><a href="#cb16-7"></a>  <span class="dt">cex.points =</span> <span class="kw">c</span>(<span class="dv">0</span>,<span class="dv">0</span>),</span>
+<span id="cb16-8"><a href="#cb16-8"></a>  <span class="dt">lwd =</span> <span class="kw">c</span>(<span class="dv">3</span>,<span class="dv">1</span>),</span>
+<span id="cb16-9"><a href="#cb16-9"></a>  <span class="dt">asp =</span> <span class="fl">1.3</span>,</span>
+<span id="cb16-10"><a href="#cb16-10"></a>  <span class="dt">ftype =</span><span class="st">&quot;i&quot;</span>)</span>
+<span id="cb16-11"><a href="#cb16-11"></a></span>
+<span id="cb16-12"><a href="#cb16-12"></a><span class="co"># compute polygon boundaries from lat-long data</span></span>
+<span id="cb16-13"><a href="#cb16-13"></a><span class="cf">for</span>(i <span class="cf">in</span> <span class="dv">1</span><span class="op">:</span><span class="kw">Ntip</span>(rbcL_tree)){</span>
+<span id="cb16-14"><a href="#cb16-14"></a>  spr&lt;-latlong[<span class="kw">which</span>(<span class="kw">rownames</span>(latlong)<span class="op">==</span>rbcL_tree<span class="op">$</span>tip.label[i]),]</span>
+<span id="cb16-15"><a href="#cb16-15"></a>  mcp&lt;-<span class="cf">if</span>(i<span class="op">==</span><span class="dv">1</span>) spr[<span class="kw">chull</span>(spr),] <span class="cf">else</span> <span class="kw">rbind</span>(mcp,spr[<span class="kw">chull</span>(spr),])</span>
+<span id="cb16-16"><a href="#cb16-16"></a>}</span>
+<span id="cb16-17"><a href="#cb16-17"></a></span>
+<span id="cb16-18"><a href="#cb16-18"></a><span class="co"># plot polygons </span></span>
+<span id="cb16-19"><a href="#cb16-19"></a><span class="cf">for</span>(i <span class="cf">in</span> <span class="dv">1</span><span class="op">:</span><span class="kw">Ntip</span>(rbcL_tree)){</span>
+<span id="cb16-20"><a href="#cb16-20"></a>  ii&lt;-<span class="kw">which</span>(<span class="kw">rownames</span>(mcp)<span class="op">==</span>rbcL_tree<span class="op">$</span>tip.label[i])</span>
+<span id="cb16-21"><a href="#cb16-21"></a>  <span class="kw">polygon</span>(mcp[ii,<span class="dv">2</span><span class="op">:</span><span class="dv">1</span>],<span class="dt">col=</span><span class="kw">make.transparent</span>(colours[rbcL_tree<span class="op">$</span>tip.label[i]],<span class="fl">0.8</span>),</span>
+<span id="cb16-22"><a href="#cb16-22"></a>          <span class="dt">border=</span><span class="st">&quot;darkgrey&quot;</span>)</span>
+<span id="cb16-23"><a href="#cb16-23"></a>}}</span></code></pre></div>
+<p><img src="BIOL_324_Lab_10_files/figure-html/unnamed-chunk-12-1.png" width="672" /></p>
 <hr />
 </div>
 <div id="knowledge-check-10.4" class="section level2">
