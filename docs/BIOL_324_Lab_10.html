@@ -854,7 +854,7 @@ div.tocify {
 <div id="fruit-1" class="section level2">
 <h2>Fruit</h2>
 <p>Members of the Poaceae family form a caryopsis as their fruit type. A caryopsis is a dry, indehiscent fruit formed from a simple pistil that resembles an achene, except the seed coat is fused to the ovary wall. The caryopsis is often referred to as a grain, which as you likely know makes up a huge proportion of the food eaten by humans. Keep in mind that not all seeds/fruit referred to as “grains” (aka “cereal grains”) belong to the Poaceae family.</p>
-<p>Here, you can see a swollen caryopsis forming between the lemma and pelea of wheat (<em>Triticum</em> sp.).</p>
+<p>Here, you can see a swollen caryopsis forming between the lemma and palea of wheat (<em>Triticum</em> sp.).</p>
 <p align="center">
 <img src="media/Poaceae26.jpeg" style="width:49.0%" /> <img src="media/Poaceae27.jpeg" style="width:49.0%" />
 </p>
@@ -907,94 +907,115 @@ div.tocify {
 <span id="cb1-3"><a href="#cb1-3"></a><span class="kw">install.packages</span>(<span class="st">&#39;viridis&#39;</span>)</span></code></pre></div>
 <p>Attach the packages:</p>
 <div class="sourceCode" id="cb2"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1"></a><span class="co"># attach packages once they are installed </span></span>
-<span id="cb2-2"><a href="#cb2-2"></a><span class="kw">library</span>(here)</span>
-<span id="cb2-3"><a href="#cb2-3"></a><span class="kw">library</span>(mapdata)</span>
-<span id="cb2-4"><a href="#cb2-4"></a><span class="kw">library</span>(phytools)</span>
-<span id="cb2-5"><a href="#cb2-5"></a><span class="kw">library</span>(tidyverse)</span>
-<span id="cb2-6"><a href="#cb2-6"></a><span class="kw">library</span>(viridis)</span></code></pre></div>
+<span id="cb2-2"><a href="#cb2-2"></a><span class="kw">library</span>(mapdata)</span>
+<span id="cb2-3"><a href="#cb2-3"></a><span class="kw">library</span>(phytools)</span>
+<span id="cb2-4"><a href="#cb2-4"></a><span class="kw">library</span>(tidyverse)</span>
+<span id="cb2-5"><a href="#cb2-5"></a><span class="kw">library</span>(viridis)</span></code></pre></div>
 <p>Let’s import our species distribution data (from GBIF, Lab 7) and phylogenetic tree (Assignment 4). If you haven’t already, we recommend re-creating your GBIF dataset using the option <code>geometry =</code> within <code>occ()</code> (see revised Lab 7). Don’t forget to save your GBIF data as an .rds file using <code>saveRDS()</code>!</p>
-<p>When you’re ready to import your own <em>rbcL</em> and GBIF data for your iNaturalist species, we recommend using <code>file.choose()</code> inside of <code>readRDS()</code> (see Lab 8).</p>
+<p>When you’re ready to import your own <em>rbcL</em> and GBIF data for your iNaturalist species, we recommend using <code>readRDS(file = file.choose())</code> (see Lab 8).</p>
 <div class="sourceCode" id="cb3"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1"></a><span class="co"># import Opuntia rbcL tree from last tutorial</span></span>
 <span id="cb3-2"><a href="#cb3-2"></a>rbcL_tree &lt;-<span class="st"> </span><span class="kw">readRDS</span>(<span class="dt">file =</span> <span class="st">&#39;rbcL_tree.rds&#39;</span>)</span>
 <span id="cb3-3"><a href="#cb3-3"></a></span>
-<span id="cb3-4"><a href="#cb3-4"></a><span class="co"># import filtered GBIF data from last tutorial</span></span>
-<span id="cb3-5"><a href="#cb3-5"></a>opuntia_fil &lt;-<span class="st"> </span><span class="kw">readRDS</span>(<span class="dt">file =</span> <span class="st">&#39;filtered_gbif_dataset.rds&#39;</span>) </span></code></pre></div>
+<span id="cb3-4"><a href="#cb3-4"></a><span class="co"># adds a root to our tree, make sure you do this or your trees won&#39;t display properly!</span></span>
+<span id="cb3-5"><a href="#cb3-5"></a>rbcL_tree &lt;-<span class="st"> </span><span class="kw">midpoint.root</span>(rbcL_tree)</span>
+<span id="cb3-6"><a href="#cb3-6"></a></span>
+<span id="cb3-7"><a href="#cb3-7"></a><span class="co"># import filtered GBIF data from last tutorial</span></span>
+<span id="cb3-8"><a href="#cb3-8"></a>opuntia_fil &lt;-<span class="st"> </span><span class="kw">readRDS</span>(<span class="dt">file =</span> <span class="st">&#39;filtered_gbif_dataset.rds&#39;</span>) </span></code></pre></div>
+<p>Do some quick data checks to make sure your data loaded correctly:</p>
+<div class="sourceCode" id="cb4"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1"></a><span class="co"># check that your map data looks ok...</span></span>
+<span id="cb4-2"><a href="#cb4-2"></a><span class="kw">head</span>(opuntia_fil)</span></code></pre></div>
+<pre><code>## # A tibble: 6 x 5
+##   name                longitude latitude basisOfRecord   scientificName         
+##   &lt;chr&gt;                   &lt;dbl&gt;    &lt;dbl&gt; &lt;chr&gt;           &lt;chr&gt;                  
+## 1 Opuntia basilaris …     -117.     36.9 HUMAN_OBSERVAT… Opuntia basilaris Enge…
+## 2 Opuntia basilaris …     -116.     33.7 HUMAN_OBSERVAT… Opuntia basilaris Enge…
+## 3 Opuntia basilaris …     -115.     36.4 HUMAN_OBSERVAT… Opuntia basilaris Enge…
+## 4 Opuntia basilaris …     -115.     36.4 HUMAN_OBSERVAT… Opuntia basilaris Enge…
+## 5 Opuntia basilaris …     -116.     33.9 HUMAN_OBSERVAT… Opuntia basilaris Enge…
+## 6 Opuntia basilaris …     -114.     36.6 HUMAN_OBSERVAT… Opuntia basilaris Enge…</code></pre>
+<div class="sourceCode" id="cb6"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1"></a><span class="co"># double-check how they are named in GBIF dataset...</span></span>
+<span id="cb6-2"><a href="#cb6-2"></a><span class="kw">unique</span>(opuntia_fil<span class="op">$</span>name)</span></code></pre></div>
+<pre><code>## [1] &quot;Opuntia basilaris Engelm. &amp; J.M.Bigelow&quot;
+## [2] &quot;Opuntia fragilis (Nutt.) Haw.&quot;          
+## [3] &quot;Opuntia humifusa Raf.&quot;                  
+## [4] &quot;Opuntia polyacantha Haw.&quot;               
+## [5] &quot;Opuntia stricta (Haw.) Haw.&quot;</code></pre>
 <p>Then, we’ll simplify the species names in the GBIF dataset (this is required to use <code>phytools</code>). We can change the names of variables using the <code>mutate()</code> function:</p>
-<div class="sourceCode" id="cb4"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1"></a>opuntia_fil &lt;-</span>
-<span id="cb4-2"><a href="#cb4-2"></a><span class="st"> </span>opuntia_fil <span class="op">%&gt;%</span><span class="st"> </span></span>
-<span id="cb4-3"><a href="#cb4-3"></a><span class="st"> </span><span class="kw">mutate</span>(<span class="dt">short_names =</span> <span class="kw">case_when</span>(</span>
-<span id="cb4-4"><a href="#cb4-4"></a>   name <span class="op">==</span><span class="st"> &quot;Opuntia basilaris Engelm. &amp; J.M.Bigelow&quot;</span> <span class="op">~</span><span class="st"> &quot;O._basilaris&quot;</span>,</span>
-<span id="cb4-5"><a href="#cb4-5"></a>   name <span class="op">==</span><span class="st"> &quot;Opuntia fragilis (Nutt.) Haw.&quot;</span> <span class="op">~</span><span class="st"> &quot;O._fragilis&quot;</span>,</span>
-<span id="cb4-6"><a href="#cb4-6"></a>   name <span class="op">==</span><span class="st"> &quot;Opuntia humifusa Raf.&quot;</span> <span class="op">~</span><span class="st"> &quot;O._humifusa&quot;</span>,</span>
-<span id="cb4-7"><a href="#cb4-7"></a>   name <span class="op">==</span><span class="st"> &quot;Opuntia stricta (Haw.) Haw.&quot;</span> <span class="op">~</span><span class="st"> &quot;O._stricta&quot;</span>,</span>
-<span id="cb4-8"><a href="#cb4-8"></a>   name <span class="op">==</span><span class="st"> &quot;Opuntia polyacantha Haw.&quot;</span> <span class="op">~</span><span class="st"> &quot;O._polyacantha&quot;</span></span>
-<span id="cb4-9"><a href="#cb4-9"></a> ))</span></code></pre></div>
+<div class="sourceCode" id="cb8"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1"></a>opuntia_fil &lt;-</span>
+<span id="cb8-2"><a href="#cb8-2"></a><span class="st"> </span>opuntia_fil <span class="op">%&gt;%</span><span class="st"> </span></span>
+<span id="cb8-3"><a href="#cb8-3"></a><span class="st"> </span><span class="kw">mutate</span>(<span class="dt">short_names =</span> <span class="kw">case_when</span>(</span>
+<span id="cb8-4"><a href="#cb8-4"></a>   name <span class="op">==</span><span class="st"> &quot;Opuntia basilaris Engelm. &amp; J.M.Bigelow&quot;</span> <span class="op">~</span><span class="st"> &quot;O._basilaris&quot;</span>,</span>
+<span id="cb8-5"><a href="#cb8-5"></a>   name <span class="op">==</span><span class="st"> &quot;Opuntia fragilis (Nutt.) Haw.&quot;</span> <span class="op">~</span><span class="st"> &quot;O._fragilis&quot;</span>,</span>
+<span id="cb8-6"><a href="#cb8-6"></a>   name <span class="op">==</span><span class="st"> &quot;Opuntia humifusa Raf.&quot;</span> <span class="op">~</span><span class="st"> &quot;O._humifusa&quot;</span>,</span>
+<span id="cb8-7"><a href="#cb8-7"></a>   name <span class="op">==</span><span class="st"> &quot;Opuntia stricta (Haw.) Haw.&quot;</span> <span class="op">~</span><span class="st"> &quot;O._stricta&quot;</span>,</span>
+<span id="cb8-8"><a href="#cb8-8"></a>   name <span class="op">==</span><span class="st"> &quot;Opuntia polyacantha Haw.&quot;</span> <span class="op">~</span><span class="st"> &quot;O._polyacantha&quot;</span></span>
+<span id="cb8-9"><a href="#cb8-9"></a> ))</span></code></pre></div>
 <p>Some more data organizing is needed.. we’ll reverse the order of the latitude and longitude columns in our GBIF dataset, and convert the <code>tibble</code> into a <code>matrix</code> (for <code>phytools</code>):</p>
-<div class="sourceCode" id="cb5"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1"></a>latlong &lt;-<span class="st"> </span></span>
-<span id="cb5-2"><a href="#cb5-2"></a><span class="st">  </span>opuntia_fil <span class="op">%&gt;%</span><span class="st"> </span></span>
-<span id="cb5-3"><a href="#cb5-3"></a><span class="st">  </span><span class="kw">select</span>(<span class="kw">c</span>(<span class="dv">3</span>,<span class="dv">2</span>)) <span class="op">%&gt;%</span><span class="st"> </span><span class="co"># reverse long-lat to lat-long</span></span>
-<span id="cb5-4"><a href="#cb5-4"></a><span class="st">  </span><span class="kw">as.matrix</span>()</span></code></pre></div>
+<div class="sourceCode" id="cb9"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1"></a>latlong &lt;-<span class="st"> </span></span>
+<span id="cb9-2"><a href="#cb9-2"></a><span class="st">  </span>opuntia_fil <span class="op">%&gt;%</span><span class="st"> </span></span>
+<span id="cb9-3"><a href="#cb9-3"></a><span class="st">  </span><span class="kw">select</span>(<span class="kw">c</span>(<span class="dv">3</span>,<span class="dv">2</span>)) <span class="op">%&gt;%</span><span class="st"> </span><span class="co"># reverse long-lat to lat-long</span></span>
+<span id="cb9-4"><a href="#cb9-4"></a><span class="st">  </span><span class="kw">as.matrix</span>()</span></code></pre></div>
 <p>We’ll need to give each row (i.e. GBIF observation) a species name in order to overlay a phylogeny. Entries with missing information (<code>NA</code>s) also need to be removed:</p>
-<div class="sourceCode" id="cb6"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1"></a><span class="co"># assign species names to rows</span></span>
-<span id="cb6-2"><a href="#cb6-2"></a><span class="kw">rownames</span>(latlong) &lt;-<span class="st"> </span>opuntia_fil<span class="op">$</span>short_names</span>
-<span id="cb6-3"><a href="#cb6-3"></a></span>
-<span id="cb6-4"><a href="#cb6-4"></a><span class="co"># removes rows with NAs</span></span>
-<span id="cb6-5"><a href="#cb6-5"></a>latlong &lt;-<span class="st"> </span><span class="kw">na.omit</span>(latlong)</span></code></pre></div>
+<div class="sourceCode" id="cb10"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1"></a><span class="co"># assign species names to rows</span></span>
+<span id="cb10-2"><a href="#cb10-2"></a><span class="kw">rownames</span>(latlong) &lt;-<span class="st"> </span>opuntia_fil<span class="op">$</span>short_names</span>
+<span id="cb10-3"><a href="#cb10-3"></a></span>
+<span id="cb10-4"><a href="#cb10-4"></a><span class="co"># removes rows with NAs</span></span>
+<span id="cb10-5"><a href="#cb10-5"></a>latlong &lt;-<span class="st"> </span><span class="kw">na.omit</span>(latlong)</span></code></pre></div>
 <p>The species names need to match the exact spelling and format as in the phylogeny:</p>
-<div class="sourceCode" id="cb7"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1"></a>rbcL_tree<span class="op">$</span>tip.label &lt;-<span class="st"> </span></span>
-<span id="cb7-2"><a href="#cb7-2"></a><span class="st">  </span><span class="kw">c</span>(<span class="st">&quot;O._basilaris&quot;</span>, <span class="st">&quot;O._stricta&quot;</span>, <span class="st">&quot;O._humifusa&quot;</span>, <span class="st">&quot;O._fragilis&quot;</span>, <span class="st">&quot;O._polyacantha&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb11"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1"></a>rbcL_tree<span class="op">$</span>tip.label &lt;-<span class="st"> </span></span>
+<span id="cb11-2"><a href="#cb11-2"></a><span class="st">  </span><span class="kw">c</span>(<span class="st">&quot;O._basilaris&quot;</span>, <span class="st">&quot;O._stricta&quot;</span>, <span class="st">&quot;O._humifusa&quot;</span>, <span class="st">&quot;O._fragilis&quot;</span>, <span class="st">&quot;O._polyacantha&quot;</span>)</span></code></pre></div>
 <p>And each species needs a unique colour:</p>
-<div class="sourceCode" id="cb8"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1"></a>colours &lt;-<span class="st"> </span></span>
-<span id="cb8-2"><a href="#cb8-2"></a><span class="st">  </span><span class="kw">setNames</span>(<span class="kw">c</span>(<span class="st">&#39;#999999&#39;</span>, <span class="st">&#39;#E69F00&#39;</span>, <span class="st">&#39;#56B4E9&#39;</span>, <span class="st">&#39;#009E73&#39;</span>, <span class="st">&#39;#F0E442&#39;</span>),</span>
-<span id="cb8-3"><a href="#cb8-3"></a>           rbcL_tree<span class="op">$</span>tip.label)</span></code></pre></div>
-<div class="sourceCode" id="cb9"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1"></a>obj &lt;-<span class="st"> </span></span>
-<span id="cb9-2"><a href="#cb9-2"></a><span class="st">  </span><span class="kw">phylo.to.map</span>(</span>
-<span id="cb9-3"><a href="#cb9-3"></a>    rbcL_tree, </span>
-<span id="cb9-4"><a href="#cb9-4"></a>    latlong, </span>
-<span id="cb9-5"><a href="#cb9-5"></a>    <span class="dt">rotate =</span> <span class="ot">FALSE</span>,</span>
-<span id="cb9-6"><a href="#cb9-6"></a>    <span class="dt">regions =</span> <span class="kw">c</span>(<span class="st">&quot;Canada&quot;</span>, <span class="st">&quot;USA&quot;</span>, <span class="st">&quot;Mexico&quot;</span>),</span>
-<span id="cb9-7"><a href="#cb9-7"></a>    <span class="dt">database =</span> <span class="st">&quot;worldHires&quot;</span>,</span>
-<span id="cb9-8"><a href="#cb9-8"></a>    <span class="dt">xlim =</span> <span class="kw">c</span>(<span class="op">-</span><span class="dv">135</span>, <span class="dv">-55</span> ),  </span>
-<span id="cb9-9"><a href="#cb9-9"></a>    <span class="dt">ylim =</span> <span class="kw">c</span>(<span class="dv">10</span>, <span class="dv">45</span>),</span>
-<span id="cb9-10"><a href="#cb9-10"></a>    <span class="dt">asp =</span> <span class="dv">4</span>,</span>
-<span id="cb9-11"><a href="#cb9-11"></a>    <span class="dt">lwd =</span> <span class="dv">1</span>,</span>
-<span id="cb9-12"><a href="#cb9-12"></a>    <span class="dt">plot =</span> <span class="ot">FALSE</span>)</span>
-<span id="cb9-13"><a href="#cb9-13"></a></span>
-<span id="cb9-14"><a href="#cb9-14"></a><span class="kw">plot</span>(</span>
-<span id="cb9-15"><a href="#cb9-15"></a>  obj, </span>
-<span id="cb9-16"><a href="#cb9-16"></a>  <span class="dt">direction =</span> <span class="st">&quot;rightwards&quot;</span>, </span>
-<span id="cb9-17"><a href="#cb9-17"></a>  <span class="dt">colors =</span> <span class="kw">sapply</span>(colours, make.transparent, <span class="fl">0.4</span>),</span>
-<span id="cb9-18"><a href="#cb9-18"></a>  <span class="dt">pts =</span> <span class="ot">TRUE</span>,</span>
-<span id="cb9-19"><a href="#cb9-19"></a>  <span class="dt">cex.points =</span> <span class="kw">c</span>(<span class="dv">0</span>,<span class="dv">1</span>),</span>
-<span id="cb9-20"><a href="#cb9-20"></a>  <span class="dt">lwd =</span> <span class="kw">c</span>(<span class="dv">3</span>,<span class="dv">1</span>),</span>
-<span id="cb9-21"><a href="#cb9-21"></a>  <span class="dt">asp =</span> <span class="fl">1.3</span>,</span>
-<span id="cb9-22"><a href="#cb9-22"></a>  <span class="dt">ftype =</span><span class="st">&quot;i&quot;</span>)</span></code></pre></div>
-<p><img src="BIOL_324_Lab_10_files/figure-html/unnamed-chunk-9-1.png" width="672" /></p>
-<p>Optional: If you’d like to replace occurrence points with a polygon that summarizes a species’ distribution, you can try:</p>
-<div class="sourceCode" id="cb10"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1"></a><span class="co"># To plot polygons, re-run plot() with pts = FALSE and cex.point = c(0,0) along with </span></span>
-<span id="cb10-2"><a href="#cb10-2"></a>{<span class="kw">plot</span>(</span>
-<span id="cb10-3"><a href="#cb10-3"></a>  obj, </span>
-<span id="cb10-4"><a href="#cb10-4"></a>  <span class="dt">direction =</span> <span class="st">&quot;rightwards&quot;</span>, </span>
-<span id="cb10-5"><a href="#cb10-5"></a>  <span class="dt">colors =</span> <span class="kw">sapply</span>(colours, make.transparent, <span class="fl">0.4</span>),</span>
-<span id="cb10-6"><a href="#cb10-6"></a>  <span class="dt">pts =</span> <span class="ot">FALSE</span>,</span>
-<span id="cb10-7"><a href="#cb10-7"></a>  <span class="dt">cex.points =</span> <span class="kw">c</span>(<span class="dv">0</span>,<span class="dv">0</span>),</span>
-<span id="cb10-8"><a href="#cb10-8"></a>  <span class="dt">lwd =</span> <span class="kw">c</span>(<span class="dv">3</span>,<span class="dv">1</span>),</span>
-<span id="cb10-9"><a href="#cb10-9"></a>  <span class="dt">asp =</span> <span class="fl">1.3</span>,</span>
-<span id="cb10-10"><a href="#cb10-10"></a>  <span class="dt">ftype =</span><span class="st">&quot;i&quot;</span>)</span>
-<span id="cb10-11"><a href="#cb10-11"></a></span>
-<span id="cb10-12"><a href="#cb10-12"></a><span class="co"># compute polygon boundaries from lat-long data</span></span>
-<span id="cb10-13"><a href="#cb10-13"></a><span class="cf">for</span>(i <span class="cf">in</span> <span class="dv">1</span><span class="op">:</span><span class="kw">Ntip</span>(rbcL_tree)){</span>
-<span id="cb10-14"><a href="#cb10-14"></a>  spr&lt;-latlong[<span class="kw">which</span>(<span class="kw">rownames</span>(latlong)<span class="op">==</span>rbcL_tree<span class="op">$</span>tip.label[i]),]</span>
-<span id="cb10-15"><a href="#cb10-15"></a>  mcp&lt;-<span class="cf">if</span>(i<span class="op">==</span><span class="dv">1</span>) spr[<span class="kw">chull</span>(spr),] <span class="cf">else</span> <span class="kw">rbind</span>(mcp,spr[<span class="kw">chull</span>(spr),])</span>
-<span id="cb10-16"><a href="#cb10-16"></a>}</span>
-<span id="cb10-17"><a href="#cb10-17"></a></span>
-<span id="cb10-18"><a href="#cb10-18"></a><span class="co"># plot polygons </span></span>
-<span id="cb10-19"><a href="#cb10-19"></a><span class="cf">for</span>(i <span class="cf">in</span> <span class="dv">1</span><span class="op">:</span><span class="kw">Ntip</span>(rbcL_tree)){</span>
-<span id="cb10-20"><a href="#cb10-20"></a>  ii&lt;-<span class="kw">which</span>(<span class="kw">rownames</span>(mcp)<span class="op">==</span>rbcL_tree<span class="op">$</span>tip.label[i])</span>
-<span id="cb10-21"><a href="#cb10-21"></a>  <span class="kw">polygon</span>(mcp[ii,<span class="dv">2</span><span class="op">:</span><span class="dv">1</span>],<span class="dt">col=</span><span class="kw">make.transparent</span>(colours[rbcL_tree<span class="op">$</span>tip.label[i]],<span class="fl">0.8</span>),</span>
-<span id="cb10-22"><a href="#cb10-22"></a>          <span class="dt">border=</span><span class="st">&quot;darkgrey&quot;</span>)</span>
-<span id="cb10-23"><a href="#cb10-23"></a>}}</span></code></pre></div>
+<div class="sourceCode" id="cb12"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1"></a>colours &lt;-<span class="st"> </span></span>
+<span id="cb12-2"><a href="#cb12-2"></a><span class="st">  </span><span class="kw">setNames</span>(<span class="kw">c</span>(<span class="st">&#39;#999999&#39;</span>, <span class="st">&#39;#E69F00&#39;</span>, <span class="st">&#39;#56B4E9&#39;</span>, <span class="st">&#39;#009E73&#39;</span>, <span class="st">&#39;#F0E442&#39;</span>),</span>
+<span id="cb12-3"><a href="#cb12-3"></a>           rbcL_tree<span class="op">$</span>tip.label)</span></code></pre></div>
+<div class="sourceCode" id="cb13"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1"></a>obj &lt;-<span class="st"> </span></span>
+<span id="cb13-2"><a href="#cb13-2"></a><span class="st">  </span><span class="kw">phylo.to.map</span>(</span>
+<span id="cb13-3"><a href="#cb13-3"></a>    rbcL_tree, </span>
+<span id="cb13-4"><a href="#cb13-4"></a>    latlong, </span>
+<span id="cb13-5"><a href="#cb13-5"></a>    <span class="dt">rotate =</span> <span class="ot">FALSE</span>,</span>
+<span id="cb13-6"><a href="#cb13-6"></a>    <span class="dt">regions =</span> <span class="kw">c</span>(<span class="st">&quot;Canada&quot;</span>, <span class="st">&quot;USA&quot;</span>, <span class="st">&quot;Mexico&quot;</span>),</span>
+<span id="cb13-7"><a href="#cb13-7"></a>    <span class="dt">database =</span> <span class="st">&quot;worldHires&quot;</span>,</span>
+<span id="cb13-8"><a href="#cb13-8"></a>    <span class="dt">xlim =</span> <span class="kw">c</span>(<span class="op">-</span><span class="dv">135</span>, <span class="dv">-55</span> ),  </span>
+<span id="cb13-9"><a href="#cb13-9"></a>    <span class="dt">ylim =</span> <span class="kw">c</span>(<span class="dv">10</span>, <span class="dv">45</span>),</span>
+<span id="cb13-10"><a href="#cb13-10"></a>    <span class="dt">asp =</span> <span class="dv">4</span>,</span>
+<span id="cb13-11"><a href="#cb13-11"></a>    <span class="dt">lwd =</span> <span class="dv">1</span>,</span>
+<span id="cb13-12"><a href="#cb13-12"></a>    <span class="dt">plot =</span> <span class="ot">FALSE</span>)</span>
+<span id="cb13-13"><a href="#cb13-13"></a></span>
+<span id="cb13-14"><a href="#cb13-14"></a><span class="kw">plot</span>(</span>
+<span id="cb13-15"><a href="#cb13-15"></a>  obj, </span>
+<span id="cb13-16"><a href="#cb13-16"></a>  <span class="dt">direction =</span> <span class="st">&quot;rightwards&quot;</span>, </span>
+<span id="cb13-17"><a href="#cb13-17"></a>  <span class="dt">colors =</span> <span class="kw">sapply</span>(colours, make.transparent, <span class="fl">0.4</span>),</span>
+<span id="cb13-18"><a href="#cb13-18"></a>  <span class="dt">pts =</span> <span class="ot">TRUE</span>,</span>
+<span id="cb13-19"><a href="#cb13-19"></a>  <span class="dt">cex.points =</span> <span class="kw">c</span>(<span class="dv">0</span>,<span class="dv">1</span>),</span>
+<span id="cb13-20"><a href="#cb13-20"></a>  <span class="dt">lwd =</span> <span class="kw">c</span>(<span class="dv">3</span>,<span class="dv">1</span>),</span>
+<span id="cb13-21"><a href="#cb13-21"></a>  <span class="dt">asp =</span> <span class="fl">1.3</span>,</span>
+<span id="cb13-22"><a href="#cb13-22"></a>  <span class="dt">ftype =</span><span class="st">&quot;i&quot;</span>)</span></code></pre></div>
 <p><img src="BIOL_324_Lab_10_files/figure-html/unnamed-chunk-10-1.png" width="672" /></p>
+<p>Optional: If you’d like to replace occurrence points with a polygon that summarizes a species’ distribution, you can try:</p>
+<div class="sourceCode" id="cb14"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb14-1"><a href="#cb14-1"></a><span class="co"># To plot polygons, re-run plot() with pts = FALSE and cex.point = c(0,0) along with </span></span>
+<span id="cb14-2"><a href="#cb14-2"></a>{<span class="kw">plot</span>(</span>
+<span id="cb14-3"><a href="#cb14-3"></a>  obj, </span>
+<span id="cb14-4"><a href="#cb14-4"></a>  <span class="dt">direction =</span> <span class="st">&quot;rightwards&quot;</span>, </span>
+<span id="cb14-5"><a href="#cb14-5"></a>  <span class="dt">colors =</span> <span class="kw">sapply</span>(colours, make.transparent, <span class="fl">0.4</span>),</span>
+<span id="cb14-6"><a href="#cb14-6"></a>  <span class="dt">pts =</span> <span class="ot">FALSE</span>,</span>
+<span id="cb14-7"><a href="#cb14-7"></a>  <span class="dt">cex.points =</span> <span class="kw">c</span>(<span class="dv">0</span>,<span class="dv">0</span>),</span>
+<span id="cb14-8"><a href="#cb14-8"></a>  <span class="dt">lwd =</span> <span class="kw">c</span>(<span class="dv">3</span>,<span class="dv">1</span>),</span>
+<span id="cb14-9"><a href="#cb14-9"></a>  <span class="dt">asp =</span> <span class="fl">1.3</span>,</span>
+<span id="cb14-10"><a href="#cb14-10"></a>  <span class="dt">ftype =</span><span class="st">&quot;i&quot;</span>)</span>
+<span id="cb14-11"><a href="#cb14-11"></a></span>
+<span id="cb14-12"><a href="#cb14-12"></a><span class="co"># compute polygon boundaries from lat-long data</span></span>
+<span id="cb14-13"><a href="#cb14-13"></a><span class="cf">for</span>(i <span class="cf">in</span> <span class="dv">1</span><span class="op">:</span><span class="kw">Ntip</span>(rbcL_tree)){</span>
+<span id="cb14-14"><a href="#cb14-14"></a>  spr&lt;-latlong[<span class="kw">which</span>(<span class="kw">rownames</span>(latlong)<span class="op">==</span>rbcL_tree<span class="op">$</span>tip.label[i]),]</span>
+<span id="cb14-15"><a href="#cb14-15"></a>  mcp&lt;-<span class="cf">if</span>(i<span class="op">==</span><span class="dv">1</span>) spr[<span class="kw">chull</span>(spr),] <span class="cf">else</span> <span class="kw">rbind</span>(mcp,spr[<span class="kw">chull</span>(spr),])</span>
+<span id="cb14-16"><a href="#cb14-16"></a>}</span>
+<span id="cb14-17"><a href="#cb14-17"></a></span>
+<span id="cb14-18"><a href="#cb14-18"></a><span class="co"># plot polygons </span></span>
+<span id="cb14-19"><a href="#cb14-19"></a><span class="cf">for</span>(i <span class="cf">in</span> <span class="dv">1</span><span class="op">:</span><span class="kw">Ntip</span>(rbcL_tree)){</span>
+<span id="cb14-20"><a href="#cb14-20"></a>  ii&lt;-<span class="kw">which</span>(<span class="kw">rownames</span>(mcp)<span class="op">==</span>rbcL_tree<span class="op">$</span>tip.label[i])</span>
+<span id="cb14-21"><a href="#cb14-21"></a>  <span class="kw">polygon</span>(mcp[ii,<span class="dv">2</span><span class="op">:</span><span class="dv">1</span>],<span class="dt">col=</span><span class="kw">make.transparent</span>(colours[rbcL_tree<span class="op">$</span>tip.label[i]],<span class="fl">0.8</span>),</span>
+<span id="cb14-22"><a href="#cb14-22"></a>          <span class="dt">border=</span><span class="st">&quot;darkgrey&quot;</span>)</span>
+<span id="cb14-23"><a href="#cb14-23"></a>}}</span></code></pre></div>
+<p><img src="BIOL_324_Lab_10_files/figure-html/unnamed-chunk-11-1.png" width="672" /></p>
 <hr />
 </div>
 <div id="knowledge-check-10.4" class="section level2">
@@ -1004,7 +1025,7 @@ div.tocify {
 <li>Tips for your maps
 <ul>
 <li>Make sure that each species is abbreviated and spelled correctly in your phylogeny, and that each species shows up on your map and is represented by a different colour.</li>
-<li>You can include either the “dot” version or the “polygon” version (or both)! Choose the one that you feel makes it more intuitive to interpret the ranges of your 5 species.</li>
+<li>You can include either the “dot” version or the “polygon” version (or both)! Choose the one that you feel makes it more intuitive to interpret the ranges of your 5 species. For those of you with several widespread species, the polygon version of the map may not be very readable! In that case, stick with the dots version. If you still have too much going on in the dots version (too many dots/lines obscuring the map), remake your maps and set <code>limit = 500</code> (or lower) to reduce the clutter.</li>
 <li>Focus your interpretations on the degree of range overlap between species, and whether this correlates with growth form, life history, or habitat requirements.</li>
 </ul></li>
 </ul>

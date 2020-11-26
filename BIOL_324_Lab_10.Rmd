@@ -500,7 +500,7 @@ Most are panicles, a branched inflorescence with a main axis bearing pedicellate
 
 Members of the Poaceae family form a caryopsis as their fruit type. A caryopsis is a dry, indehiscent fruit formed from a simple pistil that resembles an achene, except the seed coat is fused to the ovary wall. The caryopsis is often referred to as a grain, which as you likely know makes up a huge proportion of the food eaten by humans. Keep in mind that not all seeds/fruit referred to as "grains" (aka "cereal grains") belong to the Poaceae family. 
 
-Here, you can see a swollen caryopsis forming between the lemma and pelea of wheat (*Triticum* sp.).
+Here, you can see a swollen caryopsis forming between the lemma and palea of wheat (*Triticum* sp.).
 
 <p align="center">
 ![](./media/Poaceae26.jpeg){width=49%} ![](./media/Poaceae27.jpeg){width=49%}
@@ -590,7 +590,6 @@ Attach the packages:
 
 ```{r, results = 'hide', warning = FALSE, message = FALSE }
 # attach packages once they are installed 
-library(here)
 library(mapdata)
 library(phytools)
 library(tidyverse)
@@ -599,14 +598,27 @@ library(viridis)
 
 Let's import our species distribution data (from GBIF, Lab 7) and phylogenetic tree (Assignment 4). If you haven't already, we recommend re-creating your GBIF dataset using the option `geometry =` within `occ()` (see revised Lab 7). Don't forget to save your GBIF data as an .rds file using `saveRDS()`! 
 
-When you're ready to import your own _rbcL_ and GBIF data for your iNaturalist species, we recommend using `file.choose()` inside of `readRDS()` (see Lab 8). 
+When you're ready to import your own _rbcL_ and GBIF data for your iNaturalist species, we recommend using `readRDS(file = file.choose())` (see Lab 8). 
 
 ```{r}
 # import Opuntia rbcL tree from last tutorial
 rbcL_tree <- readRDS(file = 'rbcL_tree.rds')
 
+# adds a root to our tree, make sure you do this or your trees won't display properly!
+rbcL_tree <- midpoint.root(rbcL_tree)
+
 # import filtered GBIF data from last tutorial
 opuntia_fil <- readRDS(file = 'filtered_gbif_dataset.rds') 
+```
+
+Do some quick data checks to make sure your data loaded correctly:
+
+```{r}
+# check that your map data looks ok...
+head(opuntia_fil)
+
+# double-check how they are named in GBIF dataset...
+unique(opuntia_fil$name)
 ```
 
 Then, we'll simplify the species names in the GBIF dataset (this is required to use `phytools`). We can change the names of variables using the `mutate()` function:
@@ -723,6 +735,6 @@ After making sure that the above code runs on your computer, modify it to make a
 
 - Tips for your maps
   - Make sure that each species is abbreviated and spelled correctly in your phylogeny, and that each species shows up on your map and is represented by a different colour. 
-  - You can include either the "dot" version or the "polygon" version (or both)! Choose the one that you feel makes it more intuitive to interpret the ranges of your 5 species.
+  - You can include either the "dot" version or the "polygon" version (or both)! Choose the one that you feel makes it more intuitive to interpret the ranges of your 5 species. For those of you with several widespread species, the polygon version of the map may not be very readable! In that case, stick with the dots version. If you still have too much going on in the dots version (too many dots/lines obscuring the map), remake your maps and set `limit = 500` (or lower) to reduce the clutter.
   - Focus your interpretations on the degree of range overlap between species, and whether this correlates with growth form, life history, or habitat requirements. 
   
