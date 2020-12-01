@@ -41,7 +41,9 @@ navbar:
       - text: "Lab 9"
         href: BIOL_324_Lab_9.html
       - text: "Lab 10"
-        href: BIOL_324_Lab_10.html  
+        href: BIOL_324_Lab_10.html
+      - text: "Lab 11"
+        href: BIOL_324_Lab_11.html  
     
 output:
   html_document:

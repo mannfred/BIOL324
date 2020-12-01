@@ -1,0 +1,740 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+
+<meta charset="utf-8" />
+<meta name="generator" content="pandoc" />
+<meta http-equiv="X-UA-Compatible" content="IE=EDGE" />
+
+
+
+
+<title>Gymnosperms</title>
+
+<script src="site_libs/jquery-1.11.3/jquery.min.js"></script>
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<link href="site_libs/bootstrap-3.3.5/css/readable.min.css" rel="stylesheet" />
+<script src="site_libs/bootstrap-3.3.5/js/bootstrap.min.js"></script>
+<script src="site_libs/bootstrap-3.3.5/shim/html5shiv.min.js"></script>
+<script src="site_libs/bootstrap-3.3.5/shim/respond.min.js"></script>
+<script src="site_libs/jqueryui-1.11.4/jquery-ui.min.js"></script>
+<link href="site_libs/tocify-1.9.1/jquery.tocify.css" rel="stylesheet" />
+<script src="site_libs/tocify-1.9.1/jquery.tocify.js"></script>
+<script src="site_libs/navigation-1.1/tabsets.js"></script>
+<script src="site_libs/accessible-code-block-0.0.1/empty-anchor.js"></script>
+<link href="site_libs/anchor-sections-1.0/anchor-sections.css" rel="stylesheet" />
+<script src="site_libs/anchor-sections-1.0/anchor-sections.js"></script>
+
+<style type="text/css">
+  code{white-space: pre-wrap;}
+  span.smallcaps{font-variant: small-caps;}
+  span.underline{text-decoration: underline;}
+  div.column{display: inline-block; vertical-align: top; width: 50%;}
+  div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+  ul.task-list{list-style: none;}
+    </style>
+
+
+
+
+<style type="text/css">
+h1 {
+  font-size: 34px;
+}
+h1.title {
+  font-size: 38px;
+}
+h2 {
+  font-size: 30px;
+}
+h3 {
+  font-size: 24px;
+}
+h4 {
+  font-size: 18px;
+}
+h5 {
+  font-size: 16px;
+}
+h6 {
+  font-size: 12px;
+}
+.table th:not([align]) {
+  text-align: left;
+}
+</style>
+
+
+
+
+<style type = "text/css">
+.main-container {
+  max-width: 940px;
+  margin-left: auto;
+  margin-right: auto;
+}
+code {
+  color: inherit;
+  background-color: rgba(0, 0, 0, 0.04);
+}
+img {
+  max-width:100%;
+}
+.tabbed-pane {
+  padding-top: 12px;
+}
+.html-widget {
+  margin-bottom: 20px;
+}
+button.code-folding-btn:focus {
+  outline: none;
+}
+summary {
+  display: list-item;
+}
+</style>
+
+
+<style type="text/css">
+/* padding for bootstrap navbar */
+body {
+  padding-top: 66px;
+  padding-bottom: 40px;
+}
+/* offset scroll position for anchor links (for fixed navbar)  */
+.section h1 {
+  padding-top: 71px;
+  margin-top: -71px;
+}
+.section h2 {
+  padding-top: 71px;
+  margin-top: -71px;
+}
+.section h3 {
+  padding-top: 71px;
+  margin-top: -71px;
+}
+.section h4 {
+  padding-top: 71px;
+  margin-top: -71px;
+}
+.section h5 {
+  padding-top: 71px;
+  margin-top: -71px;
+}
+.section h6 {
+  padding-top: 71px;
+  margin-top: -71px;
+}
+.dropdown-submenu {
+  position: relative;
+}
+.dropdown-submenu>.dropdown-menu {
+  top: 0;
+  left: 100%;
+  margin-top: -6px;
+  margin-left: -1px;
+  border-radius: 0 6px 6px 6px;
+}
+.dropdown-submenu:hover>.dropdown-menu {
+  display: block;
+}
+.dropdown-submenu>a:after {
+  display: block;
+  content: " ";
+  float: right;
+  width: 0;
+  height: 0;
+  border-color: transparent;
+  border-style: solid;
+  border-width: 5px 0 5px 5px;
+  border-left-color: #cccccc;
+  margin-top: 5px;
+  margin-right: -10px;
+}
+.dropdown-submenu:hover>a:after {
+  border-left-color: #ffffff;
+}
+.dropdown-submenu.pull-left {
+  float: none;
+}
+.dropdown-submenu.pull-left>.dropdown-menu {
+  left: -100%;
+  margin-left: 10px;
+  border-radius: 6px 0 6px 6px;
+}
+</style>
+
+<script>
+// manage active state of menu based on current page
+$(document).ready(function () {
+  // active menu anchor
+  href = window.location.pathname
+  href = href.substr(href.lastIndexOf('/') + 1)
+  if (href === "")
+    href = "index.html";
+  var menuAnchor = $('a[href="' + href + '"]');
+
+  // mark it active
+  menuAnchor.parent().addClass('active');
+
+  // if it's got a parent navbar menu mark it active as well
+  menuAnchor.closest('li.dropdown').addClass('active');
+});
+</script>
+
+<!-- tabsets -->
+
+<style type="text/css">
+.tabset-dropdown > .nav-tabs {
+  display: inline-table;
+  max-height: 500px;
+  min-height: 44px;
+  overflow-y: auto;
+  background: white;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+}
+
+.tabset-dropdown > .nav-tabs > li.active:before {
+  content: "";
+  font-family: 'Glyphicons Halflings';
+  display: inline-block;
+  padding: 10px;
+  border-right: 1px solid #ddd;
+}
+
+.tabset-dropdown > .nav-tabs.nav-tabs-open > li.active:before {
+  content: "&#xe258;";
+  border: none;
+}
+
+.tabset-dropdown > .nav-tabs.nav-tabs-open:before {
+  content: "";
+  font-family: 'Glyphicons Halflings';
+  display: inline-block;
+  padding: 10px;
+  border-right: 1px solid #ddd;
+}
+
+.tabset-dropdown > .nav-tabs > li.active {
+  display: block;
+}
+
+.tabset-dropdown > .nav-tabs > li > a,
+.tabset-dropdown > .nav-tabs > li > a:focus,
+.tabset-dropdown > .nav-tabs > li > a:hover {
+  border: none;
+  display: inline-block;
+  border-radius: 4px;
+  background-color: transparent;
+}
+
+.tabset-dropdown > .nav-tabs.nav-tabs-open > li {
+  display: block;
+  float: none;
+}
+
+.tabset-dropdown > .nav-tabs > li {
+  display: none;
+}
+</style>
+
+<!-- code folding -->
+
+
+
+<style type="text/css">
+
+#TOC {
+  margin: 25px 0px 20px 0px;
+}
+@media (max-width: 768px) {
+#TOC {
+  position: relative;
+  width: 100%;
+}
+}
+
+@media print {
+.toc-content {
+  /* see https://github.com/w3c/csswg-drafts/issues/4434 */
+  float: right;
+}
+}
+
+.toc-content {
+  padding-left: 30px;
+  padding-right: 40px;
+}
+
+div.main-container {
+  max-width: 1200px;
+}
+
+div.tocify {
+  width: 20%;
+  max-width: 260px;
+  max-height: 85%;
+}
+
+@media (min-width: 768px) and (max-width: 991px) {
+  div.tocify {
+    width: 25%;
+  }
+}
+
+@media (max-width: 767px) {
+  div.tocify {
+    width: 100%;
+    max-width: none;
+  }
+}
+
+.tocify ul, .tocify li {
+  line-height: 20px;
+}
+
+.tocify-subheader .tocify-item {
+  font-size: 0.90em;
+}
+
+.tocify .list-group-item {
+  border-radius: 0px;
+}
+
+
+</style>
+
+
+
+</head>
+
+<body>
+
+
+<div class="container-fluid main-container">
+
+
+<!-- setup 3col/9col grid for toc_float and main content  -->
+<div class="row-fluid">
+<div class="col-xs-12 col-sm-4 col-md-3">
+<div id="TOC" class="tocify">
+</div>
+</div>
+
+<div class="toc-content col-xs-12 col-sm-8 col-md-9">
+
+
+
+
+<div class="navbar navbar-default  navbar-fixed-top" role="navigation">
+  <div class="container">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar">
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="index.html">BIOL 324 Labs</a>
+    </div>
+    <div id="navbar" class="navbar-collapse collapse">
+      <ul class="nav navbar-nav">
+        <li>
+  <a href="index.html">Home</a>
+</li>
+<li>
+  <a href="Syllabus.html">Syllabus</a>
+</li>
+<li class="dropdown">
+  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
+    Resources
+     
+    <span class="caret"></span>
+  </a>
+  <ul class="dropdown-menu" role="menu">
+    <li>
+      <a href="Morphological_Terminology.html">Morphological Terminology</a>
+    </li>
+  </ul>
+</li>
+<li class="dropdown">
+  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
+    Projects
+     
+    <span class="caret"></span>
+  </a>
+  <ul class="dropdown-menu" role="menu">
+    <li>
+      <a href="BIOL_324_Project_1.html">Project 1 (iNaturalist)</a>
+    </li>
+    <li>
+      <a href="LinneanTypification.html">Linnean Typification</a>
+    </li>
+    <li>
+      <a href="BIOL_324_Project_2.html">Project 2 (Phylogeography)</a>
+    </li>
+  </ul>
+</li>
+<li class="dropdown">
+  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
+    Labs
+     
+    <span class="caret"></span>
+  </a>
+  <ul class="dropdown-menu" role="menu">
+    <li>
+      <a href="BIOL_324_Lab_1.html">Lab 1</a>
+    </li>
+    <li>
+      <a href="BIOL_324_Lab_2.html">Lab 2</a>
+    </li>
+    <li>
+      <a href="BIOL_324_Lab_3.html">Lab 3</a>
+    </li>
+    <li>
+      <a href="BIOL_324_Lab_4.html">Lab 4</a>
+    </li>
+    <li>
+      <a href="BIOL_324_Lab_5.html">Lab 5</a>
+    </li>
+    <li>
+      <a href="BIOL_324_Lab_6.html">Lab 6</a>
+    </li>
+    <li>
+      <a href="BIOL_324_Lab_7.html">Lab 7</a>
+    </li>
+    <li>
+      <a href="BIOL_324_Lab_8.html">Lab 8</a>
+    </li>
+    <li>
+      <a href="BIOL_324_Lab_9.html">Lab 9</a>
+    </li>
+    <li>
+      <a href="BIOL_324_Lab_10.html">Lab 10</a>
+    </li>
+    <li>
+      <a href="BIOL_324_Lab_11.html">Lab 11</a>
+    </li>
+  </ul>
+</li>
+      </ul>
+      <ul class="nav navbar-nav navbar-right">
+        
+      </ul>
+    </div><!--/.nav-collapse -->
+  </div><!--/.container -->
+</div><!--/.navbar -->
+
+<div class="fluid-row" id="header">
+
+
+
+<h1 class="title toc-ignore">Gymnosperms</h1>
+
+</div>
+
+
+<p><strong>Gymnosperms</strong> (meaning “naked seeds”) are non-flowering plants with ovules that are not borne in ovaries but are naked on the surface of cone scales or at the ends of branches. While the seed plants form a monophyletic group, the relationship between the various groups of gymnosperms remains elusive. We will focus on the morphology of conifers (in the order <strong>Coniferales</strong>) for the purposes of this lab, but also show you some examples of other gymnosperm groups for fun! <strong>For your last Family ID quiz, you will be responsible for knowing the Pinaceae and Cupressaceae families.</strong></p>
+<hr />
+<p><strong>Coniferales</strong> (conifers) (Includes families Pinaceae, Cupressaceae, Podocarpaceae, Araucariaceae, and Taxaceae.)</p>
+<p><strong>1. Conifers are for the most part large trees.</strong><br />
+<strong>2. Their stems come in the form of large, woody trunks and thinner (but still quite robust) branches. Leaves are tough and green, and come in the form of long, thin, spirally arranged needles (Pinaceae) or smaller, decussate scale-like needles (Cupressaceae)</strong><br />
+<strong>3. Conifers do not have flowers. Instead, their reproductive structures are separately housed in male and female cones (monoecious). Male (pollen) cones are small and short-lived, releasing large amounts of pollen from small sacs (microsporangia) within the cone. Female (seed) cones are much larger and may remain on the tree for multiple years as they develop. Ovules are borne on woody scales (i.e., ovulate scales - modified branches) within the female cones and catch wind-dispersed pollen via a small droplet, which then enter the ovule via a small hole called the micropile. Cones tend to have imbricate scales in Pinaceae and peltate scales in Cupessaceae.</strong><br />
+<strong>4. Conifers do not produce fruit (as there is no flower or ovary). Naked ovules develop into seeds within seed cones after fertilization, and the seeds are quite often winged to aid dispersal. Once the ovules have fully matured into seeds (which can take up to two years after pollination like in <em>Pinus</em>), the seed cones open up to release the seeds.</strong></p>
+<hr />
+<p>Conifers are the most important plants in B. C., economically, since most of our industry is based on killing them. The yews (Taxaceae) resemble conifers but have berry like arillate seeds rather than cones. There are 3 families of conifers (including yews) native to North America: Pinaceae, Cupressaceae (now includes Taxodiaceae), and Taxaceae.</p>
+<p>The following species are native to the UBC campus and Pacific Spirit Park:</p>
+<p><em>Abies grandis</em> GRAND FIR (common near trail 6 to Wreck Beach) <em>Picea sitchensis</em> SITKA SPRUCE (a few along S.W. Marine Drive) <em>Pinus contorta</em> LODGEPOLE PINE (Camosun Bog) <em>Pseudotsuga menziesii</em> DOUGLAS-FIR (everywhere) <em>Taxus brevifolia</em> PACIFIC YEW (scattered, a few used to be near the top of the trail to Tower Beach) <em>Thuja plicata</em> WESTERN RED CEDAR (everywhere) <em>Tsuga heterophylla</em> WESTERN HEMLOCK (everywhere)</p>
+<p>Many other genera are planted as ornamentals on campus, including all the genera native to North America except <em>Torreya</em>, plus the Old World genera <em>Cedrus</em> (Pinaceae), <em>Platycladus</em>, <em>Thujopsis</em> (Cupressaceae), <em>Cryptomeria</em>, <em>Cunninghamia</em>, <em>Metasequoia</em>, <em>Sciadopitys</em> (Taxodiaceae), and the Southern Hemisphere <em>Araucaria</em> (Araucariaceae). In addition, <em>Podocarpus</em> (Podocarpaceae) and <em>Cephalotaxus</em> (Cephalotaxaceae) are planted in the UBC Botanical Garden.</p>
+<hr />
+<div id="pinaceae" class="section level1">
+<h1>Pinaceae</h1>
+<p><strong>Pine Family</strong></p>
+<hr />
+<div id="diagrams" class="section level2">
+<h2>Diagrams</h2>
+<p><img src="media/diagram_Pinaceae1.png" style="width:100.0%" /></p>
+<p><br></p>
+<p><img src="media/diagram_Pinaceae2.png" style="width:100.0%" /></p>
+<hr />
+</div>
+<div id="vegetative-characters" class="section level2">
+<h2>Vegetative characters</h2>
+<p>As mentioned above, members of the Pinaceae family have long, thin needles for leaves. The needles have different size, shape, and arrangement depending on the genus.</p>
+<p>In the genus <em>Picea</em> (spruce), their needles are flattened, pointed, and tend to be more stiff than other genera (hurting a bit when you grab a leafy branch with your hand). After the needles fall off, they leave behind persistent, woody leaf bases called sterigmata or pulvinus.</p>
+<p>You can see a close-up of the leaves and woody stem bases in Norway spruce (<em>Picea abies</em>). If you look closely, you can see two whitish lines of dots. These are stomata, which structures in the epidermis of leaves that allow gas exchange.</p>
+<p align="center">
+<img src="media/Pinaceae_1.jpg" style="width:100.0%" />
+</p>
+<p>Source: Wikipedia</p>
+<p><br></p>
+<p>The leaves of <em>Abies</em> (fir) are actually spirally attached to the stem, but twist so that they lie flat in one plane. They thus appear to be coming off the stem in two directions, making them 2-ranked. Unlike <em>Piceae</em>, there are no sterigmata present in <em>Abies</em>, so all that remains after the needles fall off are leaf scars along the stem.</p>
+<p align="center">
+<img src="media/Pinaceae2.jpg" style="width:80.0%" />
+</p>
+<p>Source: Wikipedia</p>
+<p><br></p>
+<p>In the genus <em>Pinus</em> (pines), needles are very long and thin, and typically round in cross-section. The needles occur in bundles or “fascicles”. Each bundle consists of a short branch at the base (called a “short shoot”), with 2-5 needles emerging from the short shoot. The number of needles in each fascicle can be a good start to narrowing down which pine species you are looking at.</p>
+<p align="center">
+<img src="media/Pinaceae3.jpeg" style="width:80.0%" />
+</p>
+<p><br></p>
+<p align="center">
+<img src="media/Pinaceae4.jpeg" style="width:100.0%" />
+</p>
+<p><br></p>
+<p align="center">
+<img src="media/Pinaceae5.jpeg" style="width:100.0%" />
+</p>
+<p><br></p>
+<p>Here you can see a close-up of the short shoot at the bottom of the fascicle.</p>
+<p align="center">
+<img src="media/Pinaceae6.jpeg" style="width:100.0%" />
+</p>
+<p><br></p>
+<hr />
+</div>
+<div id="reproductive-characters" class="section level2">
+<h2>Reproductive characters</h2>
+<p>Conifers do not have flowers. Instead, their reproductive structures are separately housed in male and female cones (monoecious). Male (pollen) cones are small and short-lived, releasing large amounts of pollen from small sacs (microsporangia) within the cone. Female (seed) cones are much larger and may remain on the tree for multiple years as they develop. Ovules are borne on woody bracts within the female cones and catch wind-dispersed pollen via a small droplet, which then enter the ovule via a small hole called the micropile.</p>
+<hr />
+<p>The seed cone of <em>Pseudotsuga menziesii</em> (Douglas fir) provides a good illustration of the different parts that make up the cone. Most of what you see are the “imbricate” (arranged spirally and overlapping) ovulate cone scales (a modified branch system), with prominent 3-pronged bracts (modified leaves) emerging from underneath each scale. True to their name (remember, Gymnosperm means “naked seed”!), two winged seeds sit naked upon each cone scale. Can you identify the cone scales, bracts, and seeds in the below pictures?</p>
+<p align="center">
+<img src="media/Pinaceae7.jpeg" style="width:100.0%" />
+</p>
+<p><br></p>
+<p align="center">
+<img src="media/Pinaceae8.jpeg" style="width:100.0%" />
+</p>
+<p><br></p>
+<p>Here are some close-ups of a <em>Pinus</em> seed cone and winged seed:</p>
+<p align="center">
+<img src="media/Pinaceae9.jpeg" style="width:100.0%" />
+</p>
+<p><br></p>
+<p align="center">
+<img src="media/Pinaceae10.jpeg" style="width:100.0%" />
+</p>
+<p><br></p>
+<p>Most of you are familiar with the visual of a big, woody, mature “pine cone” that you might find on the ground in the forest, but they only look like this at the end of their life! When seed cones are in early stages of development, they are quite inconspicuous:</p>
+<p align="center">
+<img src="media/Pinaceae11.jpeg" style="width:100.0%" />
+</p>
+<p><br></p>
+<p>Much later (up to a year later as we see in <em>Pinus</em>), the cones have grown in size but are still maturing. You can see that the cone is closed, with the ovulate cone scales still pressed tightly together.</p>
+<p align="center">
+<img src="media/Pinaceae12.jpeg" style="width:100.0%" />
+</p>
+<p><br></p>
+<p>It isn’t until much later, when they are fully mature and ready to release their seeds (this process can take 2 years in <em>Pinus</em>!!!) that we see what we typically think of as a “pine cone”. Of course, now that you know better, you should at the very least refer to these as “seed cones” to differentiate them from pollen cones, which look quite a bit different.</p>
+<p>In the genus <em>Abies</em> (firs), you are unlikely to find a complete seed cone at all! The cones are borne upright on the stem (as opposed to “pendant” or hanging downwards), and the ovulate scales fall off individually, leaving only a spire (the central axis of the cone) behind.</p>
+<p align="center">
+<img src="media/Pinaceae16.jpeg" style="width:100.0%" />
+</p>
+<p><br></p>
+<p align="center">
+<img src="media/Pinaceae17.jpeg" style="width:100.0%" />
+</p>
+<p><br></p>
+<hr />
+<p>In comparison to seed cones, pollen cones are a lot smaller, more ephemeral, and tend not to be woody. Here you can see immature pollen cones of <em>Pinus ponderosa</em> (ponderosa pine):</p>
+<p align="center">
+<img src="media/Pinaceae13.jpg" style="width:100.0%" />
+</p>
+<p>Source: Wikipedia</p>
+<p><br></p>
+<p>As the pollen cones mature, they open up and hang in the wind, dispersing huge amounts of pollen that give some people quite bad allergies! Here you can see some mature pollen cones:</p>
+<p align="center">
+<img src="media/Pinaceae14.jpeg" style="width:100.0%" />
+</p>
+<p><br></p>
+<p align="center">
+<img src="media/Pinaceae15.jpeg" style="width:100.0%" />
+</p>
+<p><br></p>
+<hr />
+</div>
+</div>
+<div id="cupressaceae" class="section level1">
+<h1>Cupressaceae</h1>
+<p><strong>The Cypress Family</strong></p>
+<hr />
+<div id="diagrams-1" class="section level2">
+<h2>Diagrams</h2>
+<p><img src="media/diagram_Cupressaceae1.png" style="width:100.0%" /></p>
+<p><br></p>
+<p><img src="media/diagram_Cupressaceae2.png" style="width:100.0%" /></p>
+<hr />
+</div>
+<div id="vegetative-characteristics" class="section level2">
+<h2>Vegetative characteristics</h2>
+<p>Members of the Cupressaceae has an overall similar growth form and life history as those of the Pinaceae, but there are some notable differences in their leaves and cones. Cupressaceae needles tend to be smaller and more scale-like than in Pinaceae, and are arranged in a decussate (oppositely arranged but rotating 90° at each node) fashion.</p>
+<p>Here you can see the decussate scale-like leaves of <em>Thuja plicata</em> (Western Red Cedar):</p>
+<p align="center">
+<img src="media/Cupressaceae1.jpeg" style="width:100.0%" />
+</p>
+<p><br></p>
+<p align="center">
+<img src="media/Cupressaceae2.jpeg" style="width:100.0%" />
+</p>
+<p><br></p>
+<p><em>Juniperus</em> (juniper) leaves have a similar morphology.</p>
+<p align="center">
+<img src="media/Cupressaceae3.jpeg" style="width:100.0%" />
+</p>
+<p><br></p>
+<p align="center">
+<img src="media/Cupressaceae4.jpeg" style="width:100.0%" />
+</p>
+<p><br></p>
+<p>The leaves of <em>Sequoiadendron giganteum</em> (Giant sequoia) are also decussate, but are “awl-shaped” (tapering to a sharp point) with wide, “decurrent” leaf bases (merging into the branch).</p>
+<p align="center">
+<img src="media/Cupressaceae5.jpg" style="width:100.0%" />
+</p>
+<p><br></p>
+<hr />
+</div>
+<div id="reproductive-characters-1" class="section level2">
+<h2>Reproductive characters</h2>
+<p>Seed cones in Cupressaceae tend to have “peltate” (shield or umbrella shaped and non-overlapping) ovulate scales that are oppositely arranged, and are often smaller than their counterparts in Pinaceae. Here are examples of various Cupressaceae cones with peltate scales:</p>
+<p align="center">
+<img src="media/Cupressaceae6.jpeg" style="width:100.0%" />
+</p>
+<p><br></p>
+<p align="center">
+<img src="media/Cupressaceae7.jpeg" style="width:100.0%" />
+</p>
+<p><br></p>
+<p align="center">
+<img src="media/Cupressaceae8.jpeg" style="width:100.0%" />
+</p>
+<p><br></p>
+<p align="center">
+<img src="media/Cupressaceae9.jpeg" style="width:100.0%" />
+</p>
+<p><br></p>
+<p><em>Juniperus</em> seed cones have unusually fleshy and fused ovulate scales. The seed cones of <em>Juniperus communis</em> are used frequently in European cuisine, and give gin its distinctive flavour.</p>
+<p align="center">
+<img src="media/Cupressaceae10.jpeg" style="width:100.0%" />
+</p>
+<p><br></p>
+<p>The seed cones of <em>Thuja plicata</em> (Western Red Cedar) are imbricate like those in Pinaceae, but maintain an opposite (not spirally arranged) arrangement and generally small size indicative of Cupressaceae.</p>
+<p align="center">
+<img src="media/Cupressaceae11.jpeg" style="width:80.0%" />
+</p>
+<p><br></p>
+<p align="center">
+<img src="media/Cupressaceae12.jpeg" style="width:80.0%" />
+</p>
+<p><br></p>
+<hr />
+</div>
+</div>
+<div id="other-gymnosperm-families" class="section level1">
+<h1>Other Gymnosperm families</h1>
+<hr />
+<div id="taxaceae" class="section level2">
+<h2>Taxaceae</h2>
+<p><strong>Yew Family</strong></p>
+<hr />
+<p>Yews are have vegetative characters that are similar to other conifers, and grow as trees or shrubs. <em>Taxus</em> species have needles similar to those of Pinaceae, being somewhat flattened, spirally arranged, and with a sharp point at the tip:</p>
+<p align="center">
+<img src="media/Taxaceae1.jpeg" style="width:49.0%" /> <img src="media/Taxaceae2.jpeg" style="width:49.0%" />
+</p>
+<p><br></p>
+<p>One thing that sets them apart, however, is their cones. Their females cones are highly reduced to a single seed, which is enveloped by a fleshy “aril” as it matures. The developmental origin of the aril is unclear, but may represent a fused pair of swollen leaves. What do you think the primary mode of dispersal is for <em>Taxus</em> seeds?</p>
+<p align="center">
+<img src="media/Taxaceae3.jpeg" style="width:100.0%" />
+</p>
+<p><br></p>
+<p align="center">
+<img src="media/Taxaceae4.jpg" style="width:100.0%" />
+</p>
+<p><br></p>
+<hr />
+<p><strong>Cycadales</strong> Cycadaceae and Zamiaceae (Cycad families)</p>
+<p>At first glance these plants seem fern-like (the leaves are pinnately compound). However cycads are dioecious seed plants. The ovules and pollen sacs are borne on leaves (megasporophylls and microsporophylls respectively) that are grouped into strobili (see demonstration). Pollination may be accomplished with insect vectors. Once a pollen grain has been delivered to an ovule it produces a pollen tube, which grows through the ovule, the tip bursts when in close proximity to an archegonium (each archegonium contains one egg), releasing two sperms which will swim to the egg. One sperm will fertilize the egg, the other will die!</p>
+<p><strong>Ginkgoales</strong> Ginkgoaceae (Maidenhair Tree family)</p>
+<p><em>Ginkgo biloba</em> is the only extant member of this order. The ovules are borne in pairs on short branches. The outer part of the seed coat is fleshy and very unpleasant smelling. While a common ornamental plant, it is usually only male trees that are planted; no surprise there! Pollen cones are long and pendulous and not smelly. Like cycads, <em>Ginkgo</em> relies on motile sperm to accomplish fertilization.</p>
+<p><strong>Gnetales</strong> The Gnetales is made up of three dissimilar families that are of particular evolutionary interest because they have features apparently intermediate between the rest of the gymnosperms (naked seeds) and the angiosperms (double fertilization of sorts, wood with vessels, and flower-like reproductive structures). Like most of the gymnosperms and angiosperms, sperm nuclei are delivered to the egg through a pollen tube (sperm is not motile).</p>
+</div>
+</div>
+
+
+
+</div>
+</div>
+
+</div>
+
+<script>
+
+// add bootstrap table styles to pandoc tables
+function bootstrapStylePandocTables() {
+  $('tr.odd').parent('tbody').parent('table').addClass('table table-condensed');
+}
+$(document).ready(function () {
+  bootstrapStylePandocTables();
+});
+
+
+</script>
+
+<!-- tabsets -->
+
+<script>
+$(document).ready(function () {
+  window.buildTabsets("TOC");
+});
+
+$(document).ready(function () {
+  $('.tabset-dropdown > .nav-tabs > li').click(function () {
+    $(this).parent().toggleClass('nav-tabs-open')
+  });
+});
+</script>
+
+<!-- code folding -->
+
+<script>
+$(document).ready(function ()  {
+
+    // move toc-ignore selectors from section div to header
+    $('div.section.toc-ignore')
+        .removeClass('toc-ignore')
+        .children('h1,h2,h3,h4,h5').addClass('toc-ignore');
+
+    // establish options
+    var options = {
+      selectors: "h1,h2,h3",
+      theme: "bootstrap3",
+      context: '.toc-content',
+      hashGenerator: function (text) {
+        return text.replace(/[.\\/?&!#<>]/g, '').replace(/\s/g, '_');
+      },
+      ignoreSelector: ".toc-ignore",
+      scrollTo: 0
+    };
+    options.showAndHide = true;
+    options.smoothScroll = true;
+
+    // tocify
+    var toc = $("#TOC").tocify(options).data("toc-tocify");
+});
+</script>
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    script.src  = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML";
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+
+</body>
+</html>
