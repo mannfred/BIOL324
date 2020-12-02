@@ -930,7 +930,7 @@ div.tocify {
 <p>While writing this code, we discovered that the <code>opuntia_metadata</code> object is pretty complex and with lots of layers! The code above says to take the large object <code>opuntia_metadata</code> and select the element named <code>$gbif</code>. Then, within the element <code>$gbif</code>, select the sub-element <code>$data</code>. Within <code>$data</code> there are 5 elements, each one contains the lat-long information for one of our <em>Opuntia</em> species.</p>
 <p>Let’s look at the lat-long data for <em>O. basilaris</em>:</p>
 <div class="sourceCode" id="cb9"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1"></a>opuntia_simple<span class="op">$</span><span class="st">`</span><span class="dt">Opuntia_basilaris_Engelm._&amp;_J.M.Bigelow</span><span class="st">`</span></span></code></pre></div>
-<pre><code>## # A tibble: 500 x 73
+<pre><code>## # A tibble: 500 x 74
 ##    name  longitude latitude issues prov  key   scientificName datasetKey
 ##    &lt;chr&gt;     &lt;dbl&gt;    &lt;dbl&gt; &lt;chr&gt;  &lt;chr&gt; &lt;chr&gt; &lt;chr&gt;          &lt;chr&gt;     
 ##  1 Opun…     -117.     36.9 cdrou… gbif  2549… Opuntia basil… 50c9509d-…
@@ -943,23 +943,24 @@ div.tocify {
 ##  8 Opun…     -117.     36.9 cdrou… gbif  2550… Opuntia basil… 50c9509d-…
 ##  9 Opun…     -116.     33.8 cdrou… gbif  2550… Opuntia basil… 50c9509d-…
 ## 10 Opun…     -116.     33.8 cdrou… gbif  2557… Opuntia basil… 50c9509d-…
-## # … with 490 more rows, and 65 more variables: publishingOrgKey &lt;chr&gt;,
+## # … with 490 more rows, and 66 more variables: publishingOrgKey &lt;chr&gt;,
 ## #   installationKey &lt;chr&gt;, publishingCountry &lt;chr&gt;, protocol &lt;chr&gt;,
-## #   lastCrawled &lt;chr&gt;, lastParsed &lt;chr&gt;, crawlId &lt;int&gt;, basisOfRecord &lt;chr&gt;,
-## #   occurrenceStatus &lt;chr&gt;, taxonKey &lt;int&gt;, kingdomKey &lt;int&gt;, phylumKey &lt;int&gt;,
-## #   classKey &lt;int&gt;, orderKey &lt;int&gt;, familyKey &lt;int&gt;, genusKey &lt;int&gt;,
-## #   speciesKey &lt;int&gt;, acceptedTaxonKey &lt;int&gt;, acceptedScientificName &lt;chr&gt;,
-## #   kingdom &lt;chr&gt;, phylum &lt;chr&gt;, order &lt;chr&gt;, family &lt;chr&gt;, genus &lt;chr&gt;,
-## #   species &lt;chr&gt;, genericName &lt;chr&gt;, specificEpithet &lt;chr&gt;, taxonRank &lt;chr&gt;,
+## #   lastCrawled &lt;chr&gt;, lastParsed &lt;chr&gt;, crawlId &lt;int&gt;,
+## #   hostingOrganizationKey &lt;chr&gt;, basisOfRecord &lt;chr&gt;, occurrenceStatus &lt;chr&gt;,
+## #   taxonKey &lt;int&gt;, kingdomKey &lt;int&gt;, phylumKey &lt;int&gt;, classKey &lt;int&gt;,
+## #   orderKey &lt;int&gt;, familyKey &lt;int&gt;, genusKey &lt;int&gt;, speciesKey &lt;int&gt;,
+## #   acceptedTaxonKey &lt;int&gt;, acceptedScientificName &lt;chr&gt;, kingdom &lt;chr&gt;,
+## #   phylum &lt;chr&gt;, order &lt;chr&gt;, family &lt;chr&gt;, genus &lt;chr&gt;, species &lt;chr&gt;,
+## #   genericName &lt;chr&gt;, specificEpithet &lt;chr&gt;, taxonRank &lt;chr&gt;,
 ## #   taxonomicStatus &lt;chr&gt;, dateIdentified &lt;chr&gt;,
 ## #   coordinateUncertaintyInMeters &lt;dbl&gt;, stateProvince &lt;chr&gt;, year &lt;int&gt;,
 ## #   month &lt;int&gt;, day &lt;int&gt;, eventDate &lt;date&gt;, modified &lt;chr&gt;,
 ## #   lastInterpreted &lt;chr&gt;, references &lt;chr&gt;, license &lt;chr&gt;,
 ## #   geodeticDatum &lt;chr&gt;, class &lt;chr&gt;, countryCode &lt;chr&gt;, country &lt;chr&gt;,
 ## #   rightsHolder &lt;chr&gt;, identifier &lt;chr&gt;, `http://unknown.org/nick` &lt;chr&gt;,
-## #   verbatimEventDate &lt;chr&gt;, datasetName &lt;chr&gt;, verbatimLocality &lt;chr&gt;,
-## #   collectionCode &lt;chr&gt;, gbifID &lt;chr&gt;, occurrenceID &lt;chr&gt;, taxonID &lt;chr&gt;,
-## #   catalogNumber &lt;chr&gt;, recordedBy &lt;chr&gt;,
+## #   verbatimEventDate &lt;chr&gt;, datasetName &lt;chr&gt;, gbifID &lt;chr&gt;,
+## #   verbatimLocality &lt;chr&gt;, collectionCode &lt;chr&gt;, occurrenceID &lt;chr&gt;,
+## #   taxonID &lt;chr&gt;, recordedBy &lt;chr&gt;, catalogNumber &lt;chr&gt;,
 ## #   `http://unknown.org/occurrenceDetails` &lt;chr&gt;, institutionCode &lt;chr&gt;,
 ## #   rights &lt;chr&gt;, eventTime &lt;chr&gt;, identifiedBy &lt;chr&gt;, identificationID &lt;chr&gt;,
 ## #   occurrenceRemarks &lt;chr&gt;, infraspecificEpithet &lt;chr&gt;,
